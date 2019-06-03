@@ -1,0 +1,43 @@
+{
+    "name": "helsingborg-stad/h22.se",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nikolas Ramstedt",
+            "email": "nikolas.ramstedt@helsingborg.se"
+        }
+    ],
+    "minimum-stability" : "stable",
+    "repositories": [
+        {
+            "type":"composer",
+            "url":"https://wpackagist.org"
+        },
+        {
+            "type":"composer",
+            "url":"https://packagist.org"
+        }
+    ],
+
+    "require": {
+        "composer/installers": "~1.0",
+        "johnpbloch/wordpress": "^4.9.0",
+        "helsingborg-stad/modularity": ">=2.0.0",
+        "helsingborg-stad/municipio": ">=1.0.0"
+    },
+
+    "extra": {
+        "path": "/",
+        "wordpress-install-dir": "wp",
+        "installer-paths": {
+            "wp-content/plugins/{$name}": ["type:wordpress-plugin"],
+            "wp-content/themes/{$name}": ["type:wordpress-theme"]
+        }
+    },
+
+    "scripts": {
+        "post-install-cmd": [
+            "mkdir -p wp-content/uploads/cache/blade-cache"
+        ]
+    }
+}
