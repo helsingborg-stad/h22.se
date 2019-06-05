@@ -10,7 +10,7 @@ class CacheBust {
 		static $revManifest;
 		if (!isset($revManifest)) {
 			$revManifestPath =
-				get_stylesheet_directory() . '/assets/dist/rev-manifest.json';
+				get_stylesheet_directory() . '/assets/dist/manifest.json';
 			if (file_exists($revManifestPath)) {
 				$revManifest = json_decode(file_get_contents($revManifestPath), true);
 			} elseif (WP_DEBUG) {
