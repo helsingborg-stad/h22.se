@@ -11,6 +11,8 @@
 wp/
 vendor/
 wp-content/*
+!wp-content/themes
+wp-content/themes/Municipio
 !wp-content/mu-plugins
 !wp-content/mu-plugins/*
 !wp-content/object-cache.php

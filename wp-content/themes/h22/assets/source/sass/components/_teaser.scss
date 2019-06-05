@@ -1,0 +1,79 @@
+
+.c-teaser__meta {
+	color: $color-gray;
+	font-size: $font-size-meta;
+	font-weight: $font-weight-bold;
+	text-transform: uppercase;
+}
+
+.c-teaser {
+	@include suppress-margin-top;
+	@include suppress-margin-bottom;
+	.preamble {
+		font-size: $font-size-preamble;
+		line-height: $line-height-preamble;
+	}
+	h2 {
+		margin-bottom: map-get($spacers, '1');
+	}
+	p {
+		margin-bottom: map-get($spacers, '2');
+	}
+	.cta-link {
+		display: inline-flex;
+		align-items: center;
+		text-decoration: none !important;
+		color: inherit !important;
+		font-weight: $font-weight-medium;
+		&:before {
+			content: '\f107';
+			display: inline-flex;
+			justify-content: center;
+			align-items: center;
+			font-family: styleguide-icons;
+			font-style: normal;
+			font-weight: 400;
+			font-variant: normal;
+			text-transform: none;
+			line-height: 1;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+			vertical-align: middle;
+			width: 2rem;
+			height: 2rem;
+			font-size: 1.5rem;
+			border-radius: 9999px;
+			padding: 0;
+			margin-right: .5rem;
+		}
+	}
+}
+
+@each $name, $color in $brand-colors {
+	.c-section--color-theme-#{$name} {
+		.c-teaser {
+			@include c-column-text-color-theme($color, $color-white);
+		}
+	}
+	.c-section--color-theme-bg-#{$name} {
+		.c-teaser__meta {
+			color: inherit;
+		}
+	}
+}
+
+@each $name, $color in $brand-colors {
+	.c-column--color-theme-#{$name} {
+		.c-teaser {
+			@include c-column-text-color-theme($color, $color-white);
+		}
+	}
+	.c-column--color-theme-bg-#{$name} {
+		.c-teaser {
+			@include c-column-text-color-theme($color-white, $color);
+		}
+		.c-teaser__meta {
+			color: inherit;
+		}
+	}
+}

@@ -1,0 +1,217 @@
+// Base sizing unit
+$base: 8px;
+$em-base: 1em;
+
+// Font Family
+$font-family-roboto: 'Roboto', sans-serif;
+$font-family-code: 'Fira Sans', 'Monaco', 'Consolas', 'Menlo', 'Lucida Console',
+	'Courier New', 'Courier', 'Console';
+
+$font-family-heading: $font-family-roboto;
+$font-family-body: $font-family-roboto;
+
+// Width
+$container-width: 650px;
+$container-width-wide: 1440px;
+
+// Font size
+$font-size-headline: 48px;
+$font-size-title: 32px;
+$font-size-subtitle: 22px;
+$font-size-body: 17px;
+$font-size-preamble: 20px; // new
+$font-size-caption: 14px;
+$font-size-meta: 14px;
+$font-size-meta--button: 12px;
+$font-size-meta--menu: 12px;
+
+$font-size-hero: $font-size-headline;
+$font-size-hero-byline: 28px;
+$font-size-hero-body: 22px;
+
+// Font Weights
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+$font-weight-thin: 200;
+
+$h1-font-weight: $font-weight-bold;
+$h2-font-weight: $font-weight-bold;
+$h3-font-weight: $font-weight-bold;
+$h4-font-weight: $font-weight-bold;
+$h5-font-weight: $font-weight-bold;
+$h6-font-weight: $font-weight-bold;
+
+// Line height
+// $h1-line-height: ;
+$h2-line-height: 40px;
+// $h3-line-height: ;
+// $h4-line-height: ;
+// $h5-line-height: ;
+// $h6-line-height: ;
+$line-height-preamble: 30px;
+
+// Text transformers
+$text-uppercase: uppercase; // new
+$text-capitalize: capitalize; // new
+
+// Colors
+$color-purple: #a61380; // new
+$color-green: #11a636; // new
+$color-blue: #0095db; // new
+$color-red: #e3000f; // new
+
+$brand-colors: (
+	'red': $color-red,
+	'green': $color-green,
+	'blue': $color-blue,
+	'purple': $color-purple,
+);
+
+$color-primary: #ae0b05;
+$color-primary-dark: #e3000f;
+$color-primary-light: #cb0050;
+
+$color-secondary: #f7a600;
+$color-secondary-dark: #f7a600;
+$color-secondary-light: #f7a600;
+
+$color-black: black;
+$color-gray: lighten($color-black, 50%);
+$color-gray-light: lighten($color-black, 90%);
+$color-gray-lighter: lighten($color-black, 95%);
+$color-white: white;
+
+$color-success: #11a636;
+$color-danger: #e3000f;
+$color-info: #b1f5ff;
+$color-warning: #ffd700;
+
+$color-base: rgba($color-black, 0.96);
+$color-base-secondary: rgba($color-black, 0.54);
+$color-base-disabled: rgba($color-black, 0.37);
+
+$color-base-invert: $color-white;
+$color-base-invert-secondary: rgba($color-white, 0.75);
+$color-base-invert-disabled: rgba($color-white, 0.5);
+
+$color-heading: $color-base;
+$color-body: $color-base;
+$color-body-background: $color-white;
+
+$color-link: $color-black;
+$color-link-visited: $color-black;
+
+$color-shadow: rgba($color-black, 0.08);
+$color-box-shadow: rgba($color-black, 0.37); // new
+$color-header-background: $color-white;
+$color-header-background-level-1: $color-gray-light;
+$color-header-background-level-2: $color-white;
+$color-header-background-level-3: $color-primary;
+
+$color-menu-background: $color-white;
+$color-menu-separator: $color-gray-light;
+$color-menu-active-indicator: $color-gray-light;
+$color-menu-active-background: $color-gray-lighter;
+
+$color-menu-active-indicator-horizontal: $color-primary-light;
+
+$color-card-background: $color-gray-lighter;
+
+$color-breadcrumb-active: $color-gray;
+$color-breadcrumb-icon: $color-black;
+$color-breadcrumb: $color-black;
+
+$color-paper-background: $color-white;
+
+$color-table-background: $color-white;
+$color-table-background-odd: $color-gray-lighter;
+$color-table-track-background: $color-white;
+$color-table-track-control: $color-gray-lighter;
+$color-table-gradient: $color-white;
+$color-table-heading: $color-gray;
+$color-table-body: $color-black;
+$color-table-border: $color-gray-light;
+$table-heading-font-weight: bold;
+
+//Header
+$header-logotype-height: $base * 5;
+
+//Radiuses
+$border-radius-xs: ($base/4);
+$border-radius-sm: ($base/2);
+$border-radius-md: ($base);
+$border-radius-lg: ($base * 2);
+$border-radius-full: 50%;
+
+// Breakpoints
+// prettier-ignore
+$breakpoints-map: (
+	xs: 0,
+	sm: 32.5em, //520px
+	md: 56em, //980px
+	lg: 78em, //1248px
+	xl: 100em, //1600px
+);
+
+//Display states
+$display-states: 'none', 'inline', 'inline-block', 'block', 'table',
+	'table-cell', 'table-row', 'flex', 'inline-flex';
+
+// Spacer
+// prettier-ignore
+$spacers: (
+	'0': 0,
+	'05': $base/2,
+	'1': $base * 1,
+	'2': $base * 2,
+	'3': $base * 3,
+	'4': $base * 4,
+	'6': $base * 6,
+	'7': $base * 7,
+	'8': $base * 8,
+	'5': $base * 5,
+	'9': $base * 9,
+	'10': $base * 10,
+	'11': $base * 11,
+	'12': $base * 12,
+	'13': $base * 13, // new
+	'14': $base * 14, // new
+	'15': $base * 15, // new
+	'16': $base * 16, // new
+	'17': $base * 17, // new
+);
+
+// Z-index
+$level-top: 99999;
+$level-10: 10000;
+$level-9: 9000;
+$level-8: 8000;
+$level-7: 7000;
+$level-6: 6000;
+$level-5: 5000;
+$level-4: 4000;
+$level-3: 3000;
+$level-2: 2000;
+$level-1: 1000;
+$level-bottom: 1;
+
+// icon size
+$icon-size-xs: $base * 2; // new
+$icon-size-small: $base * 3; // new
+$icon-size-medium: $base * 4; // new
+$icon-size-large: $base * 6; // new
+$icon-size-xl: $base * 8; // new
+$icon-size-xxl: $base * 10; // new
+
+// box shadow
+$box-shadow-level-1: 0 1px $base/2 $color-box-shadow; // new
+$box-shadow-level-2: 0 $base/2 $base * 1.5 $color-box-shadow; // new
+$box-shadow-level-3: 0 $base * 1 $base * 2 $color-box-shadow; // new
+$box-shadow-level-4: 0 $base * 2.5 $base * 3 $color-box-shadow; // new
+$box-shadow-level-5: 0 $base * 2.25 $base * 4 $color-box-shadow; // new
+
+$grid-gutters: (
+    xs : 0,
+    sm : 0
+) !default;

@@ -1,0 +1,46 @@
+{
+	"name": "h22",
+	"version": "1.0.0",
+	"description": "Childtheme for Municipio theme",
+	"main": "gulpfile.js",
+	"dependencies": {
+		"gsap": "^1.20.3",
+		"styleguide.local": "git+https://github.com/andersrehn/styleguide.git#development"
+	},
+	"devDependencies": {
+		"del": "^3.0.0",
+		"gulp": "^3.9.1",
+		"gulp-autoprefixer": "^2.3.1",
+		"gulp-clean-css": "^3.9.2",
+		"gulp-concat": "^2.6.1",
+		"gulp-copy": "0.0.2",
+		"gulp-cssnano": "^2.1.2",
+		"gulp-jshint": "^2.1.0",
+		"gulp-plumber": "^1.1.0",
+		"gulp-rename": "^1.2.2",
+		"gulp-rev": "^8.1.1",
+		"gulp-rev-css-url": "^0.1.0",
+		"gulp-sass": "^2.3.2",
+		"gulp-sourcemaps": "^2.6.3",
+		"gulp-uglify": "^1.5.4",
+		"hbg-mix": "^2.1.1",
+		"imagemin-pngquant": "^4.2.0",
+		"jshint": "^2.9.5",
+		"merge-stream": "^1.0.1",
+		"mkdirp": "^0.5.1",
+		"rev-del": "^1.0.5",
+		"rimraf": "^2.6.3",
+		"run-sequence": "^2.2.1"
+	},
+	"scripts": {
+		"build": "gulp build",
+		"build-production": "gulp build-production"
+	},
+	"repository": {},
+	"author": "",
+	"license": "MIT",
+	"bugs": {
+		"url": ""
+	},
+	"homepage": ""
+}

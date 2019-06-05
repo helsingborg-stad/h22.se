@@ -1,0 +1,28 @@
+{
+    "name": "Helsingborg H22",
+    "description": "H22 - Municipio child theme",
+    "type": "wordpress-theme",
+    "license": "MIT",
+    "authors": [],
+    "repositories": [
+        {
+            "type":"composer",
+            "url":"https://wpackagist.org"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/helsingborg-stad/acf-export-manager.git"
+        }
+    ],
+    "require": {
+        "composer/installers": "^1.0",
+        "philo/laravel-blade": "^3.1",
+        "symfony/debug": "^3.0",
+        "helsingborg-stad/acf-export-manager": ">=1.0.0"
+    },
+    "extra" : {
+        "installer-paths" : {
+            "vendor/{$name}/": ["type:wordpress-plugin"]
+        }
+    }
+}

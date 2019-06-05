@@ -1,0 +1,34 @@
+@mixin suppress-margin-top {
+	&:before {
+		display: block;
+		content: '';
+		margin-top: 10rem;
+		margin-bottom: -10rem;
+	}
+}
+
+@mixin suppress-margin-bottom {
+	&:after {
+		display: block;
+		content: '';
+		margin-top: -10rem;
+		margin-bottom: 10rem;
+	}
+}
+
+@mixin c-column-text-color-theme($color, $bg-color) {
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		color: $color;
+	}
+	.cta-link {
+		&:before {
+			background-color: $color;
+			color: $bg-color;
+		}
+	}
+}

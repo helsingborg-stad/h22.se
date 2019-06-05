@@ -1,0 +1,62 @@
+@function set-color($color) {
+	@if (lightness($color) > 40) {
+		@return $color-base;
+	} @else {
+		@return $color-base-invert;
+	}
+}
+
+.c-button-group {
+	display: flex;
+
+	&--align-left {
+		justify-content: flex-start;
+	}
+
+	&--align-right {
+		justify-content: flex-end;
+	}
+
+	&--align-center {
+		justify-content: center;
+	}
+
+	&__link {
+		padding: map-get($spacers, '2') map-get($spacers, '4');
+		text-decoration: none;
+
+		&--default {
+			&:link,
+			&:visited {
+				border: 2px solid $color-base;
+				color: $color-base;
+			}
+
+			&:hover,
+			&:active,
+			&:focus {
+				color: $color-white !important;
+				background-color: $color-base;
+			}
+		}
+
+		&--inverted {
+			&:link,
+			&:visited {
+				border: 2px solid $color-white;
+				color: $color-white;
+			}
+
+			&:hover,
+			&:active,
+			&:focus {
+				color: $color-base !important;
+				background-color: $color-white;
+			}
+		}
+
+		&:not(:last-child) {
+			margin-right: map-get($spacers, '1');
+		}
+	}
+}
