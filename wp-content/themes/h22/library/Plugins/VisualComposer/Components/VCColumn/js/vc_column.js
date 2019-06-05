@@ -1,5 +1,5 @@
 window.ViewVCColumnModule = window.VcColumnView.extend({
-	buildDesignHelpers: function() {
+	buildDesignHelpers: function () {
 		if (window.VcColumnView.__super__.buildDesignHelpers) {
 			window.VcColumnView.__super__.buildDesignHelpers.call(this);
 		}
@@ -8,8 +8,8 @@ window.ViewVCColumnModule = window.VcColumnView.extend({
 		this.$el.find('> .vc_controls .c-section').remove();
 		$(
 			'<span class="c-section vc_color_dot c-section--color-theme-' +
-				colorTheme +
-				'"></span>',
+			colorTheme +
+			'"></span>',
 		).insertAfter($columnToggle);
 
 		var hiddenSizes = this.model.getParam('hidden_sizes');
@@ -17,8 +17,8 @@ window.ViewVCColumnModule = window.VcColumnView.extend({
 		if (hiddenSizes && hiddenSizes.length > 0) {
 			$(
 				'<div class="hidden-sizes" style="padding: 10px 5px; background-color: #5b9dd9; color: white;"><span>Hidden in ' +
-					hiddenSizes +
-					'</span></div>',
+				hiddenSizes +
+				'</span></div>',
 			).insertAfter(this.$el.find('> .vc_controls:first-child'));
 		}
 	},

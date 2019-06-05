@@ -1,3 +1,3 @@
 <div{!! html_build_attributes($attributes) !!}>
-	{!! $content !!}
+    {!! $content !!}
 </div>
