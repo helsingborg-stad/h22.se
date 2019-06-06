@@ -51,7 +51,8 @@
         "wpackagist-plugin/woocommerce": "^3.6",
         "wpackagist-plugin/classic-editor": "^1.5",
         "wpackagist-plugin/polylang": "^2.5",
-        "wpackagist-plugin/acf-options-for-polylang": "^1.1"
+        "wpackagist-plugin/acf-options-for-polylang": "^1.1",
+        "wpackagist-plugin/safe-svg": "^1.9"
     },
 
     "extra": {
