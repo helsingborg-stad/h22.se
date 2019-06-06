@@ -16,7 +16,6 @@ wp-content/themes/Municipio
 !wp-content/mu-plugins
 !wp-content/mu-plugins/*
 !wp-content/object-cache.php
-composer.lock
 
 
 # Compiled source #
