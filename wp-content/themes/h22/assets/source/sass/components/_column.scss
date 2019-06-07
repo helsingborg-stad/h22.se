@@ -52,10 +52,10 @@
 	}
 }
 
-.c-column__inner {
-	@include suppress-margin-top;
-	@include suppress-margin-bottom;
-}
+// .c-column__inner {
+// 	@include suppress-margin-top;
+// 	@include suppress-margin-bottom;
+// }
 
 @each $name, $color in $brand-colors {
 	.c-column--color-theme-#{$name} {
