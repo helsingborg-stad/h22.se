@@ -28,9 +28,11 @@ class RemoveElements
                 'vc_single_image',
                 // 'vc_basic_grid',
                 // 'vc_images_carousel',
-                // 'vc_tta_section',
-                // 'vc_tta_tabs',
-                // 'vc_video',
+                // 'vc_tta_accordion',
+                'vc_tta_section',
+                'vc_tta_tabs',
+                'vc_video',
+                'vc_empty_space'
             )
         );
 
