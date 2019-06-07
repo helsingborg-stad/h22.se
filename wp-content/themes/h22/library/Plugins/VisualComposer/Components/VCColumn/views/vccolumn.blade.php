@@ -1,3 +1,5 @@
 <div{!! html_build_attributes($attributes) !!}>
-    {!! $content !!}
+    <div class="c-column__inner">
+        {!! $content !!}
+    </div>
 </div>
