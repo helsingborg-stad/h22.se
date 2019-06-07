@@ -15,3 +15,7 @@
 @import 'components/teaser';
 
 @import 'utilities';
+
+.container.container--content {
+    max-width: 632px;
+}
