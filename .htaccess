@@ -314,7 +314,7 @@ RedirectMatch 301 /secure /wp-admin
     ExpiresByType application/font-woff2                "access plus 1 month"
 
 
-  # Other
+    # Other
 
     ExpiresByType text/x-cross-domain-policy            "access plus 1 week"
 
@@ -325,18 +325,6 @@ RedirectMatch 301 /secure /wp-admin
     ForceType application/octet-stream
     Header add Content-Disposition "attachment"
 </FilesMatch>
-
-# BEGIN WordPress
-<IfModule mod_rewrite.c>
-RewriteEngine On
-RewriteBase /
-RewriteRule ^index\.php$ - [L]
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /index.php [L]
-</IfModule>
-
-# END WordPress
 
 # PHP Limits
 php_value upload_max_filesize 64M
