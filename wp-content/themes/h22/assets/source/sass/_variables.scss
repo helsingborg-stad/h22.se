@@ -212,6 +212,6 @@ $box-shadow-level-4: 0 $base * 2.5 $base * 3 $color-box-shadow; // new
 $box-shadow-level-5: 0 $base * 2.25 $base * 4 $color-box-shadow; // new
 
 $grid-gutters: (
-    xs : 0,
-    sm : 0
+    xs : $base,
+    sm : $base * 3
 ) !default;
