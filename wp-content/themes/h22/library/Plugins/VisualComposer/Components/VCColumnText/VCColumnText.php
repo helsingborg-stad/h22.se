@@ -54,7 +54,8 @@ if (
         public function prepareData($data)
         {
             $data['attributes']['class'][] = 'c-column-text';
-            $data['attributes']['class'][] = 'container';
+            $data['attributes']['class'][] = 'article';
+
             return $data;
         }
     }
