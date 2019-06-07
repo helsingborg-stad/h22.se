@@ -32,3 +32,45 @@
 		}
 	}
 }
+
+@mixin mixLoopStyles($className, $values, $dimensions: null, $breakpoints: all, $limitToBreakpoint: true) {
+    $breakpoints: validateBreakpointList($breakpoints, $limitToBreakpoint);
+
+    @each $breakpoint in $breakpoints {
+        $suffix: get-breakpoint-suffix($breakpoint, true);
+        $next: null;
+
+        @if $limitToBreakpoint == true {
+            $next: next-breakpoint($breakpoint);
+        }
+
+        @include mq($breakpoint, $next) {
+           @each $valueSuffix, $styles in $values {
+                $class: #{$className}#{$valueSuffix}#{$suffix};
+
+                #{$class} {
+                    @each $propety, $style in $styles {
+                        #{$propety}: #{$style};
+                    }
+                }
+
+                @if type-of($dimensions) == 'map' {
+                    @each $dimensionClass, $dimensionPropety in $dimensions {
+                        @if type-of($dimensionPropety) != 'list' {
+                            $dimensionPropety: ($dimensionPropety);
+                        }
+
+                        $dimensionClass: #{$className}#{$dimensionClass}#{$valueSuffix}#{$suffix};
+                        #{$dimensionClass} {
+                            @each $style in map-values($styles) {
+                                @each $propety in $dimensionPropety {
+                                    #{$propety}: #{$style};
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
