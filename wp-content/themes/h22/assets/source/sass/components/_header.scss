@@ -1,0 +1,21 @@
+.c-header.c-header--h22 {
+    box-shadow: 0px 1px 12px rgba(0, 0, 0, 0.06);
+
+    .logotype {
+        padding-top: $base * 1.5;
+        padding-bottom: $base * 1.5;
+    }
+    .logotype svg {
+        height: 64px;
+        width: auto;
+        display: block;
+    }
+
+    .c-header__body {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+    .c-menu.c-menu--horizontal .c-menu__item .c-menu__link::after {
+        display: none;
+    }
+}
