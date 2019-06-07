@@ -68,7 +68,7 @@ module.exports = {
                     {
                         loader: 'css-loader',
                         options: {
-                            importLoaders: 2, // 0 => no loaders (default); 1 => postcss-loader; 2 => sass-loader
+                            importLoaders: 3, // 0 => no loaders (default); 1 => postcss-loader; 2 => sass-loader
                             sourceMap: true,
                         },
                     },
@@ -84,7 +84,8 @@ module.exports = {
                         options: {
                             sourceMap: true,
                         }
-                    }
+                    },
+                    'import-glob-loader'
                 ],
             },
 
@@ -117,7 +118,7 @@ module.exports = {
                     },
                 ],
             }
-        ]
+        ],
     },
     plugins: removeEmpty([
         /**
