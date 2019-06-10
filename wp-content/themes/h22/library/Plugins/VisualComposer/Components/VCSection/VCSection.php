@@ -89,6 +89,42 @@ if (
                 ),
                 'std' => 'blue',
             ]);
+            vc_add_param('vc_section', [
+                'param_name' => 'background_video',
+                'type' => 'attach_image',
+                'heading' => __('Background video', 'h22'),
+                'value' => '',
+            ]);
+            vc_add_param('vc_section', [
+                'param_name' => 'background_video_fallback',
+                'type' => 'attach_image',
+                'heading' => __('Fallback image', 'h22'),
+                'description' => __(
+                    'This image is shown while the video is loading.',
+                    'h22'
+                ),
+                'value' => '',
+                'dependency' => array(
+                    'element' => 'background_video',
+                    'not_empty' => true,
+                ),
+            ]);
+            vc_add_param('vc_section', [
+                'param_name' => 'overlay',
+                'type' => 'checkbox',
+                'heading' => __('Background overlay', 'h22'),
+                'description' => __(
+                    'If checked an overlay will be added on the background to increase contrast',
+                    'h22'
+                ),
+                'value' => array(
+                    __('Yes', 'h22') => 'yes',
+                ),
+                'dependency' => array(
+                    'element' => 'background_video',
+                    'not_empty' => true,
+                ),
+            ]);
         }
 
         public function prepareData($data)
@@ -96,11 +132,47 @@ if (
             $data['attributes']['class'][] = 'c-section';
 
             if (!empty($data['min_height'])) {
-                $data['attributes']['class'][] = "c-section--min-height-{$data['min_height']}";
+                $data['attributes'][
+                    'class'
+                ][] = "c-section--min-height-{$data['min_height']}";
             }
 
             $color_theme = $data['color_theme'] ?? 'blue';
-            $data['attributes']['class'][] = "c-section--color-theme-{$color_theme}";
+            $data['attributes']['class'][
+                'color_theme'
+            ] = "c-section--color-theme-{$color_theme}";
+
+            if (isset($data['background_video'])) {
+                $background_video = wp_get_attachment_metadata(
+                    $data['background_video']
+                );
+
+                $video_attributes['class'][] = 'c-section__bg-video';
+                $video_attributes['autoplay'] = true;
+                $video_attributes['loop'] = true;
+                $video_attributes['muted'] = true;
+
+                $video_sources[] = [
+                    'src' => wp_get_attachment_url($data['background_video']),
+                    'type' => $background_video['mime_type'],
+                ];
+
+                if (isset($data['background_video_fallback'])) {
+                    $video_attributes['poster'] = wp_get_attachment_url(
+                        $data['background_video_fallback']
+                    );
+                }
+
+                $data['background_video'] = $background_video;
+                $data['background_video']['attributes'] = $video_attributes;
+                $data['background_video']['sources'] = $video_sources;
+                $data['attributes']['class'][] = 'c-section--with-background';
+                unset($data['attributes']['class']['color_theme']);
+            }
+
+            if (!empty($data['overlay'])) {
+                $data['attributes']['class'][] = 'c-section--with-overlay';
+            }
 
             return $data;
         }
