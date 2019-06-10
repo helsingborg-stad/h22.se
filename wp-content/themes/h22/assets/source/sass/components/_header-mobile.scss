@@ -1,0 +1,144 @@
+.c-header-mobile {
+	box-shadow: none;
+	width: 100%;
+	padding: map-get($spacers, '4');
+	display: flex;
+  overflow: hidden;
+  flex-direction: column;
+
+
+  @include mq(map_get($breakpoints-map, 'md')) {
+    display: none;
+  }
+
+
+	&--open {
+		background: $color-black;
+		height: 100vh;
+    min-height: 100%;
+
+		.c-header-mobile__logo,
+		.c-header-mobile__menu-trigger {
+			color: $color-white;
+		}
+	}
+}
+
+.c-header-mobile__top {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	margin-bottom: map-get($spacers, '4');
+}
+
+.c-header-mobile__bottom {
+	width: 100%;
+	text-align: center;
+	font-size: $font-size-hero-byline;
+	color: $color-gray;
+  overflow-y: scroll;
+  flex: 1 1 auto;
+}
+
+// MENU ICON
+.c-header-mobile__menu-trigger {
+	cursor: pointer;
+  border: none;
+  appearance: none;
+  background: transparent;
+}
+
+.c-header-mobile__menu-icon {
+	pointer-events: none;
+
+	&:after {
+		content: '\f122';
+		font-family: styleguide-icons;
+		font-style: normal;
+		font-weight: 400;
+		font-variant: normal;
+		text-transform: none;
+		line-height: 1;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		font-size: 1.5rem;
+	}
+
+	&--close:after {
+		content: '\f110';
+		font-family: styleguide-icons;
+		font-style: normal;
+		font-weight: 400;
+		font-variant: normal;
+		text-transform: none;
+		line-height: 1;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		font-size: 1.5rem;
+	}
+}
+
+// MENU items
+.c-header-mobile__menu-items {
+  padding-top: map-get($spacers, '4');
+  padding-bottom: map-get($spacers, '8');
+
+	.nav {
+		padding: 0;
+	}
+
+	li {
+		margin: map-get($spacers, '1') 0;
+		padding: 0;
+
+		&:before {
+			content: none;
+		}
+
+		a {
+			font-weight: 200;
+			text-decoration: none;
+
+			&:hover,
+			&:focus,
+			&:active {
+				color: $color-white;
+				position: relative;
+				outline: 0;
+			}
+		}
+	}
+
+	.current-menu-item {
+		font-weight: 200;
+		color: $color-white;
+		position: relative;
+		padding-bottom: map-get($spacers, '05');
+		outline: 0;
+	}
+}
+
+// LANGUAGE
+.c-header-mobile__language {
+  background: linear-gradient(to bottom, transparent, $color-black 50%);
+	font-size: $font-size-body;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  width: 100%;
+  padding: map-get($spacers, '4') 0;
+
+  a  {
+    text-decoration: none;
+    font-weight: 200;
+
+    &:link, &:visited, &:hover, &:active {
+      color: inherit;
+      outline: 0;
+      color: $color-white;
+    }
+  }
+
+}

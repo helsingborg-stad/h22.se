@@ -59,3 +59,8 @@ blockquote {
 	margin-bottom: map-get($spacers, '4');
 	margin-left: 0;
 }
+
+
+.hidden {
+	display: none !important;
+}
