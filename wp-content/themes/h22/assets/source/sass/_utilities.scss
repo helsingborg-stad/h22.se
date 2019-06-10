@@ -1,4 +1,26 @@
-// Margins
+// ==========================================================================
+// Margin Utility
+// SYNTAX: u-m{sides}-{size}@{mediaQuery}
+//
+// Sides:
+// t - Top
+// b - Bottom
+// l - Left
+// r - Right
+// x - left & right
+// y - top & bottom
+// blank - all sides
+//
+//
+// Example
+// .u-mt-0 {
+//      margin-top: 0px !important;
+// }
+// .u-mx-0 {
+//      margin-left: 0px !important;
+//      margin-right: 0px !important;
+// }
+// ==========================================================================
 @include mixLoopStyles(
     '.u-m',
     (
@@ -23,6 +45,55 @@
         'b'     : 'margin-bottom',
     )
 );
+
+// ==========================================================================
+// Padding Utility
+//
+//
+// SYNTAX: u-p{sides}-{size}@{mediaQuery}
+//
+// Sides:
+// t - Top
+// b - Bottom
+// l - Left
+// r - Right
+// x - left & right
+// y - top & bottom
+// blank - all sides
+//
+//
+// Example
+// .u-pt-0 {
+//      padding-top: 0px !important;
+// }
+// .u-px-0 {
+//      padding-left: 0px !important;
+//      padding-right: 0px !important;
+// }
+// ==========================================================================
+@include mixLoopStyles(
+    '.u-p',
+    (
+        '-0'    : (padding: 0px !important),
+        '-1'    : (padding: $base !important),
+        '-2'    : (padding: $base * 2!important),
+        '-3'    : (padding: $base * 3 !important),
+        '-4'    : (padding: $base * 4 !important),
+        '-5'    : (padding: $base * 5 !important),
+        '-6'    : (padding: $base * 6 !important),
+        '-7'    : (padding: $base * 7 !important),
+        '-8'    : (padding: $base * 8 !important)
+    ),
+    (
+        'x' : ('padding-left', 'padding-right'),
+        'y' : ('padding-top', 'padding-bottom'),
+        'l' : 'padding-left',
+        'r' : 'padding-right',
+        't' : 'padding-top',
+        'b' : 'padding-bottom',
+    )
+);
+
 
 .u-min-height-sm {
 	min-height: 300px;
