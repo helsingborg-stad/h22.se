@@ -17,6 +17,10 @@ wp-content/themes/Municipio
 !wp-content/mu-plugins/*
 !wp-content/object-cache.php
 
+# Development tools #
+#####################
+/node_modules
+
 
 # Compiled source #
 ###################
