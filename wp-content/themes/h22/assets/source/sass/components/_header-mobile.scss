@@ -1,4 +1,5 @@
 .c-header-mobile {
+<<<<<<< HEAD
   box-shadow: none;
   width: 100%;
   padding: map-get($spacers, '4');
@@ -38,17 +39,64 @@
   overflow-y: scroll;
   flex: 1 1 auto;
   padding-top: map-get($spacers, '4');
+=======
+	box-shadow: none;
+	width: 100%;
+	padding: map-get($spacers, '4');
+	display: flex;
+  overflow: hidden;
+  flex-direction: column;
+
+
+  @include mq(map_get($breakpoints-map, 'md')) {
+    display: none;
+  }
+
+
+	&--open {
+		background: $color-black;
+		height: 100vh;
+    min-height: 100%;
+
+		.c-header-mobile__logo,
+		.c-header-mobile__menu-trigger {
+			color: $color-white;
+		}
+	}
+}
+
+.c-header-mobile__top {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	margin-bottom: map-get($spacers, '4');
+}
+
+.c-header-mobile__bottom {
+	width: 100%;
+	text-align: center;
+	font-size: $font-size-hero-byline;
+	color: $color-gray;
+  overflow-y: scroll;
+  flex: 1 1 auto;
+>>>>>>> menu styling
 }
 
 // MENU ICON
 .c-header-mobile__menu-trigger {
+<<<<<<< HEAD
   cursor: pointer;
+=======
+	cursor: pointer;
+>>>>>>> menu styling
   border: none;
   appearance: none;
   background: transparent;
 }
 
 .c-header-mobile__menu-icon {
+<<<<<<< HEAD
   pointer-events: none;
 
   &:after {
@@ -76,6 +124,35 @@
     -moz-osx-font-smoothing: grayscale;
     font-size: 1.5rem;
   }
+=======
+	pointer-events: none;
+
+	&:after {
+		content: '\f122';
+		font-family: styleguide-icons;
+		font-style: normal;
+		font-weight: 400;
+		font-variant: normal;
+		text-transform: none;
+		line-height: 1;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		font-size: 1.5rem;
+	}
+
+	&--close:after {
+		content: '\f110';
+		font-family: styleguide-icons;
+		font-style: normal;
+		font-weight: 400;
+		font-variant: normal;
+		text-transform: none;
+		line-height: 1;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		font-size: 1.5rem;
+	}
+>>>>>>> menu styling
 }
 
 // MENU items
@@ -83,6 +160,7 @@
   padding-top: map-get($spacers, '4');
   padding-bottom: map-get($spacers, '8');
 
+<<<<<<< HEAD
   .nav {
     padding: 0;
   }
@@ -116,12 +194,51 @@
     padding-bottom: map-get($spacers, '05');
     outline: 0;
   }
+=======
+	.nav {
+		padding: 0;
+	}
+
+	li {
+		margin: map-get($spacers, '1') 0;
+		padding: 0;
+
+		&:before {
+			content: none;
+		}
+
+		a {
+			font-weight: 200;
+			text-decoration: none;
+
+			&:hover,
+			&:focus,
+			&:active {
+				color: $color-white;
+				position: relative;
+				outline: 0;
+			}
+		}
+	}
+
+	.current-menu-item {
+		font-weight: 200;
+		color: $color-white;
+		position: relative;
+		padding-bottom: map-get($spacers, '05');
+		outline: 0;
+	}
+>>>>>>> menu styling
 }
 
 // LANGUAGE
 .c-header-mobile__language {
   background: linear-gradient(to bottom, transparent, $color-black 50%);
+<<<<<<< HEAD
   font-size: $font-size-body;
+=======
+	font-size: $font-size-body;
+>>>>>>> menu styling
   position: absolute;
   bottom: 0;
   left: 0;
@@ -129,6 +246,7 @@
   width: 100%;
   padding: map-get($spacers, '4') 0;
 
+<<<<<<< HEAD
   a {
     text-decoration: none;
     font-weight: 200;
@@ -137,9 +255,20 @@
     &:visited,
     &:hover,
     &:active {
+=======
+  a  {
+    text-decoration: none;
+    font-weight: 200;
+
+    &:link, &:visited, &:hover, &:active {
+>>>>>>> menu styling
       color: inherit;
       outline: 0;
       color: $color-white;
     }
   }
+<<<<<<< HEAD
+=======
+
+>>>>>>> menu styling
 }
