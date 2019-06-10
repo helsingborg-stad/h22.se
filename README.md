@@ -11,8 +11,7 @@
 
 2. Create `config/database.php` based on `config/database-example.php` and update it to match yout database setup (and create the database).
 3. Create `config/salts.php` based on `config/salts-example.php` and update it with values generated here: https://api.wordpress.org/secret-key/1.1/salt/.
-4. Create `config/plugins.php` based on `config/plugins-example.php`.
-5. Go to `wp-content/themes/h22` and install dependencies.
+4. Go to `wp-content/themes/h22` and install dependencies.
 
    ```
    npm install
