@@ -28,8 +28,11 @@ add_action('init', function () {
 });
 
 function html_build_attribute_value($value, $callback = 'htmlspecialchars') {
-	if (!isset($value)) {
+	if (!isset($value) || $value === false) {
 		return null;
+	}
+	if ($value === true) {
+		return '';
 	}
 	if (is_array($value)) {
 		$value = implode(' ', array_filter(array_map('trim', $value)));
