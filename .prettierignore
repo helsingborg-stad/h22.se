@@ -1,0 +1,34 @@
+# Package files
+composer.json
+composer.lock
+package-lock.json
+
+# Git-ignored files
+
+## Config
+/config/database.php
+/config/salts.php
+/config/cache.php
+/config/developer.php
+/config/multisite.php
+/config/plugins.php
+/wp-content/db.php
+/config.json
+
+## Plugins
+/wp-content/plugins/*
+
+## Themes
+/wp-content/themes/municipio
+
+## Upload
+/wp-content/uploads/*
+
+## Vendor directories
+/vendor
+/wp
+
+# Git-ignored files in theme folder
+/wp-content/themes/h22/assets/tmp
+/wp-content/themes/h22/assets/dist
+/wp-content/themes/h22/vendor
