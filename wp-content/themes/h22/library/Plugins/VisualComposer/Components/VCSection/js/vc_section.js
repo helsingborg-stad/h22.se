@@ -5,7 +5,7 @@ window.ViewVCSectionModule = window.VcSectionView.extend({
 		var colorTheme = this.model.getParam('color_theme');
 		this.$el.find('> .vc_controls .c-section').remove();
 		$(
-			'<span class="vc_row_color c-section c-section--color-theme-' +
+			'<span class="vc_row_color c-section--color-theme-' +
 			colorTheme +
 			'"></span>',
 		).insertAfter($elementToPrepend);
