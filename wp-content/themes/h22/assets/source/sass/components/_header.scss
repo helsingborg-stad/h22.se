@@ -12,8 +12,13 @@
     }
 
     .c-header__body {
-        padding-left: 24px;
-        padding-right: 24px;
+        padding-left: $base * 2;
+        padding-right: $base * 2;
+        
+        @include mq('sm') {
+            padding-left: $base * 3;
+            padding-right: $base * 3;
+        }
     }
     .c-menu.c-menu--horizontal .c-menu__item .c-menu__link::after {
         display: none;
