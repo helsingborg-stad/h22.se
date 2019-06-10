@@ -4,23 +4,39 @@
 @stop
 
 @section('header-body')
-    @if ($mainMenu && !empty($mainMenu))
-    <div class="c-header c-header--h22 s-main-menu">
-        <div class="c-header__body">
-            {!! municipio_get_logotype(get_field('header_logotype', 'option'), get_field('logotype_tooltip', 'option'), true, get_field('header_tagline_enable', 'option')) !!}
-            <nav style="margin-left: auto;" class="c-menu c-menu--horizontal">
-                <ul class="c-menu__list">
-                    @foreach ($mainMenu as $menuItem)
-                        <li class="c-menu__item {{implode(' ', $menuItem->classes)}}">
-                            <a href="{{$menuItem->url}}" class="c-menu__link">
-                                {{$menuItem->title}}
-                            </a>
-                        </li>
-                    @endforeach
-                </ul>
-            </nav>
+    @if ($navigation['mainMenu'])
+
+    <div class="container container--wide hidden-print">
+  	<div id="c-header-desktop" class="c-header-desktop ">
+  		<div class="c-header-desktop__logo">
+        {!! municipio_get_logotype(get_field('header_logotype', 'option'), get_field('logotype_tooltip', 'option'), true, get_field('header_tagline_enable', 'option')) !!}
+  		</div>
+  		<div class="c-header-desktop__menu-items">
+  			{!! $navigation['mainMenu'] !!}
+  		</div>
+  		<a class="c-header-desktop__language" href="#">På svenska</a>
+  	</div>
+
+    <div id="c-header-mobile" class="c-header-mobile">
+      <div class="c-header-mobile__top">
+    		<div class="c-header-mobile__logo">
+          {!! municipio_get_logotype(get_field('header_logotype', 'option'), get_field('logotype_tooltip', 'option'), true, get_field('header_tagline_enable', 'option')) !!}
+    		</div>
+
+        <button class="c-header-mobile__menu-trigger">
+          <span class="c-header-mobile__menu-icon c-header-mobile__menu-icon--open"></span>
+        </button>
+      </div>
+      <div class="c-header-mobile__bottom hidden">
+    		<div class="c-header-mobile__menu-items">
+    			{!! $navigation['mainMenu'] !!}
+    		</div>
+        <div class="c-header-mobile__language">
+          <a href="#">På svenska</a>
         </div>
-    </div>
+      </div>
+  	</div>
+  </div>
 
     @endif
 @stop

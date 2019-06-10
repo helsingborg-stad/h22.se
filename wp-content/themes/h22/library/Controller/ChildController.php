@@ -11,8 +11,9 @@ class ChildController
 
     public function data($data)
     {
-        $data['mainMenu'] = $this->getWordpressMenuItemsBySlug('main-menu');
 
+
+        // $data['mainMenu'] = $this->getWordpressMenuItemsBySlug('main-menu');
         return $data;
     }
 
