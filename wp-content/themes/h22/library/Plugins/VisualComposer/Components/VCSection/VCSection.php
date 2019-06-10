@@ -102,6 +102,42 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\VCSection\VCSection'))
                 'param_name' => 'no_space_el',
                 'value' => 0
             ]);
+            vc_add_param('vc_section', [
+                'param_name' => 'background_video',
+                'type' => 'attach_image',
+                'heading' => __('Background video', 'h22'),
+                'value' => '',
+            ]);
+            vc_add_param('vc_section', [
+                'param_name' => 'background_video_fallback',
+                'type' => 'attach_image',
+                'heading' => __('Fallback image', 'h22'),
+                'description' => __(
+                    'This image is shown while the video is loading.',
+                    'h22'
+                ),
+                'value' => '',
+                'dependency' => array(
+                    'element' => 'background_video',
+                    'not_empty' => true,
+                ),
+            ]);
+            vc_add_param('vc_section', [
+                'param_name' => 'overlay',
+                'type' => 'checkbox',
+                'heading' => __('Background overlay', 'h22'),
+                'description' => __(
+                    'If checked an overlay will be added on the background to increase contrast',
+                    'h22'
+                ),
+                'value' => array(
+                    __('Yes', 'h22') => 'yes',
+                ),
+                'dependency' => array(
+                    'element' => 'background_video',
+                    'not_empty' => true,
+                ),
+            ]);
         }
 
         public function prepareData($data)
