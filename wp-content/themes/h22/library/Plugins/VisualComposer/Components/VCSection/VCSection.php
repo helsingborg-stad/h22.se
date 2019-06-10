@@ -124,6 +124,25 @@ if (
                     'not_empty' => true,
                 ),
             ]);
+<<<<<<< HEAD
+=======
+            vc_add_param('vc_section', [
+                'param_name' => 'overlay',
+                'type' => 'checkbox',
+                'heading' => __('Background overlay', 'h22'),
+                'description' => __(
+                    'If checked an overlay will be added on the background to increase contrast',
+                    'h22'
+                ),
+                'value' => array(
+                    __('Yes', 'h22') => 'yes',
+                ),
+                'dependency' => array(
+                    'element' => 'background_video',
+                    'not_empty' => true,
+                ),
+            ]);
+>>>>>>> Add video background option to `vc_section`
         }
 
         public function prepareData($data)
