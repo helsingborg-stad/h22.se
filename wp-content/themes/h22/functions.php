@@ -27,15 +27,17 @@ add_action('init', function () {
     $acfExportManager->import();
 });
 
-function html_build_attribute_value($value, $callback = 'htmlspecialchars')
-{
-    if (!isset($value)) {
-        return null;
-    }
-    if (is_array($value)) {
-        $value = implode(' ', array_filter(array_map('trim', $value)));
-    }
-    return $callback($value);
+function html_build_attribute_value($value, $callback = 'htmlspecialchars') {
+	if (!isset($value) || $value === false) {
+		return null;
+	}
+	if ($value === true) {
+		return '';
+	}
+	if (is_array($value)) {
+		$value = implode(' ', array_filter(array_map('trim', $value)));
+	}
+	return $callback($value);
 }
 
 /**
