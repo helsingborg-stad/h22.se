@@ -33,39 +33,39 @@ The theme uses WPBakery Page Builder (aka Visual Composer). This is how you add 
    use H22\Plugins\VisualComposer\Components\BaseComponentController;
 
    if (!class_exists('\H22\Plugins\VisualComposer\Components\Card\Card')):
-       class Card extends \WPBakeryShortCode
-       {
-           use BaseComponentController;
+     class Card extends \WPBakeryShortCode
+     {
+       use BaseComponentController;
 
-           public function __construct()
-           {
-               $settings = array(
-                   'name' => __('Card', 'h22'),
-                   'base' => 'vc_h22_card',
-                   'class' => '',
-                   'icon' => 'icon-wpb-ui-button',
-                   'description' => __('Card', 'h22'),
-                   'category' => __('Content', 'js_composer'),
-                   'params' => array(
-                       array(
-                           'type' => 'textfield',
-                           'heading' => __('Heading', 'h22'),
-                           'param_name' => 'heading',
-                       ),
-                   ),
-                   'html_template' => dirname(__FILE__) . '/Card.php',
-               );
-               $init = $this->init($settings);
-               if ($init) {
-                   parent::__construct($settings);
-               }
-           }
-           public function prepareData($data)
-           {
-               // Create a new associative array of data for the balde template and return
-               return $data;
-           }
+       public function __construct()
+       {
+         $settings = array(
+           'name' => __('Card', 'h22'),
+           'base' => 'vc_h22_card',
+           'class' => '',
+           'icon' => 'icon-wpb-ui-button',
+           'description' => __('Card', 'h22'),
+           'category' => __('Content', 'js_composer'),
+           'params' => array(
+             array(
+               'type' => 'textfield',
+               'heading' => __('Heading', 'h22'),
+               'param_name' => 'heading',
+             ),
+           ),
+           'html_template' => dirname(__FILE__) . '/Card.php',
+         );
+         $init = $this->init($settings);
+         if ($init) {
+           parent::__construct($settings);
+         }
        }
+       public function prepareData($data)
+       {
+         // Create a new associative array of data for the balde template and return
+         return $data;
+       }
+     }
    endif;
    ?>
    ```
