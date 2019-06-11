@@ -13,9 +13,47 @@ body {
   }
 }
 
-.c-footer.c-footer--h22 {
+.c-footer {
   box-shadow: 0;
-  background-color: black;
+  background-color: $color-purple;
   border-top: none;
-  min-height: $base * 50;
+  min-height: $base * 5;
+
+  &__body {
+    align-items: flex-start;
+  }
+
+  &__home-link {
+    img,
+    svg {
+    }
+  }
+
+  .footer-title {
+    font-size: $base * 5;
+    line-height: $base * 6;
+    margin-bottom: $base * 2;
+  }
+
+  .widget_text {
+    .textwidget {
+      a.c-footer__btn {
+        padding: map-get($spacers, '2') map-get($spacers, '4');
+        text-decoration: none;
+
+        &:link,
+        &:visited {
+          border: 2px solid $color-white;
+          color: $color-white;
+        }
+
+        &:hover,
+        &:active,
+        &:focus {
+          color: $color-base !important;
+          background-color: $color-white;
+        }
+      }
+    }
+  }
 }
