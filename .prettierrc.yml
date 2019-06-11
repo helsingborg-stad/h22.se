@@ -3,12 +3,13 @@ jsxBracketSameLine: false
 printWidth: 80
 semi: true
 singleQuote: true
-tabWidth: 4
+tabWidth: 2
 trailingComma: all
 useTabs: false
 overrides:
   - files: ['*.php']
     options:
+      tabWidth: 4
       braceStyle: psr-2
       parser: php
       trailingCommaPHP: php5
