@@ -59,3 +59,13 @@
     opacity: 0.5;
   }
 }
+
+.c-section.c-section--small {
+    padding-top: $base * 6;
+    padding-bottom: $base * 6;
+}
+
+.c-section.c-section--bold {
+    padding-top: $base * 24;
+    padding-bottom: $base * 24;
+}
