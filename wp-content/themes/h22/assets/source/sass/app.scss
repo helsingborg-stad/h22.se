@@ -9,6 +9,8 @@
 
 @import 'global';
 
+@import 'objects';
+
 @import 'components/header';
 @import 'components/header-mobile';
 @import 'components/breadcrumbs';
@@ -53,10 +55,6 @@
 
 .c-element {
   margin-bottom: $base * 6;
-}
-
-.o-text-meta {
-  font-size: $font-size-meta;
 }
 
 .c-card__text {
