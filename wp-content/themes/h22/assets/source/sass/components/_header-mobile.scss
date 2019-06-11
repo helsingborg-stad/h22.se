@@ -13,9 +13,10 @@
 
 
 	&--open {
+		position: fixed;
 		background: $color-black;
-		height: 100vh;
     min-height: 100%;
+		z-index: 9999;
 
 		.c-header-mobile__logo,
 		.c-header-mobile__menu-trigger {
@@ -29,7 +30,6 @@
 	justify-content: space-between;
 	align-items: center;
 	width: 100%;
-	margin-bottom: map-get($spacers, '4');
 }
 
 .c-header-mobile__bottom {
@@ -39,6 +39,8 @@
 	color: $color-gray;
   overflow-y: scroll;
   flex: 1 1 auto;
+	padding-top: map-get($spacers, '4');
+
 }
 
 // MENU ICON

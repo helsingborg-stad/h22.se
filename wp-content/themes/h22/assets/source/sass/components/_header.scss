@@ -15,9 +15,10 @@
 
 // DESKTOP MENU
 .c-header-desktop__menu-items {
+	max-width: 700px;
 	li{
 		display: inline-block;
-		margin: map-get($spacers, '2');
+		margin: map-get($spacers, '05') map-get($spacers, '2');
     padding: 0;
 		color: $color-gray;
 
