@@ -89,39 +89,42 @@ module.exports = {
         ],
       },
 
-      /**
-       * Images
-       */
-      {
-        test: /\.(png|svg|jpg|gif)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: ifProduction(
-                'images/[name].[contenthash:8].[ext]',
-                'images/[name].[ext]',
-              ),
+            /**
+             * Images
+             */
+            {
+                test: /\.(png|svg|jpg|gif)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: ifProduction('[name].[contenthash:8].[ext]', '[name].[ext]'),
+                            outputPath: 'images',
+                            publicPath: '../images',
+                        },
+                    },
+                ],
             },
           },
         ],
       },
 
-      /**
-       * Fonts
-       */
-      {
-        test: /\.(woff|woff2|eot|ttf|otf)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: ifProduction(
-                'fonts/[name].[contenthash:8].[ext]',
-                'fonts/[name].[ext]',
-              ),
-            },
-          },
+            /**
+             * Fonts
+             */
+            {
+                test: /\.(woff|woff2|eot|ttf|otf)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: ifProduction('[name].[contenthash:8].[ext]', '[name].[ext]'),
+                            outputPath: 'fonts',
+                            publicPath: '../fonts',
+                        },
+                    },
+                ],
+            }
         ],
       },
     ],
