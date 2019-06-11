@@ -20,25 +20,8 @@
 
 @import 'pages/404';
 
-
 @import 'theme';
 @import 'utilities';
-
-.container.container--content {
-    max-width: 632px;
-}
-
-.container.container--small {
-    max-width: 456px;
-}
-
-.c-element {
-    margin-bottom: $base * 6;
-}
-
-.c-card__text {
-    font-size: $font-size-meta;
-}
 
 // Temp
 #cookie-consent {
