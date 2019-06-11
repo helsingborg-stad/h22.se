@@ -1,8 +1,8 @@
 <?php
 
 /**
-* Tell WordPress to load from local wp-content, and not vendor wp.
-*/
+ * Tell WordPress to load from local wp-content, and not vendor wp.
+ */
 define('WP_CONTENT_DIR', dirname(dirname(__FILE__)) . '/wp-content');
 define('WP_CONTENT_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/wp-content');
 
@@ -10,7 +10,7 @@ define('WP_CONTENT_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/wp-content');
  * Use municipio as default theme.
  * @var string
  */
- define('WP_DEFAULT_THEME', 'municipio');
+define('WP_DEFAULT_THEME', 'municipio');
 
 /**
  * Limit number of post revisions per post

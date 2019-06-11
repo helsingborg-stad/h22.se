@@ -18,33 +18,31 @@
 @import 'components/single-image';
 @import 'components/teaser';
 
-
 @import 'pages/404';
-
 
 @import 'utilities';
 
 .container.container--content {
-    max-width: 632px;
+  max-width: 632px;
 }
 
 .container.container--small {
-    max-width: 456px;
+  max-width: 456px;
 }
 
 .c-element {
-    margin-bottom: $base * 6;
+  margin-bottom: $base * 6;
 }
 
 .o-text-meta {
-    font-size: $font-size-meta;
+  font-size: $font-size-meta;
 }
 
 .c-card__text {
-    font-size: $font-size-meta;
+  font-size: $font-size-meta;
 }
 
 // Temp
 #cookie-consent {
-    display: none !important;
+  display: none !important;
 }

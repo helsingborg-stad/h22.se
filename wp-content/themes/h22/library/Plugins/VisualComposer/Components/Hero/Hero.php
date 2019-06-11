@@ -18,10 +18,14 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\Hero\Hero')):
                         'heading' => __('Hero type', 'h22'),
                         'value' => array(
                             __('Text', 'h22') => 'text',
-                            __('Text with Background image', 'h22') => 'text-with-bg-image',
+                            __(
+                                'Text with Background image',
+                                'h22'
+                            ) => 'text-with-bg-image',
                             __('Image', 'h22') => 'with-bg-image',
                         ),
-                        'description' => 'Choose the minimum height for the hero',
+                        'description' =>
+                            'Choose the minimum height for the hero',
                         'std' => 'text',
                     ),
                     array(
@@ -53,7 +57,8 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\Hero\Hero')):
                             __('Large', 'h22') => 'lg',
                             __('X-Large', 'h22') => 'xl',
                         ),
-                        'description' => 'Choose the minimum height for the hero',
+                        'description' =>
+                            'Choose the minimum height for the hero',
                         'std' => '',
                     ),
                     array(
@@ -67,7 +72,10 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\Hero\Hero')):
                         'value' => '',
                         'dependency' => array(
                             'element' => 'hero_type',
-                            'value' => array('text-with-bg-image', 'with-bg-image'),
+                            'value' => array(
+                                'text-with-bg-image',
+                                'with-bg-image',
+                            ),
                         ),
                     ),
                     array(
@@ -147,15 +155,21 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\Hero\Hero')):
             }
 
             if (!empty($data['min_height'])) {
-                $data['attributes']['class'][] = "u-min-height-{$data['min_height']}";
+                $data['attributes'][
+                    'class'
+                ][] = "u-min-height-{$data['min_height']}";
             }
 
             $color_theme = $data['color_theme'] ?? 'black';
             if ($hero_type == 'text') {
-                $data['attributes']['class'][] = "c-hero--color-theme-{$color_theme}";
+                $data['attributes'][
+                    'class'
+                ][] = "c-hero--color-theme-{$color_theme}";
             }
 
-            $data['attributes']['class'] = array_filter($data['attributes']['class']);
+            $data['attributes']['class'] = array_filter(
+                $data['attributes']['class']
+            );
             $data = array_filter($data);
 
             return $data;

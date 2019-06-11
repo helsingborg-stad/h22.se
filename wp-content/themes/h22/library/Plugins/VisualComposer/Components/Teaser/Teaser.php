@@ -64,7 +64,8 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\Teaser\Teaser')):
                     $data['link'] = [];
                     $data['link']['attributes']['class'][] = 'cta-link';
                     $data['link']['attributes']['href'] = $link['url'];
-                    $data['link']['attributes']['target'] = $link['target'] ?? null;
+                    $data['link']['attributes']['target'] =
+                        $link['target'] ?? null;
                     $data['link']['text'] = $link['title'] ?? '';
                 } else {
                     unset($data['link']);

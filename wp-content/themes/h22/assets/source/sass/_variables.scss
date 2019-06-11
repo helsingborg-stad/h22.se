@@ -5,7 +5,7 @@ $em-base: 1em;
 // Font Family
 $font-family-roboto: 'Roboto', sans-serif;
 $font-family-code: 'Fira Sans', 'Monaco', 'Consolas', 'Menlo', 'Lucida Console',
-	'Courier New', 'Courier', 'Console';
+  'Courier New', 'Courier', 'Console';
 
 $font-family-heading: $font-family-roboto;
 $font-family-body: $font-family-roboto;
@@ -30,7 +30,6 @@ $font-size-hero-byline: 28px;
 $font-size-hero-body: 22px;
 
 $font-size-breadcrumb: $font-size-meta;
-
 
 // Font Weights
 $font-weight-normal: 400;
@@ -65,10 +64,10 @@ $color-blue: #0095db; // new
 $color-red: #e3000f; // new
 
 $brand-colors: (
-	'red': $color-red,
-	'green': $color-green,
-	'blue': $color-blue,
-	'purple': $color-purple,
+  'red': $color-red,
+  'green': $color-green,
+  'blue': $color-blue,
+  'purple': $color-purple,
 );
 
 $color-primary: #ae0b05;
@@ -159,7 +158,7 @@ $breakpoints-map: (
 
 //Display states
 $display-states: 'none', 'inline', 'inline-block', 'block', 'table',
-	'table-cell', 'table-row', 'flex', 'inline-flex';
+  'table-cell', 'table-row', 'flex', 'inline-flex';
 
 // Spacer
 // prettier-ignore
@@ -215,6 +214,6 @@ $box-shadow-level-4: 0 $base * 2.5 $base * 3 $color-box-shadow; // new
 $box-shadow-level-5: 0 $base * 2.25 $base * 4 $color-box-shadow; // new
 
 $grid-gutters: (
-    xs : $base,
-    sm : $base * 3
+  xs: $base,
+  sm: $base * 3,
 ) !default;

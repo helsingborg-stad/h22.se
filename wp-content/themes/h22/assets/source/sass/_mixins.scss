@@ -1,76 +1,82 @@
 @mixin suppress-margin-top {
-	&:before {
-		display: block;
-		content: '';
-		margin-top: 10rem;
-		margin-bottom: -10rem;
-	}
+  &:before {
+    display: block;
+    content: '';
+    margin-top: 10rem;
+    margin-bottom: -10rem;
+  }
 }
 
 @mixin suppress-margin-bottom {
-	&:after {
-		display: block;
-		content: '';
-		margin-top: -10rem;
-		margin-bottom: 10rem;
-	}
+  &:after {
+    display: block;
+    content: '';
+    margin-top: -10rem;
+    margin-bottom: 10rem;
+  }
 }
 
 @mixin c-column-text-color-theme($color, $bg-color) {
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6 {
-		color: $color;
-	}
-	.cta-link {
-		&:before {
-			background-color: $color;
-			color: $bg-color;
-		}
-	}
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: $color;
+  }
+  .cta-link {
+    &:before {
+      background-color: $color;
+      color: $bg-color;
+    }
+  }
 }
 
-@mixin mixLoopStyles($className, $values, $dimensions: null, $breakpoints: all, $limitToBreakpoint: true) {
-    $breakpoints: validateBreakpointList($breakpoints, $limitToBreakpoint);
+@mixin mixLoopStyles(
+  $className,
+  $values,
+  $dimensions: null,
+  $breakpoints: all,
+  $limitToBreakpoint: true
+) {
+  $breakpoints: validateBreakpointList($breakpoints, $limitToBreakpoint);
 
-    @each $breakpoint in $breakpoints {
-        $suffix: get-breakpoint-suffix($breakpoint, true);
-        $next: null;
+  @each $breakpoint in $breakpoints {
+    $suffix: get-breakpoint-suffix($breakpoint, true);
+    $next: null;
 
-        @if $limitToBreakpoint == true {
-            $next: next-breakpoint($breakpoint);
-        }
-
-        @include mq($breakpoint, $next) {
-           @each $valueSuffix, $styles in $values {
-                $class: #{$className}#{$valueSuffix}#{$suffix};
-
-                #{$class} {
-                    @each $propety, $style in $styles {
-                        #{$propety}: #{$style};
-                    }
-                }
-
-                @if type-of($dimensions) == 'map' {
-                    @each $dimensionClass, $dimensionPropety in $dimensions {
-                        @if type-of($dimensionPropety) != 'list' {
-                            $dimensionPropety: ($dimensionPropety);
-                        }
-
-                        $dimensionClass: #{$className}#{$dimensionClass}#{$valueSuffix}#{$suffix};
-                        #{$dimensionClass} {
-                            @each $style in map-values($styles) {
-                                @each $propety in $dimensionPropety {
-                                    #{$propety}: #{$style};
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
+    @if $limitToBreakpoint == true {
+      $next: next-breakpoint($breakpoint);
     }
+
+    @include mq($breakpoint, $next) {
+      @each $valueSuffix, $styles in $values {
+        $class: #{$className}#{$valueSuffix}#{$suffix};
+
+        #{$class} {
+          @each $propety, $style in $styles {
+            #{$propety}: #{$style};
+          }
+        }
+
+        @if type-of($dimensions) == 'map' {
+          @each $dimensionClass, $dimensionPropety in $dimensions {
+            @if type-of($dimensionPropety) != 'list' {
+              $dimensionPropety: ($dimensionPropety);
+            }
+
+            $dimensionClass: #{$className}#{$dimensionClass}#{$valueSuffix}#{$suffix};
+            #{$dimensionClass} {
+              @each $style in map-values($styles) {
+                @each $propety in $dimensionPropety {
+                  #{$propety}: #{$style};
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }

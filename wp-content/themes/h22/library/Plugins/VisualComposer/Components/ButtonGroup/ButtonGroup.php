@@ -98,11 +98,11 @@ if (
                     ),
                     array(
                         'type' => 'dropdown',
-                        'heading' => __('Placement', 'h22'),
+                        'heading' => __('Color', 'h22'),
                         'param_name' => 'button_group_color',
                         'value' => array(
-                            __('Default', 'h22') => 'default',
-                            __('Inverted', 'h22') => 'inverted',
+                            __('Default (Black text)', 'h22') => 'default',
+                            __('Inverted (White text)', 'h22') => 'inverted',
                         ),
                         'description' => __(
                             'Choose the color of your button group',
@@ -147,13 +147,14 @@ if (
                 $button['attributes']['id'] = $button['el_id'];
 
                 $button['attributes']['class'][] = 'c-button-group__link';
-                $button['attributes']['class'][] =
-                $data['button_group_color'] ?
-                'c-button-group__link--' . $data['button_group_color']
-                : 'c-button-group__link--default';
+                $button['attributes']['class'][] = $data['button_group_color']
+                    ? 'c-button-group__link--' . $data['button_group_color']
+                    : 'c-button-group__link--default';
                 $button['attributes']['class'][] = $button['el_class'];
 
-                $button['attributes']['href'] = vc_build_link($button['link'])['url'];
+                $button['attributes']['href'] = vc_build_link($button['link'])[
+                    'url'
+                ];
                 $button['attributes']['target'] =
                     vc_build_link($button['link'])['target'] ?: null;
                 $button['label'] = vc_build_link($button['link'])['title'];
