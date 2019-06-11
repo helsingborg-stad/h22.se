@@ -1,2 +1,8 @@
 import menu from './menu.js';
-import './video-popup'
+
+import objectFitVideos from 'object-fit-videos';
+import objectFitImages from 'object-fit-images';
+
+
+objectFitVideos();
+objectFitImages();
