@@ -12,6 +12,7 @@ class App
         new \H22\Theme\Enqueue();
         new \H22\Theme\Color();
         new \H22\Theme\CustomPostTypes();
+        new \H22\Theme\Sidebars();
         new \H22\Plugins\VisualComposer\Main();
     }
 
