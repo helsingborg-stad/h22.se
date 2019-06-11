@@ -14,7 +14,9 @@
   		<div class="c-header-desktop__menu-items">
   			{!! $navigation['mainMenu'] !!}
   		</div>
-  		<a class="c-header-desktop__language" href="#">På svenska</a>
+      @foreach ($languages as $language)
+        <a class="c-header-desktop__language" href="{{$language['url']}}">{{$language['name']}}</a>
+      @endforeach
   	</div>
 
     <div id="c-header-mobile" class="c-header-mobile">
@@ -32,7 +34,9 @@
     			{!! $navigation['mainMenu'] !!}
     		</div>
         <div class="c-header-mobile__language">
-          <a href="#">På svenska</a>
+          @foreach ($languages as $language)
+            <a href="{{$language['url']}}">{{$language['name']}}</a>
+          @endforeach
         </div>
       </div>
   	</div>

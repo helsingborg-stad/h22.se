@@ -14,6 +14,17 @@ class ChildController
 
 
         // $data['mainMenu'] = $this->getWordpressMenuItemsBySlug('main-menu');
+
+        $data['languages'] = pll_the_languages(
+          array(
+            'show_names'=> 1,
+            'hide_current'  => 1,
+            'dropdown' => 0,
+            'raw' => 1
+          )
+        );
+
+    
         return $data;
     }
 
