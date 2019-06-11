@@ -24,7 +24,7 @@ add_action('init', function () {
     $acfExportManager->setTextdomain('h22');
     $acfExportManager->setExportFolder(H22_PATH . 'library/AcfFields');
     $acfExportManager->autoExport(array(
-        'brand-widget' => 'group_6a5ca31651f18',
+        'brand-widget' => 'group_6a5ca31651f18'
     ));
     $acfExportManager->import();
 });
@@ -43,13 +43,54 @@ function html_build_attribute_value($value, $callback = 'htmlspecialchars')
     return $callback($value);
 }
 
+/**
+ *  Join style array items into a string with key as CSS Propety and value as CSS Value.
+ *  eg. ['background-color] => 'blue' -> "background-color: blue;"
+ *  @param array $styleAttribute
+ *  @return string|null
+ */
+function html_build_style_attributes($styleAttribute)
+{
+    if (!is_array($styleAttribute)
+        || empty($styleAttribute)) {
+        return null;
+    }
+
+    // Remove empty styles
+    $styleAttribute = array_filter($styleAttribute, function ($style) {
+        return is_string($style) && !empty($style);
+    });
+
+    if (empty($styleAttribute)) {
+        return null;
+    }
+
+    $styles = array();
+    foreach ($styleAttribute as $cssPropety => $cssValue) {
+        if (substr($cssValue, -1) !== ';') {
+            $cssValue .= ';';
+        }
+
+        $styles[] = $cssPropety . ': ' . $cssValue;
+    }
+
+    $styleAttribute = implode(' ', $styles);
+
+    return $styleAttribute;
+}
+
 function html_build_attributes($attrs, $callback = 'htmlspecialchars')
 {
     if (!is_array($attrs)) {
         return (string) $attrs;
     }
     $return = '';
+
     foreach ($attrs as $name => $value) {
+        if ($name === 'style' && is_array($value)) {
+            $value = html_build_style_attributes($value);
+        }
+
         $value = html_build_attribute_value($value, $callback);
         if (!isset($value)) {
             continue;
