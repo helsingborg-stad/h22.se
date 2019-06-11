@@ -1,0 +1,62 @@
+.c-video-popup {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba($color-black, 0.75);
+  z-index: $level-top;
+  color: $color-white;
+}
+
+.c-video-popup__close-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  @include button-unstyled;
+  z-index: 1;
+  color: inherit;
+  font-size: 2rem;
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none !important;
+}
+
+.c-video-popup__inner-1 {
+  height: 100%;
+  padding: 3rem;
+  overflow: auto;
+}
+
+.c-video-popup__inner-2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+}
+
+.c-video-popup__inner-3 {
+  position: relative;
+  width: 100%;
+  max-width: 1080px;
+  &:after {
+    content: '';
+    display: block;
+    width: 100%;
+    padding-bottom: (9 / 16 * 100%);
+  }
+}
+
+.c-video-popup__iframe {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}

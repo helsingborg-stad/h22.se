@@ -15,6 +15,7 @@
     "not dead"
   ],
   "dependencies": {
+    "get-youtube-id": "^1.0.1",
     "gsap": "^1.20.3",
     "styleguide.local": "git+https://github.com/andersrehn/styleguide.git#development"
   },
