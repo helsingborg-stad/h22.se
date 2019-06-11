@@ -41,10 +41,10 @@
 
 @import 'pages/404';
 
-
 @import 'theme';
 @import 'utilities';
 
+<<<<<<< HEAD
 .container.container--content {
   max-width: 632px;
 }
@@ -59,4 +59,9 @@
 
 .c-card__text {
   font-size: $font-size-meta;
+=======
+// Temp
+#cookie-consent {
+    display: none !important;
+>>>>>>> cleanup
 }

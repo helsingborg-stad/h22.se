@@ -7,6 +7,11 @@
 	margin-bottom: 0;
 }
 
+
+.c-element {
+    margin-bottom: $base * 6;
+}
+
 .grid {
 	margin-left: $base * -0.5;
 	margin-right: $base * -0.5;
@@ -26,4 +31,10 @@
 		padding-left: $base * 3;
 		padding-right: $base * 3;
 	}
+}.container.container--content {
+    max-width: 632px;
+}
+
+.container.container--small {
+    max-width: 456px;
 }
