@@ -98,7 +98,9 @@ module.exports = {
                     {
                         loader: 'file-loader',
                         options: {
-                            name: ifProduction('images/[name].[contenthash:8].[ext]', 'images/[name].[ext]'),
+                            name: ifProduction('[name].[contenthash:8].[ext]', '[name].[ext]'),
+                            outputPath: 'images',
+                            publicPath: '../images',
                         },
                     },
                 ],
@@ -113,7 +115,9 @@ module.exports = {
                     {
                         loader: 'file-loader',
                         options: {
-                            name: ifProduction('fonts/[name].[contenthash:8].[ext]', 'fonts/[name].[ext]'),
+                            name: ifProduction('[name].[contenthash:8].[ext]', '[name].[ext]'),
+                            outputPath: 'fonts',
+                            publicPath: '../fonts',
                         },
                     },
                 ],
