@@ -48,3 +48,13 @@
     padding-top: $base * 12;
     padding-bottom: $base * 12;
 }
+
+.c-section.c-section--small {
+    padding-top: $base * 6;
+    padding-bottom: $base * 6;
+}
+
+.c-section.c-section--bold {
+    padding-top: $base * 24;
+    padding-bottom: $base * 24;
+}
