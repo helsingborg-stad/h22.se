@@ -63,9 +63,15 @@ body {
 
     .c-footer__logo svg, img{
       margin: map-get($spacers, '2');
-      width: 120px;
+      width: 90px;
+      max-width: 130px;
       height: auto;
       stroke-width: 1;
+
+      @include mq(map_get($breakpoints-map, 'md')) {
+        width: 130px;
+        max-width: 170px;
+      }
     }
   }
 }
