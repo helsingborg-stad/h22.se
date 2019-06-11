@@ -159,3 +159,25 @@
 .u-light {
 	font-weight: $font-weight-thin;
 }
+
+// Background & Text Colors
+$backgroundAndTextColors: map-merge($brand-colors, (
+    'black': $color-black,
+    'white': $color-white,
+    'gray': $color-gray,
+    'gray-light': $color-gray-light,
+    'gray-lighter': $color-gray-lighter,
+));
+
+@each $name, $color in $backgroundAndTextColors {
+	.u-bg-#{$name} {
+		background-color: $color;
+    }
+	.u-text-#{$name} {
+        color: $color;
+
+        h1, h2, h3, h4, h5, h6 {
+			color: $color;
+		}
+    }
+}
