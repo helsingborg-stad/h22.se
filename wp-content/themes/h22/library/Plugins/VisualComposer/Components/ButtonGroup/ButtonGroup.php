@@ -98,11 +98,11 @@ if (
                     ),
                     array(
                         'type' => 'dropdown',
-                        'heading' => __('Placement', 'h22'),
+                        'heading' => __('Color', 'h22'),
                         'param_name' => 'button_group_color',
                         'value' => array(
-                            __('Default', 'h22') => 'default',
-                            __('Inverted', 'h22') => 'inverted',
+                            __('Default (Black text)', 'h22') => 'default',
+                            __('Inverted (White text)', 'h22') => 'inverted',
                         ),
                         'description' => __(
                             'Choose the color of your button group',
