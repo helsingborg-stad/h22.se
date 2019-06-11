@@ -15,18 +15,13 @@ body {
 
 .c-footer {
   box-shadow: 0;
-  background-color: $color-purple;
+  background-color: $color-black;
   border-top: none;
   min-height: $base * 5;
+  color: $color-white;
 
-  &__body {
-    align-items: flex-start;
-  }
-
-  &__home-link {
-    img,
-    svg {
-    }
+  &__logos {
+    background: blue;
   }
 
   .footer-title {
@@ -36,24 +31,31 @@ body {
   }
 
   .widget_text {
-    .textwidget {
-      a.c-footer__btn {
-        padding: map-get($spacers, '2') map-get($spacers, '4');
+  }
+
+  .widget_nav_menu {
+    ul {
+      margin: 0;
+      padding: 0;
+      text-indent: 0;
+      list-style-type: none;
+    }
+
+    li {
+      padding-left: 0;
+
+      a:link, a:visited {
         text-decoration: none;
-
-        &:link,
-        &:visited {
-          border: 2px solid $color-white;
-          color: $color-white;
-        }
-
-        &:hover,
-        &:active,
-        &:focus {
-          color: $color-base !important;
-          background-color: $color-white;
-        }
       }
+
+      a:hover {
+        color: inherit;
+        text-decoration: underline;
+      }
+    }
+
+    li:before {
+      content: none;
     }
   }
 }

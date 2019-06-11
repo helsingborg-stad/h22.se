@@ -10,10 +10,17 @@
 @stop
 
 @section('footer-body')
-    <div class="c-footer">
-        <div class="c-footer__body">
-            @if (is_active_sidebar('footer-area'))
-                <?php dynamic_sidebar('footer-area'); ?>
+    <div class="c-footer u-py-8">
+        <div class="container container--wide">
+            <div class="grid">
+                @if (is_active_sidebar('footer-area'))
+                    <?php dynamic_sidebar('footer-area'); ?>
+                @endif
+            </div>
+        </div>
+        <div class="c-footer__logos">
+            @if (is_active_sidebar('footer-area-logos'))
+                <?php dynamic_sidebar('footer-area-logos'); ?>
             @endif
         </div>
     </div>
