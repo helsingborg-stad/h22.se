@@ -1,18 +1,18 @@
 .c-column {
-	display: flex;
-	flex-direction: column;
-	&--align-middle {
-		justify-content: center;
-	}
-	&--align-bottom {
-		justify-content: flex-end;
-	}
-	&--text-align-center {
-		text-align: center;
-	}
-	&--text-align-right {
-		text-align: right;
-	}
+  display: flex;
+  flex-direction: column;
+  &--align-middle {
+    justify-content: center;
+  }
+  &--align-bottom {
+    justify-content: flex-end;
+  }
+  &--text-align-center {
+    text-align: center;
+  }
+  &--text-align-right {
+    text-align: right;
+  }
 }
 
 

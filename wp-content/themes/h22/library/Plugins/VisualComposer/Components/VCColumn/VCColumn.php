@@ -37,7 +37,8 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\VCColumn\VCColumn')) :
             \WPBMap::modify(
                 'vc_column',
                 'admin_enqueue_js',
-                \H22\Helper\FileSystem::themeUrl(dirname(__FILE__)) . '/js/vc_column.js'
+                \H22\Helper\FileSystem::themeUrl(dirname(__FILE__)) .
+                    '/js/vc_column.js'
             );
         }
 

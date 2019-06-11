@@ -37,12 +37,16 @@ trait BaseComponentController
             $this->vcSettings = $settings;
             $this->vcSettings['php_class_name'] = get_class($this);
             $this->vcSettings = apply_filters(
-                'helsingborg-h22/visual-composer/' . $this->bladeView . '/vcSettings',
+                'helsingborg-h22/visual-composer/' .
+                    $this->bladeView .
+                    '/vcSettings',
                 $this->vcSettings
             );
             vc_map($this->vcSettings);
 
-            ActiveComponents::getInstance()->addComponent($this->vcSettings['base']);
+            ActiveComponents::getInstance()->addComponent(
+                $this->vcSettings['base']
+            );
             return true;
         }
         return false;
@@ -70,7 +74,7 @@ trait BaseComponentController
         ); // e.g. helsingborg-h22/visual-composer/card/viewPath
         $this->bladeViewPaths = array_unique($this->bladeViewPaths);
     }
-    
+
     public function repairString($string)
     {
         $tidy = new \tidy();

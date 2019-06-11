@@ -40,7 +40,11 @@ class Psr4ClassLoader
                 $classWithoutPrefix = substr($class, strlen($currentPrefix));
                 $file =
                     $currentBaseDir .
-                    str_replace('\\', DIRECTORY_SEPARATOR, $classWithoutPrefix) .
+                    str_replace(
+                        '\\',
+                        DIRECTORY_SEPARATOR,
+                        $classWithoutPrefix
+                    ) .
                     '.php';
 
                 if (file_exists($file)) {

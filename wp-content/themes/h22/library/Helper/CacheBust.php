@@ -14,7 +14,10 @@ class CacheBust
             $revManifestPath =
                 get_stylesheet_directory() . '/assets/dist/manifest.json';
             if (file_exists($revManifestPath)) {
-                $revManifest = json_decode(file_get_contents($revManifestPath), true);
+                $revManifest = json_decode(
+                    file_get_contents($revManifestPath),
+                    true
+                );
             } elseif (WP_DEBUG) {
                 echo '<div style="color:red">Error: Assets not built. Go to ' .
                     get_stylesheet_directory() .

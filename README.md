@@ -49,10 +49,10 @@ The theme uses WPBakery Page Builder (aka Visual Composer). This is how you add 
              array(
                'type' => 'textfield',
                'heading' => __('Heading', 'h22'),
-               'param_name' => 'heading',
-             ),
+               'param_name' => 'heading'
+             )
            ),
-           'html_template' => dirname(__FILE__) . '/Card.php',
+           'html_template' => dirname(__FILE__) . '/Card.php'
          );
          $init = $this->init($settings);
          if ($init) {

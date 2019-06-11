@@ -147,13 +147,14 @@ if (
                 $button['attributes']['id'] = $button['el_id'];
 
                 $button['attributes']['class'][] = 'c-button-group__link';
-                $button['attributes']['class'][] =
-                $data['button_group_color'] ?
-                'c-button-group__link--' . $data['button_group_color']
-                : 'c-button-group__link--default';
+                $button['attributes']['class'][] = $data['button_group_color']
+                    ? 'c-button-group__link--' . $data['button_group_color']
+                    : 'c-button-group__link--default';
                 $button['attributes']['class'][] = $button['el_class'];
 
-                $button['attributes']['href'] = vc_build_link($button['link'])['url'];
+                $button['attributes']['href'] = vc_build_link($button['link'])[
+                    'url'
+                ];
                 $button['attributes']['target'] =
                     vc_build_link($button['link'])['target'] ?: null;
                 $button['label'] = vc_build_link($button['link'])['title'];

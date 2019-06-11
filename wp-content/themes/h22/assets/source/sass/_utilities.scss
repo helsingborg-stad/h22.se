@@ -22,28 +22,53 @@
 // }
 // ==========================================================================
 @include mixLoopStyles(
-    '.u-m',
-    (
-        '-0'    : (margin: 0px !important),
-        '-1'    : (margin: $base !important),
-        '-2'    : (margin: $base * 2!important),
-        '-3'    : (margin: $base * 3 !important),
-        '-4'    : (margin: $base * 4 !important),
-        '-5'    : (margin: $base * 5 !important),
-        '-6'    : (margin: $base * 6 !important),
-        '-7'    : (margin: $base * 7 !important),
-        '-8'    : (margin: $base * 8 !important),
-        '-auto' : (margin: auto !important),
-
+  '.u-m',
+  (
+    '-0': (
+      margin: 0px !important,
     ),
-    (
-        'x'     : ('margin-left', 'margin-right'),
-        'y'     : ('margin-top', 'margin-bottom'),
-        'l'     : 'margin-left',
-        'r'     : 'margin-right',
-        't'     : 'margin-top',
-        'b'     : 'margin-bottom',
-    )
+    '-1': (
+      margin: $base !important,
+    ),
+    '-2': (
+      margin: $base * 2!important,
+    ),
+    '-3': (
+      margin: $base * 3 !important,
+    ),
+    '-4': (
+      margin: $base * 4 !important,
+    ),
+    '-5': (
+      margin: $base * 5 !important,
+    ),
+    '-6': (
+      margin: $base * 6 !important,
+    ),
+    '-7': (
+      margin: $base * 7 !important,
+    ),
+    '-8': (
+      margin: $base * 8 !important,
+    ),
+    '-auto': (
+      margin: auto !important,
+    ),
+  ),
+  (
+    'x': (
+      'margin-left',
+      'margin-right',
+    ),
+    'y': (
+      'margin-top',
+      'margin-bottom',
+    ),
+    'l': 'margin-left',
+    'r': 'margin-right',
+    't': 'margin-top',
+    'b': 'margin-bottom',
+  )
 );
 
 // ==========================================================================
@@ -72,26 +97,50 @@
 // }
 // ==========================================================================
 @include mixLoopStyles(
-    '.u-p',
-    (
-        '-0'    : (padding: 0px !important),
-        '-1'    : (padding: $base !important),
-        '-2'    : (padding: $base * 2!important),
-        '-3'    : (padding: $base * 3 !important),
-        '-4'    : (padding: $base * 4 !important),
-        '-5'    : (padding: $base * 5 !important),
-        '-6'    : (padding: $base * 6 !important),
-        '-7'    : (padding: $base * 7 !important),
-        '-8'    : (padding: $base * 8 !important)
+  '.u-p',
+  (
+    '-0': (
+      padding: 0px !important,
     ),
-    (
-        'x' : ('padding-left', 'padding-right'),
-        'y' : ('padding-top', 'padding-bottom'),
-        'l' : 'padding-left',
-        'r' : 'padding-right',
-        't' : 'padding-top',
-        'b' : 'padding-bottom',
-    )
+    '-1': (
+      padding: $base !important,
+    ),
+    '-2': (
+      padding: $base * 2!important,
+    ),
+    '-3': (
+      padding: $base * 3 !important,
+    ),
+    '-4': (
+      padding: $base * 4 !important,
+    ),
+    '-5': (
+      padding: $base * 5 !important,
+    ),
+    '-6': (
+      padding: $base * 6 !important,
+    ),
+    '-7': (
+      padding: $base * 7 !important,
+    ),
+    '-8': (
+      padding: $base * 8 !important,
+    ),
+  ),
+  (
+    'x': (
+      'padding-left',
+      'padding-right',
+    ),
+    'y': (
+      'padding-top',
+      'padding-bottom',
+    ),
+    'l': 'padding-left',
+    'r': 'padding-right',
+    't': 'padding-top',
+    'b': 'padding-bottom',
+  )
 );
 
 // Flex utilities
@@ -144,16 +193,16 @@
 
 // Min height
 .u-min-height-sm {
-	min-height: 300px;
+  min-height: 300px;
 }
 .u-min-height-md {
-	min-height: 450px;
+  min-height: 450px;
 }
 .u-min-height-lg {
-	min-height: 600px;
+  min-height: 600px;
 }
 .u-min-height-xl {
-	min-height: 750px;
+  min-height: 750px;
 }
 
 .u-min-h-100vh {
@@ -168,7 +217,7 @@
 
 // Font weight
 .u-light {
-	font-weight: $font-weight-thin;
+  font-weight: $font-weight-thin;
 }
 
 // Background & Text Colors

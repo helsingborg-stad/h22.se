@@ -7,8 +7,7 @@ use H22\Plugins\VisualComposer\ActiveComponents as ActiveComponents;
 /*
     This class is almost the same as BaseComponentController except it must extend WPBakeryShortCodesContainer and in the output function scan for nested shortcodes to evaluate
 */
-abstract class ContainerComponentController extends
-    \WPBakeryShortCodesContainer
+abstract class ContainerComponentController extends \WPBakeryShortCodesContainer
 {
     protected $vcSettings = array();
 
@@ -42,12 +41,16 @@ abstract class ContainerComponentController extends
             $this->vcSettings = $settings;
             $this->vcSettings['php_class_name'] = get_class($this);
             $this->vcSettings = apply_filters(
-                'helsingborg-h22/visual-composer/' . $this->bladeView . '/vcSettings',
+                'helsingborg-h22/visual-composer/' .
+                    $this->bladeView .
+                    '/vcSettings',
                 $this->vcSettings
             );
             vc_map($this->vcSettings);
 
-            ActiveComponents::getInstance()->addComponent($this->vcSettings['base']);
+            ActiveComponents::getInstance()->addComponent(
+                $this->vcSettings['base']
+            );
 
             parent::__construct($this->vcSettings);
         }

@@ -51,7 +51,10 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\Card\Card')):
                             __('16:9', 'h22') => '16by9',
                             __('1:1', 'h22') => '1by1',
                         ),
-                        'description' => __('Select an image ratio for the card', 'h22'),
+                        'description' => __(
+                            'Select an image ratio for the card',
+                            'h22'
+                        ),
                         // Sets default value
                         'std' => '4by3',
                         'group' => __('Graphics', 'h22'),
@@ -65,7 +68,10 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\Card\Card')):
                             __('Center', 'h22') => 'center',
                             __('Right', 'h22') => 'right',
                         ),
-                        'description' => __('Select an alignement for your content', 'h22'),
+                        'description' => __(
+                            'Select an alignement for your content',
+                            'h22'
+                        ),
                         // Sets default value
                         'std' => 'left',
                         'group' => __('Settings', 'h22'),
@@ -126,7 +132,8 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\Card\Card')):
             }
 
             //Content alignement
-            $attributes['class'][] = 'c-card--' . ($data['align_content'] ?: 'left');
+            $attributes['class'][] =
+                'c-card--' . ($data['align_content'] ?: 'left');
 
             $data['attributes'] = $attributes;
 
@@ -144,7 +151,9 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\Card\Card')):
             ];
 
             if (isset($data['image_attachment'])) {
-                $data['image'] = wp_get_attachment_metadata($data['image_attachment']);
+                $data['image'] = wp_get_attachment_metadata(
+                    $data['image_attachment']
+                );
                 $image_attributes['src'] = wp_get_attachment_url(
                     $data['image_attachment']
                 );
@@ -164,7 +173,8 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\Card\Card')):
             $image_wrapper_attributes = [
                 'class' => [
                     'c-card__image-wrapper',
-                    'c-card__image-wrapper--' . ($data['image_ratio'] ?: '4by3'),
+                    'c-card__image-wrapper--' .
+                        ($data['image_ratio'] ?: '4by3'),
                 ],
             ];
 

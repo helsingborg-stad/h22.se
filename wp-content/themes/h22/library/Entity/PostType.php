@@ -21,8 +21,12 @@ class PostType
      * @param string $slug         The slug (id) of the post type
      * @param array  $args         Array of argument passed to the posttype
      */
-    public function __construct($namePlural, $nameSingular, $slug, $args = array())
-    {
+    public function __construct(
+        $namePlural,
+        $nameSingular,
+        $slug,
+        $args = array()
+    ) {
         $this->namePlural = $namePlural;
         $this->nameSingular = $nameSingular;
         $this->slug = $slug;
@@ -32,9 +36,20 @@ class PostType
         add_action('init', array($this, 'registerPostType'));
 
         // Handle list table columns
-        add_filter('manage_edit-' . $this->slug . '_columns', array($this, 'tableColumns'));
-        add_filter('manage_edit-' . $this->slug . '_sortable_columns', array($this, 'tableSortableColumns'));
-        add_action('manage_' . $this->slug . '_posts_custom_column', array($this, 'tableColumnsContent'), 10, 2);
+        add_filter('manage_edit-' . $this->slug . '_columns', array(
+            $this,
+            'tableColumns',
+        ));
+        add_filter('manage_edit-' . $this->slug . '_sortable_columns', array(
+            $this,
+            'tableSortableColumns',
+        ));
+        add_action(
+            'manage_' . $this->slug . '_posts_custom_column',
+            array($this, 'tableColumnsContent'),
+            10,
+            2
+        );
     }
 
     /**
@@ -42,21 +57,36 @@ class PostType
      *
      * @return string Registered post type slug
      */
-    public function registerPostType() : string
+    public function registerPostType(): string
     {
         $labels = array(
-            'name'                => $this->namePlural,
-            'singular_name'       => $this->nameSingular,
-            'add_new'             => sprintf(__('Add new %s', 'todo'), $this->nameSingular),
-            'add_new_item'        => sprintf(__('Add new %s', 'todo'), $this->nameSingular),
-            'edit_item'           => sprintf(__('Edit %s', 'todo'), $this->nameSingular),
-            'new_item'            => sprintf(__('New %s', 'todo'), $this->nameSingular),
-            'view_item'           => sprintf(__('View %s', 'todo'), $this->nameSingular),
-            'search_items'        => sprintf(__('Search %s', 'todo'), $this->namePlural),
-            'not_found'           => sprintf(__('No %s found', 'todo'), $this->namePlural),
-            'not_found_in_trash'  => sprintf(__('No %s found in trash', 'todo'), $this->namePlural),
-            'parent_item_colon'   => sprintf(__('Parent %s:', 'todo'), $this->nameSingular),
-            'menu_name'           => $this->namePlural,
+            'name' => $this->namePlural,
+            'singular_name' => $this->nameSingular,
+            'add_new' => sprintf(__('Add new %s', 'todo'), $this->nameSingular),
+            'add_new_item' => sprintf(
+                __('Add new %s', 'todo'),
+                $this->nameSingular
+            ),
+            'edit_item' => sprintf(__('Edit %s', 'todo'), $this->nameSingular),
+            'new_item' => sprintf(__('New %s', 'todo'), $this->nameSingular),
+            'view_item' => sprintf(__('View %s', 'todo'), $this->nameSingular),
+            'search_items' => sprintf(
+                __('Search %s', 'todo'),
+                $this->namePlural
+            ),
+            'not_found' => sprintf(
+                __('No %s found', 'todo'),
+                $this->namePlural
+            ),
+            'not_found_in_trash' => sprintf(
+                __('No %s found in trash', 'todo'),
+                $this->namePlural
+            ),
+            'parent_item_colon' => sprintf(
+                __('Parent %s:', 'todo'),
+                $this->nameSingular
+            ),
+            'menu_name' => $this->namePlural,
         );
 
         $this->args['labels'] = $labels;
@@ -77,8 +107,12 @@ class PostType
      *
      * @return boolean Bool always returning true
      */
-    public function addTableColumn($key, $title, $sortable = false, $contentCallback = false) : bool
-    {
+    public function addTableColumn(
+        $key,
+        $title,
+        $sortable = false,
+        $contentCallback = false
+    ): bool {
         $this->tableColumns[$key] = $title;
 
         if ($sortable === true) {
@@ -99,7 +133,7 @@ class PostType
      *
      * @return array          New columns
      */
-    public function tableColumns($columns) : array
+    public function tableColumns($columns): array
     {
         if (!empty($this->tableColumns) && is_array($this->tableColumns)) {
             $columns = array_merge(
@@ -119,9 +153,12 @@ class PostType
      *
      * @return array          New columns
      */
-    public function tableSortableColumns($columns) : array
+    public function tableSortableColumns($columns): array
     {
-        if (!empty($this->tableSortableColumns) && is_array($this->tableSortableColumns)) {
+        if (
+            !empty($this->tableSortableColumns) &&
+            is_array($this->tableSortableColumns)
+        ) {
             $columns = $this->tableColumns;
         }
 
@@ -142,6 +179,9 @@ class PostType
             return;
         }
 
-        call_user_func_array($this->tableColumnsContentCallback[$column], array($column, $postId));
+        call_user_func_array($this->tableColumnsContentCallback[$column], array(
+            $column,
+            $postId,
+        ));
     }
 }

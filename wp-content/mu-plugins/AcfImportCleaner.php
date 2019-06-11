@@ -13,7 +13,11 @@ class AcfImportCleaner
 {
     public function __construct()
     {
-        add_filter('acf/settings/load_json', array($this, 'acfLoadClean'), 99999999);
+        add_filter(
+            'acf/settings/load_json',
+            array($this, 'acfLoadClean'),
+            99999999
+        );
     }
 
     public function acfLoadClean($paths)

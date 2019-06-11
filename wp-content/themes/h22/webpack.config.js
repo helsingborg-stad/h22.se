@@ -6,12 +6,12 @@ const WebpackNotifierPlugin = require('webpack-notifier');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const FixStyleOnlyEntriesPlugin = require("webpack-fix-style-only-entries");
+const FixStyleOnlyEntriesPlugin = require('webpack-fix-style-only-entries');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 
-const {getIfUtils, removeEmpty} = require('webpack-config-utils')
-const {ifProduction, ifNotProduction} = getIfUtils(process.env.NODE_ENV)
+const { getIfUtils, removeEmpty } = require('webpack-config-utils');
+const { ifProduction, ifNotProduction } = getIfUtils(process.env.NODE_ENV);
 
 module.exports = {
     mode: ifProduction('production', 'development'),

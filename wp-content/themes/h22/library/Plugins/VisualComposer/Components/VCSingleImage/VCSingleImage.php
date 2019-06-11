@@ -27,7 +27,11 @@ if (
 
         public function adminJS()
         {
-            \WPBMap::modify('vc_single_image', 'js_view', 'ViewVCSingleImageModule');
+            \WPBMap::modify(
+                'vc_single_image',
+                'js_view',
+                'ViewVCSingleImageModule'
+            );
             \WPBMap::modify(
                 'vc_single_image',
                 'admin_enqueue_js',
@@ -131,9 +135,9 @@ if (
                 $single_image['attributes']['src'] = wp_get_attachment_url(
                     $data['image']
                 );
-                $single_image['attributes']['srcset'] = wp_get_attachment_image_srcset(
-                    $data['image']
-                );
+                $single_image['attributes'][
+                    'srcset'
+                ] = wp_get_attachment_image_srcset($data['image']);
                 $single_image['attributes']['alt'] = get_post_meta(
                     $data['image'],
                     '_wp_attachment_image_alt',
@@ -151,10 +155,13 @@ if (
                 $single_image['attributes']['src'] = $data['custom_src'];
                 $single_image['attributes']['alt'] = $data['custom_alt'];
                 $single_image['caption'] = $data['caption'];
-                $single_image['size'] = $data['external_img_size'] ?? 'full-width';
+                $single_image['size'] =
+                    $data['external_img_size'] ?? 'full-width';
             }
 
-            $single_image['attributes'] = array_filter($single_image['attributes']);
+            $single_image['attributes'] = array_filter(
+                $single_image['attributes']
+            );
             $single_image = array_filter($single_image);
             $data['single_image'] = $single_image;
 
