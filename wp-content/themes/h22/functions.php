@@ -50,6 +50,45 @@ function html_build_attributes($attrs, $callback = 'htmlspecialchars') {
 		$return .= ' ' . $callback($name) . '="' . $value . '"';
 	}
 	return $return;
+/**
+ *  Join style array items into a string with key as CSS Propety and value as CSS Value.
+ *  eg. ['background-color] => 'blue' -> "background-color: blue;"
+ *  @param array $styleAttribute
+ *  @return string|null
+ */
+function html_build_style_attributes($styleAttribute)
+{
+    if (!is_array($styleAttribute)
+        || empty($styleAttribute)) {
+        return null;
+    }
+
+    // Remove empty styles
+    $styleAttribute = array_filter($styleAttribute, function ($style) {
+        return is_string($style) && !empty($style);
+    });
+
+    if (empty($styleAttribute)) {
+        return null;
+    }
+
+    $styles = array();
+    foreach ($styleAttribute as $cssPropety => $cssValue) {
+        if (substr($cssValue, -1) !== ';') {
+            $cssValue .= ';';
+        }
+
+        $styles[] = $cssPropety . ': ' . $cssValue;
+    }
+
+    $styleAttribute = implode(' ', $styles);
+
+    return $styleAttribute;
+}
+
+        if ($name === 'style' && is_array($value)) {
+            $value = html_build_style_attributes($value);
+        }
 }
 
 // Remove add read more button
