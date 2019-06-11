@@ -32,10 +32,6 @@ $font-size-hero-body: 22px;
 
 $font-size-breadcrumb: $font-size-meta;
 
-<<<<<<< HEAD
-=======
-
->>>>>>> menu styling
 // Font Weights
 $font-weight-normal: 400;
 $font-weight-medium: 500;
@@ -51,9 +47,9 @@ $h6-font-weight: $font-weight-bold;
 
 // Line height
 // $h1-line-height: ;
-$h2-line-height: 40px;
-// $h3-line-height: ;
-// $h4-line-height: ;
+$h2-line-height: 1.2;
+$h3-line-height: 1.2;
+$h4-line-height: 1.2;
 // $h5-line-height: ;
 // $h6-line-height: ;
 $line-height-preamble: 30px;
@@ -159,12 +155,13 @@ $border-radius-full: 50%;
 $breakpoints-map: (
 	xs: 0,
 	sm: 32.5em, //520px
-	md: 60em, //1020px
+	md: 45em, //765px
 	lg: 78em, //1248px
 	xl: 100em, //1600px
 );
 
 $header-breakpoint: 60em; // 1020px
+
 
 //Display states
 $display-states: 'none', 'inline', 'inline-block', 'block', 'table',

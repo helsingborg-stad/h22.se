@@ -21,6 +21,21 @@ if (
             $this->initBaseController(false);
         }
 
+        public function adminJS()
+        {
+            \WPBMap::modify(
+                'vc_single_image',
+                'js_view',
+                'ViewVCSingleImageModule'
+            );
+            \WPBMap::modify(
+                'vc_single_image',
+                'admin_enqueue_js',
+                \H22\Helper\FileSystem::themeUrl(dirname(__FILE__)) .
+                    '/js/vc_single_image.js'
+            );
+        }
+
         public function changeTemplateSource()
         {
             \WPBMap::modify(

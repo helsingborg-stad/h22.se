@@ -220,14 +220,6 @@
   font-weight: $font-weight-thin;
 }
 
-.u-text-center {
-  text-align: center;
-}
-
-.u-justify-content-center {
-  justify-content: center;
-}
-
 // Background & Text Colors
 $backgroundAndTextColors: map-merge($brand-colors, (
     'black': $color-black,
