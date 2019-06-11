@@ -1,0 +1,15 @@
+@each $name, $color in $brand-colors {
+    .t-#{$name}-fill {
+        background-color: $color;
+        color: white;
+		h1, h2, h3, h4, h5, h6 {
+			color: white;
+		}
+	}
+	.t-#{$name}-invert {
+        background-color: white;
+		h1, h2, h3, h4, h5, h6 {
+			color: $color;
+		}
+	}
+}
