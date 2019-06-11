@@ -11,20 +11,15 @@ class ChildController
 
     public function data($data)
     {
-
-
         // $data['mainMenu'] = $this->getWordpressMenuItemsBySlug('main-menu');
 
-        $data['languages'] = pll_the_languages(
-          array(
-            'show_names'=> 1,
-            'hide_current'  => 1,
+        $data['languages'] = pll_the_languages(array(
+            'show_names' => 1,
+            'hide_current' => 1,
             'dropdown' => 0,
-            'raw' => 1
-          )
-        );
+            'raw' => 1,
+        ));
 
-    
         return $data;
     }
 
@@ -35,7 +30,10 @@ class ChildController
      */
     public function getWordpressMenuItemsBySlug($slug)
     {
-        if (empty(get_nav_menu_locations()) || !isset(get_nav_menu_locations()[$slug])) {
+        if (
+            empty(get_nav_menu_locations()) ||
+            !isset(get_nav_menu_locations()[$slug])
+        ) {
             return array();
         }
 

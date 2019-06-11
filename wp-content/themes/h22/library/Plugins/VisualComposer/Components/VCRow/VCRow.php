@@ -23,7 +23,8 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\VCRow\VCRow')):
             \WPBMap::modify(
                 'vc_row',
                 'admin_enqueue_js',
-                \H22\Helper\FileSystem::themeUrl(dirname(__FILE__)) . '/js/vc_row.js'
+                \H22\Helper\FileSystem::themeUrl(dirname(__FILE__)) .
+                    '/js/vc_row.js'
             );
         }
 
@@ -109,12 +110,18 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\VCRow\VCRow')):
                     switch ($breakpoint) {
                         case 'xs':
                         case 'sm':
-                            $classes[] = sprintf('u-flex-column-reverse@%s', $breakpoint);
+                            $classes[] = sprintf(
+                                'u-flex-column-reverse@%s',
+                                $breakpoint
+                            );
                             break;
                         case 'md':
                         case 'md':
                         default:
-                            $classes[] = sprintf('u-flex-row-reverse@%s', $breakpoint);
+                            $classes[] = sprintf(
+                                'u-flex-row-reverse@%s',
+                                $breakpoint
+                            );
                             break;
                     }
                 }
@@ -128,7 +135,8 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\VCRow\VCRow')):
             if (!empty($data['full_height'])) {
                 $classes[] = 'vc_row-o-full-height';
                 if (!empty($data['columns_placement'])) {
-                    $classes[] = 'vc_row-o-columns-' . $data['columns_placement'];
+                    $classes[] =
+                        'vc_row-o-columns-' . $data['columns_placement'];
                     if ('stretch' === $data['columns_placement']) {
                         $classes[] = 'vc_row-o-equal-height';
                     }
@@ -164,7 +172,9 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\VCRow\VCRow')):
                 $data['attributes'][] = 'data-vc-full-width-init="false"';
                 if ('stretch_row_content' === $data['full_width']) {
                     $data['attributes'][] = 'data-vc-stretch-content="true"';
-                } elseif ('stretch_row_content_no_spaces' === $data['full_width']) {
+                } elseif (
+                    'stretch_row_content_no_spaces' === $data['full_width']
+                ) {
                     $data['attributes'][] = 'data-vc-stretch-content="true"';
                     $data['attributes']['class'][] = 'vc_row-no-padding';
                 }

@@ -34,7 +34,8 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\VCColumn\VCColumn')):
             \WPBMap::modify(
                 'vc_column',
                 'admin_enqueue_js',
-                \H22\Helper\FileSystem::themeUrl(dirname(__FILE__)) . '/js/vc_column.js'
+                \H22\Helper\FileSystem::themeUrl(dirname(__FILE__)) .
+                    '/js/vc_column.js'
             );
         }
 
@@ -155,15 +156,21 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\VCColumn\VCColumn')):
             }
 
             if ($color_theme = $data['color_theme'] ?? null) {
-                $data['attributes']['class'][] = "c-column--color-theme-{$color_theme}";
+                $data['attributes'][
+                    'class'
+                ][] = "c-column--color-theme-{$color_theme}";
             }
 
             if ($vertical_align = $data['vertical_align'] ?? null) {
-                $data['attributes']['class'][] = "c-column--align-{$vertical_align}";
+                $data['attributes'][
+                    'class'
+                ][] = "c-column--align-{$vertical_align}";
             }
 
             if ($text_align = $data['text_align'] ?? null) {
-                $data['attributes']['class'][] = "c-column--text-align-{$text_align}";
+                $data['attributes'][
+                    'class'
+                ][] = "c-column--text-align-{$text_align}";
             }
 
             if (!empty($data['hidden_sizes'])) {

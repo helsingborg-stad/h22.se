@@ -1,76 +1,75 @@
 .c-header-desktop {
-	box-shadow: none;
-	display: none;
-	flex-direction: row;
-	align-items: center;
-	justify-content: space-between;
-	width: 100%;
-	padding: map-get($spacers, '4');
+  box-shadow: none;
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: map-get($spacers, '4');
 
   @include mq(map_get($breakpoints-map, 'md')) {
-      display: flex;
-    }
-
+    display: flex;
+  }
 }
 
 // DESKTOP MENU
 .c-header-desktop__menu-items {
-	max-width: 700px;
-	li{
-		display: inline-block;
-		margin: map-get($spacers, '05') map-get($spacers, '2');
+  max-width: 700px;
+  li {
+    display: inline-block;
+    margin: map-get($spacers, '05') map-get($spacers, '2');
     padding: 0;
-		color: $color-gray;
+    color: $color-gray;
 
-		&:before {
-			content: none;
-		}
+    &:before {
+      content: none;
+    }
 
-		a {
-			font-weight: 200;
-			text-decoration: none;
+    a {
+      font-weight: 200;
+      text-decoration: none;
 
-			&:hover,
-			&:focu,
-			&:active {
-				color: $color-black;
-				position: relative;
-				padding-bottom: map-get($spacers, '05');
-				// outline: 0;
+      &:hover,
+      &:focu,
+      &:active {
+        color: $color-black;
+        position: relative;
+        padding-bottom: map-get($spacers, '05');
+        // outline: 0;
 
-				&:after {
-					position: absolute;
-					content: '';
-					width: 100%;
-					height: 100%;
-					bottom: 0;
-					left: 0;
-					border-bottom: 1px solid $color-gray-light;
-				}
-			}
-		}
-	}
+        &:after {
+          position: absolute;
+          content: '';
+          width: 100%;
+          height: 100%;
+          bottom: 0;
+          left: 0;
+          border-bottom: 1px solid $color-gray-light;
+        }
+      }
+    }
+  }
 
-	.current-menu-item {
-		font-weight: 200;
-		color: $color-black;
-		position: relative;
-		padding-bottom: map-get($spacers, '05');
-		outline: 0;
+  .current-menu-item {
+    font-weight: 200;
+    color: $color-black;
+    position: relative;
+    padding-bottom: map-get($spacers, '05');
+    outline: 0;
 
-		&:after {
-			position: absolute;
-			content: '';
-			width: 100%;
-			height: 100%;
-			bottom: 0;
-			left: 0;
-			border-bottom: 1px solid $color-gray-light;
-		}
-	}
+    &:after {
+      position: absolute;
+      content: '';
+      width: 100%;
+      height: 100%;
+      bottom: 0;
+      left: 0;
+      border-bottom: 1px solid $color-gray-light;
+    }
+  }
 }
 
 a.c-header-desktop__language {
-	text-decoration: none;
+  text-decoration: none;
   font-weight: 200;
 }

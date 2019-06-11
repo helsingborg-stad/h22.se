@@ -11,23 +11,29 @@ class CustomPostTypes
             _x('News', 'Post type singular', 'h22'),
             'news',
             array(
-                'description'          =>   __('H22 News', 'h22'),
-                'menu_icon'            =>   'dashicons-admin-post',
-                'public'               =>   true,
-                'publicly_queriable'   =>   true,
-                'show_ui'              =>   true,
-                'show_in_nav_menus'    =>   true,
-                'has_archive'          =>   true,
+                'description' => __('H22 News', 'h22'),
+                'menu_icon' => 'dashicons-admin-post',
+                'public' => true,
+                'publicly_queriable' => true,
+                'show_ui' => true,
+                'show_in_nav_menus' => true,
+                'has_archive' => true,
                 // 'rewrite'              =>   array(
                 //     'slug'       =>   __('news', 'h22'),
                 //     'with_front' =>   false
                 // ),
-                'hierarchical'          =>  false,
-                'exclude_from_search'   =>  false,
-                'taxonomies'            =>  array(),
-                'supports'              =>  array( 'title', 'editor', 'author', 'thumbnail', 'excerpt'),
-                'show_in_rest'          => true,
-                'menu_position'         => 5
+                'hierarchical' => false,
+                'exclude_from_search' => false,
+                'taxonomies' => array(),
+                'supports' => array(
+                    'title',
+                    'editor',
+                    'author',
+                    'thumbnail',
+                    'excerpt',
+                ),
+                'show_in_rest' => true,
+                'menu_position' => 5,
             )
         );
 
@@ -36,23 +42,29 @@ class CustomPostTypes
             _x('Project', 'Post type singular', 'h22'),
             'projects',
             array(
-                'description'          =>   __('H22 Projects', 'h22'),
-                'menu_icon'            =>   'dashicons-portfolio',
-                'public'               =>   true,
-                'publicly_queriable'   =>   true,
-                'show_ui'              =>   true,
-                'show_in_nav_menus'    =>   true,
-                'has_archive'          =>   true,
+                'description' => __('H22 Projects', 'h22'),
+                'menu_icon' => 'dashicons-portfolio',
+                'public' => true,
+                'publicly_queriable' => true,
+                'show_ui' => true,
+                'show_in_nav_menus' => true,
+                'has_archive' => true,
                 // 'rewrite'              =>   array(
                 //     'slug'       =>   __('projects', 'h22'),
                 //     'with_front' =>   false
                 // ),
-                'hierarchical'          =>  false,
-                'exclude_from_search'   =>  false,
-                'taxonomies'            =>  array(),
-                'supports'              =>  array( 'title', 'editor', 'author', 'thumbnail', 'excerpt'),
-                'show_in_rest'          => true,
-                'menu_position'         => 10
+                'hierarchical' => false,
+                'exclude_from_search' => false,
+                'taxonomies' => array(),
+                'supports' => array(
+                    'title',
+                    'editor',
+                    'author',
+                    'thumbnail',
+                    'excerpt',
+                ),
+                'show_in_rest' => true,
+                'menu_position' => 10,
             )
         );
     }

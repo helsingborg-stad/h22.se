@@ -1,60 +1,60 @@
 .c-section {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    overflow: hidden;
-    position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  overflow: hidden;
+  position: relative;
 
-    &--color-theme-red {
-        background: $color-white;
-    }
-    &--color-theme-green {
-        background: $color-white;
-    }
-    &--color-theme-blue {
-        background: $color-white;
-    }
-    &--color-theme-purple {
-        background: $color-white;
-    }
-    &--color-theme-bg-red {
-        background: $color-red;
-        color: $color-white;
-    }
-    &--color-theme-bg-green {
-        background: $color-green;
-        color: $color-white;
-    }
-    &--color-theme-bg-blue {
-        background: $color-blue;
-        color: $color-white;
-    }
-    &--color-theme-bg-purple {
-        background: $color-purple;
-        color: $color-white;
-    }
-    &--with-background {
-        color: $color-white;
-        background-color: $color-black;
-    }
-    & > * {
-        position: relative;
-    }
+  &--color-theme-red {
+    background: $color-white;
+  }
+  &--color-theme-green {
+    background: $color-white;
+  }
+  &--color-theme-blue {
+    background: $color-white;
+  }
+  &--color-theme-purple {
+    background: $color-white;
+  }
+  &--color-theme-bg-red {
+    background: $color-red;
+    color: $color-white;
+  }
+  &--color-theme-bg-green {
+    background: $color-green;
+    color: $color-white;
+  }
+  &--color-theme-bg-blue {
+    background: $color-blue;
+    color: $color-white;
+  }
+  &--color-theme-bg-purple {
+    background: $color-purple;
+    color: $color-white;
+  }
+  &--with-background {
+    color: $color-white;
+    background-color: $color-black;
+  }
+  & > * {
+    position: relative;
+  }
 }
 
 .c-section {
-    padding-top: $base * 12;
-    padding-bottom: $base * 12;
+  padding-top: $base * 12;
+  padding-bottom: $base * 12;
 }
 
 .c-section__bg-video {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    top: 0;
-    left: 0;
-    .c-section--with-overlay & {
-        opacity: 0.5;
-    }
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  top: 0;
+  left: 0;
+  .c-section--with-overlay & {
+    opacity: 0.5;
+  }
 }

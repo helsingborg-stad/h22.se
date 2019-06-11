@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title><?php echo apply_filters(
-    	'Municipio/pageTitle',
-    	wp_title('|', false, 'right')
+        'Municipio/pageTitle',
+        wp_title('|', false, 'right')
     ); ?></title>
 
     <meta name="pubdate" content="{{ the_time('Y-m-d') }}">

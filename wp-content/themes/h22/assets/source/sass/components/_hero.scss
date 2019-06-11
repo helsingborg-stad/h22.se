@@ -1,70 +1,70 @@
 .c-hero {
-	flex-direction: column;
-	padding: map-get($spacers, '14');
-	margin: 0 (-1 * map-get($spacers, '2'));
-	
-	@include suppress-margin-top;
-	@include suppress-margin-bottom;
+  flex-direction: column;
+  padding: map-get($spacers, '14');
+  margin: 0 (-1 * map-get($spacers, '2'));
 
-	> * {
-		text-align: center;
-	}
+  @include suppress-margin-top;
+  @include suppress-margin-bottom;
 
-	// background image modifiers
-	&--with-bg-image,
-	&--text-with-bg-image {
-		position: relative;
-	}
+  > * {
+    text-align: center;
+  }
 
-	&--text-with-bg-image-overlay {
-		position: relative;
-		background: rgba($color-black, 0.5);
-	}
+  // background image modifiers
+  &--with-bg-image,
+  &--text-with-bg-image {
+    position: relative;
+  }
 
-	// color modifiers
+  &--text-with-bg-image-overlay {
+    position: relative;
+    background: rgba($color-black, 0.5);
+  }
 
-	&--color-theme-black {
-		color: $color-black;
-	}
+  // color modifiers
 
-	&--color-theme-bg-red {
-		background-color: $color-red;
-		color: $color-white;
-	}
+  &--color-theme-black {
+    color: $color-black;
+  }
 
-	&--color-theme-bg-green {
-		background-color: $color-green;
-		color: $color-white;
-	}
+  &--color-theme-bg-red {
+    background-color: $color-red;
+    color: $color-white;
+  }
 
-	&--color-theme-bg-blue {
-		background-color: $color-blue;
-		color: $color-white;
-	}
-	&--color-theme-bg-purple {
-		background-color: $color-purple;
-		color: $color-white;
-	}
+  &--color-theme-bg-green {
+    background-color: $color-green;
+    color: $color-white;
+  }
+
+  &--color-theme-bg-blue {
+    background-color: $color-blue;
+    color: $color-white;
+  }
+  &--color-theme-bg-purple {
+    background-color: $color-purple;
+    color: $color-white;
+  }
 }
 
 .c-hero__title {
-	font-size: $font-size-hero;
-	margin-bottom: map-get($spacers, '3');
+  font-size: $font-size-hero;
+  margin-bottom: map-get($spacers, '3');
 }
 
 .c-hero__body {
-	font-size: $font-size-hero-body;
-	display: block;
-	margin: 0;
-	padding: 0;
+  font-size: $font-size-hero-body;
+  display: block;
+  margin: 0;
+  padding: 0;
 }
 
 .c-hero__image {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	top: 0;
-	left: 0;
-	z-index: -999;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  top: 0;
+  left: 0;
+  z-index: -999;
 }

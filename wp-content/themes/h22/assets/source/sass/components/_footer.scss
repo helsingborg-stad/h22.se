@@ -1,20 +1,21 @@
 // Always push footer to bottom fix
-html, body {
-    height: 100%;
-    min-height: 100%;
+html,
+body {
+  height: 100%;
+  min-height: 100%;
 }
 body {
-    display:flex; 
-    flex-direction:column;
+  display: flex;
+  flex-direction: column;
 
-    > footer {
-        margin-top: auto;
-    }
+  > footer {
+    margin-top: auto;
+  }
 }
 
 .c-footer.c-footer--h22 {
-    box-shadow: 0;
-    background-color: black;
-    border-top: none;
-    min-height: $base * 50;
+  box-shadow: 0;
+  background-color: black;
+  border-top: none;
+  min-height: $base * 50;
 }

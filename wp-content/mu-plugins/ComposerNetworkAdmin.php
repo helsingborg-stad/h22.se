@@ -14,7 +14,12 @@ class ComposerNetworkAdmin
     public function __construct()
     {
         if (is_multisite() && defined(SUBDOMAIN_INSTALL) && SUBDOMAIN_INSTALL) {
-            add_filter('network_admin_url', array($this, 'sanitizeNetworkAdminUrl'), 50, 2);
+            add_filter(
+                'network_admin_url',
+                array($this, 'sanitizeNetworkAdminUrl'),
+                50,
+                2
+            );
             add_filter('admin_url', array($this, 'sanitizeAdminUrl'), 50, 3);
         }
 
@@ -28,7 +33,10 @@ class ComposerNetworkAdmin
 
     public function sanitizeAdminUrl($url, $path, $blog_id)
     {
-        if (strpos($url, '/wp/wp-admin') === false && !strpos($url, '/network')) {
+        if (
+            strpos($url, '/wp/wp-admin') === false &&
+            !strpos($url, '/network')
+        ) {
             return str_replace('/wp-admin/', '/wp/wp-admin/', $url);
         } else {
             return $url;
@@ -37,7 +45,10 @@ class ComposerNetworkAdmin
 
     public function sanitizeNetworkAdminUrl($url, $path)
     {
-        if (strpos($url, '/wp/wp-admin/network') === false && strpos($url, '/network')) {
+        if (
+            strpos($url, '/wp/wp-admin/network') === false &&
+            strpos($url, '/network')
+        ) {
             return str_replace('/wp-admin/', '/wp/wp-admin/', $url);
         } else {
             return $url;
