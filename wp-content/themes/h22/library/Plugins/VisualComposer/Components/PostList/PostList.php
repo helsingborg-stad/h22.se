@@ -45,6 +45,23 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\PostList\PostList')):
                         ],
                     ),
                     array(
+                        'type' => 'dropdown',
+                        'heading' => __('Columns', 'h22'),
+                        'param_name' => 'columns',
+                        'value' => [
+                            '2' => 2,
+                            '3' => 3,
+                            '4' => 4,
+                        ],
+                        'std' => 3,
+                    ),
+                    array(
+                        'type' => 'textfield',
+                        'heading' => __('Rows', 'h22'),
+                        'param_name' => 'rows',
+                        'value' => 4,
+                    ),
+                    array(
                         'type' => 'textfield',
                         'heading' => __('Archive button text', 'h22'),
                         'param_name' => 'archive_link_text',
@@ -95,6 +112,7 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\PostList\PostList')):
             $data['attributes']['class'][] = 'c-post-list';
             $query = new WP_Query([
                 'post_type' => $post_type,
+                'posts_per_page' => ($data['columns'] ?? 3) * ($data['rows'] ?? 4),
             ]);
             $class = $this->getPostListItemClass($post_type);
             $data['posts'] = [];
