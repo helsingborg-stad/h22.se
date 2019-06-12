@@ -156,6 +156,9 @@ $breakpoints-map: (
 	xl: 100em, //1600px
 );
 
+$header-breakpoint: 60em; // 1020px
+
+
 //Display states
 $display-states: 'none', 'inline', 'inline-block', 'block', 'table',
   'table-cell', 'table-row', 'flex', 'inline-flex';
