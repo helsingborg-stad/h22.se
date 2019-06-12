@@ -142,6 +142,7 @@
 
 
 
+// Min height
 .u-min-height-sm {
 	min-height: 300px;
 }
@@ -151,11 +152,21 @@
 .u-min-height-lg {
 	min-height: 600px;
 }
-
 .u-min-height-xl {
 	min-height: 750px;
 }
 
+.u-min-h-100vh {
+    min-height: 100vh
+}
+
+
+.h-full-page-header {
+    min-height: calc(100vh - 88px);
+}
+
+
+// Font weight
 .u-light {
 	font-weight: $font-weight-thin;
 }
