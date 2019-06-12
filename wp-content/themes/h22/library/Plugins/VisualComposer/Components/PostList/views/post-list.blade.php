@@ -5,7 +5,7 @@
         @endif
         <div class="grid">
             @foreach ($posts as $post)
-                <div class="grid-md-4">
+                <div class="grid-md-{{ 12 / $columns }}">
                     {!! $post !!}
                 </div>
             @endforeach
