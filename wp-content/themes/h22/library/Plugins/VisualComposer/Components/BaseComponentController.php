@@ -19,15 +19,17 @@ trait BaseComponentController
     {
         $className = str_replace('\\', '/', get_class($this)); // Convert backslash to forwardslash
         $this->componentBaseName = basename($className);
-        if(!isset($this->bladeView)) {
-            $this->bladeView = str_replace('_', '-', Inflector::tableize($this->componentBaseName));
+        if (!isset($this->bladeView)) {
+            $this->bladeView = str_replace(
+                '_',
+                '-',
+                Inflector::tableize($this->componentBaseName)
+            );
         }
-        $this->bladeViewPaths[] =
-            get_stylesheet_directory() .
-            '/bem-views';
-        $this->bladeViewPaths[] =
-            get_stylesheet_directory() .
-            '/views';
+        $this->bladeViewPaths[] = get_template_directory() . '/bem-views';
+        $this->bladeViewPaths[] = get_template_directory() . '/views';
+        $this->bladeViewPaths[] = get_stylesheet_directory() . '/bem-views';
+        $this->bladeViewPaths[] = get_stylesheet_directory() . '/views';
         if (!$this->class_info) {
             $this->class_info = $this->getClassSource();
         }
