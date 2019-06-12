@@ -19,13 +19,15 @@ class PostListItemBase
 
         $blade = new Blade(
             [
+                get_template_directory() . '/bem-views',
+                get_template_directory() . '/views',
                 get_stylesheet_directory() . '/bem-views',
                 get_stylesheet_directory() . '/views',
                 dirname(dirname(__FILE__)) . '/views',
             ],
             WP_CONTENT_DIR . '/uploads/cache/blade-cache'
         );
-        
+
         // Convert namespace to blade view name
         $view = implode(
             '/',
@@ -33,7 +35,7 @@ class PostListItemBase
                 return str_replace('_', '-', Inflector::tableize($str));
             }, array_slice(explode('\\', get_class($this)), 4))
         );
-        
+
         return $blade
             ->view()
             ->make($view, $data)
