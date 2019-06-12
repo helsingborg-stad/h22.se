@@ -3,7 +3,11 @@ namespace H22\Plugins\VisualComposer\Components\VcRow;
 
 use H22\Plugins\VisualComposer\Components\BaseComponentController;
 
+<<<<<<< HEAD
 if (!class_exists('\H22\Plugins\VisualComposer\Components\VcRow\VcRow')) :
+=======
+if (!class_exists('\H22\Plugins\VisualComposer\Components\VcRow\VcRow')):
+>>>>>>> ♻️ Refactor VC integration
     class VcRow extends \WPBakeryShortCodesContainer
     {
         use BaseComponentController;
