@@ -83,3 +83,9 @@
 .lead {
     font-weight: 300;
 }
+
+.c-section.has-fill,
+.c-column .c-column__inner.has-fill {
+    background-size: cover;
+    background-repeat: no-repeat;
+}
