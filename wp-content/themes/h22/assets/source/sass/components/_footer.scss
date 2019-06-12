@@ -101,5 +101,15 @@ body {
     &:before {
       content: none;
     }
+
+    a:link, a:visited, a:active {
+      color: inherit;
+      transition: opacity 0.15s ease;
+    }
+
+    a:hover {
+      color: inherit;
+      opacity: 0.5;
+    }
   }
 }
