@@ -7,7 +7,7 @@
   width: 100%;
   padding: map-get($spacers, '4');
 
-  @include mq(map_get($breakpoints-map, 'md')) {
+  @include mq($header-breakpoint) {
     display: flex;
   }
 }

@@ -69,7 +69,7 @@ The theme uses WPBakery Page Builder (aka Visual Composer). This is how you add 
    ?>
    ```
 
-4. Create a blade file inside a views folder with the same name as the component folder but in lowercase, e.g. `views/buttongroup.blade.php`.
+4. Create a blade file inside a views folder with the same name as the component folder but in kebab case, e.g. `views/button-group.blade.php`.
 5. If you need to add CSS for the component, create a Sass file in wp-content/themes/h22/assets/source/sass/components. Include the file inside wp-content/themes/h22/assets/source/sass/app.scss, e.g. `@import 'components/button-group'`.
 
 Check out the WPBakery Page Builder API documentation: https://kb.wpbakery.com/docs/inner-api/

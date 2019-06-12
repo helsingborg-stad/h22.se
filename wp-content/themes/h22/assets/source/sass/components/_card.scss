@@ -1,6 +1,10 @@
 .c-card {
   // margin: map-get($spacers, '2');
   box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
   &--left {
     text-align: left;
   }
@@ -83,4 +87,11 @@
 .c-card__meta {
   font-size: $font-size-meta;
   color: $color-gray;
+}
+
+.c-card--without-image {
+  justify-content: flex-end;
+  .c-card__title {
+    font-size: $font-size-title;
+  }
 }

@@ -4,40 +4,21 @@ namespace H22\Plugins\VisualComposer\Components\VcSingleImage;
 use H22\Plugins\VisualComposer\Components\BaseComponentController;
 use WPBMap;
 
-require_once WP_PLUGIN_DIR .
-    '/js_composer/include/classes/shortcodes/vc-single-image.php';
-
 if (
     !class_exists(
         '\H22\Plugins\VisualComposer\Components\VcSingleImage\VcSingleImage'
     )
 ):
-    class VcSingleImage extends \WPBakeryShortCode_VC_Section
+    class VcSingleImage extends \WPBakeryShortCode
     {
         use BaseComponentController;
 
         public function __construct()
         {
-            add_action('vc_after_init', array($this, 'adminJS'));
             add_action('vc_after_init', array($this, 'changeTemplateSource'));
             add_action('vc_after_init', array($this, 'removeParams'));
             add_action('vc_after_init', array($this, 'changeParams'));
             $this->initBaseController(false);
-        }
-
-        public function adminJS()
-        {
-            \WPBMap::modify(
-                'vc_single_image',
-                'js_view',
-                'ViewVCSingleImageModule'
-            );
-            \WPBMap::modify(
-                'vc_single_image',
-                'admin_enqueue_js',
-                \H22\Helper\FileSystem::themeUrl(dirname(__FILE__)) .
-                    '/js/vc_single_image.js'
-            );
         }
 
         public function changeTemplateSource()
