@@ -25,6 +25,11 @@
     margin-bottom: $base * 6;
 }
 
+.s-elements-mb-0 .c-element {
+	margin-bottom: 0;
+}
+
+
 .grid {
 	margin-left: $base * -0.5;
 	margin-right: $base * -0.5;
