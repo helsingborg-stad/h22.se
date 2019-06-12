@@ -48,7 +48,10 @@ class PostListItem extends PostListItemBase
 
         // Image ratio
         $image_wrapper_attributes = [
-            'class' => ['c-card__image-wrapper', 'c-card__image-wrapper--4by3'],
+            'class' => [
+                'c-card__image-wrapper',
+                'ratio' => 'c-card__image-wrapper--4by3',
+            ],
         ];
 
         $data['attributes'] = $attributes;
