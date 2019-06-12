@@ -1,5 +1,5 @@
 <?php
-namespace H22\Plugins\VisualComposer\Components\VCSingleImage;
+namespace H22\Plugins\VisualComposer\Components\VcSingleImage;
 
 use H22\Plugins\VisualComposer\Components\BaseComponentController;
 use WPBMap;
@@ -9,10 +9,10 @@ require_once WP_PLUGIN_DIR .
 
 if (
     !class_exists(
-        '\H22\Plugins\VisualComposer\Components\VCSingleImage\VCSingleImage'
+        '\H22\Plugins\VisualComposer\Components\VcSingleImage\VcSingleImage'
     )
 ):
-    class VCSingleImage extends \WPBakeryShortCode_VC_Section
+    class VcSingleImage extends \WPBakeryShortCode_VC_Section
     {
         use BaseComponentController;
 
@@ -45,7 +45,7 @@ if (
             \WPBMap::modify(
                 'vc_single_image',
                 'html_template',
-                dirname(__FILE__) . '/VCSingleImage.php'
+                dirname(__FILE__) . '/VcSingleImage.php'
             );
         }
 
@@ -195,6 +195,6 @@ endif;
  * @var $this WPBakeryShortCode_VC_Row
  */
 if (isset($atts)):
-    $element = new VCSingleImage();
+    $element = new VcSingleImage();
     echo $element->output($atts, $content, 'vc_single_image');
 endif;

@@ -6,6 +6,9 @@
             </div>
         @endisset
         <div class="c-card__body">
+            @isset($meta)
+                <div class="c-card__meta">{{ $meta }}</div>
+            @endisset
             <h2 class="c-card__title">
                 @empty ($link['url'])
                     {{ $heading }}

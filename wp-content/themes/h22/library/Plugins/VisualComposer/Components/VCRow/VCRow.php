@@ -1,10 +1,10 @@
 <?php
-namespace H22\Plugins\VisualComposer\Components\VCRow;
+namespace H22\Plugins\VisualComposer\Components\VcRow;
 
 use H22\Plugins\VisualComposer\Components\BaseComponentController;
 
-if (!class_exists('\H22\Plugins\VisualComposer\Components\VCRow\VCRow')):
-    class VCRow extends \WPBakeryShortCodesContainer
+if (!class_exists('\H22\Plugins\VisualComposer\Components\VcRow\VcRow')):
+    class VcRow extends \WPBakeryShortCodesContainer
     {
         use BaseComponentController;
 
@@ -33,7 +33,7 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\VCRow\VCRow')):
             \WPBMap::modify(
                 'vc_row',
                 'html_template',
-                dirname(__FILE__) . '/VCRow.php'
+                dirname(__FILE__) . '/VcRow.php'
             );
         }
 
@@ -160,7 +160,7 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\VCRow\VCRow')):
         {
             $data['attributes']['class'] = $this->getCssClasses($data);
             $data['attributes']['class'] = apply_filters(
-                'helsingborg-h22/visual-composer/VCRow/html_class',
+                'helsingborg-h22/visual-composer/VcRow/html_class',
                 $data['attributes']['class'],
                 'vc_row',
                 $data
@@ -212,6 +212,6 @@ endif;
  * @var $this WPBakeryShortCode_VC_Row
  */
 if (isset($atts)):
-    $row = new VCRow();
+    $row = new VcRow();
     echo $row->output($atts, $content, 'vc_row');
 endif;

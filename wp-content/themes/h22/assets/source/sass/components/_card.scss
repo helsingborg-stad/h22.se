@@ -20,10 +20,6 @@
   }
   &:focus-within {
     // For browser supporting `:focus-within`
-    color: mediumseagreen;
-    .c-card__link:focus {
-      text-decoration: none;
-    }
   }
 
   .c-card__link {
@@ -82,4 +78,9 @@
     top: 0;
     left: 0;
   }
+}
+
+.c-card__meta {
+  font-size: $font-size-meta;
+  color: $color-gray;
 }

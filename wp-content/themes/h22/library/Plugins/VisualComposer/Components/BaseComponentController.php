@@ -1,8 +1,9 @@
 <?php
 namespace H22\Plugins\VisualComposer\Components;
 
-use Philo\Blade\Blade;
+use Doctrine\Common\Inflector\Inflector;
 use H22\Plugins\VisualComposer\ActiveComponents;
+use Philo\Blade\Blade;
 
 trait BaseComponentController
 {
@@ -11,22 +12,22 @@ trait BaseComponentController
     protected $class_info = false;
     protected $bladeViewPaths = array();
     protected $bladeCachePath = false;
-    protected $bladeView = 'basecomponentcontroller';
+    protected $bladeView;
     protected $componentBaseName = 'BaseComponentController';
 
     public function initBaseController($settings)
     {
         $className = str_replace('\\', '/', get_class($this)); // Convert backslash to forwardslash
         $this->componentBaseName = basename($className);
-        $this->bladeView = strtolower($this->componentBaseName);
+        if(!isset($this->bladeView)) {
+            $this->bladeView = str_replace('_', '-', Inflector::tableize($this->componentBaseName));
+        }
         $this->bladeViewPaths[] =
             get_stylesheet_directory() .
-            '/bem-views/vc-components/' .
-            $this->componentBaseName;
+            '/bem-views';
         $this->bladeViewPaths[] =
             get_stylesheet_directory() .
-            '/views/vc-components/' .
-            $this->componentBaseName;
+            '/views';
         if (!$this->class_info) {
             $this->class_info = $this->getClassSource();
         }

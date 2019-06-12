@@ -1,5 +1,5 @@
 <?php
-namespace H22\Plugins\VisualComposer\Components\VCColumnText;
+namespace H22\Plugins\VisualComposer\Components\VcColumnText;
 
 use H22\Plugins\VisualComposer\Components\BaseComponentController;
 
@@ -8,10 +8,10 @@ require_once WP_PLUGIN_DIR .
 
 if (
     !class_exists(
-        '\H22\Plugins\VisualComposer\Components\VCColumnText\VCColumnText'
+        '\H22\Plugins\VisualComposer\Components\VcColumnText\VcColumnText'
     )
 ):
-    class VCColumnText extends \WPBakeryShortCode_VC_Column_text
+    class VcColumnText extends \WPBakeryShortCode_VC_Column_text
     {
         use BaseComponentController;
 
@@ -27,7 +27,7 @@ if (
             \WPBMap::modify(
                 'vc_column_text',
                 'html_template',
-                dirname(__FILE__) . '/VCColumnText.php'
+                dirname(__FILE__) . '/VcColumnText.php'
             );
         }
 
@@ -65,6 +65,6 @@ endif;
  * From wp-content/plugins/js_composer/include/templates/shortcodes/vc_column_text.php
  */
 if (isset($atts)):
-    $row = new VCColumnText();
+    $row = new VcColumnText();
     echo $row->output($atts, $content, 'vc_column_text');
 endif;
