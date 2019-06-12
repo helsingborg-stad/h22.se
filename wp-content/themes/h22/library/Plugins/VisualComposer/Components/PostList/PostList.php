@@ -42,6 +42,7 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\PostList\PostList')):
                         // post types are registered after this hook is run.
                         'value' => [
                             'News' => 'news',
+                            'Projects' => 'projects',
                         ],
                     ),
                     array(
