@@ -1,0 +1,35 @@
+.c-tabs {
+  &__button {
+    &[aria-expanded='true'] {
+      border-bottom-color: $color-black;
+      // border-bottom-width: 4px;
+    }
+  }
+
+  &__content {
+    .c-element {
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+    .c-single-image {
+      padding: 0;
+
+      .c-single-image__image-wrapper {
+        &:after {
+          content: none;
+        }
+
+        img {
+          position: relative;
+          left: initial;
+          top: initial;
+          width: 100%;
+          height: auto;
+          object-fit: initial;
+          font-family: initial;
+        }
+      }
+    }
+  }
+}
