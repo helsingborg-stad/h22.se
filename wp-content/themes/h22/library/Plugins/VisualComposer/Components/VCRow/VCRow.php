@@ -3,7 +3,7 @@ namespace H22\Plugins\VisualComposer\Components\VcRow;
 
 use H22\Plugins\VisualComposer\Components\BaseComponentController;
 
-if (!class_exists('\H22\Plugins\VisualComposer\Components\VcRow\VcRow')):
+if (!class_exists('\H22\Plugins\VisualComposer\Components\VcRow\VcRow')) :
     class VcRow extends \WPBakeryShortCodesContainer
     {
         use BaseComponentController;
@@ -68,6 +68,7 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\VcRow\VcRow')):
                 'value' => array(__('Yes', 'js_composer') => 'yes'),
                 'group' => __('Responsive', 'h22'),
             ));
+
             vc_add_param('vc_row', array(
                 'type' => 'dropdown',
                 'heading' => __(
@@ -92,6 +93,50 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\VcRow\VcRow')):
                 'std' => 'xs,sm,md',
                 'group' => __('Responsive', 'h22'),
             ));
+
+
+            vc_add_param('vc_row', [
+                'type' => 'dropdown',
+                'heading' => __('Container width', 'h22'),
+                'param_name' => 'container',
+                'value' => array(
+                    __('Default', 'h22') => '',
+                    __('Content', 'h22') => 'content',
+                    __('Small', 'h22') => 'small',
+                    __('Wide', 'h22') => 'wide',
+                    __('Full width', 'h22') => 'full-width',
+                ),
+                'weight' => 100
+            ]);
+
+            vc_add_param('vc_row', [
+                'type' => 'checkbox',
+                'heading' => __('Remove container padding', 'h22'),
+                'param_name' => 'container_no_pad',
+                'value' => '',
+                'weight' => 100
+            ]);
+
+            vc_add_param('vc_row', [
+                'type' => 'checkbox',
+                'heading' => __('Remove column gutter', 'h22'),
+                'param_name' => 'no_gutter',
+                'value' => '',
+                'weight' => 100
+            ]);
+
+
+
+            // vc_add_param('vc_row', [
+            //     'type' => 'dropdown',
+            //     'heading' => __('Column gutter', 'h22'),
+            //     'param_name' => 'container',
+            //     'value' => array(
+            //         __('Default', 'h22') => '',
+            //         __('No gutter', 'h22') => 'no-gutter',
+            //     ),
+            //     'weight' => 100
+            // ]);
         }
 
         protected function getCssClasses($data)
@@ -181,6 +226,19 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\VcRow\VcRow')):
                 // $afterOutput .= '<div class="vc_row-full-width vc_clearfix"></div>';
             }
             // $data['afterOutput'] = $afterOutput;
+
+
+            $data['containerAttributes']['class'][] = 'container';
+            $data['containerAttributes']['class'][] = isset($data['container']) && !empty($data['container']) ? 'container--' . $data['container'] : '';
+
+            if (isset($data['container_no_pad']) && $data['container_no_pad'] === 'true') {
+                $data['containerAttributes']['class'][] = 'u-px-0';
+            }
+
+            if (isset($data['no_gutter']) && $data['no_gutter'] === 'true') {
+                $data['attributes']['class'][] = 'grid--no-gutter';
+            }
+
 
             return $data;
         }

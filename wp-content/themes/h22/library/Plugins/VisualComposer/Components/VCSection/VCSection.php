@@ -2,6 +2,7 @@
 namespace H22\Plugins\VisualComposer\Components\VcSection;
 
 use H22\Plugins\VisualComposer\Components\BaseComponentController;
+use H22\Plugins\VisualComposer\Components\GeneralComponentParams;
 
 require_once WP_PLUGIN_DIR .
     '/js_composer/include/classes/shortcodes/vc-section.php';
@@ -12,6 +13,7 @@ if (
     class VcSection extends \WPBakeryShortCode_VC_Section
     {
         use BaseComponentController;
+        use GeneralComponentParams;
 
         public function __construct()
         {
@@ -60,6 +62,10 @@ if (
 
         public function addParams()
         {
+            $this->generalThemeParams('vc_section');
+            $this->generalTextColorParams('vc_section');
+            $this->generalBackgroundParams('vc_section');
+
             vc_add_param('vc_section', [
                 'param_name' => 'min_height',
                 'type' => 'dropdown',
@@ -69,25 +75,34 @@ if (
                     __('Small', 'h22') => 'sm',
                     __('Medium', 'h22') => 'md',
                     __('Large', 'h22') => 'lg',
+                    __('100% of Viewport', 'h22') => '100vh',
+                    __('90% of Viewport', 'h22') => '90vh',
+                    __('80% of Viewport', 'h22') => '80vh',
+                    __('70% of Viewport', 'h22') => '70vh',
+                    __('60% of Viewport', 'h22') => '60vh',
                 ),
                 'std' => '',
+                'weight' => 80
             ]);
+
             vc_add_param('vc_section', [
-                'param_name' => 'color_theme',
+                'param_name' => 'content_alignment',
                 'type' => 'dropdown',
-                'heading' => __('Color theme', 'h22'),
+                'heading' => __('Content alignment', 'h22'),
                 'value' => array(
-                    // __('Default', 'h22') => '',
-                    __('Red text', 'h22') => 'red',
-                    __('Green text', 'h22') => 'green',
-                    __('Blue text', 'h22') => 'blue',
-                    __('Purple text', 'h22') => 'purple',
-                    __('Red background', 'h22') => 'bg-red',
-                    __('Green background', 'h22') => 'bg-green',
-                    __('Blue background', 'h22') => 'bg-blue',
-                    __('Purple background', 'h22') => 'bg-purple',
+                    __('Default (top)', 'h22') => '',
+                    __('Middle', 'h22') => 'center',
+                    __('Bottom', 'h22') => 'end',
                 ),
-                'std' => 'blue',
+                'std' => '',
+                'weight' => 80
+            ]);
+
+            vc_add_param('vc_column', [
+                'type' => 'checkbox',
+                'heading' => __('Remove element spacing', 'h22'),
+                'param_name' => 'no_space_el',
+                'value' => 0
             ]);
             vc_add_param('vc_section', [
                 'param_name' => 'background_video',
@@ -109,60 +124,90 @@ if (
                     'not_empty' => true,
                 ),
             ]);
-            vc_add_param('vc_section', [
-                'param_name' => 'overlay',
-                'type' => 'checkbox',
-                'heading' => __('Background overlay', 'h22'),
-                'description' => __(
-                    'If checked an overlay will be added on the background to increase contrast',
-                    'h22'
-                ),
-                'value' => array(
-                    __('Yes', 'h22') => 'yes',
-                ),
-                'dependency' => array(
-                    'element' => 'background_video',
-                    'not_empty' => true,
-                ),
-            ]);
         }
 
         public function prepareData($data)
         {
             $data['attributes']['class'][] = 'c-section';
+            $data['attributes']['class'][] = isset($data['min_height']) && !empty($data['min_height']) ? "c-section--min-height-{$data['min_height']}" : '';
+            $data['attributes']['class'][] = $data['el_class'];
 
-            if (!empty($data['min_height'])) {
-                $data['attributes'][
-                    'class'
-                ][] = "c-section--min-height-{$data['min_height']}";
+            // Color Theme
+            if (isset($data['color_theme']) && !empty($data['color_theme'])) {
+                $data['attributes']['class'][] = 't-' . $data['color_theme'];
+
+                if (strpos($data['color_theme'], 'fill') !== false) {
+                    $data['attributes']['class'][] = 'has-fill';
+                }
             }
 
-            $color_theme = $data['color_theme'] ?? 'blue';
-            $data['attributes']['class'][
-                'color_theme'
-            ] = "c-section--color-theme-{$color_theme}";
+            // Text Color
+            if (isset($data['text_color']) && !empty($data['text_color'])) {
+                if ($data['text_color'] === 'custom') {
+                    $data['attributes']['style']['color'] = $data['text_color_hex'] ?? '';
+                } else {
+                    $data['attributes']['class'][] = 'u-text-' . $data['text_color'];
+                }
+            }
+
+            // Background Color
+            if (isset($data['bg_color']) && !empty($data['bg_color'])) {
+                if ($data['bg_color'] === 'custom') {
+                    $data['attributes']['style']['background-color'] = $data['bg_color_hex'] ?? '';
+                } else {
+                    $data['attributes']['class'][] = 'u-bg-' . $data['bg_color'];
+                }
+
+                if (!in_array('has-fill', $data['attributes']['class'])) {
+                    $data['attributes']['class'][] = 'has-fill';
+                }
+            }
+            
+            // Background image
+            if (isset($data['bg_image']) && !empty($data['bg_image'])) {
+                $data['attributes']['style']['background-image'] = "url('" . wp_get_attachment_url($data['bg_image']) . "')";
+                $data['attributes']['style']['background-repeat'] = $data['bg_repeat'] ?? '';
+                $data['attributes']['style']['background-size'] = $data['bg_size'] ?? '';
+                $data['attributes']['style']['background-size'] = $data['bg_size_custom'] ?? $data['attributes']['style']['background-size'];
+                $data['attributes']['style']['background-position'] = $data['bg_pos'] ?? '';
+                $data['attributes']['style']['background-position'] = $data['bg_pos_custom'] ?? $data['attributes']['style']['background-position'];
+
+                if (!in_array('has-fill', $data['attributes']['class'])) {
+                    $data['attributes']['class'][] = 'has-fill';
+                }
+            }
+
+            // Content Alignment
+            if (isset($data['content_alignment']) && !empty($data['content_alignment'])) {
+                $data['attributes']['class'][] = 'u-justify-content-' . $data['content_alignment'];
+            }
+
+            // Overlay
+            if (isset($data['overlay']) && !empty($data['overlay'])) {
+                $data['attributes']['class'][] = 'o-overlay-' . $data['overlay'];
+            }
+
+            if (isset($data['no_space_el']) && $data['no_space_el'] === 'true') {
+                $data['attributes']['class'][] = 's-elements-mb-0';
+            }
 
             if (isset($data['background_video'])) {
                 $background_video = wp_get_attachment_metadata(
                     $data['background_video']
                 );
-
                 $video_attributes['class'][] = 'c-section__bg-video';
                 $video_attributes['autoplay'] = true;
                 $video_attributes['loop'] = true;
                 $video_attributes['muted'] = true;
-
                 $video_sources[] = [
                     'src' => wp_get_attachment_url($data['background_video']),
                     'type' => $background_video['mime_type'],
                 ];
-
                 if (isset($data['background_video_fallback'])) {
                     $video_attributes['poster'] = wp_get_attachment_url(
                         $data['background_video_fallback']
                     );
                 }
-
                 $data['background_video'] = $background_video;
                 $data['background_video']['attributes'] = $video_attributes;
                 $data['background_video']['sources'] = $video_sources;
@@ -170,9 +215,6 @@ if (
                 unset($data['attributes']['class']['color_theme']);
             }
 
-            if (!empty($data['overlay'])) {
-                $data['attributes']['class'][] = 'c-section--with-overlay';
-            }
 
             return $data;
         }
