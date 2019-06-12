@@ -6,7 +6,7 @@
   overflow: hidden;
   flex-direction: column;
 
-  @include mq(map_get($breakpoints-map, 'md')) {
+  @include mq($header-breakpoint) {
     display: none;
   }
 
