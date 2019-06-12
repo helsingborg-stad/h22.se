@@ -2,12 +2,15 @@
 namespace H22\Plugins\VisualComposer\Components\VCColumn;
 
 use H22\Plugins\VisualComposer\Components\BaseComponentController;
+use H22\Plugins\VisualComposer\Components\GeneralComponentParams;
+
 use WPBMap;
 
-if (!class_exists('\H22\Plugins\VisualComposer\Components\VCColumn\VCColumn')):
+if (!class_exists('\H22\Plugins\VisualComposer\Components\VCColumn\VCColumn')) :
     class VCColumn
     {
         use BaseComponentController;
+        use GeneralComponentParams;
 
         public function __construct()
         {
@@ -55,27 +58,9 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\VCColumn\VCColumn')):
 
         public function addParams()
         {
-            vc_add_param('vc_column', [
-                'param_name' => 'color_theme',
-                'type' => 'dropdown',
-                'heading' => __('Color theme', 'h22'),
-                'description' => __(
-                    'Only applicable for columns inside sections.',
-                    'h22'
-                ),
-                'value' => array(
-                    __('Default (inherit)', 'h22') => '',
-                    __('Red text', 'h22') => 'red',
-                    __('Green text', 'h22') => 'green',
-                    __('Blue text', 'h22') => 'blue',
-                    __('Purple text', 'h22') => 'purple',
-                    __('Red background', 'h22') => 'bg-red',
-                    __('Green background', 'h22') => 'bg-green',
-                    __('Blue background', 'h22') => 'bg-blue',
-                    __('Purple background', 'h22') => 'bg-purple',
-                ),
-                'std' => '',
-            ]);
+            $this->generalThemeParams('vc_column');
+            $this->generalBackgroundParams('vc_column');
+            $this->generalTextColorParams('vc_column');
 
             vc_add_param('vc_column', [
                 'type' => 'checkbox',
@@ -119,6 +104,19 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\VCColumn\VCColumn')):
 
             vc_add_param('vc_column', [
                 'type' => 'dropdown',
+                'heading' => __('Container width', 'h22'),
+                'param_name' => 'container',
+                'value' => array(
+                    __('Default', 'h22') => '',
+                    __('Content', 'h22') => 'content',
+                    __('Small', 'h22') => 'small',
+                    __('Wide', 'h22') => 'wide',
+                    __('Full width', 'h22') => 'full-width',
+                ),
+            ]);
+
+            vc_add_param('vc_column', [
+                'type' => 'dropdown',
                 'heading' => __('Vertical alignment', 'h22'),
                 'param_name' => 'vertical_align',
                 'value' => array(
@@ -127,6 +125,26 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\VCColumn\VCColumn')):
                     __('Bottom', 'h22') => 'bottom',
                 ),
                 'std' => 'top',
+            ]);
+
+            vc_add_param('vc_column', [
+                'type' => 'dropdown',
+                'heading' => __('Inner padding', 'h22'),
+                'param_name' => 'inner_pad',
+                'value' => array(
+                    __('Default (inherit)', 'h22') => '',
+                    __('No padding', 'h22') => '0',
+                    __('Padding 24', 'h22') => '3',
+                    __('Padding 40', 'h22') => '5',
+                    __('Padding 56', 'h22') => '7',
+                )
+            ]);
+
+            vc_add_param('vc_column', [
+                'type' => 'checkbox',
+                'heading' => __('Remove element spacing', 'h22'),
+                'param_name' => 'no_space_el',
+                'value' => 0
             ]);
 
             // Move param to separate tab and place it last by dropping and re-adding it
@@ -140,11 +158,25 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\VCColumn\VCColumn')):
             $param['group'] = __('Settings', 'h22');
             WPBMap::dropParam('vc_column', $param['param_name']);
             WPBMap::addParam('vc_column', $param);
+
+            vc_add_param('vc_column', [
+                'type' => 'textfield',
+                'heading' => __('Extra Inner column class name', 'h22'),
+                'param_name' => 'inner_class',
+                'value' => '',
+                'group' => 'Settings'
+            ]);
         }
 
         public function prepareData($data)
         {
             $data['attributes']['class'][] = 'c-column';
+            $data['childAttributes']['class'][] = 'column__inner';
+            $data['childAttributes']['class'][] = $data['inner_class'] ?? '';
+
+            if (isset($data['no_space_el']) && $data['no_space_el'] === 'true') {
+                $data['childAttributes']['class'][] = 's-elements-mb-0';
+            }
 
             if ($el_id = $data['el_id'] ?? null) {
                 $data['attributes']['id'] = $el_id;
@@ -154,12 +186,13 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\VCColumn\VCColumn')):
                 $data['attributes']['class'][] = $el_class;
             }
 
-            if ($color_theme = $data['color_theme'] ?? null) {
-                $data['attributes']['class'][] = "c-column--color-theme-{$color_theme}";
-            }
+            if (isset($data['vertical_align']) && $data['vertical_align'] !== '' && $data['vertical_align'] !== 'top') {
+                $verticalAlignClasses = [
+                    'middle' => 'u-justify-content-center',
+                    'bottom' => 'u-justify-content-end'
+                ];
 
-            if ($vertical_align = $data['vertical_align'] ?? null) {
-                $data['attributes']['class'][] = "c-column--align-{$vertical_align}";
+                $data['childAttributes']['class'][] = $verticalAlignClasses[$data['vertical_align']] ?? '';
             }
 
             if ($text_align = $data['text_align'] ?? null) {
@@ -177,6 +210,61 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\VCColumn\VCColumn')):
             list($a, $b) = explode('/', $width);
             $cols = intval((12 * $a) / $b);
             $data['attributes']['class'][] = "grid-md-$cols";
+
+            // Inner padding
+            if (isset($data['inner_pad']) && $data['inner_pad'] !== '') {
+                $data['childAttributes']['class'][] = 'u-p-' . $data['inner_pad'];
+
+                if (strpos($data['color_theme'], 'fill') !== false) {
+                    $data['childAttributes']['class'][] = 'has-fill';
+                }
+            }
+
+            // Color Theme
+            if (isset($data['color_theme']) && !empty($data['color_theme'])) {
+                $data['childAttributes']['class'][] = 't-' . $data['color_theme'];
+
+                if (strpos($data['color_theme'], 'fill') !== false) {
+                    $data['childAttributes']['class'][] = 'has-fill';
+                }
+            }
+
+            // Text Color
+            if (isset($data['text_color']) && !empty($data['text_color'])) {
+                if ($data['text_color'] === 'custom') {
+                    $data['childAttributes']['style']['color'] = $data['text_color_hex'] ?? '';
+                } else {
+                    $data['childAttributes']['class'][] = 'u-text-' . $data['text_color'];
+                }
+            }
+
+            // Background Color
+            if (isset($data['bg_color']) && !empty($data['bg_color'])) {
+                if ($data['bg_color'] === 'custom') {
+                    $data['childAttributes']['style']['background-color'] = $data['bg_color_hex'] ?? '';
+                } else {
+                    $data['childAttributes']['class'][] = 'u-bg-' . $data['bg_color'];
+                }
+
+                if (!in_array('has-fill', $data['childAttributes']['class'])) {
+                    $data['childAttributes']['class'][] = 'has-fill';
+                }
+            }
+            
+            // Background image
+            if (isset($data['bg_image']) && !empty($data['bg_image'])) {
+                $data['childAttributes']['style']['background-image'] = "url('" . wp_get_attachment_url($data['bg_image']) . "')";
+                $data['childAttributes']['style']['background-repeat'] = $data['bg_repeat'] ?? '';
+                $data['childAttributes']['style']['background-size'] = $data['bg_size'] ?? '';
+                $data['childAttributes']['style']['background-size'] = $data['bg_size_custom'] ?? $data['childAttributes']['style']['background-size'];
+                $data['childAttributes']['style']['background-position'] = $data['bg_pos'] ?? '';
+                $data['childAttributes']['style']['background-position'] = $data['bg_pos_custom'] ?? $data['childAttributes']['style']['background-position'];
+
+                if (!in_array('has-fill', $data['childAttributes']['class'])) {
+                    $data['childAttributes']['class'][] = 'has-fill';
+                }
+            }
+
 
             return $data;
         }
