@@ -20,8 +20,6 @@ class PostListItem extends PostListItemBase
             $attributes['class'][] = 'c-card--clickable';
         }
 
-        $data['attributes'] = $attributes;
-
         // Link
         $link_attributes = [];
         $data['link']['attributes'] = $link_attributes;
@@ -44,12 +42,16 @@ class PostListItem extends PostListItemBase
                 true
             );
             $data['image']['attributes'] = $image_attributes;
+        } else {
+            $attributes['class'][] = 'c-card--without-image';
         }
 
         // Image ratio
         $image_wrapper_attributes = [
             'class' => ['c-card__image-wrapper', 'c-card__image-wrapper--4by3'],
         ];
+
+        $data['attributes'] = $attributes;
 
         $data['image_wrapper']['attributes'] = $image_wrapper_attributes;
 
