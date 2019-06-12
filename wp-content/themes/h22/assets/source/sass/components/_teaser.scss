@@ -7,8 +7,8 @@
 }
 
 .c-teaser {
-	@include suppress-margin-top;
-	@include suppress-margin-bottom;
+	// @include suppress-margin-top;
+	// @include suppress-margin-bottom;
 	.preamble {
 		font-size: $font-size-preamble;
 		line-height: $line-height-preamble;
