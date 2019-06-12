@@ -1,0 +1,10 @@
+.c-post-list {
+
+  &__title {
+    margin-bottom: map-get($spacers, '4');
+  }
+
+  &__link {
+    margin-top: map-get($spacers, '4');
+  }
+}
