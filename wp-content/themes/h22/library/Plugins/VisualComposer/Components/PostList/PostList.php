@@ -14,9 +14,9 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\PostList\PostList')):
         public function __construct()
         {
             $settings = array(
-                'name' => __('PostList', 'h22'),
+                'name' => __('Post list', 'h22'),
                 'base' => 'vc_h22_postlist',
-                'icon' => 'icon-wpb-ui-empty_space',
+                'icon' => 'icon-wpb-application-icon-large',
                 'params' => array(
                     array(
                         'type' => 'textfield',
