@@ -7,6 +7,12 @@
 	margin-bottom: 0;
 }
 
+.c-column .column__inner {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
 
 .c-element {
     margin-bottom: $base * 6;
