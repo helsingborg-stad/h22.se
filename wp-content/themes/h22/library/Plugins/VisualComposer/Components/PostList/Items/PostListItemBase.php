@@ -27,7 +27,6 @@ class PostListItemBase
             ],
             WP_CONTENT_DIR . '/uploads/cache/blade-cache'
         );
-
         // Convert namespace to blade view name
         $view = implode(
             '/',
@@ -35,7 +34,6 @@ class PostListItemBase
                 return str_replace('_', '-', Inflector::tableize($str));
             }, array_slice(explode('\\', get_class($this)), 4))
         );
-
         return $blade
             ->view()
             ->make($view, $data)
