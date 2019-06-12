@@ -13,6 +13,13 @@
 	flex-direction: column;
 }
 
+.c-column .column__inner.has-fill {
+	padding: 24px;
+
+	& > .c-element:last-child {
+		margin-bottom: 0;
+	}
+}
 
 .c-element {
     margin-bottom: $base * 6;
