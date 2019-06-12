@@ -38,32 +38,17 @@
 @import 'generic/forms';
 
 @import 'elements/forms';
+@import 'components/paper';
+@import 'components/tabs';
 
 @import 'pages/404';
 
 
 @import 'utilities';
 
-<<<<<<< HEAD
-.container.container--content {
-  max-width: 632px;
-}
-
-.container.container--small {
-  max-width: 456px;
-}
-
-.c-element {
-  margin-bottom: $base * 6;
-}
-
-.c-card__text {
-  font-size: $font-size-meta;
-=======
 // Temp
 #cookie-consent {
     display: none !important;
->>>>>>> cleanup
 }
 
 .o-display-1, .o-display-2 {
