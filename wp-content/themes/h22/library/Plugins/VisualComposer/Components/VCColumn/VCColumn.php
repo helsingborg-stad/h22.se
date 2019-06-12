@@ -1,13 +1,13 @@
 <?php
-namespace H22\Plugins\VisualComposer\Components\VCColumn;
+namespace H22\Plugins\VisualComposer\Components\VcColumn;
 
 use H22\Plugins\VisualComposer\Components\BaseComponentController;
 use H22\Plugins\VisualComposer\Components\GeneralComponentParams;
 
 use WPBMap;
 
-if (!class_exists('\H22\Plugins\VisualComposer\Components\VCColumn\VCColumn')) :
-    class VCColumn
+if (!class_exists('\H22\Plugins\VisualComposer\Components\VcColumn\VcColumn')):
+    class VcColumn
     {
         use BaseComponentController;
         use GeneralComponentParams;
@@ -27,7 +27,7 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\VCColumn\VCColumn')) :
             \WPBMap::modify(
                 'vc_column',
                 'html_template',
-                dirname(__FILE__) . '/VCColumn.php'
+                dirname(__FILE__) . '/VcColumn.php'
             );
         }
 
@@ -287,6 +287,6 @@ endif;
  * @var $this WPBakeryShortCode_VC_Column
  */
 if (isset($atts)):
-    $element = new VCColumn();
+    $element = new VcColumn();
     echo $element->output($atts, $content, 'vc_column');
 endif;

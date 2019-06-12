@@ -1,5 +1,5 @@
 <?php
-namespace H22\Plugins\VisualComposer\Components\VCSection;
+namespace H22\Plugins\VisualComposer\Components\VcSection;
 
 use H22\Plugins\VisualComposer\Components\BaseComponentController;
 use H22\Plugins\VisualComposer\Components\GeneralComponentParams;
@@ -7,8 +7,10 @@ use H22\Plugins\VisualComposer\Components\GeneralComponentParams;
 require_once WP_PLUGIN_DIR .
     '/js_composer/include/classes/shortcodes/vc-section.php';
 
-if (!class_exists('\H22\Plugins\VisualComposer\Components\VCSection\VCSection')) :
-    class VCSection extends \WPBakeryShortCode_VC_Section
+if (
+    !class_exists('\H22\Plugins\VisualComposer\Components\VcSection\VcSection')
+):
+    class VcSection extends \WPBakeryShortCode_VC_Section
     {
         use BaseComponentController;
         use GeneralComponentParams;
@@ -38,7 +40,7 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\VCSection\VCSection'))
             \WPBMap::modify(
                 'vc_section',
                 'html_template',
-                dirname(__FILE__) . '/VCSection.php'
+                dirname(__FILE__) . '/VcSection.php'
             );
         }
 
@@ -235,6 +237,6 @@ endif;
  * @var $this WPBakeryShortCode_VC_Row
  */
 if (isset($atts)):
-    $element = new VCSection();
+    $element = new VcSection();
     echo $element->output($atts, $content, 'vc_section');
 endif;
