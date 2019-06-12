@@ -23,7 +23,9 @@ add_action('init', function () {
     $acfExportManager = new \AcfExportManager\AcfExportManager();
     $acfExportManager->setTextdomain('h22');
     $acfExportManager->setExportFolder(H22_PATH . 'library/AcfFields');
-    $acfExportManager->autoExport(array());
+    $acfExportManager->autoExport(array(
+        'brand-widget' => 'group_6a5ca31651f18'
+    ));
     $acfExportManager->import();
 });
 

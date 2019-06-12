@@ -14,6 +14,7 @@ class App
         new \H22\Theme\CustomPostTypes();
         new \H22\Theme\Sidebars();
         new \H22\Plugins\VisualComposer\Main();
+        new \H22\Widget\Widgets();
     }
 
     public function requireDependencies()
