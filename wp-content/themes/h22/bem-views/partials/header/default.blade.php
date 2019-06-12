@@ -13,13 +13,13 @@
   		</div>
   		<div class="c-header-desktop__menu-items">
   			{!! $navigation['mainMenu'] !!}
-  		</div>
-      @if ($languages)
+      </div>
+      @if (isset($languages) && is_array($languages) && empty($languages))
         @foreach ($languages as $language)
           <a class="c-header-desktop__language" href="{{$language['url']}}">{{$language['name']}}</a>
         @endforeach
       @endif
-  	</div>
+    </div>
 
     <div id="c-header-mobile" class="c-header-mobile">
       <div class="c-header-mobile__top">
@@ -36,7 +36,7 @@
     			{!! $navigation['mainMenu'] !!}
     		</div>
         <div class="c-header-mobile__language">
-          @if ($languages)
+          @if (isset($languages) && is_array($languages) && empty($languages))
             @foreach ($languages as $language)
               <a href="{{$language['url']}}">{{$language['name']}}</a>
             @endforeach
