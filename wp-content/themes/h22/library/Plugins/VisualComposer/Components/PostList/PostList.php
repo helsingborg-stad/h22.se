@@ -44,6 +44,15 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\PostList\PostList')):
                             'News' => 'news',
                         ],
                     ),
+                    array(
+                        'type' => 'textfield',
+                        'heading' => __('Archive button text', 'h22'),
+                        'param_name' => 'archive_link_text',
+                        'description' => __(
+                            'Leave this empty if you don’t want a link to the archive',
+                            'h22'
+                        ),
+                    ),
                 ),
                 'html_template' => dirname(__FILE__) . '/PostList.php',
             );
@@ -69,10 +78,10 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\PostList\PostList')):
         public function getPostListItemClass($post_type)
         {
             $this->loadPostListItemViews();
-            if($post_type) {
+            if ($post_type) {
                 $class =
-                'H22\\Plugins\\VisualComposer\\Components\\PostList\\Items\\' .
-                Inflector::classify($post_type);
+                    'H22\\Plugins\\VisualComposer\\Components\\PostList\\Items\\' .
+                    Inflector::classify($post_type);
                 if (class_exists($class)) {
                     return $class;
                 }
@@ -82,7 +91,7 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\PostList\PostList')):
 
         public function prepareData($data)
         {
-            $post_type = $data['post_type'] ?? 'news';
+            $post_type = $data['post_type'] = $data['post_type'] ?? 'news';
             $data['attributes']['class'][] = 'c-post-list';
             $query = new WP_Query([
                 'post_type' => $post_type,
@@ -93,6 +102,16 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\PostList\PostList')):
                 $query->the_post();
                 $data['posts'][] = (new $class($post))->render();
                 wp_reset_postdata();
+            }
+            if (!empty($data['archive_link_text'])) {
+                $data['archive_link']['text'] = $data['archive_link_text'];
+                $data['archive_link']['attributes'][
+                    'href'
+                ] = get_post_type_archive_link($post_type);
+                $data['archive_link']['attributes']['class'][] =
+                    'c-button-group__link';
+                $data['archive_link']['attributes']['class'][] =
+                    'c-button-group__link--default';
             }
             return $data;
         }
