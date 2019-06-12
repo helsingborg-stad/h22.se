@@ -15,42 +15,73 @@
 	}
 }
 
-.c-section .c-column {
-	position: relative;
-	@each $name, $color in $brand-colors {
-		&--color-theme-#{$name} {
-			background: $color-white;
-			color: $color-black;
-		}
+
+// .c-section .c-column {
+// 	position: relative;
+// 	@each $name, $color in $brand-colors {
+// 		&--color-theme-#{$name} {
+// 			background: $color-white;
+// 			color: $color-black;
+// 		}
+// 	}
+// 	@each $name, $color in $brand-colors {
+// 		&--color-theme-bg-#{$name} {
+// 			background: $color;
+// 			color: $color-white;
+// 		}
+// 	}
+// }
+
+.c-section--min-height-sm {
+	min-height: 304px;
+}
+.c-section--min-height-md {
+	min-height: 448px;
+}
+.c-section--min-height-lg {
+	min-height: 600px;
+}
+.c-section--min-height-xl {
+	min-height: 752px;
+}
+
+.c-section--min-height-100vh {
+	min-height: 100vh;
+}
+
+.c-section--min-height-90vh {
+	min-height: 90vh;
+}
+
+.c-section--min-height-80vh {
+	min-height: 80vh;
+}
+
+.c-section--min-height-70vh {
+	min-height: 70vh;
+}
+
+.c-section--min-height-60vh {
+	min-height: 60vh;
+}
+
+.c-section--header-lg {
+	min-height: calc(100vh - 88px - 48px); // Viewport Height - Header Height - Element Spacing
+}
+
+.logged-in {
+	.c-section--header-lg {
+		min-height: calc(100vh - 88px -  48px - 46px);  // Viewport Height - Header Height - Element Spacing - WP Admin Bar
 	}
-	@each $name, $color in $brand-colors {
-		&--color-theme-bg-#{$name} {
-			background: $color;
-			color: $color-white;
+
+	@media screen and (min-width: 783px) {
+		.c-section--header-lg {
+			min-height: calc(100vh - 88px - 48px - 32px);   // Viewport Height - Header Height - Element Spacing - WP Admin Bar Desktop
 		}
 	}
 }
 
-.c-section--min-height-sm {
-	.c-column {
-		min-height: 300px;
-	}
-}
-.c-section--min-height-md {
-	.c-column {
-		min-height: 450px;
-	}
-}
-.c-section--min-height-lg {
-	.c-column {
-		min-height: 600px;
-	}
-}
-.c-section--min-height-xl {
-	.c-column {
-		min-height: 750px;
-	}
-}
+
 
 // .c-column__inner {
 // 	@include suppress-margin-top;
