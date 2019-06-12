@@ -23,5 +23,10 @@
                 <?php dynamic_sidebar('footer-area-logos'); ?>
             @endif
         </div>
+        <div class="c-footer__copyright">
+          @if( get_field('footer_copyright_show', 'option') )
+            <p>© {{date("Y")}} {{get_field('footer_copyright', 'option')}}</p>
+          @endif
+        </div>
     </div>
 @stop
