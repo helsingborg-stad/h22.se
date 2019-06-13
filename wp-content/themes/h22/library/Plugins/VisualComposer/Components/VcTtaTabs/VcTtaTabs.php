@@ -5,9 +5,7 @@ use H22\Plugins\VisualComposer\Components\BaseComponentController;
 use WPBMap;
 
 if (
-    !class_exists(
-        '\H22\Plugins\VisualComposer\Components\VcTtaTabs\VcTtaTabs'
-    )
+    !class_exists('\H22\Plugins\VisualComposer\Components\VcTtaTabs\VcTtaTabs')
 ):
     class VcTtaTabs extends \WPBakeryShortCode
     {

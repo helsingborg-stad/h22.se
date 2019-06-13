@@ -7,11 +7,11 @@ class Brand extends \Municipio\Widget\Source\WidgetTemplate
     public function setup()
     {
         $widget = array(
-            'id'            => 'brand-municipio',
-            'name'          => 'Brand / Logo',
-            'description'   => 'Display website logotype',
-            'template'      => 'brand.brand',
-            'fields'        => array('utilityFields')
+            'id' => 'brand-municipio',
+            'name' => 'Brand / Logo',
+            'description' => 'Display website logotype',
+            'template' => 'brand.brand',
+            'fields' => array('utilityFields'),
         );
 
         return $widget;
@@ -26,12 +26,15 @@ class Brand extends \Municipio\Widget\Source\WidgetTemplate
             switch ($this->checkFiletype($logo)) {
                 case 'svg':
                     $path = \Municipio\Helper\Image::urlToPath($logo['url']);
-                    $this->data['logotype'] = \Municipio\Helper\Svg::extract($path);
+                    $this->data['logotype'] = \Municipio\Helper\Svg::extract(
+                        $path
+                    );
                     $this->data['imageRatio'] = $this->getSvgRatio($path);
-                break;
+                    break;
                 case 'png':
-                    $this->data['logotype'] = '<img src="' . $logo['url'] . '">';
-                break;
+                    $this->data['logotype'] =
+                        '<img src="' . $logo['url'] . '">';
+                    break;
             }
 
             if ($maxWidth = $this->get_field('widget_header_max_width')) {
@@ -66,19 +69,26 @@ class Brand extends \Municipio\Widget\Source\WidgetTemplate
     {
         $dimensions = array();
 
-        if ($file && $xml = simplexml_load_file($file)) {
-            $viewBox = list($x_start, $y_start, $x_end, $y_end) = explode(' ', $xml['viewBox']);
+        if ($file && ($xml = simplexml_load_file($file))) {
+            $viewBox = list($x_start, $y_start, $x_end, $y_end) = explode(
+                ' ',
+                $xml['viewBox']
+            );
 
             if (count($viewBox) == 4) {
-                $dimensions['width']    = (int) ($viewBox[2] - $viewBox[0]);
-                $dimensions['height']   = (int) ($viewBox[3] - $viewBox[1]);
-                return abs(round(($dimensions['height'] / $dimensions['width']) * 100, 2));
+                $dimensions['width'] = (int) ($viewBox[2] - $viewBox[0]);
+                $dimensions['height'] = (int) ($viewBox[3] - $viewBox[1]);
+                return abs(
+                    round(
+                        ($dimensions['height'] / $dimensions['width']) * 100,
+                        2
+                    )
+                );
             }
         }
 
         return false;
     }
-
 
     /**
      * Available methods & vars for BaseWidget and extensions:

@@ -11,7 +11,7 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\Card\Card')):
         public function __construct()
         {
             $this->bladeView = 'card';
-            
+
             $settings = array(
                 'name' => __('Card', 'h22'),
                 'base' => 'vc_h22_card',
