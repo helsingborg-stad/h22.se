@@ -1,0 +1,13 @@
+.notice {
+  background-color: $color-black;
+  color: white;
+  .grid {
+    margin-top: (map-get($spacers, '3'));
+    & > * {
+      @include suppress-margin-bottom;
+    }
+  }
+  .btn {
+    @extend .btn--inverted;
+  }
+}

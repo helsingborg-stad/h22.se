@@ -28,6 +28,7 @@
 @import 'components/post-list';
 @import 'components/share-bar';
 @import 'components/modal';
+@import 'components/notice';
 @import 'components/button';
 
 @import 'pages/404';
@@ -52,9 +53,4 @@
 
 .c-card__text {
   font-size: $font-size-meta;
-}
-
-// Temp
-#cookie-consent {
-  display: none !important;
 }
