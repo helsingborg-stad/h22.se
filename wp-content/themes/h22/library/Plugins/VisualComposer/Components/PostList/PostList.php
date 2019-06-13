@@ -114,7 +114,7 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\PostList\PostList')):
             $data['columns'] = $data['columns'] ?? 3;
             $query = new WP_Query([
                 'post_type' => $post_type,
-                'posts_per_page' => ($data['columns']) * ($data['rows'] ?? 4),
+                'posts_per_page' => $data['columns'] * ($data['rows'] ?? 4),
             ]);
             $class = $this->getPostListItemClass($post_type);
             $data['posts'] = [];

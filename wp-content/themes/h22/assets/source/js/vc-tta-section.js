@@ -5,7 +5,7 @@ function setupTabs(tabList) {
   Array.from(sections).forEach((section, index) => {
     let sectionId = section.id;
     let sectionTitle = section.querySelector('.c-tabs__title');
-    sectionTitle.style.display = "none";
+    sectionTitle.style.display = 'none';
 
     if (index != 0) {
       section.setAttribute('aria-hidden', 'true');

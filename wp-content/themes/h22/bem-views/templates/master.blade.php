@@ -10,7 +10,6 @@
         'Municipio/pageTitle',
         wp_title('|', false, 'right')
     ); ?></title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <meta name="pubdate" content="{{ the_time('Y-m-d') }}">
     <meta name="moddate" content="{{ the_modified_time('Y-m-d') }}">

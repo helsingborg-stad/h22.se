@@ -4,8 +4,46 @@
     @include unlist;
     padding: 0;
     margin: 0;
+    display: flex;
+    margin: (-1 * map-get($spacers, '1'));
     & > li {
       padding: 0;
+      margin: map-get($spacers, '1');
+      & > a {
+        @extend .fa;
+        color: $color-gray-light;
+        background: $color-black;
+        border-radius: 9999px;
+        width: 2rem;
+        height: 2rem;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.25rem;
+        text-decoration: none;
+        &.share-social-facebook {
+          @extend .fa-facebook;
+        }
+        &.share-social-linkedin {
+          @extend .fa-linkedin;
+        }
+        &.share-social-twitter {
+          @extend .fa-twitter;
+        }
+        &.share-social-email {
+          @extend .fa-envelope;
+        }
+        & > span {
+          display: none;
+        }
+      }
     }
   }
+}
+
+.c-share-bar__heading {
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin-bottom: map-get($spacers, '1');
 }
