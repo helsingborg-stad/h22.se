@@ -3,6 +3,11 @@
 
 @import '~styleguide.local/source/sass/main.scss';
 
+
+.article h1 {
+    color: $color-black;
+}
+
 @import 'global';
 
 @import 'objects';
@@ -70,9 +75,4 @@
 
 .c-button-group__link--inverted.btn-text:link, .c-button-group__link--inverted.btn-text:visited {
     border-color: transparent;
-}
-
-
-.article h1 {
-    color: $color-black;
 }
