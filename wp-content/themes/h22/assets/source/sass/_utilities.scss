@@ -245,3 +245,10 @@ $backgroundAndTextColors: map-merge($brand-colors, (
 .u-text-center {
   text-align: center;
 }
+
+
+.article {
+  > *:last-child {
+    margin-bottom: 0px;
+  }
+}
