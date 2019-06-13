@@ -2,6 +2,10 @@
   flex-direction: column;
   padding: map-get($spacers, '14');
   margin: 0 (-1 * map-get($spacers, '2'));
+  position: relative;
+  & > * {
+    position: relative;
+  }
 
   @include suppress-margin-top;
   @include suppress-margin-bottom;
@@ -10,15 +14,8 @@
     text-align: center;
   }
 
-  // background image modifiers
-  &--with-bg-image,
-  &--text-with-bg-image {
-    position: relative;
-  }
-
   &--text-with-bg-image-overlay {
-    position: relative;
-    background: rgba($color-black, 0.5);
+    background: $color-black;
   }
 
   // color modifiers
@@ -66,5 +63,7 @@
   @include object-fit(cover);
   top: 0;
   left: 0;
-  z-index: -999;
+  .c-hero--text-with-bg-image-overlay & {
+    opacity: .5;
+  }
 }
