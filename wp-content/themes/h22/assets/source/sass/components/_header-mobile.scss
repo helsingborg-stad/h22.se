@@ -1,7 +1,7 @@
 .c-header-mobile {
   box-shadow: none;
   width: 100%;
-  padding: map-get($spacers, '4');
+  padding: $base * 2 0;
   display: flex;
   overflow: hidden;
   flex-direction: column;
@@ -9,12 +9,18 @@
   @include mq($header-breakpoint) {
     display: none;
   }
-
   &--open {
     position: fixed;
     background: $color-black;
     min-height: 100%;
     z-index: 9999;
+    left: 0;
+    padding-left: $base * 3;
+    padding-right: $base * 3;
+
+    .logotype svg {
+      fill: white;
+    }
 
     .c-header-mobile__logo,
     .c-header-mobile__menu-trigger {
@@ -35,7 +41,7 @@
   text-align: center;
   font-size: $font-size-hero-byline;
   color: $color-gray;
-  overflow-y: scroll;
+  overflow-y: auto;
   flex: 1 1 auto;
   padding-top: map-get($spacers, '4');
 }
