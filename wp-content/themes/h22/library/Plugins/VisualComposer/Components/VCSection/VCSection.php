@@ -124,22 +124,6 @@ if (
                     'not_empty' => true,
                 ),
             ]);
-            vc_add_param('vc_section', [
-                'param_name' => 'overlay',
-                'type' => 'checkbox',
-                'heading' => __('Background overlay', 'h22'),
-                'description' => __(
-                    'If checked an overlay will be added on the background to increase contrast',
-                    'h22'
-                ),
-                'value' => array(
-                    __('Yes', 'h22') => 'yes',
-                ),
-                'dependency' => array(
-                    'element' => 'background_video',
-                    'not_empty' => true,
-                ),
-            ]);
         }
 
         public function prepareData($data)
@@ -206,6 +190,31 @@ if (
             if (isset($data['no_space_el']) && $data['no_space_el'] === 'true') {
                 $data['attributes']['class'][] = 's-elements-mb-0';
             }
+
+            if (isset($data['background_video'])) {
+                $background_video = wp_get_attachment_metadata(
+                    $data['background_video']
+                );
+                $video_attributes['class'][] = 'c-section__bg-video';
+                $video_attributes['autoplay'] = true;
+                $video_attributes['loop'] = true;
+                $video_attributes['muted'] = true;
+                $video_sources[] = [
+                    'src' => wp_get_attachment_url($data['background_video']),
+                    'type' => $background_video['mime_type'],
+                ];
+                if (isset($data['background_video_fallback'])) {
+                    $video_attributes['poster'] = wp_get_attachment_url(
+                        $data['background_video_fallback']
+                    );
+                }
+                $data['background_video'] = $background_video;
+                $data['background_video']['attributes'] = $video_attributes;
+                $data['background_video']['sources'] = $video_sources;
+                $data['attributes']['class'][] = 'c-section--with-background';
+                unset($data['attributes']['class']['color_theme']);
+            }
+
 
             return $data;
         }
