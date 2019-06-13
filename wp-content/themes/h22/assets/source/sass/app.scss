@@ -45,7 +45,7 @@
 
 @import 'pages/404';
 
-
+@import 'theme';
 @import 'utilities';
 
 // Temp
@@ -75,4 +75,15 @@
 .c-column .c-column__inner.has-fill {
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+.c-header-mobile,
+.c-header-desktop {
+  a.logotype, .logotype svg {
+    display: block;
+  }
+}
+
+.c-button-group__link--inverted.btn-text:link, .c-button-group__link--inverted.btn-text:visited {
+    border-color: transparent;
 }
