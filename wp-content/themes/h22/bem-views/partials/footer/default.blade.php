@@ -12,7 +12,7 @@
 @section('footer-body')
 <div class="c-footer u-py-8">
     <div class="container container--wide">
-        <div class="grid">
+        <div class="grid u-justify-content-center">
             @if (is_active_sidebar('footer-area'))
             <?php dynamic_sidebar('footer-area'); ?>
             @endif

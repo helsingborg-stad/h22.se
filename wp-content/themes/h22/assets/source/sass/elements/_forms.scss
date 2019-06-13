@@ -1,0 +1,195 @@
+/* ==========================================================================
+   Atoms - Forms
+   ========================================================================== */
+
+::-webkit-input-placeholder {
+  font-style: normal;
+  color: $color-form-input-placeholder;
+}
+
+::-moz-placeholder {
+  font-style: normal;
+  color: $color-form-input-placeholder;
+}
+
+:-ms-input-placeholder {
+  font-style: normal;
+  color: $color-form-input-placeholder;
+}
+
+:-moz-placeholder {
+  font-style: normal;
+  color: $color-form-input-placeholder;
+}
+
+.fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+label + input,
+label + textarea {
+  margin-top: 5px;
+}
+
+textarea + label,
+input + label {
+  margin-left: 5px;
+}
+
+label {
+  font-size: $font-size-meta;
+  font-weight: 600;
+}
+
+textarea,
+input[type='text'],
+input[type='password'],
+input[type='search'],
+input[type='email'],
+input[type='tel'],
+input[type='url'],
+input[type='datetime'],
+input[type='date'],
+input[type='month'],
+input[type='week'],
+input[type='time'],
+input[type='datetime-local'],
+input[type='number'],
+select,
+input[type='textarea'] {
+  @include input-reset;
+  height: auto;
+  padding: $base * 1.5;
+  border: 1px solid $color-form-input-border;
+  border-radius: 2px;
+  background-color: $color-white;
+  font-size: 1rem;
+  outline: none;
+
+  &:focus {
+    box-shadow: 0 0 0 1px $color-blue;
+    border-color: $color-blue;
+    background-color: $color-white;
+  }
+}
+
+select {
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNLjYwNy41NTZhLjgyMS44MjEgMCAwIDEgMS4xNDQgMGwyLjU1MiAyLjQ3OGExIDEgMCAwIDAgMS4zOTQgMEw4LjI0OS41NTZhLjgyMS44MjEgMCAxIDEgMS4xNDQgMS4xNzhsLTMuNjk2IDMuNTlhMSAxIDAgMCAxLTEuMzk0IDBMLjYwNyAxLjczNGEuODIxLjgyMSAwIDAgMSAwLTEuMTc4eiIgZmlsbD0iIzg1ODU4NSIvPjwvc3ZnPg==');
+  background-repeat: no-repeat;
+  background-position: right $base * 1.5 top 50%;
+  padding-right: $base * 5;
+  width: 100%;
+}
+
+input[type='submit'],
+input[type='reset'],
+input[type='button'] {
+  @extend .btn;
+}
+
+/* Checkbox */
+
+input[type='checkbox'] {
+  @include visually-hidden;
+}
+
+input[type='checkbox'] + * {
+  &:before {
+    content: '';
+    width: $base * 2;
+    height: $base * 2;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-color: $color-white;
+    background-size: 100%;
+    vertical-align: -15%;
+    border: 1px solid $color-form-input-border;
+    border-radius: 2px;
+    margin-right: $base;
+  }
+}
+
+input[type='checkbox']:checked + * {
+  &:before {
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTcuMTY3IDEzLjU4M0wyLjU4MyA5bDEuMjkzLTEuMjkzIDMuMjkgMy4yODIgNi45NTgtNi45NTcgMS4yOTMgMS4zMDEtOC4yNSA4LjI1eiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==');
+    background-color: $color-blue;
+    border-color: transparent;
+  }
+}
+
+input[type='checkbox']:focus + * {
+  &:before {
+    box-shadow: 0 0 0 1px $color-blue;
+    border-color: $color-blue;
+  }
+}
+
+input[type='checkbox']:disabled + * {
+  &:before {
+    opacity: 0.5;
+  }
+}
+
+/* Radio */
+
+input[type='radio'] {
+  @include visually-hidden;
+}
+
+input[type='radio'] + * {
+  &:before {
+    content: '';
+    width: $base * 2;
+    height: $base * 2;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-color: $color-white;
+    background-size: 100%;
+    vertical-align: -15%;
+    border: 1px solid $color-form-input-border;
+    border-radius: 100%;
+    margin-right: $base;
+  }
+}
+
+input[type='radio']:checked + * {
+  &:before {
+    box-shadow: 0 0 0 3px $color-white inset;
+    background-color: $color-blue;
+  }
+}
+
+input[type='radio']:focus + * {
+  &:before {
+    box-shadow: 0 0 0 1px $color-blue;
+    border-color: $color-blue;
+  }
+}
+
+input[type='radio']:focus:checked + * {
+  &:before {
+    box-shadow: 0 0 0 1px $color-blue, 0 0 0 3px $color-white inset;
+  }
+}
+
+input[type='radio']:disabled + * {
+  &:before {
+    opacity: 0.5;
+  }
+}
+
+/**/
+
+textarea,
+input[type='text'],
+input[type='password'],
+input[type='search'],
+input[type='email'],
+input[type='tel'],
+input[type='url'],
+input[type='range'],
+input[type='textarea'] {
+  width: 100%;
+}

@@ -1,5 +1,4 @@
 .c-share-bar {
-  background: $color-gray-light;
   .share {
     @include unlist;
     padding: 0;
@@ -11,7 +10,7 @@
       margin: map-get($spacers, '1');
       & > a {
         @extend .fa;
-        color: $color-gray-light;
+        color: $color-white;
         background: $color-black;
         border-radius: 9999px;
         width: 2rem;

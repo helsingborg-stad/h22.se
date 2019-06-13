@@ -30,6 +30,12 @@
 @import 'components/modal';
 @import 'components/archive';
 @import 'components/pagination';
+@import 'components/notice';
+@import 'components/button';
+
+@import 'generic/forms';
+
+@import 'elements/forms';
 
 @import 'pages/404';
 
@@ -53,9 +59,4 @@
 
 .c-card__text {
   font-size: $font-size-meta;
-}
-
-// Temp
-#cookie-consent {
-  display: none !important;
 }
