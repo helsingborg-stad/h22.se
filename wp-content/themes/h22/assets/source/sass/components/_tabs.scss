@@ -2,7 +2,6 @@
   &__button {
     &[aria-expanded='true'] {
       border-bottom-color: $color-black;
-      // border-bottom-width: 4px;
     }
   }
 
@@ -16,19 +15,25 @@
       padding: 0;
 
       .c-single-image__image-wrapper {
+        position: relative;
+        left: initial;
+        top: initial;
+        bottom: initial;
+        right: initial;
+
         &:after {
           content: none;
         }
+      }
 
-        img {
-          position: relative;
-          left: initial;
-          top: initial;
-          width: 100%;
-          height: auto;
-          object-fit: initial;
-          font-family: initial;
-        }
+      img {
+        position: relative;
+        left: initial;
+        top: initial;
+        width: 100%;
+        height: auto;
+        object-fit: initial;
+        font-family: initial;
       }
     }
   }
