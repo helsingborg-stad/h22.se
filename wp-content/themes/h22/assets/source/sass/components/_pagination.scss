@@ -1,0 +1,72 @@
+ul.page-numbers {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: map-get($spacers, '4');
+
+  @include mq(map_get($breakpoints-map, 'sm')) {
+    justify-content: center;
+  }
+
+  // prev and last buttons
+  & li:first-child,
+  li:last-child {
+    margin: map-get($spacers, '1');
+
+    .page-numbers {
+      padding: map-get($spacers, '2');
+    }
+  }
+
+  // pages
+  & li {
+    display: flex;
+    padding: map-get($spacers, '0');
+    margin: map-get($spacers, '1');
+
+    &:before {
+      content: none;
+    }
+
+    //page links
+    .page-numbers {
+      padding: map-get($spacers, '2');
+      text-decoration: none;
+
+      &:link,
+      &:visited {
+        border: 2px solid $color-base;
+        color: $color-base;
+      }
+
+      &:hover,
+      &:active,
+      &:focus {
+        color: $color-white !important;
+        background-color: $color-base;
+      }
+    }
+
+    // more pages dots
+    .page-numbers.dots,
+    .page-numbers.dots:hover {
+      background-color: $color-white;
+      color: $color-base !important;
+    }
+
+    //current or active link
+    .page-numbers.current {
+      background-color: $color-base;
+      border: 2px solid $color-base;
+      color: $color-white;
+
+      &:hover,
+      &:focus {
+        color: $color-base !important;
+        background-color: $color-white;
+      }
+    }
+  }
+}

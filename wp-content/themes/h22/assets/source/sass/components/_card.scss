@@ -14,6 +14,11 @@
   &--right {
     text-align: right;
   }
+
+  &__title {
+    line-height: 1.25em;
+    margin-bottom: map-get($spacers, '1');
+  }
 }
 
 .c-card--clickable {
@@ -92,6 +97,6 @@
 .c-card--without-image {
   justify-content: flex-end;
   .c-card__title {
-    font-size: $font-size-title;
+    font-size: $font-size-card-no-image;
   }
 }

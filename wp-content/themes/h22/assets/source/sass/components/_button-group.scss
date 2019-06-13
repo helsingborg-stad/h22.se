@@ -1,11 +1,3 @@
-@function set-color($color) {
-  @if (lightness($color) > 40) {
-    @return $color-base;
-  } @else {
-    @return $color-base-invert;
-  }
-}
-
 .c-button-group {
   display: flex;
 
