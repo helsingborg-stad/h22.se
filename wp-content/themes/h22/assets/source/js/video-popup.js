@@ -1,4 +1,14 @@
-import getYoutubeId from 'get-youtube-id';
+import getVideoId from 'get-video-id';
+
+function getVideoUrl(url) {
+  const { id, service } = getVideoId(url);
+  switch (service) {
+    case 'youtube':
+      return `https://www.youtube.com/embed/${id}`;
+    case 'vimeo':
+      return `https://player.vimeo.com/video/${id}`;
+  }
+}
 
 var popupContainer;
 
@@ -7,8 +17,8 @@ function openVideoPopup({ url }) {
     popupContainer.parentNode.removeChild(popupContainer);
     popupContainer = null;
   }
-  const videoId = getYoutubeId(url);
-  if (!videoId) {
+  const videoUrl = getVideoUrl(url);
+  if (!videoUrl) {
     return;
   }
   popupContainer = document.createElement('div');
@@ -24,7 +34,7 @@ function openVideoPopup({ url }) {
             class="c-video-popup__iframe"
             width="560"
             height="315"
-            src="https://www.youtube.com/embed/${videoId}"
+            src="${videoUrl}"
             frameborder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
