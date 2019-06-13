@@ -17,6 +17,7 @@
   &:focus {
     color: $color-white !important;
     background-color: $color-base;
+    border-color: transparent;
   }
 
   &--inverted {
@@ -32,6 +33,7 @@
     &:focus {
       color: $color-base !important;
       background-color: $color-white;
+      border-color: transparent;
     }
   }
 }
