@@ -1,11 +1,13 @@
 <?php global $post;
 
-$image = municipio_get_thumbnail_source(null, array(400, 225));
+$image = municipio_get_thumbnail_source(null, array(400, 400));
+
+
 ?>
 
 <div class="c-card c-card--clickable @empty($image) c-card--without-image @endempty">
     @if( $image )
-        <div class="c-card__image-wrapper @if($image) c-card__image-wrapper--4by3 @endif">
+        <div class="c-card__image-wrapper @if($image) c-card__image-wrapper--1by1 @endif">
             <img class="c-card__image" src="{{ $image }}"/>
         </div>
     @endif
@@ -21,8 +23,8 @@ $image = municipio_get_thumbnail_source(null, array(400, 225));
                 {{ the_title() }}
             </a>
         </h2>
-        <div class="c-card__text">
+        {{-- <div class="c-card__text">
             {{ the_excerpt() }}
-        </div>
+        </div> --}}
     </div>
 </div>
