@@ -10,6 +10,9 @@
 			color: $color;
 		}
 
+		.c-share-bar .c-share-bar__heading {
+			color: white;
+		}
 		
 	}
 	.t-#{$name}-invert {
@@ -20,6 +23,10 @@
 		.c-teaser .cta-link::before {
 			background-color: $color;
 			color: white;
+		}
+
+		.c-share-bar .share > li > a {
+			background-color: $color;
 		}
 	}
 }
