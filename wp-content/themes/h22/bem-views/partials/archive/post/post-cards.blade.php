@@ -1,7 +1,6 @@
 <?php global $post;
 
-$image = municipio_get_thumbnail_source(null, array(400, 400));
-
+$image = municipio_get_thumbnail_source(null, array(400, 400), '1:1');
 
 ?>
 
