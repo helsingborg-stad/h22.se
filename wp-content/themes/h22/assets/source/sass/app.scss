@@ -103,3 +103,20 @@
 .textwidget > *:last-child {
     margin-bottom: 0;
 }
+
+.c-footer {
+    font-weight: 300;
+    p {
+        color: $color-base-invert-secondary;
+    }
+}
+
+.c-footer .c-footer__logos {
+    padding-top: 48px;
+    border-top: solid 1px $color-base-invert-disabled;
+
+    svg {
+        width: auto;
+        height: 96px;
+    }
+}

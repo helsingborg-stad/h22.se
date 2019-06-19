@@ -41,11 +41,13 @@
         </div>
     @endif
 
-    <div class="c-footer__logos">
+    <div class="container container--content u-px-0">
+    <div class="c-footer__logos u-justify-content-between">
         @if (is_active_sidebar('footer-area-logos'))
         <?php dynamic_sidebar('footer-area-logos'); ?>
         @endif
     </div>
+</div>
 
 
     <div class="c-footer__copyright">

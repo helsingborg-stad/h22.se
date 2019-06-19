@@ -21,8 +21,7 @@ body {
   color: $color-white;
 
   .footer-title {
-    font-size: $base * 5;
-    line-height: $base * 6;
+    @extend .h2;
     margin-bottom: $base * 2;
   }
 
