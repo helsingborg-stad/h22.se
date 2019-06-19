@@ -33,6 +33,7 @@ class RemoveElements
                 'vc_tta_tabs',
                 'vc_video',
                 'vc_empty_space',
+                'vc_raw_html'
             )
         );
 
