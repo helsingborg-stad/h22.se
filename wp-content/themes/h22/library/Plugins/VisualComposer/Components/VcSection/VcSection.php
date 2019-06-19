@@ -195,13 +195,14 @@ if (
                 $background_video = wp_get_attachment_metadata(
                     $data['background_video']
                 );
+
                 $video_attributes['class'][] = 'c-section__bg-video';
                 $video_attributes['autoplay'] = true;
                 $video_attributes['loop'] = true;
                 $video_attributes['muted'] = true;
                 $video_sources[] = [
                     'src' => wp_get_attachment_url($data['background_video']),
-                    'type' => $background_video['mime_type'],
+                    'type' => 'video/' . $background_video['fileformat'],
                 ];
                 if (isset($data['background_video_fallback'])) {
                     $video_attributes['poster'] = wp_get_attachment_url(
