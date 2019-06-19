@@ -37,3 +37,15 @@
     }
   }
 }
+
+
+.btn.btn--fill {
+    background-color: $color-black;
+    color: $color-white;
+}
+
+
+.btn.btn--fill.btn--inverted {
+  background-color: $color-white;
+  color: $color-black;
+}
