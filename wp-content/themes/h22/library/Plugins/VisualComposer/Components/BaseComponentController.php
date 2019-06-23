@@ -81,7 +81,8 @@ trait BaseComponentController
     public function repairString($string)
     {
         $tidy = new \tidy();
-        return $tidy->repairString($string);
+      
+        return $tidy->repairString($string, array('show-body-only' => true));
     }
 
     public function output($atts, $content = null, $shortcode_name = '')
