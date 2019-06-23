@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f3a1bc3466e42b65c06165736fe00618",
+    "content-hash": "2f886c087a85d2793a739b686f045711",
     "packages": [
         {
             "name": "aristath/kirki",
@@ -1069,6 +1069,33 @@
             ],
             "description": "A bootstrap theme for creating municipality sites.",
             "time": "2019-05-27T13:20:50+00:00"
+        },
+        {
+            "name": "helsingborg-stad/polylang-fallback",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/helsingborg-stad/polylang-fallback.git",
+                "reference": "bddee9c258b6a7054a5e77397b96083dc1ffa147"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/helsingborg-stad/polylang-fallback/zipball/bddee9c258b6a7054a5e77397b96083dc1ffa147",
+                "reference": "bddee9c258b6a7054a5e77397b96083dc1ffa147",
+                "shasum": ""
+            },
+            "type": "wordpress-plugin",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sebastian Thulin",
+                    "email": "sebastian.thulin@helsingborg.se"
+                }
+            ],
+            "time": "2017-12-14T13:48:01+00:00"
         },
         {
             "name": "helsingborg-stad/readspeaker-helper",
