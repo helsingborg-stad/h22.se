@@ -254,6 +254,12 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\VcColumn\VcColumn')) :
                 }
             }
             
+            // Featured Image as Background Image Source
+            if (isset($data['bg_image_src']) && $data['bg_image_src'] === 'featured_image') {
+                $data['bg_image'] = get_post_thumbnail_id(get_queried_object_id());
+                $data['bg_image'] = apply_filters('H22/Plugins/VisualComposer/Components/VcColumn/bgImage', $data['bg_image']);
+            }
+
             // Background image
             if (isset($data['bg_image']) && !empty($data['bg_image'])) {
                 $data['childAttributes']['style']['background-image'] = "url('" . wp_get_attachment_url($data['bg_image']) . "')";
