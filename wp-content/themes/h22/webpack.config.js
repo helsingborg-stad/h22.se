@@ -1,9 +1,12 @@
+require('dotenv').config();
+
 const path = require('path');
 
 const webpack = require('webpack');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const WebpackNotifierPlugin = require('webpack-notifier');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const FixStyleOnlyEntriesPlugin = require('webpack-fix-style-only-entries');
@@ -125,6 +128,30 @@ module.exports = {
         ],
     },
     plugins: removeEmpty([
+
+        /**
+         * BrowserSync
+         */
+        typeof process.env.BROWSER_SYNC_PROXY_URL !== 'undefined' ? new BrowserSyncPlugin(
+            // BrowserSync options
+            {
+              // browse to http://localhost:3000/ during development
+              host: 'localhost',
+              port: process.env.BROWSER_SYNC_PORT ? process.env.BROWSER_SYNC_PORT : 3000,
+              // proxy the Webpack Dev Server endpoint
+              // (which should be serving on http://localhost:3100/)
+              // through BrowserSync
+              proxy: process.env.BROWSER_SYNC_PROXY_URL
+            },
+            // plugin options
+            {
+              // prevent BrowserSync from reloading the page
+              // and let Webpack Dev Server take care of this
+              reload: false
+            }
+        ) : null
+        ,
+
         /**
          * Fix CSS entry chunks generating js file
          */
@@ -192,7 +219,7 @@ module.exports = {
                 preset: ['default', { discardComments: { removeAll: true } }],
             },
         }))
-    ]),
+    ]).filter(Boolean),
     devtool: ifProduction('source-map', 'eval-source-map'),
     stats: { children: false }
 };
