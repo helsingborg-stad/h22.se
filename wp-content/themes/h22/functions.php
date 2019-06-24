@@ -25,7 +25,8 @@ add_action('init', function () {
     $acfExportManager->setExportFolder(H22_PATH . 'library/AcfFields');
     $acfExportManager->autoExport(array(
         'brand-widget' => 'group_6a5ca31651f18',
-        'template-settings' => 'group_5d1086c70b64e'
+        'template-settings' => 'group_5d1086c70b64e',
+        'general-archive-settings' => 'group_5d10c0d7d43cf'
     ));
     $acfExportManager->import();
 });

@@ -17,9 +17,48 @@ class PageBuilderTemplate
         add_filter('vc_get_all_templates', array($this, 'customizeTemplatesTab'), 10, 1);
         add_filter('vc_load_default_templates', array($this, 'addSiteTemplates'), 10, 1);
 
+
+        add_action('Municipio/Admin/Options/Archives/fieldArgs', array($this, 'addAcfOptionsForArchiveTemplates'), 10, 4);
+
+
         $this->registerPostType();
     }
 
+    public function addAcfOptionsForArchiveTemplates($fieldArgs, $postType, $args, $taxonomies)
+    {
+        if (!$args->public || !$args->has_archive) {
+            return $fieldArgs;
+        }
+
+        $fieldArgs['fields'][] = array(
+                    'key' => 'field_5d10c0e60933c_' . md5($postType),
+                    'label' => 'Page Builder Template',
+                    'name' => 'page_builder_template_archive_' . sanitize_title($postType),
+                    'type' => 'post_object',
+                    'instructions' => '',
+                    'required' => 0,
+                    'conditional_logic' => 0,
+                    'wrapper' => array(
+                        'width' => '',
+                        'class' => '',
+                        'id' => '',
+                    ),
+                    'post_type' => [
+                        "pb-template"
+                    ],
+                    'taxonomy' => [
+                        "pb-template-type:archive"
+                    ],
+                    'allow_null' => 0,
+                    'multiple' => 0,
+                    'return_format' => 'object',
+                    'ui' => 1
+            );
+
+        return $fieldArgs;
+    }
+
+    
     public function addSiteTemplates($templates)
     {
         $savedTemplates = array_map(function ($template) {
