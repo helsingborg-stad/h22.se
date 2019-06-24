@@ -98,12 +98,27 @@ trait GeneralComponentParams
                     )
                 ],
                 [
+                    'param_name' => 'bg_image_src',
+                    'type' => 'dropdown',
+                    'heading' => __('Background Image Source', 'h22'),
+                    'value' => array(
+                        __('Media Library', 'h22') => '',
+                        __('Featured Image', 'h22') => 'featured_image',
+                    ),
+                    'group' => $group,
+                    'weight' => $weight
+                ],
+                [
                     'param_name' => 'bg_image',
                     'type' => 'attach_image',
                     'heading' => __('Background Image', 'h22'),
                     'value' => '',
                     'group' => $group,
-                    'weight' => $weight
+                    'weight' => $weight,
+                    'dependency' => array(
+                        'element' => 'bg_image_src',
+                        'value' => array('')
+                    )
                 ],
                 [
                     'param_name' => 'bg_size',
