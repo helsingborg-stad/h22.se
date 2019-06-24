@@ -15,8 +15,13 @@
     min-height: 100%;
     z-index: 9999;
     left: 0;
-    padding-left: $base * 3;
-    padding-right: $base * 3;
+    padding-left: $base * 1.5;
+    padding-right: $base * 1.5;
+
+    @include mq('sm') {
+      padding-left: $base * 3;
+      padding-right: $base * 3;
+    }
 
     .logotype svg {
       fill: white;
