@@ -1,0 +1,1 @@
+<div class="c-element"><{!!$h_type!!} {!! html_build_attributes($attributes) !!}>{!! $h_content !!}</{!!$h_type!!}></div>
