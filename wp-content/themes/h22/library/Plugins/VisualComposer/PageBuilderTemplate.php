@@ -131,7 +131,7 @@ class PageBuilderTemplate
             }
                 
             // Remove duplicate shortcodes & fix broken markup
-            $re = '/(\[vc_h22_archive_index\])(?=.+\[vc_h22_archive_index\])/im';
+            $re = '/\[vc_h22_archive_index.*?]/';
             $layoutContent = str_replace($archiveShortcode, '', preg_replace($re, '!!ArchiveGoesHere!!', $layout->post_content));
             $tidy = new \tidy();
             $layoutContent = do_shortcode($tidy->repairString(wpb_js_remove_wpautop($layoutContent), array('show-body-only' => true)));
