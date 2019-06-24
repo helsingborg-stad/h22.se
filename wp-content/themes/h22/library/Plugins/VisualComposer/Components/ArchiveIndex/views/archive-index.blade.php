@@ -1,0 +1,1 @@
+<div class="c-element article">{!! $content !!}</div>

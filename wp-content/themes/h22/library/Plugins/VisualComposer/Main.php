@@ -10,6 +10,9 @@ class Main
             return;
         }
         new RemoveElements();
+        new PageBuilderTemplate();
+        new PageBuilderTemplateType();
+
         add_filter('vc_before_init', array($this, 'disableFrontend'), 1);
         add_filter('vc_before_init', array($this, 'initCustomComponents'), 99);
     }
