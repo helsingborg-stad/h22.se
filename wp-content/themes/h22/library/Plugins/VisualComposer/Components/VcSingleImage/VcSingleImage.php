@@ -69,6 +69,7 @@ if (
             $param['value'] = [
                 __('Media library', 'h22') => 'media_library',
                 __('External image', 'h22') => 'external_link',
+                __('Featured image', 'h22') => 'featured_image',
             ];
             $param['std'] = 'media_library';
             WPBMap::mutateParam('vc_single_image', $param);
@@ -126,11 +127,15 @@ if (
                 'size' => '',
             );
 
-            if ($data['source'] == 'media_library') {
+            if ($data['source'] == 'media_library' || $data['source'] == 'featured_image') {
+                if ($data['source'] === 'featured_image') {
+                    $data['image'] = get_post_thumbnail_id(get_queried_object_id());
+                }
+
+                $data['image'] = apply_filters('H22/Plugins/VisualComposer/Components/VcSingleImage/imageId', $data['image']);
+
                 // get image
-                $single_image['attributes']['src'] = wp_get_attachment_url(
-                    $data['image']
-                );
+                $single_image['attributes']['src'] = wp_get_attachment_url($data['image']);
                 $single_image['attributes'][
                     'srcset'
                 ] = wp_get_attachment_image_srcset($data['image']);
