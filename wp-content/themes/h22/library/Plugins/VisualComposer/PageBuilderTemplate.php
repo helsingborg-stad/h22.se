@@ -2,6 +2,8 @@
 
 namespace H22\Plugins\VisualComposer;
 
+use \H22\Helper\ACF;
+
 class PageBuilderTemplate
 {
     public static $postTypeSlug = 'pb-template';
@@ -119,8 +121,22 @@ class PageBuilderTemplate
         }
 
         if (!is_array($this->archiveLayoutPieces)) {
-            $layout = get_field('page_builder_template_archive', 'options');
+            $layout = Acf::getFieldsMulti(array(
+                array(
+                    'key' => 'page_builder_template_archive_' . get_post_type(),
+                    'id' => 'options'
+                ),
+                array(
+                    'key' => 'page_builder_template_archive',
+                    'id' => 'options'
+                ),
+            ));
             $archiveShortcode = '[vc_h22_archive_index]';
+
+            // Make sure layout is WP_Post instance
+            if (!empty($layout) && !is_object($layout)) {
+                $layout = get_post($layout);
+            }
 
             if (!$layout
             || empty($layout->post_content)
@@ -129,7 +145,7 @@ class PageBuilderTemplate
                 $this->archiveLayoutPieces = null;
                 return;
             }
-                
+            
             // Remove duplicate shortcodes & fix broken markup
             $re = '/\[vc_h22_archive_index.*?]/';
             $layoutContent = str_replace($archiveShortcode, '', preg_replace($re, '!!ArchiveGoesHere!!', $layout->post_content));
