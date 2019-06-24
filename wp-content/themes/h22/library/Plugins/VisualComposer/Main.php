@@ -13,8 +13,14 @@ class Main
         new PageBuilderTemplate();
         new PageBuilderTemplateType();
 
+        add_action('vc_before_init', array($this, 'hideDesignOptionsAndCustomCss'));
         add_filter('vc_before_init', array($this, 'disableFrontend'), 1);
         add_filter('vc_before_init', array($this, 'initCustomComponents'), 99);
+    }
+
+    public function hideDesignOptionsAndCustomCss()
+    {
+        vc_set_as_theme();
     }
 
     public function disableFrontend()
