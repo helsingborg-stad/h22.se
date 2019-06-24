@@ -42,7 +42,7 @@
     @endif
 
     <div class="container container--content u-px-0">
-    <div class="c-footer__logos u-justify-content-between">
+    <div class="c-footer__logos u-justify-content-between@md">
         @if (is_active_sidebar('footer-area-logos'))
         <?php dynamic_sidebar('footer-area-logos'); ?>
         @endif
