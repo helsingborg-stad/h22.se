@@ -3,14 +3,14 @@
 if (function_exists('acf_add_local_field_group')) {
     acf_add_local_field_group(array(
     'key' => 'group_5d10c0d7d43cf',
-    'title' => __('General archive settings', 'h22'),
+    'title' => __('Archive template', 'h22'),
     'fields' => array(
         0 => array(
             'key' => 'field_5d10c0e60933c',
-            'label' => __('Page Builder Template', 'h22'),
+            'label' => __('Default template for archives', 'h22'),
             'name' => 'page_builder_template_archive',
             'type' => 'post_object',
-            'instructions' => '',
+            'instructions' => __('This will set a default template for all archives (including taxonomies etc). Define a template on posttype-level to override this one. Leave empty to disable.', 'h22'),
             'required' => 0,
             'conditional_logic' => 0,
             'wrapper' => array(

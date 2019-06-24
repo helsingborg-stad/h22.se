@@ -1,13 +1,13 @@
 [{
-    "key": "group_5d10c0d7d43cf",
-    "title": "General archive settings",
+    "key": "group_5d1104688c6d6",
+    "title": "Posttype template",
     "fields": [
         {
-            "key": "field_5d10c0e60933c",
-            "label": "Page Builder Template",
-            "name": "page_builder_template_archive",
+            "key": "field_5d11047f0d923",
+            "label": "Default template for all posttypes",
+            "name": "page_builder_template_single",
             "type": "post_object",
-            "instructions": "",
+            "instructions": "This will set a default single view template for all posttypes. Define a template on posttype-level to override this one. Leave empty to disable.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -19,7 +19,7 @@
                 "pb-template"
             ],
             "taxonomy": [
-                "pb-template-type:archive"
+                "pb-template-type:single"
             ],
             "allow_null": 1,
             "multiple": 0,
@@ -32,11 +32,11 @@
             {
                 "param": "options_page",
                 "operator": "==",
-                "value": "acf-options-archives"
+                "value": "acf-options-post-types"
             }
         ]
     ],
-    "menu_order": -500,
+    "menu_order": 0,
     "position": "normal",
     "style": "default",
     "label_placement": "top",

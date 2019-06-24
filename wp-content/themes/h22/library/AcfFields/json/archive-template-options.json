@@ -1,0 +1,48 @@
+[{
+    "key": "group_5d10c0d7d43cf",
+    "title": "Archive template",
+    "fields": [
+        {
+            "key": "field_5d10c0e60933c",
+            "label": "Default template for archives",
+            "name": "page_builder_template_archive",
+            "type": "post_object",
+            "instructions": "This will set a default template for all archives (including taxonomies etc). Define a template on posttype-level to override this one. Leave empty to disable.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "pb-template"
+            ],
+            "taxonomy": [
+                "pb-template-type:archive"
+            ],
+            "allow_null": 1,
+            "multiple": 0,
+            "return_format": "object",
+            "ui": 1
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-archives"
+            }
+        ]
+    ],
+    "menu_order": -500,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": ""
+}]
+
