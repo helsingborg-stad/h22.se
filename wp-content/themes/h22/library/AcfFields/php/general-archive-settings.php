@@ -24,7 +24,7 @@
             'taxonomy' => array(
                 0 => 'pb-template-type:archive',
             ),
-            'allow_null' => 0,
+            'allow_null' => 1,
             'multiple' => 0,
             'return_format' => 'object',
             'ui' => 1,
