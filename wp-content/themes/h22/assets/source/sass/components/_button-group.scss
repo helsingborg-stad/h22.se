@@ -54,7 +54,7 @@
       margin-bottom: $base;
       @include mq('md') {
         margin-right: map-get($spacers, '1');
-        margin-bottom: none;
+        margin-bottom: 0;
       }
     }
   }
