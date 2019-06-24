@@ -10,17 +10,116 @@ class PageBuilderTemplate
     public $archiveLayoutPieces = false;
     public function __construct()
     {
-        add_filter('the_content', array($this, 'replacePostContentWithVcLayout'));
+        add_filter('the_content', array($this, 'replacePostContentWithTemplateContent'), 10);
         add_action('views/templates/archive/before-archive', array($this, 'outputArchiveLayoutPiece'), 0, 1000);
         add_action('views/templates/archive/after-archive', array($this, 'outputArchiveLayoutPiece'), 0, 1000);
         add_filter('register_post_type_args', array($this, 'enablePreview'), 2, 2);
-        add_filter('vc_is_valid_post_type_be', array($this, 'enableVcEditor'));
+        add_filter('vc_is_valid_post_type_be', array($this, 'enableVcEditor'), 10);
         add_filter('vc_role_access_with_backend_editor_get_state', array($this, 'setBackendEditorAsDefault'), 20, 2);
         add_filter('vc_get_all_templates', array($this, 'customizeTemplatesTab'), 10, 1);
         add_filter('vc_load_default_templates', array($this, 'addSiteTemplates'), 10, 1);
         add_action('Municipio/Admin/Options/Archives/fieldArgs', array($this, 'addAcfOptionsForArchiveTemplates'), 10, 4);
+        add_action('admin_init', array($this, 'addAcfFieldsForPosttypeTemplates'));
 
         $this->registerPostType();
+    }
+
+    public function replacePostContentWithTemplateContent($content)
+    {
+        if (get_post_type() === self::$postTypeSlug
+        || !is_singular(get_post_type())
+        || get_post_meta(get_queried_object_id(), '_wpb_vc_js_status', true) === 'true'
+        || !in_the_loop()
+        || !is_main_query()) {
+            return $content;
+        }
+
+        $singleTemplateFields = array(
+            [
+                'key' => 'page_builder_template',
+                'id' =>  get_queried_object_id()
+            ],
+            [
+                'key' => 'page_builder_template_single_' . get_post_type(),
+                'id' =>  'options'
+            ],
+            [
+                'key' => 'page_builder_template_single',
+                'id' =>  'options'
+            ],
+        );
+
+        $templateId = ACF::getFieldsMulti($singleTemplateFields);
+
+        $templateId = is_object($templateId) ? $templateId->ID : $templateId;
+
+
+        if (!$templateId || !get_post_meta($templateId, '_wpb_vc_js_status', true)) {
+            return $content;
+        }
+
+        return get_post_field('post_content', $templateId);
+    }
+
+    public function addAcfFieldsForPosttypeTemplates()
+    {
+        $pageParam = isset($_GET['page']) ? $_GET['page'] : null;
+
+        if (!function_exists('acf_add_local_field_group') || $pageParam  !== 'acf-options-post-types') {
+            return;
+        }
+
+        $postTypesToIgnore = array('pb-template', 'attachment');
+        $postTypesToIgnore = apply_filters('H22/Plugins/VisualComposer/PageBuilderTemplate/PostTypeTemplates/postTypesToIgnore', $postTypesToIgnore);
+        $postTypes = array_filter(get_post_types(['public' => true]), function ($postType) use ($postTypesToIgnore) {
+            return !in_array($postType, $postTypesToIgnore);
+        });
+
+        foreach ($postTypes as $postType) {
+            acf_add_local_field_group(array(
+                'key' => 'group_' . md5($postType),
+                'title' => __(ucfirst($postType) . ' template', 'h22'),
+                'fields' => array(array(
+                        'key' => 'field_' . md5($postType),
+                        'label' => 'Template',
+                        'name' => 'page_builder_template_single_' . sanitize_title($postType),
+                        'type' => 'select',
+                        'instructions' => '',
+                        'required' => 0,
+                        'conditional_logic' => 0,
+                        'wrapper' => array(
+                            'width' => '',
+                            'class' => '',
+                            'id' => '',
+                        ),
+                        'choices' => self::getTemplatesByTemplateType('single'),
+                        'default_value' => array(),
+                        'allow_null' => 1,
+                        'multiple' => 0,
+                        'ui' => 0,
+                        'return_format' => 'value',
+                        'ajax' => 0,
+                        'placeholder' => '',
+                )),
+                'location' => array(
+                    0 => array(
+                        0 => array(
+                            'param' => 'options_page',
+                            'operator' => '==',
+                            'value' => 'acf-options-post-types',
+                        ),
+                    ),
+                ),
+                'menu_order' => 100,
+                'position' => 'normal',
+                'style' => 'default',
+                'label_placement' => 'top',
+                'instruction_placement' => 'label',
+                'hide_on_screen' => '',
+                'active' => true,
+                'description' => '',
+            ));
+        }
     }
 
     public function addAcfOptionsForArchiveTemplates($fieldArgs, $postType, $args, $taxonomies)
@@ -29,23 +128,10 @@ class PageBuilderTemplate
             return $fieldArgs;
         }
 
-        $choices = array();
-        $posts = get_posts(array('post_type' => self::$postTypeSlug, 'tax_query' => array(array(
-            'taxonomy' => self::$postTypeSlug . '-type',
-            'field' => 'slug',
-            'terms' => 'archive',
-        ))));
-
-        if (is_array($posts) && !empty($posts)) {
-            foreach ($posts as $post) {
-                $choices[$post->ID] = $post->post_title . ' (Template ID: ' . $post->ID . ')';
-            }
-        }
-
         $fieldArgs['fields'][] = array(
                     'key' => 'field_5d10c0e60933c_' . md5($postType),
                     'label' => 'Page Builder Template',
-                    'name' => 'page_builder_template_archive_' . sanitize_title($postType),
+                    'name' => 'page_builder_template_single_' . sanitize_title($postType),
                     'type' => 'select',
                     'instructions' => '',
                     'required' => 0,
@@ -55,7 +141,7 @@ class PageBuilderTemplate
                         'class' => '',
                         'id' => '',
                     ),
-                    'choices' => $choices,
+                    'choices' => self::getTemplatesByTemplateType('archive'),
                     'default_value' => array(),
                     'allow_null' => 1,
                     'multiple' => 0,
@@ -68,6 +154,23 @@ class PageBuilderTemplate
         return $fieldArgs;
     }
 
+
+    public static function getTemplatesByTemplateType($templateType)
+    {
+        $choices = array();
+        $posts = get_posts(array('post_type' => self::$postTypeSlug, 'tax_query' => array(array(
+            'taxonomy' => self::$postTypeSlug . '-type',
+            'field' => 'slug',
+            'terms' => $templateType,
+        ))));
+
+        if (is_array($posts) && !empty($posts)) {
+            foreach ($posts as $post) {
+                $choices[$post->ID] = $post->post_title . ' (Template ID: ' . $post->ID . ')';
+            }
+        }
+        return $choices;
+    }
 
     public function addSiteTemplates($templates)
     {
@@ -121,7 +224,7 @@ class PageBuilderTemplate
         }
 
         if (!is_array($this->archiveLayoutPieces)) {
-            $layout = Acf::getFieldsMulti(array(
+            $template = Acf::getFieldsMulti(array(
                 array(
                     'key' => 'page_builder_template_archive_' . get_post_type(),
                     'id' => 'options'
@@ -133,54 +236,36 @@ class PageBuilderTemplate
             ));
             $archiveShortcode = '[vc_h22_archive_index]';
 
-            // Make sure layout is WP_Post instance
-            if (!empty($layout) && !is_object($layout)) {
-                $layout = get_post($layout);
+            // Make sure template is WP_Post instance
+            if (!empty($template) && !is_object($template)) {
+                $template = get_post($template);
             }
 
-            if (!$layout
-            || empty($layout->post_content)
-            || get_post_meta($layout->ID, '_wpb_vc_js_status', true) !== 'true'
-            || !is_numeric(strpos($layout->post_content, $archiveShortcode))) {
+            if (!$template
+            || empty($template->post_content)
+            || get_post_meta($template->ID, '_wpb_vc_js_status', true) !== 'true'
+            || !is_numeric(strpos($template->post_content, $archiveShortcode))) {
                 $this->archiveLayoutPieces = null;
                 return;
             }
             
             // Remove duplicate shortcodes & fix broken markup
             $re = '/\[vc_h22_archive_index.*?]/';
-            $layoutContent = str_replace($archiveShortcode, '', preg_replace($re, '!!ArchiveGoesHere!!', $layout->post_content));
+            $templateContent = str_replace($archiveShortcode, '', preg_replace($re, '!!ArchiveGoesHere!!', $template->post_content));
             $tidy = new \tidy();
-            $layoutContent = do_shortcode($tidy->repairString(wpb_js_remove_wpautop($layoutContent), array('show-body-only' => true)));
-            $layoutPieces = array_filter(explode('!!ArchiveGoesHere!!', $layoutContent), 'strlen');
+            $templateContent = do_shortcode($tidy->repairString(wpb_js_remove_wpautop($templateContent), array('show-body-only' => true)));
+            $templatePieces = array_filter(explode('!!ArchiveGoesHere!!', $templateContent), 'strlen');
 
             // Make sure we have start and end pieces
-            if (empty($layoutPieces) || count($layoutPieces) !== 2) {
+            if (empty($templatePieces) || count($templatePieces) !== 2) {
                 $this->archiveLayoutPieces = null;
                 return;
             }
              
-            $this->archiveLayoutPieces = array_reverse($layoutPieces);
+            $this->archiveLayoutPieces = array_reverse($templatePieces);
         }
 
         echo array_pop($this->archiveLayoutPieces);
-    }
-
-    /**
-     *
-     */
-    public function replacePostContentWithVcLayout($content)
-    {
-        if (get_post_type() === self::$postTypeSlug
-        || !is_singular(get_post_type())
-        || !get_field('page_builder_template', get_queried_object_id())
-        || get_post_meta(get_queried_object_id(), '_wpb_vc_js_status', true) === 'true'
-        || !get_post_meta(get_field('page_builder_template', get_queried_object_id())->ID, '_wpb_vc_js_status', true)
-        || !in_the_loop()
-        || !is_main_query()) {
-            return $content;
-        }
-
-        return get_post_field('post_content', get_field('page_builder_template', get_queried_object_id()));
     }
 
     public function enableVcEditor($type)
