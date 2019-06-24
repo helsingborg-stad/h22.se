@@ -51,7 +51,11 @@
     }
 
     &:not(:last-child) {
-      margin-right: map-get($spacers, '1');
+      margin-bottom: $base;
+      @include mq('md') {
+        margin-right: map-get($spacers, '1');
+        margin-bottom: none;
+      }
     }
   }
 }
