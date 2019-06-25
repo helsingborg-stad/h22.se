@@ -131,7 +131,7 @@ class PageBuilderTemplate
         $fieldArgs['fields'][] = array(
                     'key' => 'field_5d10c0e60933c_' . md5($postType),
                     'label' => 'Page Builder Template',
-                    'name' => 'page_builder_template_single_' . sanitize_title($postType),
+                    'name' => 'page_builder_template_archive_' . sanitize_title($postType),
                     'type' => 'select',
                     'instructions' => '',
                     'required' => 0,
