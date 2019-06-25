@@ -1,4 +1,4 @@
-<div class="c-single-image c-single-image--{!! $single_image['size'] !!}">
+<div class="c-single-image c-single-image--{!! $single_image['size'] !!} {!! $el_class !!}">
     <div class="c-single-image__inner">
         <div class="c-single-image__image-wrapper">
             <img {!! html_build_attributes($single_image['attributes']) !!}>

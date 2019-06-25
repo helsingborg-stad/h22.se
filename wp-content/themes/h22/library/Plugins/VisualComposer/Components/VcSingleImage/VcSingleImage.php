@@ -52,7 +52,7 @@ if (
             vc_remove_param('vc_single_image', 'onclick');
             vc_remove_param('vc_single_image', 'css_animation');
             vc_remove_param('vc_single_image', 'el_id');
-            vc_remove_param('vc_single_image', 'el_class');
+            // vc_remove_param('vc_single_image', 'el_class');
             vc_remove_param('vc_single_image', 'css');
             vc_remove_param('vc_single_image', 'style');
             vc_remove_param('vc_single_image', 'external_style');
@@ -126,6 +126,10 @@ if (
                 'caption' => '',
                 'size' => '',
             );
+
+            if (!isset($data['el_class'])) {
+                $data['el_class'] = '';
+            }
 
             if ($data['source'] == 'media_library' || $data['source'] == 'featured_image') {
                 if ($data['source'] === 'featured_image') {
