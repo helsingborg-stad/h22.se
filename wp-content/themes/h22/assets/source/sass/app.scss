@@ -178,3 +178,22 @@
 .container.u-px-0 {
     max-width: 1200px;
 }
+
+
+
+.c-column.c-column--hbg-logo {
+    max-width: 80px;
+    position: absolute;
+    padding: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    bottom: 48px;
+
+    @include mq('md') {
+        max-width: 104px;
+        right: 48px;
+        left: initial;
+        margin: initial;
+    }
+}
