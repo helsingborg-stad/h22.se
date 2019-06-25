@@ -6,7 +6,7 @@
 @section('header-body')
     @if ($navigation['mainMenu'])
 
-    <div class="container container--wide hidden-print">
+    <div class="container hidden-print">
   	<div id="c-header-desktop" class="c-header-desktop ">
   		<div class="c-header-desktop__logo">
         {!! municipio_get_logotype(get_field('header_logotype', 'option'), get_field('logotype_tooltip', 'option'), true, get_field('header_tagline_enable', 'option')) !!}
