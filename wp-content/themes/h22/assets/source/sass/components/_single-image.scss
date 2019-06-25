@@ -1,4 +1,4 @@
-.c-single-image {
+.c-single-image:not(.c-single-image--reset) {
   align-self: center;
   &--full-width {
     width: 100%;
@@ -41,7 +41,8 @@
   margin-bottom: 0;
 }
 
-.c-section {
+
+.c-single-image:not(.c-single-image--reset) {
   .c-single-image__image-wrapper {
     position: absolute;
     top: 0;
@@ -53,3 +54,4 @@
     display: none;
   }
 }
+
