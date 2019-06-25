@@ -35,8 +35,8 @@
 	margin-right: $base * -0.5;
 
 	@include mq('sm') {
-		margin-left: $base * -1.5;
-		margin-right: $base * -1.5;
+		margin-left: $grid-gutter-sm / 2 * -1;
+		margin-right: $grid-gutter-sm / 2 * -1;
 	}
 }
 
@@ -57,8 +57,8 @@
 	padding-right: $base * 1.5;
 
 	@include mq('sm') {
-		padding-left: $base * 3;
-		padding-right: $base * 3;
+		padding-left: $grid-gutter-sm;
+		padding-right: $grid-gutter-sm;
 	}
 }
 

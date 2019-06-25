@@ -11,15 +11,15 @@ $font-family-heading: $font-family-roboto;
 $font-family-body: $font-family-roboto;
 
 // Width
-$container-width: 1024px;
+$container-width: 1200 + 64 * 1px;
 $container-width-wide: 1440px;
 
 // Font size
-$font-size-headline: 48px;
+$font-size-headline: 48px; // 36px 40LH mobile 
 $font-size-card-no-image: 40px;
-$font-size-title: 32px;
-$font-size-subtitle: 22px;
-$font-size-body: 17px;
+$font-size-title: 32px; // 20px 24lh mobile
+$font-size-subtitle: 22px; //18px 22lh mobile
+$font-size-body: 17px; //17px 28lh mobile
 $font-size-preamble: 20px; // new
 $font-size-caption: 14px;
 $font-size-meta: 14px;
@@ -46,7 +46,7 @@ $h5-font-weight: $font-weight-bold;
 $h6-font-weight: $font-weight-bold;
 
 // Line height
-// $h1-line-height: ;
+$h1-line-height: 1.1;
 $h2-line-height: 1.2;
 $h3-line-height: 1.2;
 $h4-line-height: 1.2;
@@ -220,7 +220,9 @@ $box-shadow-level-3: 0 $base * 1 $base * 2 $color-box-shadow; // new
 $box-shadow-level-4: 0 $base * 2.5 $base * 3 $color-box-shadow; // new
 $box-shadow-level-5: 0 $base * 2.25 $base * 4 $color-box-shadow; // new
 
+$grid-gutter-sm: $base * 4;
+
 $grid-gutters: (
   xs: $base,
-  sm: $base * 3,
+  sm: $grid-gutter-sm,
 ) !default;
