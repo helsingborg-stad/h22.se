@@ -7,13 +7,13 @@
 	margin-bottom: 0;
 }
 
-.c-column .column__inner {
+.c-column .c-column__inner {
 	height: 100%;
 	display: flex;
 	flex-direction: column;
 }
 
-.c-column .column__inner.has-fill {
+.c-column .c-column__inner.has-fill {
 	padding: 24px;
 
 	& > .c-element:last-child {

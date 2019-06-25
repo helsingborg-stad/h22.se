@@ -172,7 +172,7 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\VcColumn\VcColumn')) :
         public function prepareData($data)
         {
             $data['attributes']['class'][] = 'c-column';
-            $data['childAttributes']['class'][] = 'column__inner';
+            $data['childAttributes']['class'][] = 'c-column__inner';
             $data['childAttributes']['class'][] = $data['inner_class'] ?? '';
 
             if (isset($data['no_space_el']) && $data['no_space_el'] === 'true') {
