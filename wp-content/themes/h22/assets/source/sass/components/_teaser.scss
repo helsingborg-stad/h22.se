@@ -3,6 +3,8 @@
   font-size: $font-size-meta;
   font-weight: $font-weight-bold;
   text-transform: uppercase;
+
+  margin-bottom: $base * 1.5;
 }
 
 .c-teaser {
@@ -13,10 +15,10 @@
 		line-height: $line-height-preamble;
 	}
 	h2 {
-		margin-bottom: map-get($spacers, '1');
+		margin-bottom: $base * 2;
 	}
 	p {
-		margin-bottom: map-get($spacers, '2');
+		margin-bottom: $base * 2;
 	}
 	.cta-link {
 		display: inline-flex;
@@ -24,6 +26,7 @@
 		text-decoration: none !important;
 		color: inherit !important;
 		font-weight: $font-weight-medium;
+		margin-top: $base * 2;
 		&:before {
 			content: '\f107';
 			display: inline-flex;
