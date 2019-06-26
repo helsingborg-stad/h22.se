@@ -1,20 +1,38 @@
-@import 'variables';
-@import 'mixins';
-
-@import '~styleguide.local/source/sass/main.scss';
-
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i&display=swap&subset=latin-ext');
-
 @import 'font-awesome/font-awesome';
 
-.article h1 {
-    color: $color-black;
-}
+// Variables
+@import 'variables';
+@import '~styleguide.local/source/sass/_settings.scss';
 
-@import 'global';
+// Tools (Function & Mixins)
+@import 'mixins';
+@import '~styleguide.local/source/sass/_tools.scss';
 
-@import 'objects';
+// Generic
+@import '~styleguide.local/source/sass/_generics.scss';
+@import 'generic/forms';
 
+// Elements
+@import '~styleguide.local/source/sass/_elements.scss';
+@import 'elements/body';
+@import 'elements/anchor';
+@import 'elements/paragraph';
+@import 'elements/headings';
+@import 'elements/image';
+@import 'elements/blockquote';
+@import 'elements/forms';
+
+// Objects
+@import '~styleguide.local/source/sass/_objects.scss';
+@import 'objects/container';
+@import 'objects/grid';
+@import 'objects/typography';
+@import 'objects/article';
+@import 'objects/overlay';
+
+// Components
+@import '~styleguide.local/source/sass/_components.scss';
 @import 'components/header';
 @import 'components/header-mobile';
 @import 'components/breadcrumbs';
@@ -38,162 +56,19 @@
 @import 'components/pagination';
 @import 'components/notice';
 @import 'components/button';
-
-@import 'generic/forms';
-
-@import 'elements/forms';
 @import 'components/paper';
 @import 'components/tabs';
 @import 'components/share-bar';
 @import 'components/modal';
 
+// Scope
+@import 'scope/theme';
+@import 'scope/mailchimp';
+
+// Misc
+@import 'misc';
 @import 'pages/404';
 
-@import 'theme';
+// Utilites
+@import '~styleguide.local/source/sass/_utilities.scss';
 @import 'utilities';
-
-// Temp
-#cookie-consent {
-    display: none !important;
-}
-
-.o-display-1, .o-display-2 {
-    font-weight: 300;
-    line-height: 1.1;
-}
-
-.o-display-1 {
-    font-size: 64px;
-}
-
-.o-display-2 {
-    font-size: 56px;
-}
-
-
-.lead {
-    font-weight: 300;
-}
-
-.c-section.has-fill,
-.c-column .c-column__inner.has-fill {
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
-.c-header-mobile,
-.c-header-desktop {
-  a.logotype, .logotype svg {
-    display: block;
-  }
-}
-
-.c-button-group__link--inverted.btn-text:link, .c-button-group__link--inverted.btn-text:visited {
-    border-color: transparent;
-}
-
-.c-header-desktop, .c-header-mobile {
-    .logotype svg {
-        height: $base * 7;
-        width: auto;
-    }
-}
-
-
-.textwidget > *:last-child {
-    margin-bottom: 0;
-}
-
-.c-footer {
-    font-weight: 300;
-    p {
-        color: $color-base-invert-secondary;
-    }
-}
-
-.c-footer .c-footer__logos {
-    padding-top: 48px;
-    border-top: solid 1px $color-base-invert-disabled;
-
-    svg {
-        width: auto;
-        height: 96px;
-    }
-}
-
-
-.s-mailchimp-h22 {
-    #mc_embed_signup {
-        margin-bottom: $base * 6;
-        form {
-            padding: 0 !important;
-        }
-
-        // Submit button
-        #mc-embedded-subscribe {
-            margin: 0;
-            width: 100%;
-            text-align: center;
-        }
-
-        .mc-field-group input {
-            padding: $base * 1.5;
-            text-indent: initial;
-        }
-        .mc-field-group {
-            width: 100%;
-            padding-bottom: 0;
-            margin-bottom: $base * 4;
-        }
-
-        .mc-field-group label {
-            margin-bottom: $base / 2;
-            line-height: 1;
-        }
-        
-        .mce_inline_error + .mce_inline_error,
-        .form-notice + .mce_inline_error {
-            position: absolute;
-            padding: 0 !important;
-            margin: 0 !important;
-            background-color: none !important;
-        }
-
-        
-        .indicates-required {
-            margin-right: 0;
-        }
-
-        .form-notice {
-            display: none;
-        }
-    }
-    
-}
-
-.container .container {
-    padding: 0px;
-}
-
-.container.u-px-0 {
-    max-width: 1200px;
-}
-
-
-
-.c-column.c-column--hbg-logo {
-    max-width: 80px;
-    position: absolute;
-    padding: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    bottom: 48px;
-
-    @include mq('md') {
-        max-width: 104px;
-        right: 48px;
-        left: initial;
-        margin: initial;
-    }
-}

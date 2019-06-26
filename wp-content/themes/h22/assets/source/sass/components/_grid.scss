@@ -63,7 +63,7 @@
 }
 
 .container.container--content {
-    max-width: 632 + 48 * 1px;
+    max-width: 632px + $grid-gutter-sm;
 }
 
 .container.container--small {

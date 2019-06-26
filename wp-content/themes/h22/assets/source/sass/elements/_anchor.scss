@@ -1,0 +1,13 @@
+
+a {
+    font-weight: $font-weight-bold;
+    text-decoration: underline;
+  
+    &:link,
+    &:visited,
+    &:hover {
+      color: inherit;
+    }
+  }
+  
+  

@@ -1,10 +1,9 @@
 .c-teaser__meta {
-  color: $color-gray;
-  font-size: $font-size-meta;
-  font-weight: $font-weight-bold;
-  text-transform: uppercase;
-
-  margin-bottom: $base * 1.5;
+	@extend .o-text-meta;
+	color: $color-gray;
+	font-weight: $font-weight-bold;
+	text-transform: uppercase;
+	margin-bottom: $base * 1.5;
 }
 
 .c-teaser {

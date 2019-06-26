@@ -1,0 +1,46 @@
+.o-text-small {
+    font-size: 16px;
+    line-height: roundLineHeight(1.6, 16px);
+    font-weight: $font-weight-normal;
+}
+
+.o-text-meta {
+    font-size: $font-size-meta;
+    line-height: roundLineHeight(1.6, $font-size-meta);
+    font-weight: $font-weight-normal;
+}
+
+.o-text-large, .lead {
+    font-weight: 300;
+    font-size: 20px;
+    line-height: roundLineHeight(1.55, 20px, 4, true);
+    @include mq('sm') {
+        font-size: 23px;
+        line-height: roundLineHeight(1.55, 23px, 4, true);
+    }
+}
+
+.o-display-1,
+.o-display-2 {
+    font-weight: $font-weight-thin;
+}
+
+.o-display-1, .o-display-1 {
+    font-size: 41px;
+    line-height: roundLineHeight(1.2, 41px);
+    
+    @include mq('lg') {
+        font-size: 58px;
+        line-height: roundLineHeight(1.2, 58px);
+    }
+}
+
+.o-display-2 {
+    font-size: 32px;
+    line-height: roundLineHeight(1.2, 32px);
+    
+    @include mq('lg') {
+        font-size: 51px;
+        line-height: roundLineHeight(1.2, 51px);
+    }
+}

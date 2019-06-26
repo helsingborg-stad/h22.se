@@ -11,15 +11,15 @@ $font-family-heading: $font-family-roboto;
 $font-family-body: $font-family-roboto;
 
 // Width
-$container-width: 1200 + 64 * 1px;
+$container-width: 1200 * 1px;
 $container-width-wide: 1440px;
 
 // Font size
-$font-size-headline: 48px; // 36px 40LH mobile 
+$font-size-headline: 44px; // 36px 40LH mobile 
 $font-size-card-no-image: 40px;
 $font-size-title: 32px; // 20px 24lh mobile
 $font-size-subtitle: 22px; //18px 22lh mobile
-$font-size-body: 17px; //17px 28lh mobile
+$font-size-body: 18px; //17px 28lh mobile
 $font-size-preamble: 20px; // new
 $font-size-caption: 14px;
 $font-size-meta: 14px;
@@ -28,7 +28,7 @@ $font-size-meta--menu: 12px;
 
 $font-size-hero: $font-size-headline;
 $font-size-hero-byline: 28px;
-$font-size-hero-body: 22px;
+$font-size-hero-body: 23px;
 
 $font-size-breadcrumb: $font-size-meta;
 
@@ -226,3 +226,5 @@ $grid-gutters: (
   xs: $base,
   sm: $grid-gutter-sm,
 ) !default;
+
+$line-height-base: 1.8;

@@ -1,0 +1,37 @@
+h1, .h1 {
+    font-size: 26px;
+    line-height: roundLineHeight(1.2, 26px, $base, true);
+    color: inherit;
+    @include mq('sm') {
+        font-size: 36px;
+        line-height: roundLineHeight(1.2, 36px, $base, true);
+    }
+}
+
+h2, .h2 {
+    font-size: 20px;
+    line-height: roundLineHeight(1.2, 20px, $base, true);
+    @include mq('sm') {
+        font-size: 23px;
+        line-height: roundLineHeight(1.2, 23px, $base, true);
+    }
+}
+
+h3, .h3 {
+    font-size: 18px;
+    line-height: roundLineHeight(1.2, 18px, $base, true);
+    @include mq('sm') {
+        font-size: 18px;
+        line-height: roundLineHeight(1.2, 18px);
+    }
+}
+
+h4, .h4 {
+    font-size: 16px;
+    line-height: roundLineHeight(1.2, 16px);
+}
+
+h5, .h5, h6, .h6 {
+    font-size: 14px;
+    line-height: roundLineHeight(1.2, 14px);
+}

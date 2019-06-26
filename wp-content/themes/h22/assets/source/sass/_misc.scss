@@ -1,0 +1,67 @@
+
+.textwidget > *:last-child {
+    margin-bottom: 0;
+}
+
+// Temp
+#cookie-consent {
+    display: none !important;
+}
+
+.c-column.c-column--hbg-logo {
+    max-width: 80px;
+    position: absolute;
+    padding: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    bottom: 48px;
+
+    @include mq('md') {
+        max-width: 104px;
+        right: 48px;
+        left: initial;
+        margin: initial;
+    }
+}
+
+.c-section.has-fill,
+.c-column .c-column__inner.has-fill {
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.c-header-mobile,
+.c-header-desktop {
+  a.logotype, .logotype svg {
+    display: block;
+  }
+}
+
+.c-button-group__link--inverted.btn-text:link, .c-button-group__link--inverted.btn-text:visited {
+    border-color: transparent;
+}
+
+.c-header-desktop, .c-header-mobile {
+    .logotype svg {
+        height: $base * 7;
+        width: auto;
+    }
+}
+
+.c-footer {
+    font-weight: 300;
+    p {
+        color: $color-base-invert-secondary;
+    }
+}
+
+.c-footer .c-footer__logos {
+    padding-top: 48px;
+    border-top: solid 1px $color-base-invert-disabled;
+
+    svg {
+        width: auto;
+        height: 96px;
+    }
+}

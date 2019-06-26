@@ -184,3 +184,34 @@
   	font-family: 'object-fit: #{$fit}';
   }
 }
+
+@function roundLineHeight($lineHeight, $fontSize, $base: 8, $alwaysRoundUp: false) {
+  @if unitless($lineHeight) {
+    $lineHeight: $lineHeight * $fontSize;
+  }
+
+  @if ($fontSize >= $lineHeight or $alwaysRoundUp) {
+    $lineHeight: ceil($lineHeight / $base) * $base / $fontSize;
+  } @else {
+    $lineHeight: round($lineHeight / $base) * $base / $fontSize;
+  }
+
+  @return strip-unit($lineHeight);
+}
+
+// @debug roundLineHeight(1.2, 32px);
+
+// 1em (18.00px) - Body 24px | 20px
+// 1.266em (22.78px) - lead & Body Large 24px | 24px
+// 0.79em (14.22px) - Caption & Meta (?) 16px | 14px
+// 3.247em (58.45px) - Display 1 64px | 60
+// 2.887em (51.96px)  - Display 2 56px
+// 2.566em (46.18px) - Display 3  48px
+// 2.281em (41.05px) - Display 4  48px
+// 1.802em (32.44px) - H1 / Headline 40px
+// 1.602em (28.83px) - H2 / Title 32px
+// 1em (18.00px) - h3 / Subtitle 24px
+// 0.889em (16.00px) - h4 / h5 / h6 24px
+
+
+

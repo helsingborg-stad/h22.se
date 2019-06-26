@@ -15,9 +15,8 @@
     text-align: right;
   }
 
-  &__title {
-    line-height: 1.25em;
-    margin-bottom: map-get($spacers, '1');
+  .c-card__title + * {
+    margin-top: $base;
   }
 }
 
@@ -90,7 +89,7 @@
 }
 
 .c-card__meta {
-  font-size: $font-size-meta;
+  @extend .o-text-meta;
   color: $color-gray;
 }
 

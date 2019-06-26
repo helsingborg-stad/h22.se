@@ -246,9 +246,6 @@ $backgroundAndTextColors: map-merge($brand-colors, (
   text-align: center;
 }
 
-
-.article {
-  > *:last-child {
-    margin-bottom: 0px;
-  }
+.hidden {
+  display: none !important;
 }
