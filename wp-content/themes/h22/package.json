@@ -20,7 +20,7 @@
     "gsap": "^1.20.3",
     "object-fit-images": "^3.2.4",
     "object-fit-videos": "^1.0.4",
-    "styleguide.local": "git+https://github.com/andersrehn/styleguide.git#development"
+    "styleguide.local": "git+https://github.com/helsingborg-stad/styleguide.git#h22"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
