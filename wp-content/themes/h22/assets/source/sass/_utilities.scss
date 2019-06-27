@@ -216,8 +216,17 @@
 
 
 // Font weight
-.u-light {
+.u-light, .u-text-light {
   font-weight: $font-weight-thin;
+}
+
+// Font weight
+.u-text-bold {
+  font-weight: $font-weight-bold;
+}
+
+.u-text-regular {
+  font-weight: $font-weight-normal;
 }
 
 // Background & Text Colors

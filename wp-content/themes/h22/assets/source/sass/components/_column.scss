@@ -86,6 +86,22 @@
 }
 
 
+.c-section--floating-logo {
+	min-height: calc(100vh - 88px - 48px - 48px - 48px); // Viewport Height - Header Height - Element Spacing - Logo Fix
+}
+
+.logged-in {
+	.c-section--floating-logo {
+		min-height: calc(100vh - 88px -  48px - 46px  - 48px);  // Viewport Height - Header Height - Element Spacing - WP Admin Bar - Logo Fix
+	}
+
+	@media screen and (min-width: 783px) {
+		.c-section--floating-logo {
+			min-height: calc(100vh - 88px - 48px - 32px);   // Viewport Height - Header Height - Element Spacing - WP Admin Bar Desktop - Logo Fix
+		}
+	}
+}
+
 
 // .c-column__inner {
 // 	@include suppress-margin-top;

@@ -3,8 +3,8 @@ h1, .h1 {
     line-height: roundLineHeight(1.2, 26px, $base, true);
     color: inherit;
     @include mq('sm') {
-        font-size: 36px;
-        line-height: roundLineHeight(1.2, 36px, $base, true);
+        font-size: 32px;
+        line-height: roundLineHeight(1.2, 32px, $base / 2);
     }
 }
 

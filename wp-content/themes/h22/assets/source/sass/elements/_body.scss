@@ -1,10 +1,13 @@
 body {
-    font-weight: $font-weight-thin;
-    font-size: 16px;
-    line-height: roundLineHeight(1.6, 16px, 4px, true);
-    
+    font-weight: $font-weight-normal;
+    // font-size: 16px;
+    // line-height: roundLineHeight(1.5, 16px, 4px, true);
+
+    font-size: 18px;
+    line-height: roundLineHeight(1.5, 18px, 4px, true);
+
     @include mq('sm') {
         font-size: 18px;
-        line-height: roundLineHeight(1.6, 18px);
+        line-height: roundLineHeight(1.5, 18px, 4px, true);
     }
 }

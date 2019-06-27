@@ -1,13 +1,35 @@
+#site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: $level-top;
+  width: 100%;
+  border-bottom: solid 1px $color-gray-lighter;
+}
+
+.logged-in #site-header {
+  top: 46px;
+  @media screen and (min-width: 783px) {
+    top: 32px;
+  }
+}
+
+.c-main {
+  padding-top: 96px;
+}
+
+
 .c-header-desktop {
+  
   box-shadow: none;
   display: none;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: $base * 2 0;
+  padding: $base * 2.5 0;
 
-  @include mq(map_get($breakpoints-map, 'md')) {
+  @include mq(map_get($breakpoints-map, 'lg')) {
     display: flex;
   }
 }
@@ -23,14 +45,24 @@
 
     &:before {
       content: none;
+    }        
+    &:after {
+      position: absolute;
+      content: '';
+      width: 100%;
+      height: 100%;
+      bottom: 0;
+      left: 0;
+      border-bottom: 1px solid transparent;
+      z-index: -1;
     }
 
     a {
-      font-weight: 200;
+      font-weight: $font-weight-thin;
       text-decoration: none;
 
       &:hover,
-      &:focu,
+      &:focus,
       &:active {
         color: $color-black;
         position: relative;
@@ -38,12 +70,7 @@
         // outline: 0;
 
         &:after {
-          position: absolute;
-          content: '';
-          width: 100%;
-          height: 100%;
-          bottom: 0;
-          left: 0;
+          z-index: 1;
           border-bottom: 1px solid $color-gray-light;
         }
       }
@@ -51,7 +78,11 @@
   }
 
   .current-menu-item {
-    font-weight: 200;
+    font-weight: $font-weight-bold;
+
+    a {
+      font-weight: $font-weight-thin;
+    }
     color: $color-black;
     position: relative;
     padding-bottom: map-get($spacers, '05');
@@ -71,6 +102,6 @@
 
 a.c-header-desktop__language {
   text-decoration: none;
-  font-weight: 200;
+  font-weight: $font-weight-thin;
 }
 

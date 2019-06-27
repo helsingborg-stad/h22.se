@@ -7,6 +7,7 @@
     width: 100%;
 }
 
-.container.u-px-0 {
-    max-width: 1200px;
+.container.u-px-0, 
+.container .container {
+    max-width: 1200px - ($grid-gutter-sm * 2);
 }

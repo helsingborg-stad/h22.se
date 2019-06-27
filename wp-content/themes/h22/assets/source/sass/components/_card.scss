@@ -91,6 +91,7 @@
 .c-card__meta {
   @extend .o-text-meta;
   color: $color-gray;
+  margin-bottom: $base;
 }
 
 .c-card--without-image {

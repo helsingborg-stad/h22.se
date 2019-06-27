@@ -11,7 +11,7 @@ $font-family-heading: $font-family-roboto;
 $font-family-body: $font-family-roboto;
 
 // Width
-$container-width: 1200 * 1px;
+$container-width: 1200px;
 $container-width-wide: 1440px;
 
 // Font size
@@ -82,7 +82,7 @@ $color-secondary-light: #f7a600;
 $color-black: black;
 $color-gray: lighten($color-black, 50%);
 $color-gray-light: lighten($color-black, 90%);
-$color-gray-lighter: #F6F6F6;
+$color-gray-lighter: #ececec;
 $color-white: white;
 
 $color-success: #11a636;
@@ -160,7 +160,7 @@ $breakpoints-map: (
 	xl: 100em, //1600px
 );
 
-$header-breakpoint: 'md'; // 1020px
+$header-breakpoint: 'lg'; // 1020px
 
 
 //Display states

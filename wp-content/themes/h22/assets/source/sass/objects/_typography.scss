@@ -7,17 +7,22 @@
 .o-text-meta {
     font-size: $font-size-meta;
     line-height: roundLineHeight(1.6, $font-size-meta);
-    font-weight: $font-weight-normal;
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
 }
 
 .o-text-large, .lead {
     font-weight: 300;
-    font-size: 20px;
-    line-height: roundLineHeight(1.55, 20px, 4, true);
+    font-size: 21px;
+    line-height: roundLineHeight(1.55, 21px, 4);
     @include mq('sm') {
-        font-size: 23px;
-        line-height: roundLineHeight(1.55, 23px, 4, true);
+        font-size: 21px;
+        line-height: roundLineHeight(1.55, 21px, 4);
     }
+}
+
+.lead {
+    font-style: italic;
 }
 
 .o-display-1,
