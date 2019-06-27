@@ -19,6 +19,7 @@ if (
         {
             add_action('vc_after_init', array($this, 'changeTemplateSource'));
             add_action('vc_after_init', array($this, 'changeParams'));
+            add_action('vc_after_init', array($this, 'addParams'));
             $this->initBaseController(false);
         }
 
@@ -31,6 +32,16 @@ if (
             );
         }
 
+        public function addParams()
+        {
+            vc_add_param('vc_column_text', [
+                'type' => 'checkbox',
+                'heading' => __('Expand to full width', 'h22'),
+                'param_name' => 'full_width',
+                'value' => '',
+                'weight' => 0
+            ]);
+        }
         public function changeParams()
         {
             vc_remove_param('vc_column_text', 'css');
@@ -54,7 +65,12 @@ if (
         public function prepareData($data)
         {
             $data['attributes']['class'][] = 'c-column-text';
+            $data['attributes']['class'][] = isset($data['el_class']) ? $data['el_class'] : '';
             $data['attributes']['class'][] = 'article';
+
+            if (!isset($data['full_width']) || $data['full_width'] !== 'true') {
+                $data['attributes']['class'][] = 'container container--content';
+            }
 
             return $data;
         }
