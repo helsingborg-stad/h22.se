@@ -11,7 +11,7 @@ class CustomTaxonomies
             _x('Organisation', 'Post type singular', 'h22'),
             'organisation',
             array('projects'),
-            array()
+            array('hierarchical' => true)
         );
     }
 }
