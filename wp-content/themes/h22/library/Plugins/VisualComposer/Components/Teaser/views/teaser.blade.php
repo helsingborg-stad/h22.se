@@ -1,7 +1,7 @@
 <div class="c-element">
     <div{!! html_build_attributes($attributes) !!}>
         <div class="c-teaser__meta">{{ $meta_heading }}</div>
-        <h2>{{ $heading }}</h2>
+        <h2 class="h1">{{ $heading }}</h2>
         <p class="preamble">{{ $preamble }}</p>
         {!! $content !!}
         @if ($link)
