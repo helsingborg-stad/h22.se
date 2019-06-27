@@ -6,7 +6,7 @@ class Excerpt
 {
     public function __construct()
     {
-        add_filter('get_the_excerpt', array($this, 'stripShortCodes'), 9999, 2);
+        add_filter('get_the_excerpt', array($this, 'stripShortCodes'), 10, 2);
     }
 
     public function stripShortCodes($excerpt, $post)
