@@ -246,9 +246,18 @@ $backgroundAndTextColors: map-merge($brand-colors, (
         color: $color !important;
 
       h1, h2, h3, h4, h5, h6 {
-			  color: $color;
+		    color: $color;
 		  }
     }
+}
+
+
+.u-bg-gray-lighter,
+.u-bg-gray-light,
+.u-bg-gray {
+  .c-card {
+    background-color: white;
+  }
 }
 
 .u-text-center {
