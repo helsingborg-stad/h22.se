@@ -15,6 +15,10 @@
     text-align: right;
   }
 
+  .c-card__title {
+    @extend .h1;
+  }
+
   .c-card__title + * {
     margin-top: $base;
   }
@@ -91,12 +95,12 @@
 .c-card__meta {
   @extend .o-text-meta;
   color: $color-gray;
-  margin-bottom: $base;
+  margin-bottom: $base / 2;
 }
 
 .c-card--without-image {
-  justify-content: flex-end;
-  .c-card__title {
-    font-size: $font-size-card-no-image;
-  }
+  // justify-content: flex-end;
+  // .c-card__title {
+  //   font-size: $font-size-card-no-image;
+  // }
 }
