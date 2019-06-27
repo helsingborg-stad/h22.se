@@ -74,7 +74,7 @@ class Excerpt
             $excerpt = substr($excerpt, 0, $excerptLength);
         }
 
-        if (empty($post->post_excerpt)) {
+        if (empty($post->post_excerpt) && $excerptLength > 0) {
             $excerpt = $excerpt . apply_filters('excerpt_more', '...');
         }
 
