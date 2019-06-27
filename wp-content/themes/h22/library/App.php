@@ -13,7 +13,7 @@ class App
         new \H22\Theme\Color();
         new \H22\Theme\CustomPostTypes();
         new \H22\Theme\CustomTaxonomies();
-
+        new \H22\Theme\Archive();
         new \H22\Theme\Sidebars();
         new \H22\Content\Excerpt();
         new \H22\Plugins\VisualComposer\Main();
