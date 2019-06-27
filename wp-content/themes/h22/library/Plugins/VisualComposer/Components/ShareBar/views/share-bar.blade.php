@@ -1,4 +1,4 @@
 <div class="c-share-bar">
-    <h4 class="c-share-bar__heading">{{ __('Share this page') }}</h4>
+    <span class="c-share-bar__heading o-text-meta u-display-block">{{ __('Share this page') }}</span>
     @include('partials.social-share')
 </div>
