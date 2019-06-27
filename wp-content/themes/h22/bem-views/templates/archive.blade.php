@@ -20,7 +20,7 @@
     {{do_action('views/templates/archive/before-archive')}}
     <div class="container">
         @if (have_posts())
-            <div class="archive s-archive s-archive-template-{{sanitize_title($template)}}  s-{{sanitize_title($postType)}}-archive grid grid--columns" @if (apply_filters('archive_equal_container', false, $postType, $template)) data-equal-container @endif>
+            <div class="archive s-archive s-archive-template-{{sanitize_title($template)}}  s-{{sanitize_title($postType)}}-archive grid" @if (apply_filters('archive_equal_container', false, $postType, $template)) data-equal-container @endif>
 
                 @if (get_field('archive_' . sanitize_title($postType) . '_filter_position', 'option') == 'content')
                     @includeFirst(["partials.archive-" . sanitize_title($postType) . "-filters", "partials.archive-filters"])
