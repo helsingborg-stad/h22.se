@@ -55,7 +55,7 @@ class CustomPostTypes
                 // ),
                 'hierarchical' => false,
                 'exclude_from_search' => false,
-                'taxonomies' => array(),
+                'taxonomies' => array('category', 'post_tag'),
                 'supports' => array(
                     'title',
                     'editor',
