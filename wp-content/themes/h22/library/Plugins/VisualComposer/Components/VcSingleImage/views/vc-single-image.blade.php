@@ -1,4 +1,4 @@
-@if (isset($data['image']) && !empty($data['image']))
+@if (isset($image) && !empty($image))
     <div class="c-single-image c-single-image--{!! $single_image['size'] !!} {!! $el_class !!}">
         <div class="c-single-image__inner">
             <div class="c-single-image__image-wrapper">
