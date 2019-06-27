@@ -124,6 +124,14 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\VcRow\VcRow')) :
                 'value' => '',
                 'weight' => 100
             ]);
+            vc_add_param('vc_row', [
+                'type' => 'textfield',
+                'heading' => __('Extra class names - container', 'h22'),
+                'param_name' => 'container_class',
+                'value' => '',
+                'group' => '',
+                'weight' => 0
+            ]);
 
 
 
@@ -230,6 +238,12 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\VcRow\VcRow')) :
 
             $data['containerAttributes']['class'][] = 'container';
             $data['containerAttributes']['class'][] = isset($data['container']) && !empty($data['container']) ? 'container--' . $data['container'] : '';
+
+
+            if (isset($data['container_class']) && !empty($data['container_class'])) {
+                $data['containerAttributes']['class'][] = $data['container_class'];
+            }
+
 
             if (isset($data['container_no_pad']) && $data['container_no_pad'] === 'true') {
                 $data['containerAttributes']['class'][] = 'u-px-0';
