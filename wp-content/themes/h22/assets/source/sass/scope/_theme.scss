@@ -2,7 +2,9 @@
     .t-#{$name}-fill {
         background-color: $color;
         color: white;
-		h1, h2, h3, h4, h5, h6, .c-teaser__meta {
+		h1, h2, h3, h4, h5, h6, 
+		.h1, .h2, .h3, .h4, .h5, .h6,
+		.c-teaser__meta {
 			color: white;
 		}
 		.c-teaser .cta-link::before {
@@ -17,7 +19,8 @@
 	}
 	.t-#{$name}-invert {
         background-color: white;
-		h1, h2, h3, h4, h5, h6 {
+		h1, h2, h3, h4, h5, h6, 
+		.h1, .h2, .h3, .h4, .h5, .h6 {
 			color: $color;
 		}
 		.c-teaser .cta-link::before {
