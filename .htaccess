@@ -347,5 +347,8 @@ RewriteRule . /index.php [L]
 
 # Redirect old website
 Redirect 301 /start /
-Redirect 301 /sv/start /
+Redirect 301 /i-want-to-be-involved /partners
+Redirect 302 /this-is-helsingborg /
+Redirect 302 /kontakt /
+
 RedirectMatch 302 ^/sv/.*$ /
