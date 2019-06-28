@@ -344,4 +344,7 @@ RewriteRule . /index.php [L]
 
 # END WordPress
 
-RewriteRule ^/start / [L,R=301]
+
+# Redirect old website
+Redirect 301 /start /
+Redirect 301 /sv/start /
