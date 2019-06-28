@@ -1,0 +1,138 @@
+.s-archive.grid > * {
+    margin-bottom: $base * 6;
+}
+
+.s-projects-archive .c-card {
+    position: relative;
+
+    a.c-card__link.c-card__link--read-more {
+        @extend .o-text-meta;
+        border-bottom: solid 2px;
+        font-size: $font-size-meta;
+        margin-left: auto;
+        display: inline-block;
+        position: absolute;
+        right: $base * 3;
+        bottom: $base * 3;
+
+        &:after {
+            display: none;
+        }
+    }
+    // .c-card__title {
+    //     @extend .h1;
+    // }
+}
+
+.s-projects-archive .c-card.c-card--without-image .c-card__image-wrapper  {
+    background-size: 100%;
+}
+
+.s-projects-archive.grid > [class*="grid-"]:nth-child(4n + 1) {
+    .c-card a.c-card__link.c-card__link--read-more {
+        color: $color-purple;
+        border-color: $color-purple;
+    }
+
+    .c-card.c-card--without-image .c-card__image-wrapper {
+        background-image: url('../images/patterns/card-4-3/purplecard-4-3.png');
+    }
+
+    @media 
+    (-webkit-min-device-pixel-ratio: 1.5), 
+    (min-resolution: 144dpi){ 
+        .c-card.c-card--without-image .c-card__image-wrapper {
+            background-image: url('../images/patterns/card-4-3/purplecard-4-3@1,5x.png');
+        }
+    }
+
+    @media 
+    (-webkit-min-device-pixel-ratio: 2), 
+    (min-resolution: 192dpi) { 
+        .c-card.c-card--without-image .c-card__image-wrapper {
+            background-image: url('../images/patterns/card-4-3/purplecard-4-3@2x.png');
+        }
+    }
+}
+
+.s-projects-archive.grid > [class*="grid-"]:nth-child(4n + 2) {
+    .c-card a.c-card__link--read-more {
+        color: $color-blue;
+        border-color: $color-blue;
+    }
+
+    .c-card.c-card--without-image .c-card__image-wrapper {
+        background-image: url('../images/patterns/card-4-3/bluecard-4-3.png');
+    }
+
+    @media 
+    (-webkit-min-device-pixel-ratio: 1.5), 
+    (min-resolution: 144dpi){ 
+        .c-card.c-card--without-image .c-card__image-wrapper {
+            background-image: url('../images/patterns/card-4-3/bluecard-4-3@1,5x.png');
+        }
+    }
+
+    @media 
+    (-webkit-min-device-pixel-ratio: 2), 
+    (min-resolution: 192dpi) { 
+        .c-card.c-card--without-image .c-card__image-wrapper {
+            background-image: url('../images/patterns/card-4-3/bluecard-4-3@2x.png');
+        }
+    }
+}
+
+.s-projects-archive.grid > [class*="grid-"]:nth-child(4n + 3) {
+    .c-card a.c-card__link.c-card__link--read-more {
+        color: $color-green;
+        border-color: $color-green;
+    }
+
+    .c-card.c-card--without-image .c-card__image-wrapper {
+        
+        background-image: url('../images/patterns/card-4-3/greencard-4-3.png');
+    }
+
+    @media 
+    (-webkit-min-device-pixel-ratio: 1.5), 
+    (min-resolution: 144dpi){ 
+        .c-card.c-card--without-image .c-card__image-wrapper {
+            background-image: url('../images/patterns/card-4-3/greencard-4-3@1,5x.png');
+        }
+    }
+
+    @media 
+    (-webkit-min-device-pixel-ratio: 2), 
+    (min-resolution: 192dpi) { 
+        .c-card.c-card--without-image .c-card__image-wrapper {
+            background-image: url('../images/patterns/card-4-3/greencard-4-3@2x.png');
+        }
+    }
+}
+
+.s-projects-archive.grid > [class*="grid-"]:nth-child(4n + 4) {
+    .c-card a.c-card__link.c-card__link--read-more {
+        color: $color-red;
+        border-color: $color-red;
+    }
+
+    .c-card.c-card--without-image .c-card__image-wrapper {
+        background-image: url('../images/patterns/card-4-3/redcard-4-3.png');
+    }
+
+    @media 
+    (-webkit-min-device-pixel-ratio: 1.5), 
+    (min-resolution: 144dpi){ 
+        .c-card.c-card--without-image .c-card__image-wrapper {
+            background-image: url('../images/patterns/card-4-3/redcard-4-3@1,5x.png');
+        }
+    }
+
+    @media 
+    (-webkit-min-device-pixel-ratio: 2), 
+    (min-resolution: 192dpi) { 
+        .c-card.c-card--without-image .c-card__image-wrapper {
+            background-image: url('../images/patterns/card-4-3/redcard-4-3@2x.png');
+        }
+    }
+}
