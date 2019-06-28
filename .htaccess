@@ -348,4 +348,4 @@ RewriteRule . /index.php [L]
 # Redirect old website
 Redirect 301 /start /
 Redirect 301 /sv/start /
-Redirect 302 /sv /
+RedirectMatch 302 ^/sv/.*$ /
