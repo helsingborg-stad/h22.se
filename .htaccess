@@ -343,3 +343,5 @@ RewriteRule . /index.php [L]
 </IfModule>
 
 # END WordPress
+
+RewriteRule ^/start / [L,R=301]
