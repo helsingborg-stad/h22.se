@@ -16,7 +16,7 @@
   }
 
   .c-card__title {
-    @extend .h1;
+    @extend .h2;
   }
 
   .c-card__title + * {
@@ -51,8 +51,16 @@
   }
 
   .c-card__text {
+    @extend .o-text-small;
     // This places the card text in front of the covering link do that its contents are interactive.
     position: relative;
+    > *:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .c-card__footer {
+    padding: 24px;
   }
 }
 
@@ -95,7 +103,7 @@
 .c-card__meta {
   @extend .o-text-meta;
   color: $color-gray;
-  margin-bottom: $base / 2;
+  margin-bottom: $base;
 }
 
 .c-card--without-image {
