@@ -39,7 +39,7 @@ class Excerpt
             
             $filterPattern = apply_filters(
                 'H22/Content/Excerpt/getExcerpt/filterPattern',
-                '/<(h[1-6]|span).*?>.*?<\/(\1)>/m'
+                '/<(h[1-6]).*?>.*?<\/(\1)>/m'
             );
 
             // Remove strings matching reg pattern
