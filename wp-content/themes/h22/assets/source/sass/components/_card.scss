@@ -22,6 +22,14 @@
   .c-card__title + * {
     margin-top: $base;
   }
+
+
+  &__body,
+  &__top,
+  &__bottom,
+  &__middle {
+      padding: $space-md;
+  }
 }
 
 .c-card--clickable {
