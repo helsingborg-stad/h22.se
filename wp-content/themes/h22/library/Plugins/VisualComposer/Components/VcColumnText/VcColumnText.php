@@ -64,6 +64,9 @@ if (
 
         public function prepareData($data)
         {
+            // Format paragraphs etc
+            $data['content'] = wpautop($data['content'], false);
+
             $data['attributes']['class'][] = 'c-column-text';
             $data['attributes']['class'][] = isset($data['el_class']) ? $data['el_class'] : '';
             $data['attributes']['class'][] = 'article';
