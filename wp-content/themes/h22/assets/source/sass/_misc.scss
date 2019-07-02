@@ -26,9 +26,9 @@
     }
     @include mq('md') {
         .c-single-image img {
-            margin-left: auto;
+            // margin-left: auto;
             max-width: 80px;
-            margin-right: initial;
+            // margin-right: initial;
         }
         .c-single-image .c-single-image__inner {
             padding-right: 32px;
