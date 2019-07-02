@@ -9,10 +9,9 @@
         @extend .o-text-meta;
         border-bottom: solid 2px;
         font-size: $font-size-meta;
-        margin-left: auto;
         display: inline-block;
         position: absolute;
-        right: $base * 3;
+        left: $base * 3;
         bottom: $base * 3;
 
         &:after {
