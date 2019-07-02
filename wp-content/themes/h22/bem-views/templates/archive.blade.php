@@ -35,7 +35,7 @@
                     <?php $postNum++; ?>
                 @endwhile
 
-                <div class="grid-sm-12 text-center">
+                <div class="grid-sm-12 text-center u-mb-0">
                     {!!
                         paginate_links(array(
                             'type' => 'list',
