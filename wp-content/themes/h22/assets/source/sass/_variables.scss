@@ -10,10 +10,6 @@ $font-family-code: 'Fira Sans', 'Monaco', 'Consolas', 'Menlo', 'Lucida Console',
 $font-family-heading: $font-family-roboto;
 $font-family-body: $font-family-roboto;
 
-// Width
-$container-width: 1200px;
-$container-width-wide: 1440px;
-
 // Font size
 $font-size-headline: 44px; // 36px 40LH mobile 
 $font-size-card-no-image: 40px;
@@ -156,16 +152,56 @@ $breakpoints-map: (
 	xs: 0,
 	sm: 32.5em, //520px
 	md: 48.0625em, //769px
-	lg: 78em, //1248px
+	lg: 80em, //1280px
 	xl: 100em, //1600px
 );
 
-$header-breakpoint: 'lg'; // 1020px
+// Space
+$space-xxs: $base/2 !default; // 4px 0,5x
+$space-xs: $base !default; // 8px 1x
+
+$space-sm: $base * 2 !default; // 16px 2x
+$space-md: $base * 4 !default; // 32px 4x
+$space-lg: $base * 6 !default; //48px 6x
+$space-xl: $base * 16 !default; // 128px
+
+// Grid
+$grid-gutter-xs: $space-xs!default; // 8px
+$grid-gutter-sm: 32px  !default; // 32px
+
+$grid-gutters: (
+  xs: $grid-gutter-xs,
+  sm: $grid-gutter-sm,
+) !default;
+
+// Grid compact
+$grid-compact-gutter-xs: $grid-gutter-xs !default; // 8px
+$grid-compact-gutter-sm: $space-sm  !default; // 16px
+$grid-compact-gutters: (
+  xs: $grid-compact-gutter-xs,
+  sm: $grid-compact-gutter-sm,
+) !default;
+
+// Container
+$container-width: 1200px;
+$container-width-content: 680px;
+$container-width-small: 456px;
+$container-width-large: 800px;
+$container-width-wide: 1440px;
+
+$container-gutter-xs: $grid-gutter-xs * 2  !default; // 8px
+$container-gutter-sm: $grid-gutter-sm !default; // 32px
+
+// Section
+$section-padding: $space-xl !default;
 
 
-//Display states
-$display-states: 'none', 'inline', 'inline-block', 'block', 'table',
-  'table-cell', 'table-row', 'flex', 'inline-flex';
+$section-padding-sm: $space-lg !default; //48px
+$section-padding-md: $space-xl !default; // 96px
+$section-padding-lg: $space-xl !default; // 144px
+
+// Element
+$element-margin: $space-lg !default; // 48px
 
 // Spacer
 // prettier-ignore
@@ -189,7 +225,18 @@ $spacers: (
 	'15': $base * 15, // new
 	'16': $base * 16, // new
 	'17': $base * 17, // new
+	'xxs': $space-xxs,
+	'xs': $space-xs,
+	'sm': $space-sm,
+	'md': $space-md,
+	'lg': $space-lg,
+	'xl': $space-xl,
 );
+
+
+//Display states
+$display-states: 'none', 'inline', 'inline-block', 'block', 'table',
+  'table-cell', 'table-row', 'flex', 'inline-flex';
 
 // Z-index
 $level-top: 99999;
@@ -220,11 +267,8 @@ $box-shadow-level-3: 0 $base * 1 $base * 2 $color-box-shadow; // new
 $box-shadow-level-4: 0 $base * 2.5 $base * 3 $color-box-shadow; // new
 $box-shadow-level-5: 0 $base * 2.25 $base * 4 $color-box-shadow; // new
 
-$grid-gutter-sm: $base * 4;
-
-$grid-gutters: (
-  xs: $base,
-  sm: $grid-gutter-sm,
-) !default;
-
 $line-height-base: 1.8;
+
+
+// Header
+$header-breakpoint: 'lg';
