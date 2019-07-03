@@ -10,12 +10,12 @@
                 </div>
             @endforeach
         </div>
+        @isset($archive_link)
         <div class="u-text-center c-post-list__link">
-            @isset($archive_link)
-                <a{!! html_build_attributes($archive_link['attributes']) !!}>
-                    {{ $archive_link['text'] }}
-                </a>
-            @endisset
+            <a{!! html_build_attributes($archive_link['attributes']) !!}>
+                {{ $archive_link['text'] }}
+            </a>
         </div>
+        @endisset
     </div>
 </div>
