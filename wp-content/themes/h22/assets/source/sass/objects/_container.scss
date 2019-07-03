@@ -1,13 +1,39 @@
-  
-.container .container {
-    padding: 0px;
+
+.container {
+    max-width: $container-width;
+    width: calc(100% - #{$container-gutter-xs * 2});
+
+    @include mq('sm') {
+        width: calc(100% - #{$container-gutter-sm * 2});
+    }
 }
 
-.container.container--wide {
+.container .container, 
+.container.container--full-width,
+.container.container--no-gutter  {
     width: 100%;
 }
 
-.container.u-px-0, 
-.container .container {
-    max-width: 1200px - ($grid-gutter-sm * 2);
+.container.container--content {
+    max-width: $container-width-content;
 }
+
+.container.container--small {
+    max-width: $container-width-small;
+}
+
+.container.container--large {
+    max-width: $container-width-large;
+}
+
+.container.container--wide {
+    max-width: $container-width-wide;
+}
+
+.container.container--full-width {
+    max-width: 100%;
+}
+
+
+
+

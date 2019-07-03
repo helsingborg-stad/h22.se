@@ -42,11 +42,59 @@
   }
 }
 
-
 .c-section {
-  padding-top: $base * 12;
-  padding-bottom: $base * 12;
+  padding: $section-padding-md 0 $section-padding-sm 0;
 }
+
+.c-section.c-section--lg {
+  padding: $section-padding-lg 0;
+}
+
+.c-section.c-section--md {
+  padding: $section-padding-md 0;
+}
+
+.c-section.c-section--sm {
+  padding: $section-padding-sm 0;
+}
+
+.c-section.c-section--no-pad {
+  padding: 0;
+}
+
+.c-section.c-section--lg-top {
+  padding-top: $section-padding-lg;
+}
+
+.c-section.c-section--md-top {
+  padding-top: $section-padding-md;
+}
+
+.c-section.c-section--sm-top {
+  padding-top: $section-padding-sm;
+}
+
+.c-section.c-section--no-pad-top {
+  padding-top: 0;
+}
+
+.c-section.c-section--lg-bottom {
+  padding-bottom: $section-padding-lg;
+}
+
+.c-section.c-section--md-bottom {
+  padding-bottom: $section-padding-md;
+}
+
+.c-section.c-section--sm-bottom {
+  padding-bottom: $section-padding-sm;
+}
+
+.c-section.c-section--no-pad-bottom {
+  padding-bottom: 0;
+}
+
+
 
 .c-section__bg-video {
   position: absolute;
@@ -152,7 +200,6 @@
 
 
 .c-section--floating-logo {
-  padding-top: 64px;
 	min-height: calc(100vh - 88px - 48px - 48px - 48px); // Viewport Height - Header Height - Element Spacing - Logo Fix
 }
 

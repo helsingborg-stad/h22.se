@@ -3,33 +3,6 @@
   margin-bottom: 0;
 }
 
-.c-column {
-	margin-bottom: 0;
-}
-
-.c-column .c-column__inner {
-	height: 100%;
-	display: flex;
-	flex-direction: column;
-}
-
-.c-column .c-column__inner.has-fill {
-	padding: 24px;
-
-	& > .c-element:last-child {
-		margin-bottom: 0;
-	}
-}
-
-.c-element {
-    margin-bottom: $base * 6;
-}
-
-.s-elements-mb-0 .c-element {
-	margin-bottom: 0;
-}
-
-
 .grid {
 	margin-left: $base * -0.5;
 	margin-right: $base * -0.5;
@@ -48,27 +21,25 @@
         padding-left: 0;
         padding-right: 0;
     }
-
 }
 
-.container {
-	width: 100%;
-	padding-left: $base * 1.5;
-	padding-right: $base * 1.5;
+.grid.grid--compact {
+	margin-left: $grid-compact-gutter-xs * -0.5;
+	margin-right: $grid-compact-gutter-xs * -0.5;
 
 	@include mq('sm') {
-		padding-left: $grid-gutter-sm;
-		padding-right: $grid-gutter-sm;
+		margin-left: $grid-compact-gutter-sm * -0.5;
+		margin-right: $grid-compact-gutter-sm * -0.5;
+	}
+
+	> [class*="grid-"] {
+		padding-left: $grid-compact-gutter-xs * 0.5;
+		padding-right: $grid-compact-gutter-xs * 0.5;
+	
+		@include mq('sm') {
+			padding-left: $grid-compact-gutter-sm * 0.5;
+			padding-right: $grid-compact-gutter-sm * 0.5;
+		}
 	}
 }
 
-.container.container--content {
-    max-width: 632px + $grid-gutter-sm;
-}
-
-.container.container--small {
-    max-width: 456px;
-}
-.container.container--full-width {
-    max-width: 100%;
-}
