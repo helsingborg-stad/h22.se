@@ -1,0 +1,34 @@
+%innerColumnPadding {
+    padding: $base * 6 $base * 2;
+
+    @include mq('sm') {
+        padding: $space-lg $space-md;
+    }
+
+    @include mq('lg') {
+        padding: $space-lg;
+    }
+}
+
+.s-tiles-grid {
+    &.container, > .container {
+        width: 100%;
+        > .grid {
+            margin-left: 0;
+            margin-right: 0;
+
+            > .c-column {
+                padding-left: 0;
+                padding-right: 0;
+            }
+
+            > .c-column > .c-column__inner:not([class*="u-ratio-"]) {
+                @extend %innerColumnPadding;
+
+                > *:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}
