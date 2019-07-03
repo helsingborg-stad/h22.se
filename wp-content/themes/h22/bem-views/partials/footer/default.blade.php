@@ -10,7 +10,7 @@
 @stop
 
 @section('footer-body')
-<div class="c-footer u-py-8">
+<div class="c-footer c-section c-section--lg">
     <div class="container container--wide">
         <div class="grid u-justify-content-center u-text-center">
             @if (is_active_sidebar('footer-area'))
