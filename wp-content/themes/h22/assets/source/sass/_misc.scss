@@ -20,24 +20,17 @@
     left: 0;
     right: 0;
     margin: auto;
-    bottom: 32px;
-    @include mq('sm') {
+    bottom: $element-margin;
 
-    }
     @include mq('md') {
         .c-single-image img {
-            // margin-left: auto;
             max-width: 80px;
-            // margin-right: initial;
         }
         .c-single-image .c-single-image__inner {
             padding-right: 32px;
             padding-left: 32px;
         }
-        
-        // right: 40px;
-        // left: initial;
-        // margin: initial;
+
     }
     @include mq('lg') {
         .c-single-image .c-single-image__inner {
