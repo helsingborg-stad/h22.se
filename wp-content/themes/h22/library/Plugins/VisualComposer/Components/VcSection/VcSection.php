@@ -98,12 +98,6 @@ if (
                 'weight' => 80
             ]);
 
-            vc_add_param('vc_column', [
-                'type' => 'checkbox',
-                'heading' => __('Remove element spacing', 'h22'),
-                'param_name' => 'no_space_el',
-                'value' => 0
-            ]);
             vc_add_param('vc_section', [
                 'param_name' => 'background_video',
                 'type' => 'attach_image',

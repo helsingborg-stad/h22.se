@@ -14,11 +14,11 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\VcColumn\VcColumn')) :
 
         public function __construct()
         {
-            add_action('vc_after_init', array($this, 'adminJS'));
             add_action('vc_after_init', array($this, 'changeTemplateSource'));
+            add_action('vc_after_init', array($this, 'adminJS'));
             add_action('vc_after_init', array($this, 'removeParams'));
-            add_action('vc_after_init', array($this, 'addParams'));
             add_action('vc_after_init', array($this, 'updateParams'));
+            add_action('vc_after_init', array($this, 'addParams'));
 
             $this->initBaseController(false);
         }
@@ -58,19 +58,14 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\VcColumn\VcColumn')) :
             // vc_remove_param('vc_column', 'width');
         }
 
-        public function addParams()
-        {
-            $this->generalThemeParams('vc_column');
-            $this->generalBackgroundParams('vc_column');
-            $this->generalTextColorParams('vc_column');
-        }
-
         public function updateParams()
         {
+            // Custom param type override
             $param = WPBMap::getParam('vc_column', 'offset');
             $param['type'] = 'column_offset_mod';
             WPBMap::mutateParam('vc_column', $param);
 
+            // Remove width options
             $param = WPBMap::getParam('vc_column', 'width');
             unset($param['value']['20% - 1/5']);
             unset($param['value']['40% - 2/5']);
@@ -78,17 +73,34 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\VcColumn\VcColumn')) :
             unset($param['value']['80% - 4/5']);
             WPBMap::mutateParam('vc_column', $param);
 
+            // Move param to separate tab and place it last by dropping and re-adding it
+            $param = WPBMap::getParam('vc_column', 'el_id');
+            $param['group'] = __('Settings', 'h22');
+            WPBMap::dropParam('vc_column', $param['param_name']);
+            WPBMap::addParam('vc_column', $param);
+
+            // Move param to separate tab and place it last by dropping and re-adding it
+            $param = WPBMap::getParam('vc_column', 'el_class');
+            $param['group'] = __('Settings', 'h22');
+            WPBMap::dropParam('vc_column', $param['param_name']);
+            WPBMap::addParam('vc_column', $param);
+        }
+
+        public function addParams()
+        {
+            $this->generalThemeParams('vc_column');
+            $this->generalBackgroundParams('vc_column');
+            $this->generalTextColorParams('vc_column');
 
             vc_add_param('vc_column', [
                 'type' => 'dropdown',
                 'heading' => __('Text alignment', 'h22'),
                 'param_name' => 'text_align',
                 'value' => array(
-                    __('Left', 'h22') => 'left',
+                    __('Left (default)', 'h22') => '',
                     __('Center', 'h22') => 'center',
                     __('Right', 'h22') => 'right',
                 ),
-                'std' => 'left',
             ]);
 
             vc_add_param('vc_column', [
@@ -106,22 +118,32 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\VcColumn\VcColumn')) :
 
             vc_add_param('vc_column', [
                 'type' => 'dropdown',
-                'heading' => __('Vertical alignment', 'h22'),
+                'heading' => __('Element alignment (vertical)', 'h22'),
                 'param_name' => 'vertical_align',
                 'value' => array(
-                    __('Top', 'h22') => 'top',
+                    __('Top (default)', 'h22') => '',
                     __('Middle', 'h22') => 'middle',
                     __('Bottom', 'h22') => 'bottom',
                 ),
-                'std' => 'top',
             ]);
 
             vc_add_param('vc_column', [
                 'type' => 'dropdown',
-                'heading' => __('Inner padding', 'h22'),
+                'heading' => __('Element spacing', 'h22'),
+                'param_name' => 'el_spacing',
+                'value' => array(
+                    __('Default', 'h22') => '',
+                    __('Small', 'h22') => 'small',
+                    __('None', 'h22') => 'none',
+                )
+            ]);
+
+            vc_add_param('vc_column', [
+                'type' => 'dropdown',
+                'heading' => __('Inner column padding', 'h22'),
                 'param_name' => 'inner_pad',
                 'value' => array(
-                    __('Default (inherit)', 'h22') => '',
+                    __('Inherit (default)', 'h22') => '',
                     __('No padding', 'h22') => '0',
                     __('Padding 24', 'h22') => '3',
                     __('Padding 40', 'h22') => '5',
@@ -130,30 +152,12 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\VcColumn\VcColumn')) :
             ]);
 
             vc_add_param('vc_column', [
-                'type' => 'checkbox',
-                'heading' => __('Remove element spacing', 'h22'),
-                'param_name' => 'no_space_el',
-                'value' => 0
-            ]);
-
-            // Move param to separate tab and place it last by dropping and re-adding it
-            $param = WPBMap::getParam('vc_column', 'el_id');
-            $param['group'] = __('Settings', 'h22');
-            WPBMap::dropParam('vc_column', $param['param_name']);
-            WPBMap::addParam('vc_column', $param);
-
-            // Move param to separate tab and place it last by dropping and re-adding it
-            $param = WPBMap::getParam('vc_column', 'el_class');
-            $param['group'] = __('Settings', 'h22');
-            WPBMap::dropParam('vc_column', $param['param_name']);
-            WPBMap::addParam('vc_column', $param);
-
-            vc_add_param('vc_column', [
                 'type' => 'textfield',
                 'heading' => __('Extra Inner column class name', 'h22'),
                 'param_name' => 'inner_class',
                 'value' => '',
-                'group' => 'Settings'
+                'group' => 'Settings',
+                'weight' => -100
             ]);
         }
 
@@ -175,6 +179,13 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\VcColumn\VcColumn')) :
                 $data['attributes']['class'][] = $el_class;
             }
 
+            // Column Width main breakpoint
+            $width = $data['width'] ?? '1/1';
+            list($a, $b) = explode('/', $width);
+            $cols = intval((12 * $a) / $b);
+            $data['attributes']['class'][] = "grid-md-$cols";
+
+            // Column width, offset & hide @ all breakpoints
             if (isset($data['offset']) && !empty($data['offset'])) {
                 $data['offset'] = str_replace('vc_col-lg-offset', 'offset-lg', $data['offset']);
                 $data['offset'] = str_replace('vc_col-md-offset', 'offset-md', $data['offset']);
@@ -189,7 +200,16 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\VcColumn\VcColumn')) :
                 }
             }
 
+            // Inner padding
+            if (isset($data['inner_pad']) && $data['inner_pad'] !== '') {
+                $data['childAttributes']['class'][] = 'u-p-' . $data['inner_pad'];
 
+                if (strpos($data['color_theme'], 'fill') !== false) {
+                    $data['childAttributes']['class'][] = 'has-fill';
+                }
+            }
+
+            // Element vertical align
             if (isset($data['vertical_align']) && $data['vertical_align'] !== '' && $data['vertical_align'] !== 'top') {
                 $verticalAlignClasses = [
                     'middle' => 'u-justify-content-center',
@@ -199,31 +219,11 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\VcColumn\VcColumn')) :
                 $data['childAttributes']['class'][] = $verticalAlignClasses[$data['vertical_align']] ?? '';
             }
 
+            // Text align
             if ($text_align = $data['text_align'] ?? null) {
                 $data['attributes'][
                     'class'
                 ][] = "c-column--text-align-{$text_align}";
-            }
-
-            if (!empty($data['hidden_sizes'])) {
-                $sizes = explode(',', $data['hidden_sizes']);
-                foreach ($sizes as $size) {
-                    $data['attributes']['class'][] = "u-display-none@$size";
-                }
-            }
-
-            $width = $data['width'] ?? '1/1';
-            list($a, $b) = explode('/', $width);
-            $cols = intval((12 * $a) / $b);
-            $data['attributes']['class'][] = "grid-md-$cols";
-
-            // Inner padding
-            if (isset($data['inner_pad']) && $data['inner_pad'] !== '') {
-                $data['childAttributes']['class'][] = 'u-p-' . $data['inner_pad'];
-
-                if (strpos($data['color_theme'], 'fill') !== false) {
-                    $data['childAttributes']['class'][] = 'has-fill';
-                }
             }
 
             // Color Theme
