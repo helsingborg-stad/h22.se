@@ -50,7 +50,7 @@ trait GeneralComponentParams
             [
                 'param_name' => 'text_color_hex',
                 'type' => 'colorpicker',
-                'heading' => __('Color theme', 'h22'),
+                'heading' => __('Custom text color', 'h22'),
                 'value' => '',
                 'group' => $group,
                 'weight' => $weight,

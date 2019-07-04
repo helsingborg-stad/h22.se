@@ -24,3 +24,11 @@
         margin-top: 0;
     }
 }
+
+.article.article--text-large p  {
+    @extend .o-text-large;
+}
+
+.article.article--text-small p  {
+    @extend .o-text-small;
+}
