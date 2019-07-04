@@ -1,4 +1,61 @@
 window.ViewVCColumnModule = window.VcColumnView.extend({
+  offsetClasses: [],
+  render: function () {
+    if (window.VcColumnView.__super__.render) {
+      window.ViewVCColumnModule.__super__.render.call(this);
+    }
+
+    // Remove default column class
+    this.$el.removeClass(this.convertSize(this.current_column_width));
+    return this;
+  },
+  changeShortcodeParams: function (model) {
+    if (window.ViewVCColumnModule.__super__.changeShortcodeParams) {
+      window.ViewVCColumnModule.__super__.changeShortcodeParams.call(this, model);
+    }
+
+    // Custom column functionality
+    this.setColumnClasses(model);
+  },
+  setColumnClasses: function (model) {
+    // Disables parent class behaviour
+    if (typeof model !== 'undefined') {
+        var offset, width;
+        offset = model.getParam( 'offset' ) || '';
+        width = model.getParam( 'width' ) || '1/1'; 
+ 
+
+        // Remove old class
+        if (typeof this.css_class_width !== 'undefined') {
+          this.$el.removeClass( 'vc_col-md-' + this.css_class_width );
+        }
+    
+        // Add default breakpoint width class
+        this.css_class_width = this.convertSize(width);
+        if ( this.css_class_width !== width ) {
+          this.css_class_width = this.css_class_width.replace( /[^\d]/g, '' );
+        }
+        this.$el.addClass( 'vc_col-md-' + this.css_class_width );
+
+        // Remove old offset classes
+        if ( ! _.isEmpty( this.offsetClasses ) ) {
+          this.offsetClasses.forEach(function(offsetClass) {
+            this.$el.removeClass(offsetClass);
+          }.bind(this));
+
+          this.offsetClasses = [];
+        }
+    
+        // Apoebd new offset classes
+        if ( ! _.isEmpty( offset ) ) {
+          this.offsetClasses = offset.split(' ');
+
+          this.offsetClasses.forEach(function(offsetClass) {
+            this.$el.addClass(offsetClass);
+          }.bind(this));
+        }
+    }
+  },
   buildDesignHelpers: function() {
     if (window.VcColumnView.__super__.buildDesignHelpers) {
       window.VcColumnView.__super__.buildDesignHelpers.call(this);

@@ -19,6 +19,7 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\VcColumn\VcColumn')) :
             add_action('vc_after_init', array($this, 'removeParams'));
             add_action('vc_after_init', array($this, 'addParams'));
             add_action('vc_after_init', array($this, 'updateParams'));
+
             $this->initBaseController(false);
         }
 
@@ -46,7 +47,7 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\VcColumn\VcColumn')) :
         {
             vc_remove_param('vc_column', 'css_animation');
             vc_remove_param('vc_column', 'css');
-            vc_remove_param('vc_column', 'offset');
+            // vc_remove_param('vc_column', 'offset');
             vc_remove_param('vc_column', 'video_bg');
             vc_remove_param('vc_column', 'video_bg_url');
             vc_remove_param('vc_column', 'video_bg_parallax');
@@ -62,34 +63,21 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\VcColumn\VcColumn')) :
             $this->generalThemeParams('vc_column');
             $this->generalBackgroundParams('vc_column');
             $this->generalTextColorParams('vc_column');
-
-            vc_add_param('vc_column', [
-                'type' => 'checkbox',
-                'heading' => 'Hide this column on these screen sizes',
-                'param_name' => 'hidden_sizes',
-                'value' => [
-                    __('Large', 'h22') => 'lg',
-                    __('Medium', 'h22') => 'md',
-                    __('Small', 'h22') => 'sm',
-                    __('Extra small', 'h22') => 'xs',
-                ],
-                // 'group' => __('Responsive Options', 'js_composer'),
-            ]);
         }
 
         public function updateParams()
         {
-            $param = WPBMap::getParam('vc_column', 'width');
-            $param['value'] = [
-                __('1/2', 'h22') => '1/2',
-                __('1/3', 'h22') => '1/3',
-                __('2/3', 'h22') => '2/3',
-                __('1/4', 'h22') => '1/4',
-                __('3/4', 'h22') => '3/4',
-                __('Whole row', 'h22') => '1/1',
-            ];
-            $param['group'] = null;
+            $param = WPBMap::getParam('vc_column', 'offset');
+            $param['type'] = 'column_offset_mod';
             WPBMap::mutateParam('vc_column', $param);
+
+            $param = WPBMap::getParam('vc_column', 'width');
+            unset($param['value']['20% - 1/5']);
+            unset($param['value']['40% - 2/5']);
+            unset($param['value']['60% - 3/5']);
+            unset($param['value']['80% - 4/5']);
+            WPBMap::mutateParam('vc_column', $param);
+
 
             vc_add_param('vc_column', [
                 'type' => 'dropdown',
@@ -186,6 +174,21 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\VcColumn\VcColumn')) :
             if ($el_class = $data['el_class'] ?? null) {
                 $data['attributes']['class'][] = $el_class;
             }
+
+            if (isset($data['offset']) && !empty($data['offset'])) {
+                $data['offset'] = str_replace('vc_col-lg-offset', 'offset-lg', $data['offset']);
+                $data['offset'] = str_replace('vc_col-md-offset', 'offset-md', $data['offset']);
+                $data['offset'] = str_replace('vc_col-sm-offset', 'offset-sm', $data['offset']);
+                $data['offset'] = str_replace('vc_col-xs-offset', 'offset-xs', $data['offset']);
+
+                $data['offset'] = str_replace('vc_col-', 'grid-', $data['offset']);
+                $data['offset'] = str_replace('vc_hidden-', 'hidden@', $data['offset']);
+
+                foreach (explode(' ', $data['offset']) as $gridClass) {
+                    $data['attributes']['class'][] = $gridClass;
+                }
+            }
+
 
             if (isset($data['vertical_align']) && $data['vertical_align'] !== '' && $data['vertical_align'] !== 'top') {
                 $verticalAlignClasses = [

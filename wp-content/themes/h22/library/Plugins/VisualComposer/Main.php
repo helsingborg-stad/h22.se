@@ -13,11 +13,17 @@ class Main
         new PageBuilderTemplate();
         new PageBuilderTemplateType();
 
+        add_action('vc_after_init', array($this, 'customParamTypes'), 1000);
         add_action('vc_before_init', array($this, 'hideDesignOptionsAndCustomCss'));
         add_filter('vc_before_init', array($this, 'disableFrontend'), 1);
         add_filter('vc_before_init', array($this, 'initCustomComponents'), 99);
     }
 
+    public function customParamTypes()
+    {
+        new ParamTypes\VcColumnOffset();
+    }
+    
     public function hideDesignOptionsAndCustomCss()
     {
         vc_set_as_theme();
