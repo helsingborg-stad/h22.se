@@ -10,11 +10,20 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\VcRow\VcRow')) :
 
         public function __construct()
         {
-            add_action('vc_after_init', array($this, 'adminJS'));
             add_action('vc_after_init', array($this, 'changeTemplateSource'));
-            add_action('vc_after_init', array($this, 'removeUnwantedParams'));
-            add_action('vc_after_init', array($this, 'responsiveColumns'));
+            add_action('vc_after_init', array($this, 'adminJS'));
+            add_action('vc_after_init', array($this, 'removeParams'));
+            add_action('vc_after_init', array($this, 'addParams'));
             $this->initBaseController(false);
+        }
+
+        public function changeTemplateSource()
+        {
+            \WPBMap::modify(
+                'vc_row',
+                'html_template',
+                dirname(__FILE__) . '/VcRow.php'
+            );
         }
 
         public function adminJS()
@@ -28,16 +37,7 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\VcRow\VcRow')) :
             );
         }
 
-        public function changeTemplateSource()
-        {
-            \WPBMap::modify(
-                'vc_row',
-                'html_template',
-                dirname(__FILE__) . '/VcRow.php'
-            );
-        }
-
-        public function removeUnwantedParams()
+        public function removeParams()
         {
             vc_remove_param('vc_row', 'gap');
             vc_remove_param('vc_row', 'video_bg');
@@ -50,51 +50,15 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\VcRow\VcRow')) :
             vc_remove_param('vc_row', 'css_animation');
             vc_remove_param('vc_row', 'disable_element');
             vc_remove_param('vc_row', 'rtl_reverse');
+            vc_remove_param('vc_row', 'full_width');
+            vc_remove_param('vc_row', 'full_height');
+            vc_remove_param('vc_row', 'equal_height');
+            vc_remove_param('vc_row', 'content_placement');
+            vc_remove_param('vc_row', 'columns_placement');
         }
 
-        public function responsiveColumns()
+        public function addParams()
         {
-            vc_add_param('vc_row', array(
-                'type' => 'checkbox',
-                'heading' => __(
-                    'Invert columns in mobile and tablet breakpoints?',
-                    'h22'
-                ),
-                'description' => __(
-                    'This setting is useful when you i.e. create multiple rows where images and texts are alternated. In smaller screens this would cause the elements to display in an order that is hard to follow.',
-                    'h22'
-                ),
-                'param_name' => 'mobile_invert_cols',
-                'value' => array(__('Yes', 'js_composer') => 'yes'),
-                'group' => __('Responsive', 'h22'),
-            ));
-
-            vc_add_param('vc_row', array(
-                'type' => 'dropdown',
-                'heading' => __(
-                    'At which breakpoint should the inversion start',
-                    'trivec'
-                ),
-                'description' => __(
-                    'The default behaviour is to invert at Medium breakpoint',
-                    'h22'
-                ),
-                'param_name' => 'mobile_invert_cols_breakpoint',
-                'value' => array(
-                    __('Small', 'h22') => 'xs,sm',
-                    __('Medium', 'h22') => 'xs,sm,md',
-                    __('Large', 'h22') => 'xs,sm,md,lg',
-                ),
-                'dependency' => array(
-                    'element' => 'mobile_invert_cols',
-                    'not_empty' => true,
-                ),
-                // Sets default value
-                'std' => 'xs,sm,md',
-                'group' => __('Responsive', 'h22'),
-            ));
-
-
             vc_add_param('vc_row', [
                 'type' => 'dropdown',
                 'heading' => __('Container width', 'h22'),
@@ -110,20 +74,44 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\VcRow\VcRow')) :
             ]);
 
             vc_add_param('vc_row', [
-                'type' => 'checkbox',
-                'heading' => __('Remove container padding', 'h22'),
-                'param_name' => 'container_no_pad',
-                'value' => '',
+                'type' => 'dropdown',
+                'heading' => __('Column gutter', 'h22'),
+                'param_name' => 'column_gutter',
+                'value' => array(
+                    __('Default', 'h22') => '',
+                    __('No gutter', 'h22') => 'no-gutter',
+                    __('Small', 'h22') => 'small',
+                    __('Tiles Grid', 'h22') => 'tiles',
+                ),
                 'weight' => 100
             ]);
 
             vc_add_param('vc_row', [
-                'type' => 'checkbox',
-                'heading' => __('Remove column gutter', 'h22'),
-                'param_name' => 'no_gutter',
-                'value' => '',
+                'type' => 'dropdown',
+                'heading' => __('Column alignment (vertical)', 'h22'),
+                'param_name' => 'column_va',
+                'value' => array(
+                    __('Stretch (default)', 'h22') => '',
+                    __('Top', 'h22') => 'start',
+                    __('Middle', 'h22') => 'center',
+                    __('Bottom', 'h22') => 'end',
+                ),
                 'weight' => 100
             ]);
+
+            vc_add_param('vc_row', [
+                'type' => 'dropdown',
+                'heading' => __('Reverse column order', 'h22'),
+                'param_name' => 'column_reverse',
+                'value' => array(
+                    __('Disabled (default)', 'h22') => '',
+                    __('SM', 'h22') => 'sm',
+                    __('MD', 'h22') => 'md',
+                    __('LG', 'h22') => 'lg',
+                ),
+                'weight' => 100
+            ]);
+
             vc_add_param('vc_row', [
                 'type' => 'textfield',
                 'heading' => __('Extra class names - container', 'h22'),
@@ -132,78 +120,53 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\VcRow\VcRow')) :
                 'group' => '',
                 'weight' => 0
             ]);
-
-
-
-            // vc_add_param('vc_row', [
-            //     'type' => 'dropdown',
-            //     'heading' => __('Column gutter', 'h22'),
-            //     'param_name' => 'container',
-            //     'value' => array(
-            //         __('Default', 'h22') => '',
-            //         __('No gutter', 'h22') => 'no-gutter',
-            //     ),
-            //     'weight' => 100
-            // ]);
         }
 
-        protected function getCssClasses($data)
+        protected function getRowClasses($data)
         {
             $classes = [
                 'grid', // Municipio styleguide
-                $this->getExtraClass($data['el_class']),
+                $data['el_class'],
             ];
 
-            if (!empty($data['mobile_invert_cols'])) {
-                $mobile_invert_cols_breakpoint = explode(
-                    ',',
-                    $data['mobile_invert_cols_breakpoint'] ?: 'xs,sm,md'
+            if (isset($data['column_gutter']) && !empty($data['column_gutter'])) {
+                $gridGutterClasses = array(
+                    'no-gutter' => 'grid--no-gutter',
+                    'small' => 'grid--small',
+                    'tiles' => 's-tiles-grid'
                 );
-                foreach ($mobile_invert_cols_breakpoint as $breakpoint) {
-                    switch ($breakpoint) {
-                        case 'xs':
-                        case 'sm':
-                            $classes[] = sprintf(
-                                'u-flex-column-reverse@%s',
-                                $breakpoint
-                            );
-                            break;
-                        case 'md':
-                        case 'md':
-                        default:
-                            $classes[] = sprintf(
-                                'u-flex-row-reverse@%s',
-                                $breakpoint
-                            );
-                            break;
-                    }
-                }
-            }
-            // Todo: replace with HBG styleguide matching class
-            if (!empty($data['full_width'])) {
-                $classes[] = 'vc_row-no-padding';
+                $classes[] = isset($gridGutterClasses[$data['column_gutter']]) ? $gridGutterClasses[$data['column_gutter']] : '';
             }
 
-            // Todo: replace with HBG styleguide matching class
-            if (!empty($data['full_height'])) {
-                $classes[] = 'vc_row-o-full-height';
-                if (!empty($data['columns_placement'])) {
-                    $classes[] =
-                        'vc_row-o-columns-' . $data['columns_placement'];
-                    if ('stretch' === $data['columns_placement']) {
-                        $classes[] = 'vc_row-o-equal-height';
-                    }
-                }
+            if (isset($data['column_va']) && !empty($data['column_va'])) {
+                $classes[] = 'u-align-items-' . $data['column_va'];
             }
 
-            // Todo: replace with HBG styleguide matching class
-            if (!empty($data['equal_height'])) {
-                $classes[] = 'vc_row-o-equal-height';
+            if (isset($data['column_reverse']) && !empty($data['column_reverse'])) {
+                $classes[] = 'grid-' . $data['column_reverse'] . '-row-reverse ';
             }
 
-            // Todo: replace with HBG styleguide matching class
-            if (!empty($data['content_placement'])) {
-                $classes[] = 'vc_row-o-content-' . $data['content_placement'];
+            return array_unique($classes);
+        }
+
+        protected function getContainerClasses($data)
+        {
+            $classes = [
+                'container',
+                $data['container_class'],
+            ];
+
+            $classes[] = isset($data['container']) && !empty($data['container']) ? 'container--' . $data['container'] : '';
+
+            if (isset($data['container_class']) && !empty($data['container_class'])) {
+                $classes[] = $data['container_class'];
+            }
+
+            if (in_array('grid--no-gutter', $data['attributes']['class'])
+                && in_array('container--full-width', $classes)
+                || in_array('grid--no-gutter', $data['attributes']['class'])
+                && in_array('container--full-width', $classes)) {
+                $classes[] = 'container--no-gutter';
             }
 
             return array_unique($classes);
@@ -211,48 +174,8 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\VcRow\VcRow')) :
 
         public function prepareData($data)
         {
-            $data['attributes']['class'] = $this->getCssClasses($data);
-            $data['attributes']['class'] = apply_filters(
-                'helsingborg-h22/visual-composer/VcRow/html_class',
-                $data['attributes']['class'],
-                'vc_row',
-                $data
-            );
-            // $afterOutput = '';
-            // Todo: replace with HBG styleguide matching class
-            if (!empty($data['full_width'])) {
-                $data['attributes'][] = 'data-vc-full-width="true"';
-                $data['attributes'][] = 'data-vc-full-width-init="false"';
-                if ('stretch_row_content' === $data['full_width']) {
-                    $data['attributes'][] = 'data-vc-stretch-content="true"';
-                } elseif (
-                    'stretch_row_content_no_spaces' === $data['full_width']
-                ) {
-                    $data['attributes'][] = 'data-vc-stretch-content="true"';
-                    $data['attributes']['class'][] = 'vc_row-no-padding';
-                }
-                // $afterOutput .= '<div class="vc_row-full-width vc_clearfix"></div>';
-            }
-            // $data['afterOutput'] = $afterOutput;
-
-
-            $data['containerAttributes']['class'][] = 'container';
-            $data['containerAttributes']['class'][] = isset($data['container']) && !empty($data['container']) ? 'container--' . $data['container'] : '';
-
-
-            if (isset($data['container_class']) && !empty($data['container_class'])) {
-                $data['containerAttributes']['class'][] = $data['container_class'];
-            }
-
-
-            if (isset($data['container_no_pad']) && $data['container_no_pad'] === 'true') {
-                $data['containerAttributes']['class'][] = 'u-px-0';
-            }
-
-            if (isset($data['no_gutter']) && $data['no_gutter'] === 'true') {
-                $data['attributes']['class'][] = 'grid--no-gutter';
-            }
-
+            $data['attributes']['class'] = $this->getRowClasses($data);
+            $data['containerAttributes']['class'] = $this->getContainerClasses($data);
 
             return $data;
         }
