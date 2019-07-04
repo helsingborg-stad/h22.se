@@ -43,10 +43,26 @@
 }
 
 .c-section {
+  padding: $section-padding 0 $section-padding 0;
+}
+
+.c-section.c-section--subtract-bot {
   padding: $section-padding 0 #{$section-padding - $element-margin} 0;
 }
 
-.c-section__bg-video {
+.c-section.c-section--small {
+  padding: $element-margin 0 $element-margin 0;
+}
+
+.c-section.c-section--small.c-section.c-section--subtract-bot {
+  padding: $element-margin 0 0 0;
+}
+
+.c-section.c-section--no-pad {
+  padding: 0 0 0 0;
+}
+
+.c-section.c-section__bg-video {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -60,15 +76,6 @@
   z-index: 0;
 }
 
-.c-section.c-section--small {
-    padding-top: $base * 6;
-    padding-bottom: $base * 6;
-}
-
-.c-section.c-section--bold {
-    padding-top: $base * 24;
-    padding-bottom: $base * 24;
-}
 .c-section__bg-video {
   position: absolute;
   width: 100%;

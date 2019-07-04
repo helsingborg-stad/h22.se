@@ -128,7 +128,7 @@ if (
 
         public function prepareData($data)
         {
-            $data['attributes']['class'][] = 'c-section';
+            $data['attributes']['class'][] = 'c-section c-section--subtract-bot';
             $data['attributes']['class'][] = isset($data['min_height']) && !empty($data['min_height']) ? "c-section--min-height-{$data['min_height']}" : '';
             $data['attributes']['class'][] = $data['el_class'];
 
