@@ -17,11 +17,20 @@ if (
 
         public function __construct()
         {
-            add_action('vc_after_init', array($this, 'adminJS'));
             add_action('vc_after_init', array($this, 'changeTemplateSource'));
+            add_action('vc_after_init', array($this, 'adminJS'));
             add_action('vc_after_init', array($this, 'removeParams'));
             add_action('vc_after_init', array($this, 'addParams'));
             $this->initBaseController(false);
+        }
+
+        public function changeTemplateSource()
+        {
+            \WPBMap::modify(
+                'vc_section',
+                'html_template',
+                dirname(__FILE__) . '/VcSection.php'
+            );
         }
 
         public function adminJS()
@@ -32,15 +41,6 @@ if (
                 'admin_enqueue_js',
                 \H22\Helper\FileSystem::themeUrl(dirname(__FILE__)) .
                     '/js/vc_section.js'
-            );
-        }
-
-        public function changeTemplateSource()
-        {
-            \WPBMap::modify(
-                'vc_section',
-                'html_template',
-                dirname(__FILE__) . '/VcSection.php'
             );
         }
 
@@ -81,20 +81,18 @@ if (
                     __('70% of Viewport', 'h22') => '70vh',
                     __('60% of Viewport', 'h22') => '60vh',
                 ),
-                'std' => '',
                 'weight' => 80
             ]);
 
             vc_add_param('vc_section', [
                 'param_name' => 'content_alignment',
                 'type' => 'dropdown',
-                'heading' => __('Content alignment', 'h22'),
+                'heading' => __('Content alignment (vertical)', 'h22'),
                 'value' => array(
-                    __('Default (top)', 'h22') => '',
+                    __('Top (default)', 'h22') => '',
                     __('Middle', 'h22') => 'center',
                     __('Bottom', 'h22') => 'end',
                 ),
-                'std' => '',
                 'weight' => 80
             ]);
 
@@ -103,6 +101,7 @@ if (
                 'type' => 'attach_image',
                 'heading' => __('Background video', 'h22'),
                 'value' => '',
+                'group' => 'Background'
             ]);
             vc_add_param('vc_section', [
                 'param_name' => 'background_video_fallback',
