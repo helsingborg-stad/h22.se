@@ -1,4 +1,4 @@
-@if (isset($image) && !empty($image))
+@if (!empty($single_image))
     <div class="c-element {{$noMargin ? 'u-mb-0' : ''}}">
         <div {!! html_build_attributes($attributes) !!}>
             <div class="c-single-image__inner">

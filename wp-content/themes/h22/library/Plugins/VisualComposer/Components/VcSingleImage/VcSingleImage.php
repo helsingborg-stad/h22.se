@@ -269,7 +269,7 @@ if (
         {
             $single_image = array(
                 'attributes' => array(
-                    'class' => array(),
+                    'class' => array('c-single-image__image'),
                 ),
                 'caption' => '',
                 'size' => '',
@@ -278,14 +278,15 @@ if (
             if ($data['source'] !== 'external_link' && $attachment = $this->getAttachment($data)) {
                 $single_image['attributes']['src'] = $attachment['url'];
                 $single_image['attributes']['srcset'] = wp_get_attachment_image_srcset($attachment['id'], array($attachment['width'], $attachment['height']));
-                $single_image['attributes']['alt'] = $attachment['alt'];
+                
+                if (!empty($attachment['alt'])) {
+                    $single_image['attributes']['alt'] = $attachment['alt'];
+                }
 
                 //get caption
                 $single_image['caption'] = $data['add_caption']
                     ? $attachment['caption']
                     : null;
-
-                $single_image['size'] = 'full-width';
             } else {
                 // get image
                 $single_image['attributes']['src'] = $data['custom_src'];
@@ -295,7 +296,6 @@ if (
                 $data['external_img_size'] ?? 'full-width';
             }
 
-            $single_image['attributes'] = array_filter($single_image['attributes']);
             return array_filter($single_image);
         }
 
@@ -305,10 +305,12 @@ if (
             && get_post_thumbnail_id(get_queried_object_id())
             ? get_post_thumbnail_id(get_queried_object_id()) : false;
 
-            if (!$attachmentId = !$attachmentId && !empty($data['image']) ? $data['image'] : false) {
+    
+            if (!$attachmentId && empty($data['image']) || !$attachmentId && !empty($data['image']) && get_post_type($data['image']) !== 'attachment') {
                 return false;
             }
 
+            $attachmentId = $attachmentId ? $attachmentId : $data['image'];
             $attachment = array(
                 'title' => get_the_title($attachmentId),
                 'id' => $attachmentId,
@@ -321,6 +323,7 @@ if (
             $original['url'] = $original['src'][0];
             $original['width'] = $original['src'][1];
             $original['height'] = $original['src'][2];
+
 
             if (empty($original['width']) || empty($original['height'])) {
                 return array_merge($attachment, array('url' => $original['src']));
