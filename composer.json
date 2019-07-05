@@ -23,7 +23,7 @@
         "composer/installers": "~1.0",
         "johnpbloch/wordpress": "^5.0.0",
         "helsingborg-stad/modularity": ">=2.0.0",
-        "helsingborg-stad/municipio": ">=1.0.0",
+        "helsingborg-stad/municipio": "1.27.4",
         "helsingborg-stad/lix-calculator": "^2.1",
         "helsingborg-stad/content-scheduler": "^1.1",
         "helsingborg-stad/force-ssl": "^1.0",

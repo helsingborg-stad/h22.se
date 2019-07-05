@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2f886c087a85d2793a739b686f045711",
+    "content-hash": "17a1ce493755dfb2e70db030e6038b9b",
     "packages": [
         {
             "name": "aristath/kirki",
@@ -1028,16 +1028,16 @@
         },
         {
             "name": "helsingborg-stad/municipio",
-            "version": "1.27.5",
+            "version": "1.27.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/helsingborg-stad/Municipio.git",
-                "reference": "fb62ce994036cd393e44bfc62c80f7c9a3fa46cb"
+                "reference": "7edfacd57f9f855bffe5705cf31572ef28c47d8b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/helsingborg-stad/Municipio/zipball/fb62ce994036cd393e44bfc62c80f7c9a3fa46cb",
-                "reference": "fb62ce994036cd393e44bfc62c80f7c9a3fa46cb",
+                "url": "https://api.github.com/repos/helsingborg-stad/Municipio/zipball/7edfacd57f9f855bffe5705cf31572ef28c47d8b",
+                "reference": "7edfacd57f9f855bffe5705cf31572ef28c47d8b",
                 "shasum": ""
             },
             "require": {
@@ -1072,7 +1072,7 @@
                 }
             ],
             "description": "A bootstrap theme for creating municipality sites.",
-            "time": "2019-07-01T13:43:41+00:00"
+            "time": "2019-06-28T11:38:17+00:00"
         },
         {
             "name": "helsingborg-stad/polylang-fallback",
