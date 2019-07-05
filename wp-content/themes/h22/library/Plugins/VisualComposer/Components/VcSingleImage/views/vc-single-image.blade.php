@@ -1,12 +1,20 @@
 @if (isset($image) && !empty($image))
-    <div class="c-single-image c-single-image--{!! $single_image['size'] !!} {!! $el_class !!}">
-        <div class="c-single-image__inner">
-            <div class="c-single-image__image-wrapper">
-                <img {!! html_build_attributes($single_image['attributes']) !!}>
+    <div class="c-element {{$noMargin ? 'u-mb-0' : ''}}">
+        <div {!! html_build_attributes($attributes) !!}>
+            <div class="c-single-image__inner">
+                <div class="c-single-image__image-wrapper">
+                    @if (!empty($linkAttributes))
+                    <a {!! html_build_attributes($linkAttributes) !!}>
+                        <img {!! html_build_attributes($single_image['attributes']) !!}>
+                    </a>
+                    @else
+                        <img {!! html_build_attributes($single_image['attributes']) !!}>
+                    @endif
+                </div>
+                @if($single_image['caption'])
+                    <p class="c-single-image__image-caption">{{$single_image['caption']}}</p>
+                @endif
             </div>
-            @if($single_image['caption'])
-            <p class="c-single-image__image-caption">{{$single_image['caption']}}</p>
-            @endif
         </div>
     </div>
 @endif
