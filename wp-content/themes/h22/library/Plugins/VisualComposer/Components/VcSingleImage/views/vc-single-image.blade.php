@@ -3,12 +3,14 @@
         <div {!! html_build_attributes($attributes) !!}>
             <div class="c-single-image__inner">
                 <div class="c-single-image__image-wrapper">
-                    @if (!empty($linkAttributes))
-                    <a {!! html_build_attributes($linkAttributes) !!}>
-                        <img {!! html_build_attributes($single_image['attributes']) !!}>
-                    </a>
-                    @else
-                        <img {!! html_build_attributes($single_image['attributes']) !!}>
+                    @if (!empty($single_image['src']))
+                        @if (!empty($linkAttributes))
+                        <a {!! html_build_attributes($linkAttributes) !!}>
+                            <img {!! html_build_attributes($single_image['attributes']) !!}>
+                        </a>
+                        @else
+                            <img {!! html_build_attributes($single_image['attributes']) !!}>
+                        @endif
                     @endif
                 </div>
                 @if($single_image['caption'])
