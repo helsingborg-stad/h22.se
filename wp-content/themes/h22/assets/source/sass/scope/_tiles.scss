@@ -10,24 +10,26 @@
     }
 }
 
+
 .s-tiles-grid {
     &.container, > .container {
         width: 100%;
-        > .grid {
-            margin-left: 0;
-            margin-right: 0;
+    }
 
-            > .c-column {
-                padding-left: 0;
-                padding-right: 0;
-            }
+    > .container > .grid, &.grid {
+        margin-left: 0;
+        margin-right: 0;
 
-            > .c-column > .c-column__inner:not([class*="u-ratio-"]) {
-                @extend %innerColumnPadding;
+        > .c-column {
+            padding-left: 0;
+            padding-right: 0;
+        }
 
-                > *:last-child {
-                    margin-bottom: 0;
-                }
+        > .c-column > .c-column__inner:not([class*="u-ratio-"]) {
+            @extend %innerColumnPadding;
+
+            > *:last-child {
+                margin-bottom: 0;
             }
         }
     }
