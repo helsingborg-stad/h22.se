@@ -62,6 +62,8 @@ class Enqueue
         );
         wp_localize_script('h22-js', 'h22APP', array());
         wp_enqueue_script('h22-js');
+        wp_deregister_script('hbg-prime');
+        wp_dequeue_script('hbg-prime');
     }
 
     public function adminScript()
