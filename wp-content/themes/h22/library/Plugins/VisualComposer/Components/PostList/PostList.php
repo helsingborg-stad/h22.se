@@ -43,6 +43,7 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\PostList\PostList')):
                         'value' => [
                             'News' => 'news',
                             'Projects' => 'projects',
+                            'Speakers' => 'speaker',
                         ],
                     ),
                     array(
