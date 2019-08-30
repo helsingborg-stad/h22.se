@@ -1,0 +1,35 @@
+.c-badge.c-badge--cart-count {
+    font-size: 12px;
+    background: $color-red;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    position: absolute;
+    text-align: center;
+    border-radius: 100%;
+    color: white;
+    top: -8px;
+    right: -16px;
+    justify-content: center;
+    align-items: center;
+}
+
+.c-badge.c-badge--cart-count.c-badge--red, 
+.red-cart .c-badge.c-badge--cart-count {
+    background: $color-red;
+}
+
+.c-badge.c-badge--cart-count.c-badge--green, 
+.red-cart .c-badge.c-badge--cart-count {
+    background: $color-green;
+}
+
+.c-badge.c-badge--cart-count.c-badge--blue, 
+.red-cart .c-badge.c-badge--cart-count {
+    background: $color-blue;
+}
+
+.c-badge.c-badge--cart-count.c-badge--purple, 
+.red-cart .c-badge.c-badge--cart-count {
+    background: $color-purple;
+}

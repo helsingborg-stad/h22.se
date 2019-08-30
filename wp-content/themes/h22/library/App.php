@@ -17,6 +17,7 @@ class App
         new \H22\Theme\Sidebars();
         new \H22\Content\Excerpt();
         new \H22\Plugins\VisualComposer\Main();
+        new \H22\Plugins\Woocommerce\Cart();
         new \H22\Widget\Widgets();
     }
 
