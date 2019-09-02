@@ -33,3 +33,9 @@
 .purple-cart .c-badge.c-badge--cart-count {
     background: $color-purple;
 }
+
+.c-header-desktop__menu-items {
+  .c-badge.c-badge--cart-count {
+    top: -12px;
+  }
+}

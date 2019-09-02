@@ -60,12 +60,13 @@
     a {
       font-weight: $font-weight-thin;
       text-decoration: none;
+      position: relative;
 
       &:hover,
       &:focus,
       &:active {
         color: $color-black;
-        position: relative;
+        
         padding-bottom: map-get($spacers, '05');
         // outline: 0;
 

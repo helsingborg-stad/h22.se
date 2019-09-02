@@ -109,12 +109,12 @@
     a {
       font-weight: 200;
       text-decoration: none;
-
+      position: relative;
       &:hover,
       &:focus,
       &:active {
         color: $color-white;
-        position: relative;
+
         outline: 0;
       }
     }
