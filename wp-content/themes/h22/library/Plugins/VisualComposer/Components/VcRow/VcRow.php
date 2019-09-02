@@ -125,9 +125,12 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\VcRow\VcRow')) :
         protected function getRowClasses($data)
         {
             $classes = [
-                'grid', // Municipio styleguide
-                $data['el_class'],
+                'grid', // Municipio styleguide,
             ];
+
+            if (isset($data['el_class'])) {
+                $classes = array_merge($classes, [$data['el_class']]);
+            }
 
             if (isset($data['column_gutter']) && !empty($data['column_gutter'])) {
                 $gridGutterClasses = array(
@@ -153,8 +156,12 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\VcRow\VcRow')) :
         {
             $classes = [
                 'container',
-                $data['container_class'],
             ];
+
+
+            if (isset($data['container_class'])) {
+                $classes = array_merge($classes, [ $data['container_class']]);
+            }
 
             $classes[] = isset($data['container']) && !empty($data['container']) ? 'container--' . $data['container'] : '';
 

@@ -204,7 +204,7 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\VcColumn\VcColumn')) :
             if (isset($data['inner_pad']) && $data['inner_pad'] !== '') {
                 $data['childAttributes']['class'][] = 'u-p-' . $data['inner_pad'];
 
-                if (strpos($data['color_theme'], 'fill') !== false) {
+                if (isset($data['color_theme']) && strpos($data['color_theme'], 'fill') !== false) {
                     $data['childAttributes']['class'][] = 'has-fill';
                 }
             }
