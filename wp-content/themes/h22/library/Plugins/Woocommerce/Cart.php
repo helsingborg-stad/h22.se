@@ -12,6 +12,9 @@ class Cart
 
     public function updateCartUsingAjax($fragments)
     {
+        if (!wp_doing_ajax()) {
+            return $fragments;
+        }
         $fragments['span.c-badge.c-badge--cart-count'] = self::getCartCounter();
 
         return $fragments;
