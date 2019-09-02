@@ -1,4 +1,5 @@
 <?php
+
 namespace H22;
 
 class App
@@ -6,6 +7,9 @@ class App
     public function __construct()
     {
         add_action('admin_init', array($this, 'requireDependencies'));
+        add_filter('Municipio/Helper/Styleguide/_getTheme/triggerColorSchemeError', function () {
+            return false;
+        });
 
         new \H22\Admin\Municipio\DisableACFFields();
         new \H22\Controller\ChildController();
