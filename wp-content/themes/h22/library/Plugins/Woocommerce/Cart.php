@@ -1,4 +1,5 @@
 <?php
+
 namespace H22\Plugins\Woocommerce;
 
 class Cart
@@ -6,6 +7,24 @@ class Cart
     public function __construct()
     {
         add_filter('wp_nav_menu_primary_items', array($this, 'appendMarkupForCounter'), 10, 2);
+        add_filter('woocommerce_add_to_cart_fragments', array($this, 'updateCartUsingAjax'));
+    }
+
+    public function updateCartUsingAjax($fragments)
+    {
+        $fragments['span.c-badge.c-badge--cart-count'] = self::getCartCounter();
+
+        return $fragments;
+    }
+
+    public static function getCartCounter()
+    {
+        if (!function_exists('WC')) {
+            return '';
+        }
+
+        $cartCount = WC()->cart->cart_contents_count;
+        return '<span class="c-badge c-badge--cart-count">' . strval($cartCount) . '</span>';
     }
 
     public static function getCartUrl()
@@ -13,11 +32,14 @@ class Cart
         return apply_filters('woocommerce_get_cart_url', wc_get_page_permalink('cart'));
     }
 
-
     public function appendMarkupForCounter($items)
     {
+        if (!function_exists('WC')) {
+            return $items;
+        }
+
         $cartUrl = preg_quote(self::getCartUrl(), '/');
-        $re = '/(<a href="'. $cartUrl .'".*?>)(.*?)(<\/a>)/m';
+        $re = '/(<a href="' . $cartUrl . '".*?>)(.*?)(<\/a>)/m';
 
         $str = $items;
         preg_match_all($re, $str, $matches, PREG_SET_ORDER, 0);
@@ -26,11 +48,6 @@ class Cart
             return $items;
         }
 
-
-        $cartCount = WC()->cart->cart_contents_count;
-        $counterElement = '<span class="c-badge c-badge--cart-count">' . strval($cartCount) . '</span>';
-
-
-        return preg_replace($re, '$1 <i class="fa fa-shopping-cart woocommerce" aria-hidden="true"></i>' . $counterElement . '$3', $str);
+        return preg_replace($re, '$1 <i class="fa fa-shopping-cart woocommerce" aria-hidden="true"></i>' . self::getCartCounter() . '$3', $str);
     }
 }
