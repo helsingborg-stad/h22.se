@@ -1,4 +1,5 @@
 <?php
+
 namespace H22\Plugins\VisualComposer\Components\VcSingleImage;
 
 use H22\Plugins\VisualComposer\Components\BaseComponentController;
@@ -8,7 +9,7 @@ if (
     !class_exists(
         '\H22\Plugins\VisualComposer\Components\VcSingleImage\VcSingleImage'
     )
-):
+) :
     class VcSingleImage extends \WPBakeryShortCode
     {
         use BaseComponentController;
@@ -96,7 +97,7 @@ if (
                 ),
                 'weight' => 10
             ]);
-    
+
             $param = WPBMap::getParam('vc_single_image', 'caption');
             $param['weight'] = 10;
             WPBMap::mutateParam('vc_single_image', $param);
@@ -259,7 +260,7 @@ if (
                 $data['linkAttributes']['class'] = array('c-single-image__link');
                 $data['attributes']['class'][] = 'c-single-image--linked';
             }
-            
+
             $data['noMargin'] = !empty($data['img_behaviour']) && $data['img_behaviour'] === 'fit' ? true : false;
 
             return $data;
@@ -276,15 +277,16 @@ if (
             );
 
             if ($data['source'] !== 'external_link' && $attachment = $this->getAttachment($data)) {
+                $size = !empty($attachment['width']) && !empty($attachment['height']) ? array($attachment['width'], $attachment['height']) : 'medium';
                 $single_image['attributes']['src'] = $attachment['url'];
-                $single_image['attributes']['srcset'] = wp_get_attachment_image_srcset($attachment['id'], array($attachment['width'], $attachment['height']));
-                
+                $single_image['attributes']['srcset'] = wp_get_attachment_image_srcset($attachment['id'], $size);
+
                 if (!empty($attachment['alt'])) {
                     $single_image['attributes']['alt'] = $attachment['alt'];
                 }
 
                 //get caption
-                $single_image['caption'] = $data['add_caption']
+                $single_image['caption'] = !empty($data['add_caption'])
                     ? $attachment['caption']
                     : null;
             } else {
@@ -293,7 +295,7 @@ if (
                 $single_image['attributes']['alt'] = $data['custom_alt'];
                 $single_image['caption'] = $data['caption'];
                 $single_image['size'] =
-                $data['external_img_size'] ?? 'full-width';
+                    $data['external_img_size'] ?? 'full-width';
             }
 
             return array_filter($single_image);
@@ -302,10 +304,10 @@ if (
         public function getAttachment($data)
         {
             $attachmentId = $data['source'] === 'featured_image'
-            && get_post_thumbnail_id(get_queried_object_id())
-            ? get_post_thumbnail_id(get_queried_object_id()) : false;
+                && get_post_thumbnail_id(get_queried_object_id())
+                ? get_post_thumbnail_id(get_queried_object_id()) : false;
 
-    
+
             if (!$attachmentId && empty($data['image']) || !$attachmentId && !empty($data['image']) && get_post_type($data['image']) !== 'attachment') {
                 return false;
             }
@@ -339,13 +341,13 @@ if (
                 $resized['height'] = $data['img_size'] === 'custom' && $data['img_height'] ? $data['img_height'] : false;
             }
 
-            $ratio = $data['img_size_ratio'];
+            $ratio = !empty($data['img_size_ratio']) ? $data['img_size_ratio'] : null;
             if (empty($ratio)) {
                 $ratio = $original['width'] >= $original['height']
                     ? $original['width'] / $original['height']
                     : $original['height'] / $original['width'];
 
-                    
+
                 $ratio = $original['width'] >= $original['height'] ? strval($ratio) . ':1' : '1:' . strval($ratio);
             }
 
@@ -387,7 +389,7 @@ endif;
  * Shortcode class
  * @var $this WPBakeryShortCode_VC_Row
  */
-if (isset($atts)):
+if (isset($atts)) :
     $element = new VcSingleImage();
     echo $element->output($atts, $content, 'vc_single_image');
 endif;

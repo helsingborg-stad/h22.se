@@ -1,10 +1,11 @@
 <?php
+
 namespace H22\Plugins\VisualComposer\Components\PostList;
 
 use Doctrine\Common\Inflector\Inflector;
 use WP_Query;
 
-if (!class_exists('\H22\Plugins\VisualComposer\Components\PostList\PostList')):
+if (!class_exists('\H22\Plugins\VisualComposer\Components\PostList\PostList')) :
     class PostList extends \WPBakeryShortCode
     {
         use \H22\Plugins\VisualComposer\Components\BaseComponentController;
@@ -119,16 +120,16 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\PostList\PostList')):
             ]);
             $class = $this->getPostListItemClass($post_type);
             $data['posts'] = [];
+
             while ($query->have_posts()) {
                 $query->the_post();
-                $data['posts'][] = (new $class($post))->render();
+                $data['posts'][] = (new $class(null))->render();
                 wp_reset_postdata();
             }
+
             if (!empty($data['archive_link_text'])) {
                 $data['archive_link']['text'] = $data['archive_link_text'];
-                $data['archive_link']['attributes'][
-                    'href'
-                ] = get_post_type_archive_link($post_type);
+                $data['archive_link']['attributes']['href'] = get_post_type_archive_link($post_type);
                 $data['archive_link']['attributes']['class'][] =
                     'c-button-group__link';
                 $data['archive_link']['attributes']['class'][] =

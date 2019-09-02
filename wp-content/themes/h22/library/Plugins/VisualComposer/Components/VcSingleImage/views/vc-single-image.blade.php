@@ -13,7 +13,7 @@
                         @endif
                     @endif
                 </div>
-                @if($single_image['caption'])
+                @if(!empty($single_image['caption']))
                     <p class="c-single-image__image-caption">{{$single_image['caption']}}</p>
                 @endif
             </div>

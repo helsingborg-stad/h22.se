@@ -1,4 +1,5 @@
 <?php
+
 namespace H22\Plugins\VisualComposer\Components\VcSection;
 
 use H22\Plugins\VisualComposer\Components\BaseComponentController;
@@ -9,7 +10,7 @@ require_once WP_PLUGIN_DIR .
 
 if (
     !class_exists('\H22\Plugins\VisualComposer\Components\VcSection\VcSection')
-):
+) :
     class VcSection extends \WPBakeryShortCode_VC_Section
     {
         use BaseComponentController;
@@ -123,7 +124,7 @@ if (
         {
             $data['attributes']['class'][] = 'c-section c-section--subtract-bot';
             $data['attributes']['class'][] = isset($data['min_height']) && !empty($data['min_height']) ? "c-section--min-height-{$data['min_height']}" : '';
-            $data['attributes']['class'][] = $data['el_class'];
+            $data['attributes']['class'][] = !empty($data['el_class']) ? $data['el_class'] : '';
 
             // Color Theme
             if (isset($data['color_theme']) && !empty($data['color_theme'])) {
@@ -161,7 +162,7 @@ if (
                 $data['bg_image'] = get_post_thumbnail_id(get_queried_object_id());
                 $data['bg_image'] = apply_filters('H22/Plugins/VisualComposer/Components/VcSection/bgImage', $data['bg_image']);
             }
-            
+
             // Background image
             if (isset($data['bg_image']) && !empty($data['bg_image'])) {
                 $data['attributes']['style']['background-image'] = "url('" . wp_get_attachment_url($data['bg_image']) . "')";
@@ -245,7 +246,7 @@ endif;
  * Shortcode class
  * @var $this WPBakeryShortCode_VC_Row
  */
-if (isset($atts)):
+if (isset($atts)) :
     $element = new VcSection();
     echo $element->output($atts, $content, 'vc_section');
 endif;

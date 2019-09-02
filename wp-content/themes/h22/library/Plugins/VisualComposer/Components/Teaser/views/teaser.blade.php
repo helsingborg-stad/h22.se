@@ -2,7 +2,10 @@
     <div{!! html_build_attributes($attributes) !!}>
         <div class="c-teaser__meta">{{ $meta_heading }}</div>
         <h2 class="h1">{{ $heading }}</h2>
-        <p class="preamble">{{ $preamble }}</p>
+        @if (!empty($preamble))
+            <p class="preamble">{{ $preamble }}</p>
+        @endif
+       
         {!! $content !!}
         @if ($link)
             <a{!! html_build_attributes($link['attributes']) !!}>

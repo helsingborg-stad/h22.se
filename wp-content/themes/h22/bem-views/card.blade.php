@@ -8,19 +8,22 @@
         @isset($meta)
             <div class="c-card__meta">{{ $meta }}</div>
         @endisset
+        @isset($heading)
         <h2 class="c-card__title">
-            @empty ($link['url'])
-                {{ $heading }}
-            @else
-                <a
-                    href="{{ $link['url'] }}"
-                    class="c-card__link"
-                    {!! html_build_attributes($link['attributes']) !!}
-                >
+                @empty ($link['url'])
                     {{ $heading }}
-                </a>
-            @endempty
-        </h2>
+                @else
+                    <a
+                        href="{{ $link['url'] }}"
+                        class="c-card__link"
+                        {!! html_build_attributes($link['attributes']) !!}
+                    >
+                        {{ $heading }}
+                    </a>
+                @endempty
+            </h2>
+        @endisset
+
         <div class="c-card__text">
             {!! $content !!}
         </div>

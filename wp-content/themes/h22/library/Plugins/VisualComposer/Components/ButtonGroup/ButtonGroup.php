@@ -1,11 +1,12 @@
 <?php
+
 namespace H22\Plugins\VisualComposer\Components\ButtonGroup;
 
 if (
     !class_exists(
         '\H22\Plugins\VisualComposer\Components\ButtonGroup\ButtonGroup'
     )
-):
+) :
     class ButtonGroup extends \WPBakeryShortCode
     {
         use \H22\Plugins\VisualComposer\Components\BaseComponentController;
@@ -144,17 +145,15 @@ if (
                     $button = null;
                     continue;
                 }
-                $button['attributes']['id'] = $button['el_id'];
+                $button['attributes']['id'] = !empty($button['el_id']) ? $button['el_id'] : '';
 
                 $button['attributes']['class'][] = 'c-button-group__link';
-                $button['attributes']['class'][] = $data['button_group_color']
+                $button['attributes']['class'][] = !empty($data['button_group_color'])
                     ? 'c-button-group__link--' . $data['button_group_color']
                     : 'c-button-group__link--default';
-                $button['attributes']['class'][] = $button['el_class'];
+                $button['attributes']['class'][] = !empty($button['el_class']) ? $button['el_class'] : '';
 
-                $button['attributes']['href'] = vc_build_link($button['link'])[
-                    'url'
-                ];
+                $button['attributes']['href'] = vc_build_link($button['link'])['url'];
                 $button['attributes']['target'] =
                     vc_build_link($button['link'])['target'] ?: null;
                 $button['label'] = vc_build_link($button['link'])['title'];
