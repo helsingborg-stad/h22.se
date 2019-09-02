@@ -1,6 +1,6 @@
 <div class="c-element">
     <div{!! html_build_attributes($attributes) !!}>
-        @if($heading)
+        @if(!empty($heading))
             <h2 class="u-text-center c-post-list__title">{{ $heading }}</h2>
         @endif
         <div class="grid">
