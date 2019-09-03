@@ -1,6 +1,6 @@
 .btn {
   @include button-unstyled;
-  padding: map-get($spacers, '2') map-get($spacers, '4');
+  padding: $base * 2 - 2px $base * 3;
   text-decoration: none !important;
   border: 2px solid transparent;
   background-color: transparent;
