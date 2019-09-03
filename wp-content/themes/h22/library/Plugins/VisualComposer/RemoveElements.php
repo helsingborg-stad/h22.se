@@ -14,10 +14,16 @@ class RemoveElements
             100
         );
     }
+    public static function filterByProperty($key, $value)
+    {
+        return array_keys(array_filter(\WPBMap::getAllShortCodes(), function ($component) use ($key, $value) {
+            return isset($component[$key]) && $component[$key] === $value;
+        }, ARRAY_FILTER_USE_BOTH));
+    }
 
     public function allThemeRegisteredVcModules()
     {
-        $filteredAllowedComponents = ActiveComponents::getInstance()->getAllowedComponents(
+        $allowedComponents = ActiveComponents::getInstance()->getAllowedComponents(
             array(
                 'vc_column_inner',
                 'vc_column_text',
@@ -37,10 +43,12 @@ class RemoveElements
             )
         );
 
+        $allowedComponents = apply_filters('H22/Plugins/VisualComposer/RemoveElements/allowedComponents', $allowedComponents);
+
         $shortcodes = \WPBMap::getAllShortCodes();
         if ($shortcodes && is_array($shortcodes)) {
             foreach ($shortcodes as $index => $shortcode) {
-                if (!in_array($shortcode['base'], $filteredAllowedComponents)) {
+                if (!in_array($shortcode['base'], $allowedComponents)) {
                     vc_remove_element($shortcode['base']);
                 }
             }
