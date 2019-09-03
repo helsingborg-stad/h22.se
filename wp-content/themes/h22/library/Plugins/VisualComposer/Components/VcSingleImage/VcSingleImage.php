@@ -291,9 +291,9 @@ if (
                     : null;
             } else {
                 // get image
-                $single_image['attributes']['src'] = $data['custom_src'];
-                $single_image['attributes']['alt'] = $data['custom_alt'];
-                $single_image['caption'] = $data['caption'];
+                $single_image['attributes']['src'] = $data['custom_src'] ?? null;
+                $single_image['attributes']['alt'] = $data['custom_alt'] ?? null;
+                $single_image['caption'] = $data['caption'] ?? null;
                 $single_image['size'] =
                     $data['external_img_size'] ?? 'full-width';
             }
@@ -336,7 +336,7 @@ if (
                 $resized['height'] = false;
             }
 
-            if (!empty($data['img_size']) && $data['img_size'] === 'custom' || $data['img_size'] === 'width') {
+            if (!empty($data['img_size']) && $data['img_size'] === 'custom' || !empty($data['img_size']) && $data['img_size'] === 'width') {
                 $resized['width'] = $data['img_width'] ?? false;
                 $resized['height'] = $data['img_size'] === 'custom' && $data['img_height'] ? $data['img_height'] : false;
             }
