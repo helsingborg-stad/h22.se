@@ -1,7 +1,9 @@
 <?php 
 
-if (function_exists('acf_add_local_field_group')) {
-    acf_add_local_field_group(array(
+
+if (function_exists('acf_add_local_field_group')) {
+
+    acf_add_local_field_group(array(
     'key' => 'group_5d110a7a781b3',
     'title' => __('Page Builder settings', 'h22'),
     'fields' => array(
@@ -59,6 +61,20 @@
                 'value' => 'projects',
             ),
         ),
+        4 => array(
+            0 => array(
+                'param' => 'post_type',
+                'operator' => '==',
+                'value' => 'product',
+            ),
+        ),
+        5 => array(
+            0 => array(
+                'param' => 'post_type',
+                'operator' => '==',
+                'value' => 'speaker',
+            ),
+        ),
     ),
     'menu_order' => -2147483648,
     'position' => 'side',
@@ -69,4 +85,5 @@
     'active' => true,
     'description' => '',
 ));
-}
+
+}

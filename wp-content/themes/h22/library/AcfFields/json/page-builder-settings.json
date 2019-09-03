@@ -55,6 +55,20 @@
                 "operator": "==",
                 "value": "projects"
             }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "product"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "speaker"
+            }
         ]
     ],
     "menu_order": -2147483648,
@@ -66,4 +80,4 @@
     "active": true,
     "description": ""
 }]
-
+
