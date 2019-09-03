@@ -93,7 +93,8 @@
 
 ul.tabs.wc-tabs, 
 ul.products,
-ul.wc_payment_methods.payment_methods.methods {
+ul.wc_payment_methods.payment_methods.methods,
+ul.woocommerce-order-overview.woocommerce-thankyou-order-details.order_details {
   @include unlist();
 }
 
