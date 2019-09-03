@@ -1,4 +1,5 @@
 <?php
+
 namespace H22\Plugins\VisualComposer\Components\Heading;
 
 use H22\Plugins\VisualComposer\Components\BaseComponentController;
@@ -37,7 +38,8 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\Heading\Heading')) :
                             'value' => array(''),
                         ),
                         'group' => '',
-                        'weight' => 10
+                        'weight' => 10,
+                        'holder' => 'div',
                     ],
                     [
                         'param_name' => 'h_type',
@@ -101,7 +103,7 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\Heading\Heading')) :
                     $data['h_content'] = get_the_archive_title();
                 }
             }
- 
+
             $data['attributes']['class'][] = $data['h_class'] ?? false;
             $data['attributes']['class'][] = $data['h_size'] ?? false;
 
