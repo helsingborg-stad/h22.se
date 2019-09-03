@@ -86,6 +86,54 @@
     }
 }
 
+// Woocommerce
 .fa.fa-shopping-cart.woocommerce {
     font-size: 24px;
+}
+
+ul.tabs.wc-tabs, 
+ul.products,
+ul.wc_payment_methods.payment_methods.methods {
+  @include unlist();
+}
+
+.woocommerce {
+  table.shop_table th {
+    @extend .o-text-meta;
+  }
+
+  .product form.cart button.button {
+    @extend .btn, .btn--fill;
+    border-color: $color-red;
+    font-weight: 400;
+  }
+  
+
+  .woocommerce-cart-form td.actions button.button {
+    @extend .btn;
+  }
+  
+  .woocommerce-cart-form td.actions button.button[name="apply_coupon"] {
+    margin-left: $base * 2;
+  }
+  .woocommerce-cart-form td.actions button.button[name="update_cart"] {
+    @extend .btn--fill;
+  }
+}
+
+#add_payment_method table.cart td.actions .coupon .input-text, .woocommerce-cart table.cart td.actions .coupon .input-text, .woocommerce-checkout table.cart td.actions .coupon .input-text {
+  @include input-reset;
+  height: auto;
+  padding: $base * 1.5;
+  border: 1px solid $color-form-input-border;
+  border-radius: 2px;
+  background-color: $color-white;
+  font-size: 1rem;
+  outline: none;
+
+  &:focus {
+    box-shadow: 0 0 0 1px $color-blue;
+    border-color: $color-blue;
+    background-color: $color-white;
+  }
 }
