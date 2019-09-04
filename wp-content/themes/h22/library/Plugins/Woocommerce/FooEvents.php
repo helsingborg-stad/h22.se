@@ -12,19 +12,26 @@ class FooEvents
         add_filter('acf/load_field/key=field_5d6eb5a2a3d77', array($this, 'populateSelectWithAtendeeFields'));
     }
 
-    public static function withHtmlWrapper($content)
+    public static function withHtmlWrapper($content, $title)
     {
-        return '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-                    <html xmlns="http://www.w3.org/1999/xhtml">
-                        <head>
-                            <style type="text/css">
+        $email = wc_get_template_html('emails/email-header.php', array('email_heading' => 'omg'));
+        $email .= '<style>' . wc_get_template_html('emails/email-styles.php') . '</style>';
+        $email .= $content;
+        $email .= wc_get_template_html('emails/email-footer.php');
 
-                            </style>
-                        </head>
-                        <body>
-                            ' . $content  . '
-                        </body>
-                    </html>';
+        return $email;
+
+        // return '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+        //             <html xmlns="http://www.w3.org/1999/xhtml">
+        //                 <head>
+        //                     <style type="text/css">
+
+        //                     </style>
+        //                 </head>
+        //                 <body>
+        //                     ' . $content  . '
+        //                 </body>
+        //             </html>';
     }
 
     /**
@@ -106,14 +113,9 @@ class FooEvents
             }
         }
 
-        // Replace message
-        if (!empty($content)) {
-            $args['message'] = self::withHtmlWrapper(implode('<br>', $content));
-        }
-
         // Replace subject
-        if (!empty(get_field('attendee_mail_remove_attachments', 'options'))) {
-            $args['subject'] = get_field('attendee_mail_remove_attachments', 'options');
+        if (!empty(get_field('attendee_mail_custom_subject', 'options'))) {
+            $args['subject'] = get_field('attendee_mail_custom_subject', 'options');
         }
 
         // Remove attachments
@@ -121,6 +123,10 @@ class FooEvents
             $args['attachments'] = array();
         }
 
+        // Replace message
+        if (!empty($content)) {
+            $args['message'] = self::withHtmlWrapper(implode('<br>', $content), $args['subject']);
+        }
 
         return $args;
     }
