@@ -5,10 +5,10 @@
  * @var bool
  */
 
-if (strpos($_SERVER['HTTP_HOST'], 'h22.se') !== false) {
-    define('COOKIE_DOMAIN', '.h22.se');
+if (!isset($_SERVER['HTTP_HOST']) || (isset($_SERVER['HTTP_HOST']) && strpos($_SERVER['HTTP_HOST'], "h22.local") !== false)) {
+    define('COOKIE_DOMAIN', ".h22.local");
+} elseif (strpos($_SERVER['HTTP_HOST'], ".h22.se") !== false) {
+    define('COOKIE_DOMAIN', ".h22.se");
 } else {
-    // Remove port
-    $parts = explode(':', $_SERVER['HTTP_HOST']);
-    define('COOKIE_DOMAIN', $parts[0]);
+    define('COOKIE_DOMAIN', $_SERVER['HTTP_HOST']);
 }
