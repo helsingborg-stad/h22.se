@@ -29,6 +29,8 @@ add_action('init', function () {
         'page-builder-settings' => 'group_5d110a7a781b3',
         'archive-template-options' => 'group_5d10c0d7d43cf',
         'single-template-options' => 'group_5d1104688c6d6',
+        'attendeee-mail-settings' => 'group_5d6eb19e5ede5',
+
     ));
     $acfExportManager->import();
 });
