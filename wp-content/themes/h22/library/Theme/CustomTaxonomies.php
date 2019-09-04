@@ -10,7 +10,7 @@ class CustomTaxonomies
             _x('Organisations', 'Post type plural', 'h22'),
             _x('Organisation', 'Post type singular', 'h22'),
             'organisation',
-            array('projects'),
+            array('projects', 'speaker'),
             array('hierarchical' => true)
         );
     }
