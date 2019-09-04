@@ -1,0 +1,178 @@
+[{
+    "key": "group_5d6eb19e5ede5",
+    "title": "Attendee mail settings",
+    "fields": [
+        {
+            "key": "field_5d6ed6de934c2",
+            "label": "Custom subject",
+            "name": "attendee_mail_custom_subject",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5d6eb1d2a3d72",
+            "label": "Remove attachments",
+            "name": "attendee_mail_remove_attachments",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Enabled",
+            "ui_off_text": "Disabled"
+        },
+        {
+            "key": "field_5d6eb263a3d73",
+            "label": "Content blocks",
+            "name": "attendee_mail_content_blocks",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "field_5d6eb593a3d76",
+            "min": 0,
+            "max": 0,
+            "layout": "row",
+            "button_label": "Add content block",
+            "sub_fields": [
+                {
+                    "key": "field_5d6eb2a5a3d74",
+                    "label": "Content",
+                    "name": "content",
+                    "type": "wysiwyg",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "tabs": "all",
+                    "toolbar": "full",
+                    "media_upload": 1,
+                    "delay": 1
+                },
+                {
+                    "key": "field_5d6eb593a3d76",
+                    "label": "Rules",
+                    "name": "rules",
+                    "type": "repeater",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "collapsed": "",
+                    "min": 0,
+                    "max": 0,
+                    "layout": "table",
+                    "button_label": "Add rule",
+                    "sub_fields": [
+                        {
+                            "key": "field_5d6eb5a2a3d77",
+                            "label": "Custom Attendee Field",
+                            "name": "custom_attendee_field",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "fooevents_custom_hackaton": "fooevents_custom_hackaton",
+                                "fooevents_custom_i_am_going_to_be_a_speaker_at_the_conference_": "fooevents_custom_i_am_going_to_be_a_speaker_at_the_conference_",
+                                "fooevents_custom_i_am_a_participant_at_the_h22_summit_hackathon_": "fooevents_custom_i_am_a_participant_at_the_h22_summit_hackathon_",
+                                "fooevents_custom_i_am_going_to_be_part_of_the_staff_at_the_conferen": "fooevents_custom_i_am_going_to_be_part_of_the_staff_at_the_conferen",
+                                "fooevents_custom__i_am_going_to_be_part_of_the_staff_at_the_confere": "fooevents_custom__i_am_going_to_be_part_of_the_staff_at_the_confere"
+                            },
+                            "default_value": [],
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 0,
+                            "return_format": "value",
+                            "ajax": 0,
+                            "placeholder": ""
+                        },
+                        {
+                            "key": "field_5d6eb62da3d78",
+                            "label": "Condition",
+                            "name": "condition",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "is-checked": "is checked",
+                                "is-not-checked": "is not checked"
+                            },
+                            "default_value": [
+                                "is-checked"
+                            ],
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 0,
+                            "return_format": "value",
+                            "ajax": 0,
+                            "placeholder": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-attendee-email"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": ""
+}]
+
