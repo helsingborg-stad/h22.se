@@ -10,6 +10,15 @@ class FooEvents
         add_filter('H22/Plugins/Woocommerce/FooEvents/attendeeTicketMail', array($this, 'customizeAttendeeMails'), 10, 3);
         add_action('init', array($this, 'registerOptionsPage'));
         add_filter('acf/load_field/key=field_5d6eb5a2a3d77', array($this, 'populateSelectWithAtendeeFields'));
+        // add_action('wp', function () {
+        //     if (is_admin()) {
+        //         return;
+        //     }
+        //     echo '<pre>';
+        //     var_dump(self::findAllCustomAttendeeFields());
+        //     echo '</pre>';
+        //     die;
+        // });
     }
 
     public static function withHtmlWrapper($content, $title)
@@ -18,20 +27,8 @@ class FooEvents
         $email .= '<style>' . wc_get_template_html('emails/email-styles.php') . '</style>';
         $email .= $content;
         $email .= wc_get_template_html('emails/email-footer.php');
-
+        $email = str_replace('{site_title}', 'H22', $email);
         return $email;
-
-        // return '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-        //             <html xmlns="http://www.w3.org/1999/xhtml">
-        //                 <head>
-        //                     <style type="text/css">
-
-        //                     </style>
-        //                 </head>
-        //                 <body>
-        //                     ' . $content  . '
-        //                 </body>
-        //             </html>';
     }
 
     /**
