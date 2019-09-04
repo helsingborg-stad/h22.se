@@ -79,7 +79,7 @@ class CustomPostTypes
                 'publicly_queriable' => true,
                 'show_ui' => true,
                 'show_in_nav_menus' => true,
-                'has_archive' => true,
+                'has_archive' => false,
                 // 'rewrite'              =>   array(
                 //     'slug'       =>   __('projects', 'h22'),
                 //     'with_front' =>   false
