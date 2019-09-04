@@ -10,15 +10,6 @@ class FooEvents
         add_filter('H22/Plugins/Woocommerce/FooEvents/attendeeTicketMail', array($this, 'customizeAttendeeMails'), 10, 3);
         add_action('init', array($this, 'registerOptionsPage'));
         add_filter('acf/load_field/key=field_5d6eb5a2a3d77', array($this, 'populateSelectWithAtendeeFields'));
-        // add_action('wp', function () {
-        //     if (is_admin()) {
-        //         return;
-        //     }
-        //     echo '<pre>';
-        //     var_dump(self::findAllCustomAttendeeFields());
-        //     echo '</pre>';
-        //     die;
-        // });
     }
 
     public static function withHtmlWrapper($content, $title)
