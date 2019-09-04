@@ -111,11 +111,14 @@
                                 "id": ""
                             },
                             "choices": {
+                                "fooevents_custom_company": "fooevents_custom_company",
+                                "fooevents_custom_mobile": "fooevents_custom_mobile",
                                 "fooevents_custom_hackaton": "fooevents_custom_hackaton",
                                 "fooevents_custom_i_am_going_to_be_a_speaker_at_the_conference_": "fooevents_custom_i_am_going_to_be_a_speaker_at_the_conference_",
                                 "fooevents_custom_i_am_a_participant_at_the_h22_summit_hackathon_": "fooevents_custom_i_am_a_participant_at_the_h22_summit_hackathon_",
-                                "fooevents_custom_i_am_going_to_be_part_of_the_staff_at_the_conferen": "fooevents_custom_i_am_going_to_be_part_of_the_staff_at_the_conferen",
-                                "fooevents_custom__i_am_going_to_be_part_of_the_staff_at_the_confere": "fooevents_custom__i_am_going_to_be_part_of_the_staff_at_the_confere"
+                                "fooevents_custom__i_am_going_to_be_part_of_the_staff_at_the_confere": "fooevents_custom__i_am_going_to_be_part_of_the_staff_at_the_confere",
+                                "fooevents_custom_allergies_\/_special_diets": "fooevents_custom_allergies_\/_special_diets",
+                                "fooevents_custom_choose": "fooevents_custom_choose"
                             },
                             "default_value": [],
                             "allow_null": 0,

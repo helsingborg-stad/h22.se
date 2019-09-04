@@ -91,9 +91,9 @@ class FooEvents
                     $bail = false;
                     foreach ($block['rules'] as $rule) {
                         if (
-                            !$bail && $rule['condition'] === 'is-checked' && isset($customAttendeeFields[$rule['custom_attendee_field']]) && $customAttendeeFields[$rule['custom_attendee_field']] == 1
-                            || !$bail && $rule['condition'] === 'is-not-checked' && !isset($customAttendeeFields[$rule['custom_attendee_field']])
-                            || !$bail && $rule['condition'] === 'is-not-checked' && $customAttendeeFields[$rule['custom_attendee_field']] != 1
+                            !$bail && $rule['condition'] === 'is-equal' && isset($customAttendeeFields[$rule['custom_attendee_field']]) && $customAttendeeFields[$rule['custom_attendee_field']] == $rule['value']
+                            || !$bail && $rule['condition'] === 'is-not-equal' && !isset($customAttendeeFields[$rule['custom_attendee_field']])
+                            || !$bail && $rule['condition'] === 'is-not-equal' && $customAttendeeFields[$rule['custom_attendee_field']] != $rule['value']
                         ) {
                             // Condition pass
                             continue;
@@ -131,7 +131,7 @@ class FooEvents
         return $args;
     }
 
-    public static function findCustomAttendeeFieldsByType($type = 'checkbox')
+    public static function findAllCustomAttendeeFields()
     {
         $checkBoxFields = array();
 
@@ -151,7 +151,6 @@ class FooEvents
             foreach ($options as $option) {
                 if (
                     isset($option[$i . '_type'])
-                    && $option[$i . '_type'] === $type
                     && isset($option[$i . '_label'])
                 ) {
                     $fieldKey = str_replace(' ', '_', $option[$i . '_label']);
@@ -173,7 +172,7 @@ class FooEvents
 
     public function populateSelectWithAtendeeFields($field)
     {
-        $attendeeFields = self::findCustomAttendeeFieldsByType('checkbox');
+        $attendeeFields = self::findAllCustomAttendeeFields();
         $field['choices'] = array_combine($attendeeFields, $attendeeFields);
         return $field;
     }

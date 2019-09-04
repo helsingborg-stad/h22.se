@@ -114,11 +114,14 @@
                                 'id' => '',
                             ),
                             'choices' => array(
+                                'fooevents_custom_company' => __('fooevents_custom_company', 'h22'),
+                                'fooevents_custom_mobile' => __('fooevents_custom_mobile', 'h22'),
                                 'fooevents_custom_hackaton' => __('fooevents_custom_hackaton', 'h22'),
                                 'fooevents_custom_i_am_going_to_be_a_speaker_at_the_conference_' => __('fooevents_custom_i_am_going_to_be_a_speaker_at_the_conference_', 'h22'),
                                 'fooevents_custom_i_am_a_participant_at_the_h22_summit_hackathon_' => __('fooevents_custom_i_am_a_participant_at_the_h22_summit_hackathon_', 'h22'),
-                                'fooevents_custom_i_am_going_to_be_part_of_the_staff_at_the_conferen' => __('fooevents_custom_i_am_going_to_be_part_of_the_staff_at_the_conferen', 'h22'),
                                 'fooevents_custom__i_am_going_to_be_part_of_the_staff_at_the_confere' => __('fooevents_custom__i_am_going_to_be_part_of_the_staff_at_the_confere', 'h22'),
+                                'fooevents_custom_allergies_/_special_diets' => __('fooevents_custom_allergies_/_special_diets', 'h22'),
+                                'fooevents_custom_choose' => __('fooevents_custom_choose', 'h22'),
                             ),
                             'default_value' => array(
                             ),
