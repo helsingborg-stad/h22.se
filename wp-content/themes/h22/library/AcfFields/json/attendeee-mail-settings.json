@@ -142,8 +142,8 @@
                                 "id": ""
                             },
                             "choices": {
-                                "is-checked": "is checked",
-                                "is-not-checked": "is not checked"
+                                "is-equal": "is equal to",
+                                "is-not-equal": "is not equal to"
                             },
                             "default_value": [
                                 "is-checked"
@@ -154,6 +154,25 @@
                             "return_format": "value",
                             "ajax": 0,
                             "placeholder": ""
+                        },
+                        {
+                            "key": "field_5d6fb99b26b10",
+                            "label": "Value",
+                            "name": "value",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
                         }
                     ]
                 }
