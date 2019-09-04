@@ -73,6 +73,8 @@ class Speaker extends PostListItemBase
             $data['meta'] = $terms;
         }
 
+        $data['readMore'] = true;
+
         return $data;
     }
 }

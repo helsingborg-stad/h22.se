@@ -138,3 +138,20 @@ ul.woocommerce-order-overview.woocommerce-thankyou-order-details.order_details {
     background-color: $color-white;
   }
 }
+
+.c-post-list {
+  a.c-card__link.c-card__link--read-more {
+    @extend .o-text-meta;
+    border-bottom: solid 2px;
+    font-size: $font-size-meta;
+    display: inline-block;
+    position: absolute;
+    left: $base * 3;
+    bottom: $base * 3;
+    color: $color-purple;
+    border-color: $color-purple;
+    &:after {
+        display: none;
+    }
+  }
+}
