@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fa96aa36d9bb64a8a40e78f2281e3894",
+    "content-hash": "a7d6aa6b7de484f99d793bea7238896d",
     "packages": [
         {
             "name": "aristath/kirki",
@@ -2863,6 +2863,24 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/wp-editor-widget/"
+        },
+        {
+            "name": "wpackagist-plugin/wp-mail-logging",
+            "version": "1.9.1",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/wp-mail-logging/",
+                "reference": "tags/1.9.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/wp-mail-logging.1.9.1.zip"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/wp-mail-logging/"
         },
         {
             "name": "wpackagist-plugin/wp-mail-smtp",
