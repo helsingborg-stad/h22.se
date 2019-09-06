@@ -33,9 +33,8 @@ class Email
             // $orderCompleteMail->placeholders['{order_date}'] = wc_format_datetime($orderCompleteMail->object->get_date_created());
             // $orderCompleteMail->placeholders['{order_number}'] = $orderCompleteMail->object->get_order_number();
 
-            if ($orderCompleteMail->is_enabled() && $orderCompleteMail->get_recipient()) {
-                $orderCompleteMail->send($orderCompleteMail->get_recipient(), $orderCompleteMail->get_subject(), $orderCompleteMail->get_content(), $orderCompleteMail->get_headers(), $orderCompleteMail->get_attachments());
-            }
+            $orderCompleteMail->send($orderCompleteMail->get_recipient(), $orderCompleteMail->get_subject(), $orderCompleteMail->get_content(), $orderCompleteMail->get_headers(), $orderCompleteMail->get_attachments());
+
             $orderCompleteMail->restore_locale();
         }
     }
