@@ -57,7 +57,8 @@
         "wpackagist-plugin/duplicate-post": "^3.2",
         "helsingborg-stad/polylang-fallback": "^1.0",
         "wpackagist-plugin/woo-preview-emails": "^1.5",
-        "wpackagist-plugin/wp-mail-logging": "^1.9"
+        "wpackagist-plugin/wp-mail-logging": "^1.9",
+        "wpackagist-plugin/mailgun": "^1.7"
     },
 
     "extra": {
