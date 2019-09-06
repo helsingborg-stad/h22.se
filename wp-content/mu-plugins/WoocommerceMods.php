@@ -14,6 +14,12 @@ class WooCommerceMods
     public function __construct()
     {
         add_action('woocommerce_thankyou', array($this, 'autoCompleteOrders'));
+        add_filter('wc_order_is_editable', array($this, 'majemediaAddOderStatusesToEditable'));
+    }
+
+    public function majemediaAddOderStatusesToEditable()
+    {
+        return true;
     }
 
     public function autoCompleteOrders($orderId)
