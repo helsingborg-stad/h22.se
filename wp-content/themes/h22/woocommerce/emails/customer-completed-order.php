@@ -26,16 +26,18 @@ if (!defined('ABSPATH')) {
  */
 do_action('woocommerce_email_header', $email_heading, $email); ?>
 
-<?php /* translators: %s: Customer first name */ ?>
-<p><?php printf(esc_html__('Hi %s,', 'woocommerce'), esc_html($order->get_billing_first_name())); ?></p>
+<?php /* translators: %s: Customer first name */
+?>
+
+<p><?php printf(esc_html__('Hi %s,', 'woocommerce'), esc_html(apply_filters('theme/h22/woocommerce/email/customer-complete-order/firstName', $order->get_billing_first_name(), $order, $email))); ?></p>
 
 <?php
 
 /**
  * Show user-defined additonal content - this is set in each email's settings.
  */
-if ($additional_content) {
-    echo wp_kses_post(wpautop(wptexturize($additional_content)));
+if (isset($additional_content) && $additional_content || apply_filters('theme/h22/woocommerce/email/customer-complete-order/additionalContent', false, $order, $email)) {
+    echo wp_kses_post(apply_filters('theme/h22/woocommerce/email/customer-complete-order/additionalContent', wpautop(wptexturize($additional_content)), $order, $email));
 }
 
 /*
