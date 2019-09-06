@@ -29,16 +29,14 @@ do_action('woocommerce_email_header', $email_heading, $email); ?>
 <?php /* translators: %s: Customer first name */ ?>
 <p><?php printf(esc_html__('Hi %s,', 'woocommerce'), esc_html($order->get_billing_first_name())); ?></p>
 
-<p>We are looking forward to see you in Helsingborg at H22 Summit! This is your confirmation. </p>
-
-<h4>Will you attend Dinner with Friends?</h4> <BR>
-<p>Great! A bunch of great new people will join you to the table. You will receive info on what restaurant to go to and where it is on the first day of the conference, November 5th (we promise, it will be walking distance). </p>
-
-<h4>Are you one of the delegates on the H22 Summit Hackathon? </h4>
-<p>How fun! Looking forward to hear you pitching. You will receive extra info regarding your schedule, challenges and so on. </p>
-
-<p>Got any questions? Feel free to reply to this email // The H22 Summit-team</p>
 <?php
+
+/**
+ * Show user-defined additonal content - this is set in each email's settings.
+ */
+if ($additional_content) {
+    echo wp_kses_post(wpautop(wptexturize($additional_content)));
+}
 
 /*
  * @hooked WC_Emails::order_details() Shows the order details table.
