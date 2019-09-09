@@ -16,8 +16,8 @@ class Email
     {
         $attendees = array_filter(FooEvents::getAttendees($orderId), function ($attendee) {
             return isset($attendee['WooCommerceEventsPurchaserEmail'])
-                && isset($attendee['WooCommerceEventsAttendeeEmail'])
-                && $attendee['WooCommerceEventsPurchaserEmail'] !== $attendee['WooCommerceEventsAttendeeEmail'];
+                && isset($attendee['WooCommerceEventsAttendeeEmail']);
+            // && $attendee['WooCommerceEventsPurchaserEmail'] !== $attendee['WooCommerceEventsAttendeeEmail'];
         });
 
         if (empty($attendees) || !is_a($order = wc_get_order($orderId), 'WC_Order')) {
