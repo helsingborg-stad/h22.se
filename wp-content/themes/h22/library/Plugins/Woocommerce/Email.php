@@ -33,10 +33,20 @@ class Email
             // $orderCompleteMail->placeholders['{order_date}'] = wc_format_datetime($orderCompleteMail->object->get_date_created());
             // $orderCompleteMail->placeholders['{order_number}'] = $orderCompleteMail->object->get_order_number();
 
-            $orderCompleteMail->send($orderCompleteMail->get_recipient(), $orderCompleteMail->get_subject(), $orderCompleteMail->get_content(), $orderCompleteMail->get_headers(), $orderCompleteMail->get_attachments());
+            wp_mail($attendee['WooCommerceEventsAttendeeEmail'], $orderCompleteMail->get_subject(), self::withHtmlWrapper($orderCompleteMail->get_content(), $orderCompleteMail->get_subject()), $orderCompleteMail->get_headers(), $orderCompleteMail->get_attachments());
 
             $orderCompleteMail->restore_locale();
         }
+    }
+
+    public static function withHtmlWrapper($content, $title)
+    {
+        // $email = wc_get_template_html('emails/email-header.php', array('email_heading' => $title));
+        $email = '<style>' . wc_get_template_html('emails/email-styles.php') . '</style>';
+        $email .= $content;
+        // $email .= wc_get_template_html('emails/email-footer.php');
+        $email = str_replace('{site_title}', 'H22', $email);
+        return $email;
     }
 
     public function replaceFirstNameForAttendees($firstName, $order, $email)
