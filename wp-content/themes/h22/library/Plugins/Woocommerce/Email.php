@@ -33,17 +33,32 @@ class Email
             // $orderCompleteMail->placeholders['{order_date}'] = wc_format_datetime($orderCompleteMail->object->get_date_created());
             // $orderCompleteMail->placeholders['{order_number}'] = $orderCompleteMail->object->get_order_number();
 
-            wp_mail($attendee['WooCommerceEventsAttendeeEmail'], $orderCompleteMail->get_subject(), self::withHtmlWrapper($orderCompleteMail->get_content(), $orderCompleteMail->get_subject()), $orderCompleteMail->get_headers(), $orderCompleteMail->get_attachments());
+            $content = $orderCompleteMail->get_content();
+            $content = self::withEmailStyles($content);
+            $content = self::withPlaceholders($content);
+
+            $headers = $orderCompleteMail->get_headers();
+
+            if (!empty(get_option('woocommerce_email_from_address')) && !empty(get_option('woocommerce_email_from_name'))) {
+                $headers .= 'From: ' . get_option('woocommerce_email_from_name') . ' <' . get_option('woocommerce_email_from_address') . '>';
+            }
+
+            wp_mail($attendee['WooCommerceEventsAttendeeEmail'], $orderCompleteMail->get_subject(), self::withEmailStyles($orderCompleteMail->get_content()), $headers, $orderCompleteMail->get_attachments());
 
             $orderCompleteMail->restore_locale();
         }
     }
 
-    public static function withHtmlWrapper($content, $title)
+    public static function withEmailStyles($content)
     {
-        $email = preg_replace('/<\/head>/m', '<style>' . wc_get_template_html('emails/email-styles.php') . '</style></head>', $content);
-        $email = str_replace('{site_title}', 'H22', $email);
-        return $email;
+        $content = preg_replace('/<\/head>/m', '<style>' . wc_get_template_html('emails/email-styles.php') . '</style></head>', $content);
+        return $content;
+    }
+
+    public static function withPlaceholders($content)
+    {
+        $content = str_replace('{site_title}', 'H22', $content);
+        return $content;
     }
 
     public function replaceFirstNameForAttendees($firstName, $order, $email)
