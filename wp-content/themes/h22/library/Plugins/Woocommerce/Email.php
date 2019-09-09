@@ -41,10 +41,7 @@ class Email
 
     public static function withHtmlWrapper($content, $title)
     {
-        // $email = wc_get_template_html('emails/email-header.php', array('email_heading' => $title));
-        $email = '<style>' . wc_get_template_html('emails/email-styles.php') . '</style>';
-        $email .= $content;
-        // $email .= wc_get_template_html('emails/email-footer.php');
+        $email = preg_replace('/<\/head>/m', '<style>' . wc_get_template_html('emails/email-styles.php') . '</style></head>', $content);
         $email = str_replace('{site_title}', 'H22', $email);
         return $email;
     }
