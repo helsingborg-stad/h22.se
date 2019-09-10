@@ -1,0 +1,12 @@
+
+// Target IE11 Media query
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .c-header-desktop__logo svg {
+    width: 139px !important;
+    height: initial !important;
+  }
+
+  body {
+    display: block;
+  }
+}
