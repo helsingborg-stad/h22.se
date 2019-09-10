@@ -16,6 +16,7 @@ const autoprefixer = require('autoprefixer');
 const { getIfUtils, removeEmpty } = require('webpack-config-utils');
 const { ifProduction, ifNotProduction } = getIfUtils(process.env.NODE_ENV);
 
+
 module.exports = {
     mode: ifProduction('production', 'development'),
     /**
@@ -30,7 +31,7 @@ module.exports = {
      * Output settings
      */
     output: {
-        filename: ifProduction('[name].[contenthash].js', '[name].js'),
+        filename: ifProduction('[name].[contenthash].js', '[name].[contenthash].js'),
         path: path.resolve(__dirname, 'assets', 'dist'),
     },
     /**
@@ -101,7 +102,7 @@ module.exports = {
                     {
                         loader: 'file-loader',
                         options: {
-                            name: ifProduction('[name].[contenthash:8].[ext]', '[name].[ext]'),
+                            name: ifProduction('[name].[contenthash:8].[ext]', '[name].[contenthash:8].[ext]'),
                             outputPath: 'images',
                             publicPath: '../images',
                         },
@@ -118,7 +119,7 @@ module.exports = {
                     {
                         loader: 'file-loader',
                         options: {
-                            name: ifProduction('[name].[contenthash:8].[ext]', '[name].[ext]'),
+                            name: ifProduction('[name].[contenthash:8].[ext]', '[name].[contenthash:8].[ext]'),
                             outputPath: 'fonts',
                             publicPath: '../fonts',
                         },
@@ -166,7 +167,7 @@ module.exports = {
          * Output CSS files
          */
         new MiniCssExtractPlugin({
-            filename: ifProduction('[name].[contenthash:8].css', '[name].css')
+            filename: ifProduction('[name].[contenthash:8].css', '[name].[contenthash:8].css')
         }),
 
         /**
