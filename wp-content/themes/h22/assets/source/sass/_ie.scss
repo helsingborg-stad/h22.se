@@ -6,7 +6,22 @@
     height: 56px !important;
   }
 
-  body {
-    display: block;
+  body, .c-column__inner, .c-column, .c-section {
+    display: block !important;
+  }
+
+  .c-section {
+    min-height: 0 !important;
+  }
+
+  .c-section__bg-video {
+    display: none;
+  }
+
+  %overlay {
+    > *:not(.s-container-floating-logo) {
+      position: relative;
+      // z-index: $level-2;
+    }
   }
 }

@@ -13,11 +13,10 @@
     }
 
     > * {
-        // position: relative;
         z-index: $level-2;
     }
 
-    object-fit {
+    object-fit, .c-section__bg-video {
       z-index: $level-bottom !important;
     }
 }
