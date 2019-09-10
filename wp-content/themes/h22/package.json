@@ -42,6 +42,7 @@
     "node-sass": "^4.12.0",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "postcss-loader": "^3.0.0",
+    "postcss-object-fit-images": "^1.1.2",
     "sass-loader": "^7.1.0",
     "webpack": "^4.32.2",
     "webpack-cli": "^3.3.2",

@@ -78,7 +78,7 @@ module.exports = {
                     {
                         loader: 'postcss-loader',
                         options: {
-                            plugins: [autoprefixer],
+                            plugins: [autoprefixer, require('postcss-object-fit-images')],
                             sourceMap: true,
                         },
                     },
