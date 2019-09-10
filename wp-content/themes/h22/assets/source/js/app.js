@@ -6,7 +6,15 @@ import './video-popup';
 import './vc-tta-section';
 import './smoothScroll';
 
-objectFitVideos();
-objectFitImages();
+
+
+
+window.addEventListener('DOMContentLoaded', function(event) {
+  objectFitVideos();
+  objectFitImages(false, {
+    watchMQ: true,
+    skipTest: false
+  });
+});
 
 
