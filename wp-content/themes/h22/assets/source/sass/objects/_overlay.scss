@@ -9,12 +9,16 @@
         left: 0;
         content: '';
         background: rgba(0,0,0,.25);
-        z-index: $level-bottom;
+        z-index: $level-1;
     }
 
     > * {
         // position: relative;
-        z-index: $level-1;
+        z-index: $level-2;
+    }
+
+    object-fit {
+      z-index: $level-bottom !important;
     }
 }
 
