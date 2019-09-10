@@ -18,6 +18,11 @@
     display: none;
   }
 
+  .c-section--header-lg, .c-section--min-height-80vh {
+    padding-top:  184px !important;
+    padding-bottom: 184px !important;
+  }
+
   %overlay {
     > *:not(.s-container-floating-logo) {
       position: relative;
