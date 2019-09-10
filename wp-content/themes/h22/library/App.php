@@ -12,7 +12,7 @@ class App
         });
 
         add_filter('acf/settings/remove_wp_meta_box', function ($bool) {
-            $allowedPostTypes = array('shop_order', 'product', 'pb-template');
+            $allowedPostTypes = array('shop_order', 'product', 'pb-template', 'event_magic_tickets');
             if (!empty(get_post_type()) && in_array(get_post_type(), $allowedPostTypes)) {
                 return false;
             }
