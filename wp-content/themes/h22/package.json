@@ -12,7 +12,8 @@
   },
   "browserslist": [
     "> 1%",
-    "not dead"
+    "not dead",
+    "IE 11"
   ],
   "dependencies": {
     "browser-sync": "^2.26.7",
