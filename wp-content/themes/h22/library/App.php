@@ -11,6 +11,16 @@ class App
             return false;
         });
 
+        add_filter('acf/settings/remove_wp_meta_box', function ($bool) {
+            $allowedPostTypes = array('shop_order', 'product', 'pb-template');
+            if (!empty(get_post_type()) && in_array(get_post_type(), $allowedPostTypes)) {
+                return false;
+            }
+
+            return true;
+        }, 999);
+
+
         new \H22\Admin\Municipio\DisableACFFields();
         new \H22\Controller\ChildController();
         new \H22\Theme\Enqueue();
