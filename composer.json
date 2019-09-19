@@ -58,7 +58,9 @@
         "helsingborg-stad/polylang-fallback": "^1.0",
         "wpackagist-plugin/woo-preview-emails": "^1.5",
         "wpackagist-plugin/wp-mail-logging": "^1.9",
-        "wpackagist-plugin/mailgun": "^1.7"
+        "wpackagist-plugin/mailgun": "^1.7",
+        "wpackagist-plugin/contact-form-7": "^5.1",
+        "wpackagist-plugin/contact-form-cfdb7": "1.2.4.7"
     },
 
     "extra": {
