@@ -23,6 +23,10 @@ class RemoveElements
 
     public function allThemeRegisteredVcModules()
     {
+        if (!is_admin()) {
+            return;
+        }
+
         $allowedComponents = ActiveComponents::getInstance()->getAllowedComponents(
             array(
                 'vc_column_inner',
