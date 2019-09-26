@@ -235,12 +235,13 @@ ul.woocommerce-order-overview.woocommerce-thankyou-order-details.order_details {
     li a {
       display: block;
       padding: $base $base * 2;
-      color: $color-gray;
+      color: white;
+      opacity: 0.6;
     }
 
     li a:hover,
     li.current-menu-item a {
-      color: white;
+      opacity: 1;
     }     
   }
   .c-dropdown.is-active {
