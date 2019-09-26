@@ -3,10 +3,7 @@ export default () => {
   toggleElements.forEach(function (element) {
     const toggleClass = e => {
       e.preventDefault();
-      e.stopPropagation();
       element.classList.toggle('is-active');
-
-      return false;
     };
     
     const dropdownToggleAttribute = element.getAttribute('data-dropdown-toggle');
@@ -25,7 +22,6 @@ export default () => {
 
     if (dropdownToggle) {
       dropdownToggle.addEventListener('click', toggleClass);
-      dropdownToggle.addEventListener('touchstart', toggleClass);
     }
   });
 }
