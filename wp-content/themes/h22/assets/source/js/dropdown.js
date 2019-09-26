@@ -3,7 +3,10 @@ export default () => {
   toggleElements.forEach(function (element) {
     const toggleClass = e => {
       e.preventDefault();
+      e.stopPropagation();
       element.classList.toggle('is-active');
+
+      return false;
     };
     
     const dropdownToggleAttribute = element.getAttribute('data-dropdown-toggle');
