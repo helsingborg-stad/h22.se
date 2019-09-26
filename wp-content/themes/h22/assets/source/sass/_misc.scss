@@ -155,3 +155,122 @@ ul.woocommerce-order-overview.woocommerce-thankyou-order-details.order_details {
     }
   }
 }
+
+
+%caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 8px;
+  vertical-align: middle;
+  border-top: 4px dashed;
+  border-top: 4px solid\9;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+}
+
+.c-dropdown {
+  position: relative;
+}
+
+.c-dropdown__toggle {
+  cursor: pointer;
+}
+
+.c-dropdown__toggle:after {
+  @extend %caret;
+  content: '';
+  transform: rotate(0);
+  transition: transform .15s ease-in-out;
+}
+
+.c-dropdown.is-active > .c-dropdown__toggle:after {
+  transform: rotate(180deg);
+}
+
+.c-dropdown .c-dropdown__body {
+  position: absolute;
+  left: 0;
+  top: 100%;
+}
+
+.c-dropdown > .c-dropdown__body {
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-15%) scale(0.3);
+  transform-origin: top;
+  transition: visibility .20s,transform .20s ease-out, opacity .15s ease-in;
+}
+
+.c-dropdown.is-active > .c-dropdown__body {
+  visibility: visible;
+  opacity: 1;
+  display: block;
+  transform: translateY(0%) scale(1);
+  transform-origin: top;
+  transition: visibility 0s,transform .20s ease-in, opacity .15s ease-in;
+}
+
+.c-header-desktop {
+  .sub-menu {
+    background-color: black;
+    top: 150%;
+    left: -14px;
+    width: 200%;
+    width: max-content;
+    max-width: 200%;
+    border-radius: 2px;
+    padding: $base 0;
+    li {
+      display: block;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    li:after {
+      display: none;
+    }
+
+    li a {
+      display: block;
+      padding: $base $base * 2;
+      color: $color-gray;
+    }
+
+    li a:hover,
+    li.current-menu-item a {
+      color: white;
+    }     
+  }
+  .c-dropdown.is-active {
+    .c-dropdown__toggle {
+      color: black;
+    }
+  }
+  
+}
+.c-header-mobile {
+  .sub-menu {
+    margin-top: $base / 2;
+    margin-bottom: $base * 1.5;
+  }
+  .sub-menu li {
+    margin: 0;
+  }
+  .sub-menu li a {
+    font-size: $font-size-body;
+  }
+
+  .c-dropdown {
+    .c-dropdown__body {
+      display: none;
+      position: initial;
+    }
+  }
+  .c-dropdown.is-active {
+    .c-dropdown__body {
+      display: block;
+    }
+  }
+}
