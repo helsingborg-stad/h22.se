@@ -11,7 +11,7 @@ class Navigation
 
     public function appendDropdownClasses($items)
     {
-        $re = '/(<li.*?class=".*?menu-item-has-children.*?)("><a.*?)(>.*<ul.?class="sub-menu)(">.*?<\/ul>.*?<\/li>)/ms';
+        $re = '/(<li.*?class=".*?menu-item-has-children.*?)(">.*?<a.*?)(>.*?<\/a>.*?<ul class="sub-menu)(".*?>.*?<\/ul>.*?<\/li>)/s';
 
         $str = $items;
         preg_match_all($re, $str, $matches, PREG_SET_ORDER, 0);

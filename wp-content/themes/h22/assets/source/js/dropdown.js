@@ -1,15 +1,30 @@
 export default () => {
   const toggleElements = document.querySelectorAll(".js-dropdown");
   toggleElements.forEach(function (element) {
+
+    const hideOnClickOutside = e => {
+      if (!element.contains(e.target)) {
+        toggleClass();
+      }
+    }
+
     const toggleClass = e => {
-      e.preventDefault();
+      if (e) {
+        e.preventDefault();
+      }
+      
       element.classList.toggle('is-active');
+
+      if (Object.values(element.classList).includes('is-active')) {
+        document.addEventListener('click', hideOnClickOutside);
+      } else {
+        document.removeEventListener('click', hideOnClickOutside)
+      }
     };
-    
-    const dropdownToggleAttribute = element.getAttribute('data-dropdown-toggle');
 
     let dropdownToggle = false;
 
+    const dropdownToggleAttribute = element.getAttribute('data-dropdown-toggle');
     if (dropdownToggleAttribute) {
       const toggleElements = element.querySelectorAll(dropdownToggleAttribute);
       dropdownToggle = toggleElements.length > 0 ? toggleElements[0] : false;
@@ -20,8 +35,10 @@ export default () => {
       dropdownToggle = defaultToggleElements.length > 0 ? defaultToggleElements[0] : false;
     }
 
-    if (dropdownToggle) {
-      dropdownToggle.addEventListener('click', toggleClass);
-    }
+    if (!dropdownToggle) {
+      return;
+    }    
+      
+    dropdownToggle.addEventListener('click', toggleClass);
   });
 }
