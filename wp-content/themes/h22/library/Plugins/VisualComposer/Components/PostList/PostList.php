@@ -27,7 +27,7 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\PostList\PostList')) :
                     array(
                         'type' => 'dropdown',
                         'param_name' => 'post_type',
-                        'heading' => __('Post type', 'h22'),
+                        'heading' => __('Datasource (Post type)', 'h22'),
                         // // Get all post types and convert to options array
                         // 'value' => array_column(
                         //     array_map(
@@ -46,6 +46,15 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\PostList\PostList')) :
                             'Projects' => 'projects',
                             'Speakers' => 'speaker',
                         ],
+                    ),
+                    array(
+                        'type' => 'textfield',
+                        'heading' => __('Narrow data source', 'h22'),
+                        'param_name' => 'tax_filter',
+                        'description' => __(
+                            'Enter terms (slug) from categories, tags or custom taxonomies. Seperate multiple terms with comma eg. term-slug-1,term-slug-2,term-slug-3 etc',
+                            'h22'
+                        ),
                     ),
                     array(
                         'type' => 'dropdown',
@@ -112,12 +121,53 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\PostList\PostList')) :
         public function prepareData($data)
         {
             $post_type = $data['post_type'] = $data['post_type'] ?? 'news';
+
+            if (isset($data['tax_filter']) && !empty($data['tax_filter'])) {
+                $terms = array_map(function ($term) use ($post_type) {
+                    $taxonomies = array_filter(get_object_taxonomies($post_type), function ($taxonomy) use ($term) {
+                        $terms = array_map(function ($term) {
+                            return $term->slug;
+                        }, get_terms($taxonomy, array()));
+
+                        return in_array($term, $terms);
+                    });
+
+                    return array(
+                        'slug' => $term,
+                        'taxonomies' => $taxonomies
+                    );
+                }, explode(',', str_replace(' ', '', $data['tax_filter'])));
+
+                $taxQueryItems = array_map(function ($term) {
+                    return array_map(function ($taxonomy) use ($term) {
+                        return array(
+                            'taxonomy' => $taxonomy,
+                            'field' => 'slug',
+                            'terms' => array($term['slug'])
+                        );
+                    }, $term['taxonomies']);
+                }, $terms);
+
+                $taxQuery = array(
+                    'relation' => 'AND',
+                    $taxQueryItems
+
+                );
+            }
+
             $data['attributes']['class'][] = 'c-post-list';
             $data['columns'] = $data['columns'] ?? 3;
-            $query = new WP_Query([
+
+            $queryArgs = array(
                 'post_type' => $post_type,
                 'posts_per_page' => intval($data['columns']) * intval(($data['rows'] ?? 4)),
-            ]);
+            );
+
+            if (isset($taxQuery)) {
+                $queryArgs['tax_query'] = $taxQuery;
+            }
+
+            $query = new WP_Query($queryArgs);
             $class = $this->getPostListItemClass($post_type);
             $data['posts'] = [];
 
