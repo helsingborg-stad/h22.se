@@ -8,11 +8,11 @@ class RemoveElements
 {
     public function __construct()
     {
-        add_action(
-            'vc_after_init',
-            array($this, 'allThemeRegisteredVcModules'),
-            100
-        );
+        // add_action(
+        //     'vc_after_init',
+        //     array($this, 'allThemeRegisteredVcModules'),
+        //     100
+        // );
     }
     public static function filterByProperty($key, $value)
     {
