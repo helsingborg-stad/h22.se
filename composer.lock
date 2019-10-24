@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "669277f4db6a00e66a1e69b13ac97f97",
+    "content-hash": "1e441c8348bfa2a9a807113e3b249c96",
     "packages": [
         {
             "name": "aristath/kirki",
@@ -2701,6 +2701,24 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/contact-form-cfdb7/"
+        },
+        {
+            "name": "wpackagist-plugin/dibs-for-woocommerce",
+            "version": "2.6.2",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/dibs-for-woocommerce/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/dibs-for-woocommerce.zip?timestamp=1557149401"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/dibs-for-woocommerce/"
         },
         {
             "name": "wpackagist-plugin/duplicate-post",
