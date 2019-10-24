@@ -8,6 +8,14 @@ class Cart
     {
         add_filter('wp_nav_menu_primary_items', array($this, 'appendMarkupForCounter'), 10, 2);
         add_filter('woocommerce_add_to_cart_fragments', array($this, 'updateCartUsingAjax'));
+        add_filter('Municipio/Theme/Enqueue/deferedLoadingJavascript/handlesToIgnore', array($this, 'fixDibsPayment'), 10, 1);
+    }
+
+    public function fixDibsPayment($arrayOfHandles)
+    {
+        $arrayOfHandles[] = 'dibs-script';
+
+        return $arrayOfHandles;
     }
 
     public function updateCartUsingAjax($fragments)
