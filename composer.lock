@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1e441c8348bfa2a9a807113e3b249c96",
+    "content-hash": "e1b85f396fef652b7bbd274f8b69a05c",
     "packages": [
         {
             "name": "aristath/kirki",
@@ -2703,22 +2703,22 @@
             "homepage": "https://wordpress.org/plugins/contact-form-cfdb7/"
         },
         {
-            "name": "wpackagist-plugin/dibs-for-woocommerce",
-            "version": "2.6.2",
+            "name": "wpackagist-plugin/dibs-easy-for-woocommerce",
+            "version": "1.11.1",
             "source": {
                 "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/dibs-for-woocommerce/",
+                "url": "https://plugins.svn.wordpress.org/dibs-easy-for-woocommerce/",
                 "reference": "trunk"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/dibs-for-woocommerce.zip?timestamp=1557149401"
+                "url": "https://downloads.wordpress.org/plugin/dibs-easy-for-woocommerce.zip?timestamp=1570540538"
             },
             "require": {
                 "composer/installers": "~1.0"
             },
             "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/dibs-for-woocommerce/"
+            "homepage": "https://wordpress.org/plugins/dibs-easy-for-woocommerce/"
         },
         {
             "name": "wpackagist-plugin/duplicate-post",
@@ -2827,6 +2827,24 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/tablepress/"
+        },
+        {
+            "name": "wpackagist-plugin/tinymce-advanced",
+            "version": "5.2.1",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/tinymce-advanced/",
+                "reference": "tags/5.2.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/tinymce-advanced.5.2.1.zip"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/tinymce-advanced/"
         },
         {
             "name": "wpackagist-plugin/user-switching",
