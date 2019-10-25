@@ -1,4 +1,5 @@
 <?php
+
 namespace H22\Plugins\VisualComposer\Components\VcColumnText;
 
 use H22\Plugins\VisualComposer\Components\BaseComponentController;
@@ -11,7 +12,7 @@ if (
     !class_exists(
         '\H22\Plugins\VisualComposer\Components\VcColumnText\VcColumnText'
     )
-):
+) :
     class VcColumnText extends \WPBakeryShortCode_VC_Column_text
     {
         use BaseComponentController;
@@ -85,7 +86,8 @@ if (
                 'heading' => __('Max width', 'h22'),
                 'param_name' => 'max_width',
                 'value' => array(
-                    __('Content container (default)', 'h22') => '',
+                    __('None', 'h22') => '',
+                    __('Content container (default)', 'h22') => 'content',
                     __('Container', 'h22') => 'container',
                     __('Small', 'h22') => 'small',
                     __('Wide', 'h22') => 'wide',
@@ -134,9 +136,7 @@ if (
 
             // Container
             $data['attributes']['class'][] = 'container';
-            if (!isset($data['max_width']) || empty($data['max_width'])) {
-                $data['attributes']['class'][] = 'container--content';
-            } elseif (isset($data['max_width']) && $data['max_width'] !== 'container') {
+            if (isset($data['max_width']) && !empty($data['max_width'])) {
                 $data['attributes']['class'][] = 'container--' . $data['max_width'];
             }
 
@@ -147,7 +147,7 @@ if (
                 );
 
                 $data['attributes']['class'][] = isset($containerPosClasses[$data['container_pos']]) ?
-                $containerPosClasses[$data['container_pos']] : '';
+                    $containerPosClasses[$data['container_pos']] : '';
             }
 
             return $data;
@@ -158,7 +158,7 @@ endif;
 /**
  * From wp-content/plugins/js_composer/include/templates/shortcodes/vc_column_text.php
  */
-if (isset($atts)):
+if (isset($atts)) :
     $row = new VcColumnText();
     echo $row->output($atts, $content, 'vc_column_text');
 endif;
