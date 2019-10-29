@@ -1,8 +1,8 @@
-window.ViewVCColumnModule = window.VcColumnView.extend({
+window.ViewVcColumnInnerModule = window.VcColumnView.extend({
   offsetClasses: [],
   render: function () {
     if (window.VcColumnView.__super__.render) {
-      window.ViewVCColumnModule.__super__.render.call(this);
+      window.ViewVcColumnInnerModule.__super__.render.call(this);
     }
 
     // Remove default column class
@@ -10,8 +10,8 @@ window.ViewVCColumnModule = window.VcColumnView.extend({
     return this;
   },
   changeShortcodeParams: function (model) {
-    if (window.ViewVCColumnModule.__super__.changeShortcodeParams) {
-      window.ViewVCColumnModule.__super__.changeShortcodeParams.call(this, model);
+    if (window.ViewVcColumnInnerModule.__super__.changeShortcodeParams) {
+      window.ViewVcColumnInnerModule.__super__.changeShortcodeParams.call(this, model);
     }
 
     // Custom column functionality
