@@ -76,3 +76,12 @@
 // Utilites
 @import '~styleguide.local/source/sass/_utilities.scss';
 @import 'utilities';
+
+
+.c-column--border > .c-column__inner {
+  border: solid 2px;
+}
+
+.u-border-bottom {
+  border-bottom: solid 2px;
+}

@@ -3,17 +3,17 @@ h1, .h1 {
     line-height: roundLineHeight(1.2, 26px, $base, true);
     color: inherit;
     @include mq('sm') {
-        font-size: 32px;
-        line-height: roundLineHeight(1.2, 32px, $base / 2);
+        font-size: $font-size-title;
+        line-height: roundLineHeight(1.1, $font-size-title, $base / 2);
     }
 }
 
 h2, .h2 {
     font-size: 20px;
-    line-height: roundLineHeight(1.2, 20px, $base, true);
+    line-height: roundLineHeight(1.1, 20px, 4, true);
     @include mq('sm') {
-        font-size: 23px;
-        line-height: roundLineHeight(1.2, 23px, $base, true);
+        font-size: $font-size-subtitle;
+        line-height: roundLineHeight(1.1, $font-size-subtitle, 4, true);
     }
 }
 
@@ -22,7 +22,7 @@ h3, .h3 {
     line-height: roundLineHeight(1.2, 18px, $base, true);
     @include mq('sm') {
         font-size: 18px;
-        line-height: roundLineHeight(1.2, 18px);
+        line-height: roundLineHeight(1.1, 18px);
     }
 }
 
@@ -34,4 +34,8 @@ h4, .h4 {
 h5, .h5, h6, .h6 {
     font-size: 14px;
     line-height: roundLineHeight(1.2, 14px);
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  display: block;
 }

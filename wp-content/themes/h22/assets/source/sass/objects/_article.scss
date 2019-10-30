@@ -16,6 +16,10 @@
         margin-bottom: $base;
     }
 
+    p, ul, ol, table {
+      margin-bottom: $base * 3;
+    }
+
     *:last-child {
         margin-bottom: 0;
     }

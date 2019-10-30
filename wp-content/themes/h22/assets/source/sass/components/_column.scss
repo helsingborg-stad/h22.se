@@ -37,12 +37,22 @@
 	}
 }
 
+.c-column.c-column--border {
+  .c-column__inner > .c-element:last-child {
+		margin-bottom: 0;
+	}
+}
+
 .c-element {
     margin-bottom: $element-margin;
 }
 
 .s-elements-mb-0 .c-element {
 	margin-bottom: 0;
+}
+
+.s-elements-mb-small .c-element {
+	margin-bottom: $base * 3;
 }
 
 

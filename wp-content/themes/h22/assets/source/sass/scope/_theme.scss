@@ -30,6 +30,14 @@
 
 		.c-share-bar .share > li > a {
 			background-color: $color;
-		}
+    }
+    
+    .c-column--border > .c-column__inner {
+      border-color: $color;
+    }
+
+    .u-border-bottom {
+      border-bottom-color: $color;
+    }
 	}
 }
