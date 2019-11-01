@@ -85,3 +85,8 @@
 .u-border-bottom {
   border-bottom: solid 2px;
 }
+
+
+.wpb_image_grid_ul, .slides {
+  @include unlist();
+}
