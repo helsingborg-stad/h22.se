@@ -87,6 +87,6 @@
 }
 
 
-.wpb_image_grid_ul, .slides {
+.wpb_image_grid_ul, ul.slides {
   @include unlist();
 }
