@@ -62,7 +62,9 @@
         "wpackagist-plugin/contact-form-7": "^5.1",
         "wpackagist-plugin/contact-form-cfdb7": "1.2.4.7",
         "wpackagist-plugin/dibs-easy-for-woocommerce": "^1.11",
-        "wpackagist-plugin/tinymce-advanced": "^5.2"
+        "wpackagist-plugin/tinymce-advanced": "^5.2",
+        "wpackagist-plugin/redis-cache": "^1.5",
+        "wpackagist-plugin/nginx-helper": "^2.1"
     },
 
     "extra": {
