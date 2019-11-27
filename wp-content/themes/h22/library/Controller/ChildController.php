@@ -37,7 +37,11 @@ class ChildController
         $args['menu_class'] = implode(' ', apply_filters('Municipio/main_menu_classes', $classes)) . ' ' . apply_filters('Municipio/desktop_menu_breakpoint', 'hidden-xs hidden-sm');
         $data['navigation']['mainMenu'] = wp_nav_menu($args);
 
-        if (function_exists('pll_the_languages')) {
+        $langSwicherSettings = get_field('polylang_language_switcher_settings', 'options');
+        if (
+            function_exists('pll_the_languages') && $langSwicherSettings !== 'disabled' && $langSwicherSettings !== 'logged-in'
+            || function_exists('pll_the_languages') && $langSwicherSettings === 'logged-in' && is_user_logged_in()
+        ) {
             $data['languages'] = pll_the_languages(array(
                 'show_names' => 1,
                 'hide_current' => 1,
