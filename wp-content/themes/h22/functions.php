@@ -30,6 +30,7 @@ add_action('init', function () {
         'archive-template-options' => 'group_5d10c0d7d43cf',
         'single-template-options' => 'group_5d1104688c6d6',
         'attendeee-mail-settings' => 'group_5d6eb19e5ede5',
+        'polylang-language-switcher' => 'group_5dde7c5d9ace7'
 
     ));
     $acfExportManager->import();
@@ -57,8 +58,10 @@ function html_build_attribute_value($value, $callback = 'htmlspecialchars')
  */
 function html_build_style_attributes($styleAttribute)
 {
-    if (!is_array($styleAttribute)
-        || empty($styleAttribute)) {
+    if (
+        !is_array($styleAttribute)
+        || empty($styleAttribute)
+    ) {
         return null;
     }
 
