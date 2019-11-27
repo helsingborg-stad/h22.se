@@ -21,7 +21,7 @@
 
     "require": {
         "composer/installers": "~1.0",
-        "johnpbloch/wordpress": "5.2.0",
+        "johnpbloch/wordpress": "^5.0.0",
         "helsingborg-stad/modularity": ">=2.0.0",
         "helsingborg-stad/municipio": "1.28.1",
         "helsingborg-stad/lix-calculator": "^2.1",
@@ -44,7 +44,7 @@
         "wpackagist-plugin/varnish-http-purge": "^4.8",
         "wpackagist-plugin/wp-nested-pages": "^3.0",
         "wpackagist-plugin/wordpress-importer": "^0.6.4",
-        "wpackagist-plugin/autodescription": "^4.0",
+        "wpackagist-plugin/autodescription": "^3.2",
         "wpackagist-plugin/wp-mail-smtp": "^1.4",
         "wpackagist-plugin/redirection": "^4.3",
         "wpackagist-plugin/user-switching": "^1.5",
@@ -60,7 +60,7 @@
         "wpackagist-plugin/wp-mail-logging": "^1.9",
         "wpackagist-plugin/mailgun": "^1.7",
         "wpackagist-plugin/contact-form-7": "^5.1",
-        "wpackagist-plugin/contact-form-cfdb7": "^1.2",
+        "wpackagist-plugin/contact-form-cfdb7": "1.2.4.7",
         "wpackagist-plugin/dibs-easy-for-woocommerce": "^1.11",
         "wpackagist-plugin/tinymce-advanced": "^5.2",
         "wpackagist-plugin/redis-cache": "^1.5",
