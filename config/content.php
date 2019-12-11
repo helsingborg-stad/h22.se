@@ -16,7 +16,7 @@ define('WP_DEFAULT_THEME', 'municipio');
  * Limit number of post revisions per post
  * @var integer
  */
-define('WP_POST_REVISIONS', 10);
+define('WP_POST_REVISIONS', 20);
 
 /**
  * Set the autosave interval
