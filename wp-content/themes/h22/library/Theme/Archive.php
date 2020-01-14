@@ -6,8 +6,9 @@ class Archive
     public function __construct()
     {
         add_filter('acf/load_field/name=archive_projects_post_style', array($this, 'customPostStyleTemplates'), 10, 3);
+        add_filter('acf/load_field/name=archive_toolbox_post_style', array($this, 'customPostStyleTemplates'), 10, 3);
         add_filter('acf/load_field/name=archive_news_post_style', array($this, 'customPostStyleTemplates'), 10, 3);
-        add_filter('acf/load_field/name=archive_post_post_style', array($this, 'customPostStyleTemplates'), 10, 3);
+        add_filter('acf/load_field/name=archive_post_post_style', array($this, 'customPostStyleTemplates'), 10, 3);        
     }
 
     public function customPostStyleTemplates($field)
