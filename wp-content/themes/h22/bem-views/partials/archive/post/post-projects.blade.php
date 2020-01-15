@@ -1,7 +1,7 @@
 <?php global $post;
 
 $image = municipio_get_thumbnail_source(null, array(400, 300), '4:3');
-$terms = get_the_terms(get_queried_object_id(), 'organisation');
+$terms = get_the_terms(get_queried_object_id(), get_post_type() === 'project' ? 'organisation' : 'post_tag');
 
 if (is_array($terms) && !empty($terms)) {
     $terms = implode(array_map(function($termObject) {
@@ -15,7 +15,6 @@ if (is_array($terms) && !empty($terms)) {
             @if( $image )
                 <img class="c-card__image" src="{{ $image }}"/>
             @endif
-           
         </div>
 
     <div class="c-card__body">
