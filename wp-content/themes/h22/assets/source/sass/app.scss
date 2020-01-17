@@ -90,3 +90,12 @@
 .wpb_image_grid_ul, ul.slides {
   @include unlist();
 }
+
+.wpb_image_grid_ul, ul.slides {
+  @include unlist();
+}
+
+a.no-translation {
+  opacity: 0.3;
+  cursor: not-allowed;
+}

@@ -16,7 +16,11 @@
       </div>
       @if (isset($languages) && is_array($languages) && !empty($languages))
         @foreach ($languages as $language)
-          <a class="c-header-desktop__language" href="{{$language['url']}}">{{$language['name']}}</a>
+            @if ($language['no_translation'])
+                <a title="Translation is currently not avalible for this page" class="{{implode(array_merge($language['classes'], array('c-header-desktop__language')), ' ')}}">{{$language['name']}}</a>
+            @else
+                <a title="{{$language['name']}}" class="{{implode(array_merge($language['classes'], array('c-header-desktop__language')), ' ')}}" href="{{$language['url']}}">{{$language['name']}}</a>
+            @endif
         @endforeach
       @endif
     </div>
@@ -38,7 +42,11 @@
         <div class="c-header-mobile__language">
           @if (isset($languages) && is_array($languages) && !empty($languages))
             @foreach ($languages as $language)
-              <a href="{{$language['url']}}">{{$language['name']}}</a>
+                @if ($language['no_translation'])
+                    <a title="Translation is currently not avalible for this page" class="{{implode($language['classes'], ' ')}}">{{$language['name']}}</a>
+                @else
+                    <a title="{{$language['name']}}" class="{{implode($language['classes'], ' ')}}" href="{{$language['url']}}">{{$language['name']}}</a>
+                @endif
             @endforeach
           @endif
         </div>
