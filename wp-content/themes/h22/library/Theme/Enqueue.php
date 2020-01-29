@@ -33,7 +33,7 @@ class Enqueue
 
     public function disableDeferedLoading($bool)
     {
-        return $true;
+        return true;
     }
 
     /**
