@@ -6,16 +6,16 @@ class Cart
 {
     public function __construct()
     {
-        add_filter('wp_nav_menu_primary_items', array($this, 'appendMarkupForCounter'), 10, 2);
-        add_filter('woocommerce_add_to_cart_fragments', array($this, 'updateCartUsingAjax'));
-        add_filter('Municipio/Theme/Enqueue/deferedLoadingJavascript/handlesToIgnore', array($this, 'fixDibsPayment'), 10, 1);
-    }
-
-    public function fixDibsPayment($arrayOfHandles)
-    {
-        $arrayOfHandles[] = 'dibs-script';
-
-        return $arrayOfHandles;
+        add_filter(
+            'wp_nav_menu_primary_items',
+            array($this, 'appendMarkupForCounter'),
+            10,
+            2
+        );
+        add_filter('woocommerce_add_to_cart_fragments', array(
+            $this,
+            'updateCartUsingAjax',
+        ));
     }
 
     public function updateCartUsingAjax($fragments)
@@ -35,12 +35,17 @@ class Cart
         }
 
         $cartCount = WC()->cart->cart_contents_count;
-        return '<span class="c-badge c-badge--cart-count">' . strval($cartCount) . '</span>';
+        return '<span class="c-badge c-badge--cart-count">' .
+            strval($cartCount) .
+            '</span>';
     }
 
     public static function getCartUrl()
     {
-        return apply_filters('woocommerce_get_cart_url', wc_get_page_permalink('cart'));
+        return apply_filters(
+            'woocommerce_get_cart_url',
+            wc_get_page_permalink('cart')
+        );
     }
 
     public function appendMarkupForCounter($items)
@@ -59,6 +64,12 @@ class Cart
             return $items;
         }
 
-        return preg_replace($re, '$1 <i class="fa fa-shopping-cart woocommerce" aria-hidden="true"></i>' . self::getCartCounter() . '$3', $str);
+        return preg_replace(
+            $re,
+            '$1 <i class="fa fa-shopping-cart woocommerce" aria-hidden="true"></i>' .
+                self::getCartCounter() .
+                '$3',
+            $str
+        );
     }
 }

@@ -13,11 +13,27 @@ class Enqueue
         add_action('admin_enqueue_scripts', array($this, 'adminStyle'), 30);
         add_action('wp_enqueue_scripts', array($this, 'script'));
         add_action('admin_enqueue_scripts', array($this, 'adminScript'), 30);
-        
+
         // Use WP included jQuery
-        add_filter('Municipio/load-wp-jquery', function ($boolean) {
-            return true;
-        }, 30);
+        add_filter(
+            'Municipio/load-wp-jquery',
+            function ($boolean) {
+                return true;
+            },
+            30
+        );
+
+        add_filter(
+            'Municipio/Theme/Enqueue/deferedLoadingJavascript/disableDeferedLoading',
+            array($this, 'disableDeferedLoading'),
+            10,
+            1
+        );
+    }
+
+    public function disableDeferedLoading($bool)
+    {
+        return $true;
     }
 
     /**
