@@ -7,18 +7,33 @@ class App
     public function __construct()
     {
         add_action('admin_init', array($this, 'requireDependencies'));
-        add_filter('Municipio/Helper/Styleguide/_getTheme/triggerColorSchemeError', function () {
-            return false;
-        });
-
-        add_filter('acf/settings/remove_wp_meta_box', function ($bool) {
-            $allowedPostTypes = array('shop_order', 'product', 'pb-template', 'event_magic_tickets');
-            if (!empty(get_post_type()) && in_array(get_post_type(), $allowedPostTypes)) {
+        add_filter(
+            'Municipio/Helper/Styleguide/_getTheme/triggerColorSchemeError',
+            function () {
                 return false;
             }
+        );
 
-            return true;
-        }, 999);
+        add_filter(
+            'acf/settings/remove_wp_meta_box',
+            function ($bool) {
+                $allowedPostTypes = array(
+                    'shop_order',
+                    'product',
+                    'pb-template',
+                    'event_magic_tickets',
+                );
+                if (
+                    !empty(get_post_type()) &&
+                    in_array(get_post_type(), $allowedPostTypes)
+                ) {
+                    return false;
+                }
+
+                return true;
+            },
+            999
+        );
 
         // Fix Vimeo/youtube VC element
         add_filter(
