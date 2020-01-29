@@ -20,6 +20,14 @@ class App
             return true;
         }, 999);
 
+        // Fix Vimeo/youtube VC element
+        add_filter(
+            'Municipio/oembed/should_filter_markup',
+            function () {
+                return false;
+            },
+            999
+        );
 
         new \H22\Admin\Municipio\DisableACFFields();
         new \H22\Controller\ChildController();
