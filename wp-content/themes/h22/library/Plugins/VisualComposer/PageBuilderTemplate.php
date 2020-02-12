@@ -124,7 +124,7 @@ class PageBuilderTemplate
 
     public function addAcfOptionsForArchiveTemplates($fieldArgs, $postType, $args, $taxonomies)
     {
-        if (!$args->public || !$args->has_archive) {
+        if (empty($args->public) || !$args->has_archive) {
             return $fieldArgs;
         }
 
