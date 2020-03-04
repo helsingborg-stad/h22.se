@@ -1,3 +1,4 @@
+@if (empty($disable_element))
 <div{!! html_build_attributes($attributes) !!}>
     @isset($background_video)
         <video{!! html_build_attributes($background_video['attributes']) !!}>
@@ -8,3 +9,4 @@
     @endisset
     {!! $content !!}
 </div>
+@endif
