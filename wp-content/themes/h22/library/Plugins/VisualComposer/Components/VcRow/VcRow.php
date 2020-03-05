@@ -181,6 +181,10 @@ if (!class_exists('\H22\Plugins\VisualComposer\Components\VcRow\VcRow')) :
 
         public function prepareData($data)
         {
+            if (isset($data['el_id'])) {
+                $data['attributes']['id'] = $data['el_id'];
+            }
+
             $data['attributes']['class'] = $this->getRowClasses($data);
             $data['containerAttributes']['class'] = $this->getContainerClasses($data);
 

@@ -191,6 +191,10 @@ if (
                 $data['attributes']['class'][] = 's-elements-mb-0';
             }
 
+            if (isset($data['el_id'])) {
+                $data['attributes']['id'] = $data['el_id'];
+            }
+
             if (isset($data['background_video'])) {
                 $background_video = wp_get_attachment_metadata(
                     $data['background_video']
