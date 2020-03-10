@@ -11,6 +11,12 @@ blockquote {
     p {
       margin-bottom: 0;
     }
+
+    footer {
+      font-size: 16px;
+      margin-top: 16px;
+      text-align: center;
+    }
   
     &:before {
       position: absolute;
