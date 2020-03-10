@@ -11,6 +11,7 @@ class PageBuilderTemplate
     public function __construct()
     {
         add_filter('the_content', array($this, 'replacePostContentWithTemplateContent'), 10);
+        add_filter('the_content', array($this, 'replaceAcfPlaceholders'), 20);
         add_action('views/templates/archive/before-archive', array($this, 'outputArchiveLayoutPiece'), 0, 1000);
         add_action('views/templates/archive/after-archive', array($this, 'outputArchiveLayoutPiece'), 0, 1000);
         add_filter('register_post_type_args', array($this, 'enablePreview'), 2, 2);
@@ -22,6 +23,28 @@ class PageBuilderTemplate
         add_action('admin_init', array($this, 'addAcfFieldsForPosttypeTemplates'));
 
         $this->registerPostType();
+    }
+
+    public function replaceAcfPlaceholders($content)
+    {
+        if (get_post_type() === self::$postTypeSlug
+        || !is_singular(get_post_type())
+        || get_post_meta(get_queried_object_id(), '_wpb_vc_js_status', true) === 'true'
+        || !in_the_loop()
+        || !is_main_query()) {
+            return $content;
+        }
+
+        preg_match_all('/{{acf:(.*?)}}/m', $content, $matches, PREG_SET_ORDER, 0);
+
+        if (!empty($matches)) {
+            foreach ($matches as $match) {
+                $field = get_field($match[1], get_queried_object_id());
+                $content = str_replace($match[0], !empty($field) && is_string($field) ? $field : '', $content);
+            }
+        }
+
+        return $content;
     }
 
     public function replacePostContentWithTemplateContent($content)
@@ -58,7 +81,7 @@ class PageBuilderTemplate
             return $content;
         }
 
-        return get_post_field('post_content', $templateId);
+        return apply_filters('PageBuilderTemplate/replacePostContentWithTemplateContent/template', get_post_field('post_content', $templateId), get_queried_object_id());
     }
 
     public function addAcfFieldsForPosttypeTemplates()
