@@ -63,7 +63,9 @@ class Enqueue
             get_stylesheet_directory_uri() .
                 '/assets/dist/' .
                 CacheBust::name('js/app.js'),
-            array('jquery')
+            array('jquery'),
+            false,
+            true
         );
         wp_localize_script('h22-js', 'h22APP', array());
         wp_enqueue_script('h22-js');

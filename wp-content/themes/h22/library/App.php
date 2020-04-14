@@ -46,6 +46,7 @@ class App
         
         // Disable defer loading
         add_filter('Municipio/Theme/Enqueue/deferedLoadingJavascript/disable', '__return_true', 99);
+        add_filter('Municipio/load-wp-jquery', '__return_true', 99);
 
         new \H22\Admin\Municipio\DisableACFFields();
         new \H22\Controller\ChildController();
