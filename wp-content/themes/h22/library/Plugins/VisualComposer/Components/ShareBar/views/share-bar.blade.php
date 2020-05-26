@@ -1,7 +1,6 @@
 <div class="c-element">
     <div class="c-share-bar">
         <span class="c-share-bar__heading o-text-meta u-display-block">{{ __('Share this page') }}</span>
-        {{$socialShareUrl}}
         <!-- Social -->
         <ul class="share share-social share-social-icon-md share-horizontal share-no-labels hidden-print inline-block">
             <li>
