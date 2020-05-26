@@ -2,6 +2,7 @@ import objectFitVideos from 'object-fit-videos';
 import objectFitImages from 'object-fit-images';
 import dropdownComponents from './dropdown';
 import smoothScroll from './smoothScroll';
+import socialShare from './socialShare';
 
 import './menu.js';
 import './video-popup';
@@ -18,6 +19,7 @@ window.addEventListener('DOMContentLoaded', function(event) {
     watchMQ: true,
     skipTest: false
   });
+  socialShare();
 });
 
 
