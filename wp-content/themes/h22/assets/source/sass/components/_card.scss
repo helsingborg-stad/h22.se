@@ -23,7 +23,6 @@
     margin-top: $base;
   }
 
-
   &__body,
   &__top,
   &__bottom,
@@ -105,6 +104,10 @@
     height: 100%;
     top: 0;
     left: 0;
+  }
+
+  img.c-card__image.c-card__image--contain {
+    @include object-fit(contain);
   }
 }
 
