@@ -32,9 +32,9 @@ if (is_array($terms) && !empty($terms)) {
                 {{ the_title() }}
             </a>
         </h2>
-        {{-- <div class="c-card__text">
+        <div class="c-card__text">
             {{\H22\Content\Excerpt::getExcerpt($post->ID, 24, true)}}
-        </div> --}}
+        </div>
     </div>
     {{-- <div class="c-card__footer">
             <a class="c-card__link c-card__link--read-more c-card__link--right" href="{{get_permalink()}}">
