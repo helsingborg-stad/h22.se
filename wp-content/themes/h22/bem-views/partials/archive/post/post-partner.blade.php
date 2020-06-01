@@ -36,9 +36,9 @@ if (is_array($terms) && !empty($terms)) {
             {{\H22\Content\Excerpt::getExcerpt($post->ID, 24, true)}}
         </div>
     </div>
-    {{-- <div class="c-card__footer">
+    <div class="c-card__footer">
             <a class="c-card__link c-card__link--read-more c-card__link--right" href="{{get_permalink()}}">
                 Read more
             </a>
-        </div> --}}
+        </div>
 </div>
