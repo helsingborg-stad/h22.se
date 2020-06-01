@@ -33,7 +33,7 @@ if (is_array($terms) && !empty($terms)) {
             </a>
         </h2>
         <div class="c-card__text">
-            {{\H22\Content\Excerpt::getExcerpt($post->ID, 24, true)}}
+            {{\H22\Content\Excerpt::getExcerpt($post->ID, 0, false, '...', false)}}
         </div>
     </div>
     <div class="c-card__footer">
