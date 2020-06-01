@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Helsingborg H22\n"
-"POT-Creation-Date: 2019-05-22 16:19+0200\n"
-"PO-Revision-Date: 2019-05-22 16:19+0200\n"
+"POT-Creation-Date: 2020-06-01 14:03+0200\n"
+"PO-Revision-Date: 2020-06-01 14:03+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: sv_SE\n"
@@ -10,107 +10,1547 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.2.1\n"
+"X-Generator: Poedit 1.8.12\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: style.css\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
-"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
-"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 "X-Poedit-SearchPathExcluded-1: vendor\n"
 "X-Poedit-SearchPathExcluded-2: node_modules\n"
 "X-Poedit-SearchPathExcluded-3: assets\n"
 
-#: library/Plugins/VisualComposer/Components/ButtonGroup/ButtonGroup.php:13
-msgid "Button Group"
-msgstr "Knapp grupp"
+#: bem-views/partials/404/default.blade.php:18
+msgid "Error 404"
+msgstr ""
 
-#: library/Plugins/VisualComposer/Components/ButtonGroup/ButtonGroup.php:23
-msgid "Heading text"
-msgstr "Rubriktext"
+#: bem-views/partials/404/default.blade.php:44
+msgid "We made a search for you, maybe you were looking for..."
+msgstr ""
 
-#: library/Plugins/VisualComposer/Components/ButtonGroup/ButtonGroup.php:25
-#, fuzzy
-msgid "First row will be rendered in green text"
-msgstr "Första raden kommer att återges i grön text"
+#: bem-views/partials/archive/post-footer.blade.php:9
+msgid "Share the page"
+msgstr ""
 
-#: library/Plugins/VisualComposer/Components/Card/Card.php:9
-#: library/Plugins/VisualComposer/Components/Card/Card.php:13
-msgid "Card"
-msgstr "Kort"
+#: bem-views/partials/archive/post-footer.blade.php:34
+msgid "Published by"
+msgstr ""
 
-#: library/Plugins/VisualComposer/Components/Card/Card.php:14
+#: bem-views/partials/archive/post-info.blade.php:42
+msgid "Comments"
+msgstr ""
+
+#: bem-views/partials/archive/post/post-partner.blade.php:41
+#: bem-views/partials/archive/post/post-projects.blade.php:41 library/App.php:9
+msgid "Read more"
+msgstr "Läs mer"
+
+#: bem-views/templates/archive.blade.php:51
+msgid "No posts to show"
+msgstr ""
+
+#: library/AcfFields/php/archive-template-options.php:6
+msgid "Archive template"
+msgstr ""
+
+#: library/AcfFields/php/archive-template-options.php:10
+msgid "Default template for archives"
+msgstr ""
+
+#: library/AcfFields/php/archive-template-options.php:13
+msgid ""
+"This will set a default template for all archives (including taxonomies "
+"etc). Define a template on posttype-level to override this one. Leave empty "
+"to disable."
+msgstr ""
+
+#: library/AcfFields/php/attendeee-mail-settings.php:6
+msgid "Attendee mail settings"
+msgstr ""
+
+#: library/AcfFields/php/attendeee-mail-settings.php:10
+msgid "Custom subject"
+msgstr ""
+
+#: library/AcfFields/php/attendeee-mail-settings.php:29
+msgid "Remove attachments"
+msgstr ""
+
+#: library/AcfFields/php/attendeee-mail-settings.php:43
+#: library/AcfFields/php/polylang-language-switcher.php:22
+#: library/AcfFields/php/template-settings.php:24
+msgid "Enabled"
+msgstr ""
+
+#: library/AcfFields/php/attendeee-mail-settings.php:44
+#: library/AcfFields/php/polylang-language-switcher.php:23
+#: library/AcfFields/php/template-settings.php:25
+msgid "Disabled"
+msgstr ""
+
+#: library/AcfFields/php/attendeee-mail-settings.php:48
+msgid "Content blocks"
+msgstr ""
+
+#: library/AcfFields/php/attendeee-mail-settings.php:63
+msgid "Add content block"
+msgstr ""
+
+#: library/AcfFields/php/attendeee-mail-settings.php:67
+#: library/Plugins/VisualComposer/Components/ArchiveIndex/ArchiveIndex.php:19
+#: library/Plugins/VisualComposer/Components/Card/Card.php:21
+#: library/Plugins/VisualComposer/Components/Heading/Heading.php:18
+#: library/Plugins/VisualComposer/Components/PostContent/PostContent.php:17
+#: library/Plugins/VisualComposer/Components/ShareBar/ShareBar.php:17
+#: library/Plugins/VisualComposer/Components/Teaser/Teaser.php:19
+#: library/Plugins/VisualComposer/Components/VcColumn/VcColumn.php:112
+#: library/Plugins/VisualComposer/Components/VcColumnInner/VcColumnInner.php:113
+#: library/Plugins/VisualComposer/Components/VcRow/VcRow.php:68
+#: library/Plugins/VisualComposer/Components/VcRowInner/VcRowInner.php:69
 msgid "Content"
 msgstr "Innehållstext"
 
-#: library/Plugins/VisualComposer/Components/Card/Card.php:18
-msgid "Heading"
-msgstr "Rubrik"
+#: library/AcfFields/php/attendeee-mail-settings.php:86
+msgid "Rules"
+msgstr ""
 
-#: library/Plugins/VisualComposer/Components/Card/Card.php:24
-msgid "Text"
-msgstr "Text"
+#: library/AcfFields/php/attendeee-mail-settings.php:101
+msgid "Add rule"
+msgstr ""
 
-#: library/Plugins/VisualComposer/Components/Card/Card.php:30
-msgid "Link"
-msgstr "Länk"
+#: library/AcfFields/php/attendeee-mail-settings.php:105
+msgid "Custom Attendee Field"
+msgstr ""
 
-#: library/Plugins/VisualComposer/Components/Card/Card.php:35
-msgid "Image"
-msgstr "Bild"
+#: library/AcfFields/php/attendeee-mail-settings.php:117
+msgid "fooevents_custom_company"
+msgstr ""
 
-#: library/Plugins/VisualComposer/Components/Card/Card.php:42
-#: library/Plugins/VisualComposer/Components/Card/Card.php:56
-msgid "Graphics"
-msgstr "Grafik"
+#: library/AcfFields/php/attendeee-mail-settings.php:118
+msgid "fooevents_custom_mobile"
+msgstr ""
 
-#: library/Plugins/VisualComposer/Components/Card/Card.php:46
-msgid "Image ratio"
-msgstr "Bildförhållande"
+#: library/AcfFields/php/attendeee-mail-settings.php:119
+msgid "fooevents_custom_hackaton"
+msgstr ""
 
-#: library/Plugins/VisualComposer/Components/Card/Card.php:49
-msgid "4:3 – default"
-msgstr "4:3 – standard"
+#: library/AcfFields/php/attendeee-mail-settings.php:120
+msgid "fooevents_custom_i_am_going_to_be_a_speaker_at_the_conference_"
+msgstr ""
 
-#: library/Plugins/VisualComposer/Components/Card/Card.php:50
-msgid "16:9"
-msgstr "16:9"
+#: library/AcfFields/php/attendeee-mail-settings.php:121
+msgid "fooevents_custom_i_am_a_participant_at_the_h22_summit_hackathon_"
+msgstr ""
 
-#: library/Plugins/VisualComposer/Components/Card/Card.php:51
-msgid "1:1"
-msgstr "1:1"
+#: library/AcfFields/php/attendeee-mail-settings.php:122
+msgid "fooevents_custom__i_am_going_to_be_part_of_the_staff_at_the_confere"
+msgstr ""
 
-#: library/Plugins/VisualComposer/Components/Card/Card.php:53
-msgid "Select an image ratio for the card"
-msgstr "Välj ett bildförhållande för kortet"
+#: library/AcfFields/php/attendeee-mail-settings.php:123
+msgid "fooevents_custom_allergies_/_special_diets"
+msgstr ""
 
-#: library/Plugins/VisualComposer/Components/Card/Card.php:60
-msgid "Css classes"
-msgstr "CSS-klasser"
+#: library/AcfFields/php/attendeee-mail-settings.php:124
+msgid "fooevents_custom_choose"
+msgstr ""
 
-#: library/Plugins/VisualComposer/Components/Card/Card.php:62
-msgid "Add custom classes"
-msgstr "Lägg till egna klasser"
+#: library/AcfFields/php/attendeee-mail-settings.php:137
+msgid "Condition"
+msgstr ""
 
-#: library/Plugins/VisualComposer/Components/Card/Card.php:63
-#: library/Plugins/VisualComposer/Components/Card/Card.php:70
+#: library/AcfFields/php/attendeee-mail-settings.php:149
+msgid "is equal to"
+msgstr ""
+
+#: library/AcfFields/php/attendeee-mail-settings.php:150
+msgid "is not equal to"
+msgstr ""
+
+#: library/AcfFields/php/attendeee-mail-settings.php:153
+msgid "is-checked"
+msgstr ""
+
+#: library/AcfFields/php/attendeee-mail-settings.php:164
+msgid "Value"
+msgstr ""
+
+#: library/AcfFields/php/brand-widget.php:6
+msgid "Brand / Logo Widget"
+msgstr ""
+
+#: library/AcfFields/php/brand-widget.php:10
+msgid "URL"
+msgstr ""
+
+#: library/AcfFields/php/brand-widget.php:14
+msgid "Link this logo to the following URL:"
+msgstr ""
+
+#: library/AcfFields/php/options-theme-footer-copyright.php:10
+msgid "Copyright text"
+msgstr ""
+
+#: library/AcfFields/php/options-theme-footer-copyright.php:24
+msgid "Show Copyright"
+msgstr ""
+
+#: library/AcfFields/php/options-theme-footer-copyright.php:28
+msgid ""
+"If enabled the copyright text will be displayed at the bottom of the page"
+msgstr ""
+
+#: library/AcfFields/php/options-theme-footer-copyright.php:39
+msgid "Display copyright text"
+msgstr ""
+
+#: library/AcfFields/php/page-builder-settings.php:8
+msgid "Page Builder settings"
+msgstr ""
+
+#: library/AcfFields/php/page-builder-settings.php:12
+msgid "Page Template"
+msgstr ""
+
+#: library/AcfFields/php/page-builder-settings.php:15
+msgid "This will override all inherited templates."
+msgstr ""
+
+#: library/AcfFields/php/polylang-language-switcher.php:6
+msgid "Polylang Language Switcher"
+msgstr ""
+
+#: library/AcfFields/php/polylang-language-switcher.php:10
+msgid "Polylang Language Switcher Settings"
+msgstr ""
+
+#: library/AcfFields/php/polylang-language-switcher.php:24
+msgid "Enabled for logged in users"
+msgstr ""
+
+#: library/AcfFields/php/polylang-language-switcher.php:27
+msgid "enabled"
+msgstr ""
+
+#: library/AcfFields/php/single-template-options.php:6
+msgid "Posttype template"
+msgstr ""
+
+#: library/AcfFields/php/single-template-options.php:10
+msgid "Default template for all posttypes"
+msgstr ""
+
+#: library/AcfFields/php/single-template-options.php:13
+msgid ""
+"This will set a default single view template for all posttypes. Define a "
+"template on posttype-level to override this one. Leave empty to disable."
+msgstr ""
+
+#: library/AcfFields/php/template-settings.php:6
+msgid "Template settings"
+msgstr ""
+
+#: library/AcfFields/php/template-settings.php:10
+msgid "Lock Template"
+msgstr ""
+
+#: library/AcfFields/php/template-settings.php:29
+#: library/Plugins/VisualComposer/PageBuilderTemplate.php:360
+#: library/Plugins/VisualComposer/PageBuilderTemplateType.php:45
+msgid "Template Type"
+msgstr ""
+
+#: library/AcfFields/php/template-settings.php:51
+msgid "Save as site template"
+msgstr ""
+
+#: library/Entity/PostType.php:65 library/Entity/PostType.php:67
+#, php-format
+msgid "Add new %s"
+msgstr ""
+
+#: library/Entity/PostType.php:70 library/Entity/Taxonomy.php:47
+#, php-format
+msgid "Edit %s"
+msgstr ""
+
+#: library/Entity/PostType.php:71
+#, php-format
+msgid "New %s"
+msgstr ""
+
+#: library/Entity/PostType.php:72
+#, php-format
+msgid "View %s"
+msgstr ""
+
+#: library/Entity/PostType.php:74 library/Entity/Taxonomy.php:43
+#, php-format
+msgid "Search %s"
+msgstr ""
+
+#: library/Entity/PostType.php:78
+#, php-format
+msgid "No %s found"
+msgstr ""
+
+#: library/Entity/PostType.php:82
+#, php-format
+msgid "No %s found in trash"
+msgstr ""
+
+#: library/Entity/PostType.php:86 library/Entity/Taxonomy.php:45
+#: library/Entity/Taxonomy.php:46
+#, php-format
+msgid "Parent %s:"
+msgstr ""
+
+#: library/Entity/Taxonomy.php:44
+#, php-format
+msgid "All %s"
+msgstr ""
+
+#: library/Entity/Taxonomy.php:48
+#, php-format
+msgid "Update %s"
+msgstr ""
+
+#: library/Entity/Taxonomy.php:49
+#, php-format
+msgid "Add New %s"
+msgstr ""
+
+#: library/Entity/Taxonomy.php:50
+#, php-format
+msgid "New %s Name"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/ActionHook/ActionHook.php:15
+msgid "Action hook"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/ActionHook/ActionHook.php:18
+msgid "Utility"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/ActionHook/ActionHook.php:19
+msgid "Invokes all functions attached to action hook."
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/ActionHook/ActionHook.php:23
+msgid "Action name"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/ActionHook/ActionHook.php:24
+msgid ""
+"This element invokes all functions attached to the action hook defined "
+"above. Native Wordpress actions (eg. the_content, init, wp_head etc) are "
+"disabled for safety reasons. Don't use this element unless you know what you "
+"are doing since it can probably break an enitre site."
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/ActionHook/ActionHook.php:27
+#: library/Plugins/VisualComposer/Components/ActionHook/ActionHook.php:34
+#: library/Plugins/VisualComposer/Components/ActionHook/ActionHook.php:41
+msgid "General"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/ActionHook/ActionHook.php:31
+msgid "Description"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/ActionHook/ActionHook.php:32
+msgid ""
+"Just a description of the action hook for administrative purpose. This will "
+"not effect the output."
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/ActionHook/ActionHook.php:38
+msgid "Enable output in Page Builder Templates"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/ActionHook/ActionHook.php:39
+msgid "Action Hook Elements are disabled in Page Builder templates by default."
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/ActionHook/ActionHook.php:45
+#: library/Plugins/VisualComposer/Components/Card/Card.php:96
+msgid "Extra class name"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/ActionHook/ActionHook.php:49
+#: library/Plugins/VisualComposer/Components/ButtonGroup/ButtonGroup.php:45
+#: library/Plugins/VisualComposer/Components/ButtonGroup/ButtonGroup.php:76
+#: library/Plugins/VisualComposer/Components/Card/Card.php:100
+msgid ""
+"Style particular content element differently - add a class name and refer to "
+"it in custom CSS."
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/ActionHook/ActionHook.php:52
+#: library/Plugins/VisualComposer/Components/Card/Card.php:79
+#: library/Plugins/VisualComposer/Components/Card/Card.php:92
+#: library/Plugins/VisualComposer/Components/Card/Card.php:103
+#: library/Plugins/VisualComposer/Components/VcColumn/VcColumn.php:78
+#: library/Plugins/VisualComposer/Components/VcColumn/VcColumn.php:84
+#: library/Plugins/VisualComposer/Components/VcColumnInner/VcColumnInner.php:79
+#: library/Plugins/VisualComposer/Components/VcColumnInner/VcColumnInner.php:85
+#: library/Plugins/VisualComposer/Components/VcColumnText/VcColumnText.php:48
+#: library/Plugins/VisualComposer/Components/VcColumnText/VcColumnText.php:53
 msgid "Settings"
 msgstr "Inställningar"
 
-#: library/Plugins/VisualComposer/Components/Card/Card.php:67
-msgid "Id"
-msgstr "Id"
+#: library/Plugins/VisualComposer/Components/ArchiveIndex/ArchiveIndex.php:16
+msgid "Archive Index"
+msgstr ""
 
+#: library/Plugins/VisualComposer/Components/ButtonGroup/ButtonGroup.php:16
+msgid "Button Group"
+msgstr "Knapp grupp"
+
+#: library/Plugins/VisualComposer/Components/ButtonGroup/ButtonGroup.php:22
+#: library/Plugins/VisualComposer/Components/ButtonGroup/ButtonGroup.php:53
+msgid "Button link"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/ButtonGroup/ButtonGroup.php:23
+#: library/Plugins/VisualComposer/Components/ButtonGroup/ButtonGroup.php:54
+msgid "Add the button link "
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/ButtonGroup/ButtonGroup.php:25
+#: library/Plugins/VisualComposer/Components/ButtonGroup/ButtonGroup.php:38
+#: library/Plugins/VisualComposer/Components/ButtonGroup/ButtonGroup.php:49
+msgid "Button 1"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/ButtonGroup/ButtonGroup.php:29
+#: library/Plugins/VisualComposer/Components/ButtonGroup/ButtonGroup.php:60
+msgid "Button Id"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/ButtonGroup/ButtonGroup.php:32
+#: library/Plugins/VisualComposer/Components/ButtonGroup/ButtonGroup.php:63
+#: library/Plugins/VisualComposer/Components/Card/Card.php:87
+#, php-format
+msgid ""
+"Enter element ID (Note: make sure it is unique and valid according to <a "
+"href=\"%s\" target=\"_blank\">w3c specification</a>)."
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/ButtonGroup/ButtonGroup.php:42
+#: library/Plugins/VisualComposer/Components/ButtonGroup/ButtonGroup.php:73
+msgid "Button class"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/ButtonGroup/ButtonGroup.php:56
+#: library/Plugins/VisualComposer/Components/ButtonGroup/ButtonGroup.php:69
+#: library/Plugins/VisualComposer/Components/ButtonGroup/ButtonGroup.php:80
+msgid "Button 2"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/ButtonGroup/ButtonGroup.php:84
+msgid "Placement"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/ButtonGroup/ButtonGroup.php:87
 #: library/Plugins/VisualComposer/Components/Card/Card.php:69
-msgid "Add a custom Id"
-msgstr "Lägga till ett eget ID"
+msgid "Left – default"
+msgstr ""
 
-#: library/Theme/Color.php:58
+#: library/Plugins/VisualComposer/Components/ButtonGroup/ButtonGroup.php:88
+#: library/Plugins/VisualComposer/Components/Card/Card.php:70
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:158
+#: library/Plugins/VisualComposer/Components/VcColumn/VcColumn.php:101
+#: library/Plugins/VisualComposer/Components/VcColumnInner/VcColumnInner.php:102
+msgid "Center"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/ButtonGroup/ButtonGroup.php:89
+#: library/Plugins/VisualComposer/Components/Card/Card.php:71
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:162
+#: library/Plugins/VisualComposer/Components/VcColumn/VcColumn.php:102
+#: library/Plugins/VisualComposer/Components/VcColumnInner/VcColumnInner.php:103
+#: library/Plugins/VisualComposer/Components/VcColumnText/VcColumnText.php:105
+msgid "Right"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/ButtonGroup/ButtonGroup.php:92
+msgid "Choose the placement of your button group"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/ButtonGroup/ButtonGroup.php:98
+#: library/Plugins/VisualComposer/Components/ButtonGroup/ButtonGroup.php:115
+msgid "Button group settings"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/ButtonGroup/ButtonGroup.php:102
+msgid "Color"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/ButtonGroup/ButtonGroup.php:105
+msgid "Default (Black text)"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/ButtonGroup/ButtonGroup.php:106
+msgid "Inverted (White text)"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/ButtonGroup/ButtonGroup.php:109
+msgid "Choose the color of your button group"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/Card/Card.php:16
+#: library/Plugins/VisualComposer/Components/Card/Card.php:20
+msgid "Card"
+msgstr "Kort"
+
+#: library/Plugins/VisualComposer/Components/Card/Card.php:25
+#: library/Plugins/VisualComposer/Components/Heading/Heading.php:15
+#: library/Plugins/VisualComposer/Components/Hero/Hero.php:33
+#: library/Plugins/VisualComposer/Components/PostList/PostList.php:24
+#: library/Plugins/VisualComposer/Components/Teaser/Teaser.php:28
+msgid "Heading"
+msgstr "Rubrik"
+
+#: library/Plugins/VisualComposer/Components/Card/Card.php:31
+#: library/Plugins/VisualComposer/Components/Hero/Hero.php:20
+#: library/Plugins/VisualComposer/Components/Teaser/Teaser.php:40
+msgid "Text"
+msgstr "Text"
+
+#: library/Plugins/VisualComposer/Components/Card/Card.php:37
+#: library/Plugins/VisualComposer/Components/Teaser/Teaser.php:45
+msgid "Link"
+msgstr "Länk"
+
+#: library/Plugins/VisualComposer/Components/Card/Card.php:42
+#: library/Plugins/VisualComposer/Components/Hero/Hero.php:25
+msgid "Image"
+msgstr "Bild"
+
+#: library/Plugins/VisualComposer/Components/Card/Card.php:45
+#: library/Plugins/VisualComposer/Components/Card/Card.php:62
+msgid "Graphics"
+msgstr "Grafik"
+
+#: library/Plugins/VisualComposer/Components/Card/Card.php:49
+msgid "Image ratio"
+msgstr "Bildförhållande"
+
+#: library/Plugins/VisualComposer/Components/Card/Card.php:52
+msgid "4:3 – default"
+msgstr "4:3 – standard"
+
+#: library/Plugins/VisualComposer/Components/Card/Card.php:53
+msgid "16:9"
+msgstr "16:9"
+
+#: library/Plugins/VisualComposer/Components/Card/Card.php:54
+msgid "1:1"
+msgstr "1:1"
+
+#: library/Plugins/VisualComposer/Components/Card/Card.php:57
+msgid "Select an image ratio for the card"
+msgstr "Välj ett bildförhållande för kortet"
+
+#: library/Plugins/VisualComposer/Components/Card/Card.php:66
+msgid "Align content"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/Card/Card.php:74
+msgid "Select an alignement for your content"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/Card/Card.php:83
+msgid "Element ID"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:11
+#: library/Plugins/VisualComposer/Components/Hero/Hero.php:100
+msgid "Color theme"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:13
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:36
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:75
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:128
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:157
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:189
+msgid "Default (inherit)"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:14
+msgid "H22 Red Invert"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:15
+msgid "H22 Green Invert"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:16
+msgid "H22 Blue Invert"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:17
+msgid "H22 Purple Invert"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:18
+msgid "H22 Red Fill"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:19
+msgid "H22 Green Fill"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:20
+msgid "H22 Blue Fill"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:21
+msgid "H22 Purple Fill"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:34
+msgid "Text color"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:37
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:77
+msgid "White"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:38
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:78
+msgid "Black"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:39
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:76
+msgid "Gray"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:40
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:44
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:82
+msgid "H22 Purple"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:41
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:79
+msgid "H22 Red"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:42
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:81
+msgid "H22 Green"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:43
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:80
+msgid "H22 Blue"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:45
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:83
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:131
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:163
+#: library/Plugins/VisualComposer/Components/Heading/Heading.php:25
+msgid "Custom"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:53
+msgid "Custom text color"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:73
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:91
+msgid "Background Color"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:103
+msgid "Background Image Source"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:105
+msgid "Media Library"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:106
+msgid "Featured Image"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:114
+msgid "Background Image"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:126
+msgid "Background Image Size"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:129
+msgid "Cover"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:130
+msgid "Contain"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:143
+msgid "Custom Background Size"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:155
+msgid "Background Position"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:159
+#: library/Plugins/VisualComposer/Components/VcRow/VcRow.php:95
+#: library/Plugins/VisualComposer/Components/VcRowInner/VcRowInner.php:96
+msgid "Top"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:160
+#: library/Plugins/VisualComposer/Components/VcColumn/VcColumn.php:126
+#: library/Plugins/VisualComposer/Components/VcColumnInner/VcColumnInner.php:127
+#: library/Plugins/VisualComposer/Components/VcRow/VcRow.php:97
+#: library/Plugins/VisualComposer/Components/VcRowInner/VcRowInner.php:98
+#: library/Plugins/VisualComposer/Components/VcSection/VcSection.php:95
+msgid "Bottom"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:161
+#: library/Plugins/VisualComposer/Components/VcColumnText/VcColumnText.php:104
+msgid "Left"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:175
+msgid "Custom Background Position"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:187
+msgid "Background Repeat"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:190
+msgid "No Repeat"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:191
+msgid "Repeat"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:192
+msgid "Repeat X"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:193
+msgid "Repeat Y"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:205
+msgid "Background Overlay"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:207
+#: library/Plugins/VisualComposer/Components/Hero/Hero.php:54
+#: library/Plugins/VisualComposer/Components/VcColumn/VcColumn.php:137
+#: library/Plugins/VisualComposer/Components/VcColumnInner/VcColumnInner.php:138
+#: library/Plugins/VisualComposer/Components/VcColumnText/VcColumnText.php:89
+#: library/Plugins/VisualComposer/Components/VcSection/VcSection.php:75
+msgid "None"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:208
+msgid "20%"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:209
+msgid "40%"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/GeneralComponentParams.php:210
+msgid "60%"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/Heading/Heading.php:23
+msgid "Heading content source"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/Heading/Heading.php:26
+msgid "Dynamic"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/Heading/Heading.php:34
+msgid "Heading content"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/Heading/Heading.php:47
+msgid "Heading type"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/Heading/Heading.php:49
+msgid "h2"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/Heading/Heading.php:50
+msgid "h3"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/Heading/Heading.php:51
+msgid "h4"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/Heading/Heading.php:52
+msgid "h5"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/Heading/Heading.php:53
+msgid "h6"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/Heading/Heading.php:54
+msgid "h1"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/Heading/Heading.php:55
+msgid "Span (non heading)"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/Heading/Heading.php:63
+msgid "Heading size"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/Heading/Heading.php:65
+msgid "Inherit"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/Heading/Heading.php:66
+msgid "Headline (h1)"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/Heading/Heading.php:67
+msgid "Title (h2)"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/Heading/Heading.php:68
+msgid "SubTitle (h3)"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/Heading/Heading.php:69
+msgid "Body Title (h4-h6)"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/Heading/Heading.php:70
+msgid "Display 1"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/Heading/Heading.php:71
+msgid "Display 2"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/Heading/Heading.php:72
+msgid "Caption (Small)"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/Heading/Heading.php:80
+msgid "Add additional CSS classes"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/Hero/Hero.php:11
+msgid "Hero"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/Hero/Hero.php:18
+msgid "Hero type"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/Hero/Hero.php:22
+msgid "Text with Background image"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/Hero/Hero.php:42
+msgid "Body"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/Hero/Hero.php:52
+#: library/Plugins/VisualComposer/Components/VcSection/VcSection.php:73
+msgid "Minimum height"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/Hero/Hero.php:55
+#: library/Plugins/VisualComposer/Components/VcColumn/VcColumn.php:113
+#: library/Plugins/VisualComposer/Components/VcColumn/VcColumn.php:136
+#: library/Plugins/VisualComposer/Components/VcColumnInner/VcColumnInner.php:114
+#: library/Plugins/VisualComposer/Components/VcColumnInner/VcColumnInner.php:137
+#: library/Plugins/VisualComposer/Components/VcColumnText/VcColumnText.php:67
+#: library/Plugins/VisualComposer/Components/VcColumnText/VcColumnText.php:80
+#: library/Plugins/VisualComposer/Components/VcColumnText/VcColumnText.php:92
+#: library/Plugins/VisualComposer/Components/VcRow/VcRow.php:69
+#: library/Plugins/VisualComposer/Components/VcRow/VcRow.php:83
+#: library/Plugins/VisualComposer/Components/VcRowInner/VcRowInner.php:70
+#: library/Plugins/VisualComposer/Components/VcRowInner/VcRowInner.php:84
+#: library/Plugins/VisualComposer/Components/VcSection/VcSection.php:76
+msgid "Small"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/Hero/Hero.php:56
+#: library/Plugins/VisualComposer/Components/VcSection/VcSection.php:77
+msgid "Medium"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/Hero/Hero.php:57
+#: library/Plugins/VisualComposer/Components/VcColumnText/VcColumnText.php:66
+#: library/Plugins/VisualComposer/Components/VcColumnText/VcColumnText.php:79
+#: library/Plugins/VisualComposer/Components/VcSection/VcSection.php:78
+msgid "Large"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/Hero/Hero.php:58
+msgid "X-Large"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/Hero/Hero.php:66
+msgid "Background image"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/Hero/Hero.php:68
+msgid ""
+"Sets a background image for the entire row, use with moderation. Hint, don't "
+"build rows that will grow too much in height"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/Hero/Hero.php:84
+msgid "Overlay"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/Hero/Hero.php:86
+msgid "If checked an overlay will be added on the background image"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/Hero/Hero.php:90
+msgid "Yes"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/Hero/Hero.php:102
+msgid "Black text"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/Hero/Hero.php:103
+msgid "Red background"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/Hero/Hero.php:104
+msgid "Green background"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/Hero/Hero.php:105
+msgid "Blue background"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/Hero/Hero.php:106
+msgid "Purple background"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/PostContent/PostContent.php:14
+msgid "Post Content"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/PostList/PostList.php:18
+msgid "Post list"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/PostList/PostList.php:30
+msgid "Datasource (Post type)"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/PostList/PostList.php:52
+msgid "Narrow data source"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/PostList/PostList.php:55
+msgid ""
+"Enter terms (slug) from categories, tags or custom taxonomies. Seperate "
+"multiple terms with comma eg. term-slug-1,term-slug-2,term-slug-3 etc"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/PostList/PostList.php:61
+msgid "Columns"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/PostList/PostList.php:72
+msgid "Rows"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/PostList/PostList.php:78
+msgid "Archive button text"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/PostList/PostList.php:81
+msgid "Leave this empty if you don’t want a link to the archive"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/PostMeta/PostMeta.php:11
+msgid "Post Meta"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/ShareBar/ShareBar.php:14
+msgid "Share bar"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/ShareBar/views/share-bar.blade.php:7
+#: library/Plugins/VisualComposer/Components/ShareBar/views/share-bar.blade.php:9
+#: library/Plugins/VisualComposer/Components/ShareBar/views/share-bar.blade.php:13
+#: library/Plugins/VisualComposer/Components/ShareBar/views/share-bar.blade.php:15
+#: library/Plugins/VisualComposer/Components/ShareBar/views/share-bar.blade.php:19
+#: library/Plugins/VisualComposer/Components/ShareBar/views/share-bar.blade.php:21
+msgid "Share on"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/ShareBar/views/share-bar.blade.php:25
+msgid "Share as e-mail"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/ShareBar/views/share-bar.blade.php:27
+msgid "Share with e-mail"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/Teaser/Teaser.php:14
+#: library/Plugins/VisualComposer/Components/Teaser/Teaser.php:18
+msgid "Teaser"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/Teaser/Teaser.php:23
+msgid "Meta heading"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/Teaser/Teaser.php:34
+msgid "Preamble"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcColumn/VcColumn.php:97
+#: library/Plugins/VisualComposer/Components/VcColumnInner/VcColumnInner.php:98
+msgid "Text alignment"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcColumn/VcColumn.php:100
+#: library/Plugins/VisualComposer/Components/VcColumnInner/VcColumnInner.php:101
+msgid "Left (default)"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcColumn/VcColumn.php:108
+#: library/Plugins/VisualComposer/Components/VcColumnInner/VcColumnInner.php:109
+#: library/Plugins/VisualComposer/Components/VcRow/VcRow.php:64
+#: library/Plugins/VisualComposer/Components/VcRowInner/VcRowInner.php:65
+msgid "Container width"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcColumn/VcColumn.php:111
+#: library/Plugins/VisualComposer/Components/VcColumn/VcColumn.php:135
+#: library/Plugins/VisualComposer/Components/VcColumnInner/VcColumnInner.php:112
+#: library/Plugins/VisualComposer/Components/VcColumnInner/VcColumnInner.php:136
+#: library/Plugins/VisualComposer/Components/VcColumnText/VcColumnText.php:65
+#: library/Plugins/VisualComposer/Components/VcColumnText/VcColumnText.php:78
+#: library/Plugins/VisualComposer/Components/VcRow/VcRow.php:67
+#: library/Plugins/VisualComposer/Components/VcRow/VcRow.php:81
+#: library/Plugins/VisualComposer/Components/VcRowInner/VcRowInner.php:68
+#: library/Plugins/VisualComposer/Components/VcRowInner/VcRowInner.php:82
+msgid "Default"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcColumn/VcColumn.php:114
+#: library/Plugins/VisualComposer/Components/VcColumnInner/VcColumnInner.php:115
+#: library/Plugins/VisualComposer/Components/VcColumnText/VcColumnText.php:93
+#: library/Plugins/VisualComposer/Components/VcRow/VcRow.php:70
+#: library/Plugins/VisualComposer/Components/VcRowInner/VcRowInner.php:71
+msgid "Wide"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcColumn/VcColumn.php:115
+#: library/Plugins/VisualComposer/Components/VcColumnInner/VcColumnInner.php:116
+#: library/Plugins/VisualComposer/Components/VcColumnText/VcColumnText.php:94
+#: library/Plugins/VisualComposer/Components/VcRow/VcRow.php:71
+#: library/Plugins/VisualComposer/Components/VcRowInner/VcRowInner.php:72
+#: library/Plugins/VisualComposer/Components/VcSingleImage/VcSingleImage.php:226
+msgid "Full width"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcColumn/VcColumn.php:121
+#: library/Plugins/VisualComposer/Components/VcColumnInner/VcColumnInner.php:122
+msgid "Element alignment (vertical)"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcColumn/VcColumn.php:124
+#: library/Plugins/VisualComposer/Components/VcColumnInner/VcColumnInner.php:125
+#: library/Plugins/VisualComposer/Components/VcSection/VcSection.php:93
+msgid "Top (default)"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcColumn/VcColumn.php:125
+#: library/Plugins/VisualComposer/Components/VcColumnInner/VcColumnInner.php:126
+#: library/Plugins/VisualComposer/Components/VcRow/VcRow.php:96
+#: library/Plugins/VisualComposer/Components/VcRowInner/VcRowInner.php:97
+#: library/Plugins/VisualComposer/Components/VcSection/VcSection.php:94
+msgid "Middle"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcColumn/VcColumn.php:132
+#: library/Plugins/VisualComposer/Components/VcColumnInner/VcColumnInner.php:133
+msgid "Element spacing"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcColumn/VcColumn.php:143
+#: library/Plugins/VisualComposer/Components/VcColumnInner/VcColumnInner.php:144
+msgid "Inner column padding"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcColumn/VcColumn.php:146
+#: library/Plugins/VisualComposer/Components/VcColumnInner/VcColumnInner.php:147
+msgid "Inherit (default)"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcColumn/VcColumn.php:147
+#: library/Plugins/VisualComposer/Components/VcColumnInner/VcColumnInner.php:148
+msgid "No padding"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcColumn/VcColumn.php:148
+#: library/Plugins/VisualComposer/Components/VcColumnInner/VcColumnInner.php:149
+msgid "Padding 24"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcColumn/VcColumn.php:149
+#: library/Plugins/VisualComposer/Components/VcColumnInner/VcColumnInner.php:150
+msgid "Padding 40"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcColumn/VcColumn.php:150
+#: library/Plugins/VisualComposer/Components/VcColumnInner/VcColumnInner.php:151
+msgid "Padding 56"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcColumn/VcColumn.php:156
+#: library/Plugins/VisualComposer/Components/VcColumnInner/VcColumnInner.php:157
+msgid "Extra Inner column class name"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcColumnText/VcColumnText.php:62
+#: library/Plugins/VisualComposer/Components/VcColumnText/VcColumnText.php:75
+msgid "Text size"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcColumnText/VcColumnText.php:86
+msgid "Max width"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcColumnText/VcColumnText.php:90
+msgid "Content container (default)"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcColumnText/VcColumnText.php:91
+msgid "Container"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcColumnText/VcColumnText.php:100
+msgid "Container position (Horizontal)"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcColumnText/VcColumnText.php:103
+msgid "Center (default)"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcRow/VcRow.php:78
+#: library/Plugins/VisualComposer/Components/VcRowInner/VcRowInner.php:79
+msgid "Column gutter"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcRow/VcRow.php:82
+#: library/Plugins/VisualComposer/Components/VcRowInner/VcRowInner.php:83
+msgid "No gutter"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcRow/VcRow.php:84
+#: library/Plugins/VisualComposer/Components/VcRowInner/VcRowInner.php:85
+msgid "Tiles Grid"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcRow/VcRow.php:91
+#: library/Plugins/VisualComposer/Components/VcRowInner/VcRowInner.php:92
+msgid "Column alignment (vertical)"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcRow/VcRow.php:94
+#: library/Plugins/VisualComposer/Components/VcRowInner/VcRowInner.php:95
+msgid "Stretch (default)"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcRow/VcRow.php:104
+#: library/Plugins/VisualComposer/Components/VcRowInner/VcRowInner.php:105
+msgid "Reverse column order"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcRow/VcRow.php:107
+#: library/Plugins/VisualComposer/Components/VcRowInner/VcRowInner.php:108
+msgid "Disabled (default)"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcRow/VcRow.php:108
+#: library/Plugins/VisualComposer/Components/VcRowInner/VcRowInner.php:109
+msgid "SM"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcRow/VcRow.php:109
+#: library/Plugins/VisualComposer/Components/VcRowInner/VcRowInner.php:110
+msgid "MD"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcRow/VcRow.php:110
+#: library/Plugins/VisualComposer/Components/VcRowInner/VcRowInner.php:111
+msgid "LG"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcRow/VcRow.php:117
+#: library/Plugins/VisualComposer/Components/VcRowInner/VcRowInner.php:118
+msgid "Extra class names - container"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcSection/VcSection.php:79
+#, php-format
+msgid "100% of Viewport"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcSection/VcSection.php:80
+#, php-format
+msgid "90% of Viewport"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcSection/VcSection.php:81
+#, php-format
+msgid "80% of Viewport"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcSection/VcSection.php:82
+#, php-format
+msgid "70% of Viewport"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcSection/VcSection.php:83
+#, php-format
+msgid "60% of Viewport"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcSection/VcSection.php:91
+msgid "Content alignment (vertical)"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcSection/VcSection.php:103
+msgid "Background video"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcSection/VcSection.php:110
+msgid "Fallback image"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcSection/VcSection.php:112
+msgid "This image is shown while the video is loading."
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcSingleImage/VcSingleImage.php:72
+msgid "Media library"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcSingleImage/VcSingleImage.php:73
+msgid "External image"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcSingleImage/VcSingleImage.php:74
+msgid "Featured image"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcSingleImage/VcSingleImage.php:90
+msgid "Alt text"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcSingleImage/VcSingleImage.php:92
+msgid "Add an alternative text for your image."
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcSingleImage/VcSingleImage.php:113
+msgid "Original size"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcSingleImage/VcSingleImage.php:114
+msgid "XXL (1920px)"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcSingleImage/VcSingleImage.php:115
+msgid "XL (1260px)"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcSingleImage/VcSingleImage.php:116
+msgid "Large (720px)"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcSingleImage/VcSingleImage.php:117
+msgid "Medium (360px)"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcSingleImage/VcSingleImage.php:118
+msgid "Small (180px)"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcSingleImage/VcSingleImage.php:119
+msgid "Custom width"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcSingleImage/VcSingleImage.php:120
+msgid "Custom width & height"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcSingleImage/VcSingleImage.php:128
+msgid "Image width"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcSingleImage/VcSingleImage.php:140
+#: library/Plugins/VisualComposer/Components/VcSingleImage/VcSingleImage.php:170
+msgid "Image height"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcSingleImage/VcSingleImage.php:152
+msgid "Image size ratio"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcSingleImage/VcSingleImage.php:182
+msgid "Image behaviour"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcSingleImage/VcSingleImage.php:196
+msgid "Image fit ratio"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcSingleImage/VcSingleImage.php:216
+msgid "Image link"
+msgstr ""
+
+#: library/Plugins/VisualComposer/Components/VcSingleImage/VcSingleImage.php:227
+msgid "Content width"
+msgstr ""
+
+#: library/Plugins/VisualComposer/PageBuilderTemplate.php:104
+msgid " template"
+msgstr ""
+
+#: library/Plugins/VisualComposer/PageBuilderTemplate.php:229
+msgid "Site Templates"
+msgstr ""
+
+#: library/Plugins/VisualComposer/PageBuilderTemplate.php:230
+msgid ""
+"Append site template to the current layout. Add/Edit/Remove Site Templates "
+"through the \"Page Builder Templates\" tab in admin menu."
+msgstr ""
+
+#: library/Plugins/VisualComposer/PageBuilderTemplate.php:359
+#: library/Plugins/VisualComposer/PageBuilderTemplateType.php:44
+msgid "Template Types"
+msgstr ""
+
+#: library/Plugins/VisualComposer/PageBuilderTemplate.php:377
+msgctxt "Post type plural"
+msgid "Page Builder Templates"
+msgstr ""
+
+#: library/Plugins/VisualComposer/PageBuilderTemplate.php:378
+msgctxt "Post type singular"
+msgid "Page Builder Template"
+msgstr ""
+
+#: library/Plugins/VisualComposer/PageBuilderTemplate.php:381
+#: library/Theme/CustomPostTypes.php:14
+msgid "H22 News"
+msgstr ""
+
+#: library/Plugins/VisualComposer/ParamTypes/VcColumnOffset.php:12
+msgid "1 column - 1/12"
+msgstr ""
+
+#: library/Plugins/VisualComposer/ParamTypes/VcColumnOffset.php:13
+msgid "2 columns - 1/6"
+msgstr ""
+
+#: library/Plugins/VisualComposer/ParamTypes/VcColumnOffset.php:14
+msgid "3 columns - 1/4"
+msgstr ""
+
+#: library/Plugins/VisualComposer/ParamTypes/VcColumnOffset.php:15
+msgid "4 columns - 1/3"
+msgstr ""
+
+#: library/Plugins/VisualComposer/ParamTypes/VcColumnOffset.php:16
+msgid "5 columns - 5/12"
+msgstr ""
+
+#: library/Plugins/VisualComposer/ParamTypes/VcColumnOffset.php:17
+msgid "6 columns - 1/2"
+msgstr ""
+
+#: library/Plugins/VisualComposer/ParamTypes/VcColumnOffset.php:18
+msgid "7 columns - 7/12"
+msgstr ""
+
+#: library/Plugins/VisualComposer/ParamTypes/VcColumnOffset.php:19
+msgid "8 columns - 2/3"
+msgstr ""
+
+#: library/Plugins/VisualComposer/ParamTypes/VcColumnOffset.php:20
+msgid "9 columns - 3/4"
+msgstr ""
+
+#: library/Plugins/VisualComposer/ParamTypes/VcColumnOffset.php:21
+msgid "10 columns - 5/6"
+msgstr ""
+
+#: library/Plugins/VisualComposer/ParamTypes/VcColumnOffset.php:22
+msgid "11 columns - 11/12"
+msgstr ""
+
+#: library/Plugins/VisualComposer/ParamTypes/VcColumnOffset.php:23
+msgid "12 columns - 1/1"
+msgstr ""
+
+#: library/Plugins/VisualComposer/ParamTypes/VcColumnOffset.php:37
+msgid "Default value from width attribute"
+msgstr ""
+
+#: library/Plugins/VisualComposer/ParamTypes/VcColumnOffset.php:40
+msgid "Inherit from smaller"
+msgstr ""
+
+#: library/Plugins/VisualComposer/ParamTypes/VcColumnOffset.php:69
+msgid "Inherit: "
+msgstr ""
+
+#: library/Plugins/VisualComposer/ParamTypes/VcColumnOffset.php:70
+msgid "Inherit from default"
+msgstr ""
+
+#: library/Plugins/VisualComposer/ParamTypes/vc-column-offset.blade.php:18
+#, php-format
+msgid ""
+"Responsive design settings are currently disabled. You can enable them in "
+"WPBakery Page Builder <a href=\"%s\">settings page</a> by unchecking "
+"\"Disable responsive content elements\"."
+msgstr ""
+
+#: library/Plugins/VisualComposer/ParamTypes/vc-column-offset.blade.php:28
+msgid "Device"
+msgstr ""
+
+#: library/Plugins/VisualComposer/ParamTypes/vc-column-offset.blade.php:31
+msgid "Offset"
+msgstr ""
+
+#: library/Plugins/VisualComposer/ParamTypes/vc-column-offset.blade.php:34
+msgid "Width"
+msgstr ""
+
+#: library/Plugins/VisualComposer/ParamTypes/vc-column-offset.blade.php:37
+msgid "Hide on device?"
+msgstr ""
+
+#: library/Theme/Color.php:64
 msgid "H22"
 msgstr "H22"
+
+#: library/Theme/CustomPostTypes.php:10
+msgctxt "Post type plural"
+msgid "News"
+msgstr ""
+
+#: library/Theme/CustomPostTypes.php:11
+msgctxt "Post type singular"
+msgid "News"
+msgstr ""
+
+#: library/Theme/CustomPostTypes.php:41
+msgctxt "Post type plural"
+msgid "Projects"
+msgstr ""
+
+#: library/Theme/CustomPostTypes.php:42
+msgctxt "Post type singular"
+msgid "Project"
+msgstr ""
+
+#: library/Theme/CustomPostTypes.php:45 library/Theme/CustomPostTypes.php:76
+#: library/Theme/CustomPostTypes.php:107
+msgid "H22 Projects"
+msgstr ""
+
+#: library/Theme/CustomPostTypes.php:72
+msgctxt "Post type plural"
+msgid "Toolboxes"
+msgstr ""
+
+#: library/Theme/CustomPostTypes.php:73
+msgctxt "Post type singular"
+msgid "Toolbox"
+msgstr ""
+
+#: library/Theme/CustomPostTypes.php:103
+msgctxt "Post type plural"
+msgid "Speakers"
+msgstr ""
+
+#: library/Theme/CustomPostTypes.php:104
+msgctxt "Post type singular"
+msgid "Speaker"
+msgstr ""
+
+#: library/Theme/CustomPostTypes.php:134
+msgctxt "Post type plural"
+msgid "Partners"
+msgstr ""
+
+#: library/Theme/CustomPostTypes.php:135
+msgctxt "Post type singular"
+msgid "Partner"
+msgstr ""
+
+#: library/Theme/CustomPostTypes.php:138
+msgid "H22 Partners"
+msgstr ""
+
+#: library/Theme/CustomTaxonomies.php:10
+msgctxt "Post type plural"
+msgid "Organisations"
+msgstr ""
+
+#: library/Theme/CustomTaxonomies.php:11
+msgctxt "Post type singular"
+msgid "Organisation"
+msgstr ""
+
+#: library/Theme/Sidebars.php:15
+msgid "Sidfot logotyper"
+msgstr ""
+
+#: library/Theme/Sidebars.php:17
+msgid "Visa upp logotyper i fullbredd nedanför den vanliga sidfoten"
+msgstr ""
+
+#: woocommerce/emails/customer-completed-order.php:32
+#, php-format
+msgid "Hi %s,"
+msgstr ""
+
+#: woocommerce/emails/customer-completed-order.php:64
+msgid "Thanks for shopping with us."
+msgstr ""
 
 #. Theme Name of the plugin/theme
 msgid "Helsingborg H22"
@@ -127,6 +1567,25 @@ msgstr "Whitespace"
 #. Author URI of the plugin/theme
 msgid "https://whitespace.se"
 msgstr "https://whitespace.se"
+
+#~ msgid "Heading text"
+#~ msgstr "Rubriktext"
+
+#, fuzzy
+#~ msgid "First row will be rendered in green text"
+#~ msgstr "Första raden kommer att återges i grön text"
+
+#~ msgid "Css classes"
+#~ msgstr "CSS-klasser"
+
+#~ msgid "Add custom classes"
+#~ msgstr "Lägg till egna klasser"
+
+#~ msgid "Id"
+#~ msgstr "Id"
+
+#~ msgid "Add a custom Id"
+#~ msgstr "Lägga till ett eget ID"
 
 #~ msgid "Hello"
 #~ msgstr "Hej"

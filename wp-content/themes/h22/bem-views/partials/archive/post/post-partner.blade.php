@@ -38,7 +38,7 @@ if (is_array($terms) && !empty($terms)) {
     </div>
     <div class="c-card__footer">
             <a class="c-card__link c-card__link--read-more c-card__link--right" href="{{get_permalink()}}">
-                Read more
+                <?php echo __('Read more', 'h22') ?>
             </a>
         </div>
 </div>
