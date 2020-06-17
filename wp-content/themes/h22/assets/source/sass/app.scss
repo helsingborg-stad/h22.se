@@ -33,6 +33,11 @@
 
 // Components
 @import '~styleguide.local/source/sass/_components.scss';
+
+:hover::before {
+  display: initial;
+}
+
 @import 'components/header';
 @import 'components/header-mobile';
 @import 'components/badge';

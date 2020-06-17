@@ -91,46 +91,46 @@ input[type='button'] {
 
 /* Checkbox */
 
-input[type='checkbox'] {
-  @include visually-hidden;
-}
+// input[type='checkbox'] {
+//   @include visually-hidden;
+// }
 
-input[type='checkbox'] + * {
-  &:before {
-    content: '';
-    width: $base * 2;
-    height: $base * 2;
-    display: inline-block;
-    background-repeat: no-repeat;
-    background-color: $color-white;
-    background-size: 100%;
-    vertical-align: -15%;
-    border: 1px solid $color-form-input-border;
-    border-radius: 2px;
-    margin-right: $base;
-  }
-}
+// input[type='checkbox'] + * {
+//   &:before {
+//     content: '';
+//     width: $base * 2;
+//     height: $base * 2;
+//     display: inline-block;
+//     background-repeat: no-repeat;
+//     background-color: $color-white;
+//     background-size: 100%;
+//     vertical-align: -15%;
+//     border: 1px solid $color-form-input-border;
+//     border-radius: 2px;
+//     margin-right: $base;
+//   }
+// }
 
-input[type='checkbox']:checked + * {
-  &:before {
-    background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTcuMTY3IDEzLjU4M0wyLjU4MyA5bDEuMjkzLTEuMjkzIDMuMjkgMy4yODIgNi45NTgtNi45NTcgMS4yOTMgMS4zMDEtOC4yNSA4LjI1eiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==');
-    background-color: $color-blue;
-    border-color: transparent;
-  }
-}
+// input[type='checkbox']:checked + * {
+//   &:before {
+//     background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTcuMTY3IDEzLjU4M0wyLjU4MyA5bDEuMjkzLTEuMjkzIDMuMjkgMy4yODIgNi45NTgtNi45NTcgMS4yOTMgMS4zMDEtOC4yNSA4LjI1eiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==');
+//     background-color: $color-blue;
+//     border-color: transparent;
+//   }
+// }
 
-input[type='checkbox']:focus + * {
-  &:before {
-    box-shadow: 0 0 0 1px $color-blue;
-    border-color: $color-blue;
-  }
-}
+// input[type='checkbox']:focus + * {
+//   &:before {
+//     box-shadow: 0 0 0 1px $color-blue;
+//     border-color: $color-blue;
+//   }
+// }
 
-input[type='checkbox']:disabled + * {
-  &:before {
-    opacity: 0.5;
-  }
-}
+// input[type='checkbox']:disabled + * {
+//   &:before {
+//     opacity: 0.5;
+//   }
+// }
 
 /* Radio */
 
